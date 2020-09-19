@@ -12,9 +12,9 @@
 	[ACESStatusId]			INT				NOT NULL,
 	[Remarks]				NVARCHAR(255)	NULL,
 	[Package]				NVARCHAR(255)	NOT NULL,
-	[DateRegistered]		DATETIME2		NOT NULL
-	
-	CONSTRAINT FK_Lookups_StudentStatusId FOREIGN KEY (StudentStatusId) REFERENCES [lookups].[StudentStatus] (StudentStatusId),
-	CONSTRAINT FK_Lookups_TDCStatusId FOREIGN KEY (TDCStatusId) REFERENCES [lookups].[TDCStatus] (TDCStatusId),
-	CONSTRAINT FK_Lookups_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
+	[DateRegistered]		DATETIME2		NOT NULL,
+	CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),
+	CONSTRAINT FK_Student_StudentStatus_StudentStatusId FOREIGN KEY (StudentStatusId) REFERENCES [lookups].[StudentStatus] (StudentStatusId),
+	CONSTRAINT FK_Student_TDCStatus_TDCStatusId FOREIGN KEY (TDCStatusId) REFERENCES [lookups].[TDCStatus] (TDCStatusId),
+	CONSTRAINT FK_Student_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
 )

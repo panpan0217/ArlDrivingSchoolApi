@@ -63,6 +63,8 @@
     <Folder Include="Tables\Users" />
     <Folder Include="Tables\Lookups" />
     <Folder Include="StoredProcedures\Users" />
+    <Folder Include="Tables\Sessions" />
+    <Folder Include="Tables\Payments" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\Users.sql" />
@@ -72,9 +74,17 @@
     <Build Include="Tables\Lookups\StudentStatus.sql" />
     <Build Include="Tables\Lookups\TDCStatus.sql" />
     <Build Include="Tables\Lookups\ACESStatus.sql" />
-    <Build Include="Schemas\Session.sql" />
+    <Build Include="Schemas\Sessions.sql" />
+    <Build Include="Tables\Sessions\SessionOne.sql" />
+    <Build Include="Tables\Sessions\SessionTwo.sql" />
+    <Build Include="Tables\Sessions\SessionThree.sql" />
+    <Build Include="Schemas\Payments.sql" />
+    <Build Include="Tables\Payments\Payment.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ArlDrivingSchool.Db.refactorlog" />
   </ItemGroup>
 </Project>
