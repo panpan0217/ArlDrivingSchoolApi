@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA lookups AUTHORIZATION dbo;

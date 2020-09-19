@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA [sessions] AUTHORIZATION dbo;
