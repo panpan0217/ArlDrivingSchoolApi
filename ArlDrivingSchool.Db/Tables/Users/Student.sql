@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [users].[Student]
 (
-	[StudentId]				INT				NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[StudentId]				INT				NOT NULL IDENTITY(1,1),
 	[FirstName]				NVARCHAR(255)	NOT NULL,
 	[LastName]				NVARCHAR(255)	NOT NULL,
 	[Email]					NVARCHAR(255)	NOT NULL,

@@ -67,6 +67,8 @@
     <Folder Include="Tables\Payments" />
     <Folder Include="Scripts\Inserts" />
     <Folder Include="Scripts\Inserts\Lookups" />
+    <Folder Include="StoredProcedures\Payments" />
+    <Folder Include="StoredProcedures\Sessions" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\Users.sql" />
@@ -82,6 +84,11 @@
     <Build Include="Tables\Sessions\SessionThree.sql" />
     <Build Include="Schemas\Payments.sql" />
     <Build Include="Tables\Payments\Payment.sql" />
+    <Build Include="StoredProcedures\Users\uspInsertStudent.sql" />
+    <Build Include="StoredProcedures\Payments\uspInsertPayment.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertSessionOne.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertSessionTwo.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertSessionThree.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

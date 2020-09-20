@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [sessions].[SessionOne]
 (
-	[SessionOneId] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+	[SessionOneId] INT NOT NULL IDENTITY(1,1), 
     [StudentId] INT NOT NULL, 
     [SessionDate] DATETIME2 NULL, 
     [Schedule] NCHAR(10) NULL, 

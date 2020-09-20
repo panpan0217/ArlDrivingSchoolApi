@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [payments].[Payment]
 (
-	[PaymentId] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+	[PaymentId] INT NOT NULL IDENTITY(1,1), 
     [StudentId] INT NOT NULL, 
     [PaymentDate] DATETIME2 NOT NULL, 
     [TotalAmount] INT NOT NULL, 
