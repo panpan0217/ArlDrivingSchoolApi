@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataTransferObject\Response\" />
     <Folder Include="DataTransferObject\Request\" />
   </ItemGroup>
 

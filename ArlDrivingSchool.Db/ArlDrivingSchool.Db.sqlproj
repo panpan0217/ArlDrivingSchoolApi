@@ -89,6 +89,7 @@
     <Build Include="StoredProcedures\Sessions\uspInsertSessionOne.sql" />
     <Build Include="StoredProcedures\Sessions\uspInsertSessionTwo.sql" />
     <Build Include="StoredProcedures\Sessions\uspInsertSessionThree.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAllStudentWithDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

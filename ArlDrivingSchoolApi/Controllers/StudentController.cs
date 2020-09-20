@@ -23,5 +23,13 @@ namespace ArlDrivingSchoolApi.Controllers
             var students = await StudentService.GetAllAsync();
             return Ok(students);
         }
+
+        [HttpGet("details")]
+        public async Task<IActionResult> GetAllStudentWithDetailsAsync()
+        {
+            var studentsWithDetails = await StudentService.GetAllStudentWithDetailsAsync();
+            return Ok(studentsWithDetails);
+        }
+
     }
 }

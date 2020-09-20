@@ -1,4 +1,6 @@
-﻿using ArlDrivingSchool.Core.Models;
+﻿using ArlDrivingSchool.Core.DataTransferObject.Response;
+using ArlDrivingSchool.Core.Models;
+using ArlDrivingSchool.Core.Models.Users;
 using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using System;
@@ -20,6 +22,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task<IEnumerable<Student>> GetAllAsync()
         {
             return await StudentRepository.GetAllAsync();
+        }
+
+        public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync()
+        {
+            return await StudentRepository.GetAllStudentWithDetailsAsync();
         }
     }
 }
