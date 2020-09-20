@@ -11,7 +11,7 @@ BEGIN
 		   ,us.Mobile
 		   ,ls.StatusName [StudentStatus]
 		   ,la.StatusName [ACESStatus]
-		   ,lt.TDCStatusId [TDCStatus]
+		   ,lt.StatusName [TDCStatus]
 		   ,us.Remarks
 		   ,us.Package
 		   ,us.DateRegistered
