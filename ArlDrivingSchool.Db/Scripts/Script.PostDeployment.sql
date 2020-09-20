@@ -10,6 +10,6 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
---:r .Inserts\Lookups\InsertStudentStatus.sql
---:r .Inserts\Lookups\InsertTDCStatus.sql
---:r .Inserts\Lookups\InsertACESStatus.sql
+--:r .\Inserts\Lookups\InsertStudentStatus.sql
+--:r .\Inserts\Lookups\InsertTDCStatus.sql
+--:r .\Inserts\Lookups\InsertACESStatus.sql

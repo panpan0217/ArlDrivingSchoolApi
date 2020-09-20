@@ -1,4 +1,7 @@
-﻿INSERT INTO [lookups].[StudentStatus]
+﻿SET IDENTITY_INSERT [lookups].[StudentStatus] ON;
+GO
+
+INSERT INTO [lookups].[StudentStatus]
 (
 	 [StudentStatusId]
 	,[StatusName]
@@ -10,3 +13,6 @@ VALUES
 ,(4, 'NEEDS ATN')
 ,(5, 'R 4 CERT')
 ,(6, 'Finished')
+
+SET IDENTITY_INSERT [lookups].[StudentStatus] OFF;
+GO

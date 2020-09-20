@@ -5,7 +5,15 @@ BEGIN
 		   ,FirstName
 		   ,LastName
 		   ,Email
+		   ,[Location]
+		   ,FBContact
 		   ,Mobile
+		   ,StudentStatusId
+		   ,ACESStatusId
+		   ,TDCStatusId
+		   ,Remarks
+		   ,Package
+		   ,DateRegistered
 
 	FROM users.Student
 	

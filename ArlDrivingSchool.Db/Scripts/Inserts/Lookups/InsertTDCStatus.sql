@@ -1,4 +1,7 @@
-﻿INSERT INTO [lookups].[TDCStatus]
+﻿SET IDENTITY_INSERT [lookups].[TDCStatus] ON;
+GO
+
+INSERT INTO [lookups].[TDCStatus]
 (
 	 [TDCStatusId]
 	,[StatusName]
@@ -10,3 +13,6 @@ VALUES
 ,(4, 'CR S2 Attended')
 ,(5, 'OL S2 Attended')
 ,(6, 'Completed')
+
+SET IDENTITY_INSERT [lookups].[TDCStatus] OFF;
+GO
