@@ -12,6 +12,7 @@ using ArlDrivingSchool.Core.Models.Users;
 using ArlDrivingSchool.Core.DataTransferObject.Response;
 using ArlDrivingSchool.Core.Models.Payments;
 using ArlDrivingSchool.Core.Models.Sessions;
+using ArlDrivingSchool.Core.DataTransferObject.Request;
 
 namespace ArlDrivingSchool.Core.Repositories.Implementations
 {
@@ -56,6 +57,26 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return students;
         }
 
-
+        public async Task<int> CreateStudentWithDetailsAsync(StudentDetailsRequestModel requestModel)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var studentId = await connection.ExecuteScalarAsync<int>("[users].[uspInsertStudent]",
+                                                                    new
+                                                                    {
+                                                                        FirstName = requestModel.FirstName,
+                                                                        LastName = requestModel.LastName,
+                                                                        Email = requestModel.Email,
+                                                                        Location = requestModel.Location,
+                                                                        FBContact = requestModel.FBContact,
+                                                                        Mobile = requestModel.Mobile,
+                                                                        StudentStatusId = requestModel.StudentStatusId,
+                                                                        TDCStatusId = requestModel.TDCStatusId,
+                                                                        ACESStatusId = requestModel.ACESStatusId,
+                                                                        Remarks = requestModel.Remarks,
+                                                                        Package = requestModel.Package
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return studentId;
+        }
     }
 }

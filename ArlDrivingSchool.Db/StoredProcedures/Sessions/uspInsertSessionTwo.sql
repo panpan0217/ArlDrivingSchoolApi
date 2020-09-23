@@ -1,9 +1,9 @@
 ﻿CREATE PROCEDURE [sessions].[uspInsertSessionTwo]
 (
 	@StudentId INT,
-	@Schedule INT,
-	@Shuttle INT,
-	@SessionLocation INT
+	@Schedule NVARCHAR(55),
+	@Shuttle BIT,
+	@SessionLocation NVARCHAR(55)
 )
 AS
 BEGIN 
