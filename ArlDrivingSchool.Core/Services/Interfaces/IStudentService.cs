@@ -1,4 +1,5 @@
-﻿using ArlDrivingSchool.Core.DataTransferObject.Response;
+﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
+using ArlDrivingSchool.Core.DataTransferObject.Response;
 using ArlDrivingSchool.Core.Models;
 using ArlDrivingSchool.Core.Models.Users;
 using System;
@@ -12,5 +13,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
     {
         Task<IEnumerable<Student>> GetAllAsync();
         Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync();
+
+        Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ArlDrivingSchool.Core.DataTransferObject.Request;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +30,13 @@ namespace ArlDrivingSchoolApi.Controllers
         {
             var studentsWithDetails = await StudentService.GetAllStudentWithDetailsAsync();
             return Ok(studentsWithDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
+        {
+            await StudentService.CreateStudentWithDetailsAsync(requestModel);
+            return Ok();
         }
 
     }
