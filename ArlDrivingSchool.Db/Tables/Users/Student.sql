@@ -11,7 +11,6 @@
 	[TDCStatusId]			INT				NOT NULL,
 	[ACESStatusId]			INT				NOT NULL,
 	[Remarks]				NVARCHAR(255)	NULL,
-	[Package]				NVARCHAR(255)	NOT NULL,
 	[DateRegistered]		DATETIME2		NOT NULL,
 	CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),
 	CONSTRAINT FK_Student_StudentStatus_StudentStatusId FOREIGN KEY (StudentStatusId) REFERENCES [lookups].[StudentStatus] (StudentStatusId),

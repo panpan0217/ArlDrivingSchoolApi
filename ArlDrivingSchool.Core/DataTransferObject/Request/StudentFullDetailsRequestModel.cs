@@ -26,7 +26,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string SessionTwoSchedule { get; set; }
         public bool SessionTwoShuttle { get; set; }
         public string SessionTwoLocation { get; set; }
-        public TimeSpan Time { get; set; }
         public string Branch { get; set; }
     }
 }

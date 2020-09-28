@@ -9,7 +9,6 @@ namespace ArlDrivingSchool.Core.Models.Sessions
         public int SessionThreeId { get; set; }
         public int StudentId { get; set; }
         public DateTime SessionDate { get; set; }
-        public TimeSpan Time { get; set; }
         public string Branch { get; set; }
 
     }

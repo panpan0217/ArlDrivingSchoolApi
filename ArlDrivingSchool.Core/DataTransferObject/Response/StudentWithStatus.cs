@@ -18,7 +18,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string TDCStatus { get; set; }
         public string ACESStatus { get; set; }
         public string Remarks { get; set; }
-        public string Package { get; set; }
         public DateTime DateRegistered { get; set; }
 
     }

@@ -12,7 +12,6 @@ BEGIN
 		   ,ACESStatusId
 		   ,TDCStatusId
 		   ,Remarks
-		   ,Package
 		   ,DateRegistered
 
 	FROM users.Student

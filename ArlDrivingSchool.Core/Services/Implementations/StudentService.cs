@@ -47,8 +47,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 StudentStatusId = requestModel.StudentStatusId,
                 TDCStatusId = requestModel.TDCStatusId,
                 ACESStatusId = requestModel.ACESStatusId,
-                Remarks = requestModel.Remarks,
-                Package = requestModel.Package
+                Remarks = requestModel.Remarks
             });
 
             await SessionRepository.CreateSessionOneAsync(
@@ -67,7 +66,6 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             
             await SessionRepository.CreateSessionThreeAsync(
                 studentId: studentId,
-                time: requestModel.Time,
                 branch: requestModel.Branch
                 );
 

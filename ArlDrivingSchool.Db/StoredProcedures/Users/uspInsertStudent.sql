@@ -26,7 +26,6 @@ BEGIN
 		TDCStatusId,
 		ACESStatusId,
 		Remarks,
-		Package,
 		DateRegistered
 	)
 	VALUES 
@@ -41,7 +40,6 @@ BEGIN
 		@TDCStatusId,
 		@ACESStatusId,
 		@Remarks,
-		@Package,
 		GETUTCDATE()
 	);
 

@@ -13,7 +13,6 @@ BEGIN
 		   ,la.StatusName [ACESStatus]
 		   ,lt.StatusName [TDCStatus]
 		   ,us.Remarks
-		   ,us.Package
 		   ,us.DateRegistered
 
 		   ,pp.PaymentId
@@ -39,7 +38,6 @@ BEGIN
 		   ,ssth.SessionThreeId
 		   ,ssth.StudentId
 		   ,ssth.SessionDate
-		   ,ssth.[Time]
 		   ,ssth.Branch	   
 
 	FROM users.Student AS us

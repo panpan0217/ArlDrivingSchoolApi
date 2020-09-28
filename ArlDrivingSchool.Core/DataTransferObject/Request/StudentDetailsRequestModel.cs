@@ -17,6 +17,5 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int TDCStatusId { get; set; }
         public int ACESStatusId { get; set; }
         public string Remarks { get; set; }
-        public string Package { get; set; }
     }
 }

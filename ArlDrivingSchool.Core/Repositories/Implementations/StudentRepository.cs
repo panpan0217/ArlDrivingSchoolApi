@@ -73,7 +73,6 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         TDCStatusId = requestModel.TDCStatusId,
                                                                         ACESStatusId = requestModel.ACESStatusId,
                                                                         Remarks = requestModel.Remarks,
-                                                                        Package = requestModel.Package
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
