@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [sessions].[uspInsertSessionThree]
 (
 	@StudentId INT,
-	@Branch NVARCHAR(50)
+	@Schedule NVARCHAR(55),
+	@Shuttle BIT,
+	@SessionLocation NVARCHAR(55)
 )
 AS
 BEGIN 
@@ -9,13 +11,17 @@ BEGIN
 	(
 		StudentId,
 		SessionDate,
-		Branch
+		Schedule,
+		Shuttle,
+		SessionLocation
 	)
 	VALUES 
 	(
 		@StudentId,
 		GETUTCDATE(),
-		@Branch
+		@Schedule,
+		@Shuttle,
+		@SessionLocation
 	);
 
 	SELECT SCOPE_IDENTITY();

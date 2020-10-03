@@ -10,6 +10,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
     {
         Task<int> CreateSessionOneAsync(int studentId, string schedule, bool shuttle, string sessionLocation);
         Task<int> CreateSessionTwoAsync(int studentId, string schedule, bool shuttle, string sessionLocation);
-        Task<int> CreateSessionThreeAsync(int studentId, string branch);
+        Task<int> CreateSessionThreeAsync(int studentId, string schedule, bool shuttle, string sessionLocation);
     }
 }

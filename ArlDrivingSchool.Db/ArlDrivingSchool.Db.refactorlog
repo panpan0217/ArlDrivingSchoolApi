@@ -7,4 +7,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="SessionOneId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="c51e0789-3ad0-4f2e-a8aa-211fcb4953d3" ChangeDateTime="10/03/2020 10:49:46">
+    <Property Name="ElementName" Value="[sessions].[SessionThree].[Branch]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[sessions].[SessionThree]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Schedule" />
+  </Operation>
 </Operations>

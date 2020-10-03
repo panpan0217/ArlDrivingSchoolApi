@@ -53,14 +53,16 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return sessionId;
         }
 
-        public async Task<int> CreateSessionThreeAsync(int studentId, string branch)
+        public async Task<int> CreateSessionThreeAsync(int studentId, string schedule, bool shuttle, string sessionLocation)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertSessionThree]",
                                                                     new
                                                                     {
                                                                         StudentId = studentId,
-                                                                        Branch = branch,
+                                                                        Schedule = schedule,
+                                                                        Shuttle = shuttle,
+                                                                        SessionLocation = sessionLocation
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return sessionId;

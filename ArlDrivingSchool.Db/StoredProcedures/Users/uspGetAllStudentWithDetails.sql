@@ -38,7 +38,9 @@ BEGIN
 		   ,ssth.SessionThreeId
 		   ,ssth.StudentId
 		   ,ssth.SessionDate
-		   ,ssth.Branch	   
+		   ,ssth.Schedule
+		   ,ssth.Shuttle
+		   ,ssth.SessionLocation
 
 	FROM users.Student AS us
 			INNER JOIN lookups.StudentStatus AS ls ON ls.StudentStatusId = us.StudentStatusId
