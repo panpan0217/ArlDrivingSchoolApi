@@ -70,6 +70,7 @@
     <Folder Include="StoredProcedures\Payments" />
     <Folder Include="StoredProcedures\Sessions" />
     <Folder Include="Scripts\ClearAllData" />
+    <Folder Include="StoredProcedures\Lookups" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\Users.sql" />
@@ -91,6 +92,9 @@
     <Build Include="StoredProcedures\Sessions\uspInsertSessionTwo.sql" />
     <Build Include="StoredProcedures\Sessions\uspInsertSessionThree.sql" />
     <Build Include="StoredProcedures\Users\uspGetAllStudentWithDetails.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetStudentStatus.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetACESStatus.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetTDCStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

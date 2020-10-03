@@ -35,6 +35,12 @@ namespace ArlDrivingSchoolApi
             services.AddTransient<ISessionService, SessionService>();
             services.AddTransient<IPaymentRepository, PaymentRepository>();
             services.AddTransient<IPaymentService, PaymentService>();
+            services.AddTransient<IStudentStatusRepository, StudentStatusRepository>();
+            services.AddTransient<IStudentStatusService, StudentStatusService>();
+            services.AddTransient<IACESStatusRepository, ACESStatusRepository>();
+            services.AddTransient<IACESStatusService, ACESStatusService>(); 
+            services.AddTransient<ITDCStatusRepository, TDCStatusRepository>();
+            services.AddTransient<ITDCStatusService, TDCStatusService>();
             services.AddControllers();
 
         }
