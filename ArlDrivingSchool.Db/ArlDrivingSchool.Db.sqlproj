@@ -69,6 +69,7 @@
     <Folder Include="Scripts\Inserts\Lookups" />
     <Folder Include="StoredProcedures\Payments" />
     <Folder Include="StoredProcedures\Sessions" />
+    <Folder Include="Scripts\ClearAllData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\Users.sql" />
@@ -96,6 +97,7 @@
     <None Include="Scripts\Inserts\Lookups\InsertStudentStatus.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertTDCStatus.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertACESStatus.sql" />
+    <None Include="Scripts\ClearAllData\DeleteAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ArlDrivingSchool.Db.refactorlog" />
