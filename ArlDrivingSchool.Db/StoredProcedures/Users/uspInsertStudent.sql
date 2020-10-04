@@ -9,8 +9,7 @@
 	@StudentStatusId INT,
 	@TDCStatusId INT,
 	@ACESStatusId INT,
-	@Remarks NVARCHAR(255),
-	@Package NVARCHAR(255)
+	@Remarks NVARCHAR(255)
 )
 AS
 BEGIN 

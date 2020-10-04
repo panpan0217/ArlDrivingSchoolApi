@@ -35,6 +35,8 @@ namespace ArlDrivingSchoolApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
         {
+            var firstName = requestModel.FirstName;
+            
             await StudentService.CreateStudentWithDetailsAsync(requestModel);
             return Ok();
         }

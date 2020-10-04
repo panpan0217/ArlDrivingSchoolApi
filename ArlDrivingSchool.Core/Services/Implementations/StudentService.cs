@@ -37,7 +37,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
         public async Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
         {
-            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(new StudentDetailsRequestModel {
+            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(new StudentFullDetailsRequestModel {
                 FirstName = requestModel.FirstName,
                 LastName = requestModel.LastName,
                 Email = requestModel.Email,

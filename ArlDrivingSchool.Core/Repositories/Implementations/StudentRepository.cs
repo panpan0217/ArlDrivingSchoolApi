@@ -57,7 +57,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return students;
         }
 
-        public async Task<int> CreateStudentWithDetailsAsync(StudentDetailsRequestModel requestModel)
+        public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var studentId = await connection.ExecuteScalarAsync<int>("[users].[uspInsertStudent]",
