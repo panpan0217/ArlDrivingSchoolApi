@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [sessions].[uspInsertSessionThree]
 (
 	@StudentId INT,
+	@SessionDate Date,
 	@Schedule NVARCHAR(55),
 	@Shuttle BIT,
 	@SessionLocation NVARCHAR(55)
@@ -18,7 +19,7 @@ BEGIN
 	VALUES 
 	(
 		@StudentId,
-		GETUTCDATE(),
+		@SessionDate,
 		@Schedule,
 		@Shuttle,
 		@SessionLocation

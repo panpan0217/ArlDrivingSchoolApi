@@ -52,6 +52,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await SessionRepository.CreateSessionOneAsync(
                 studentId: studentId,
+                sessionDate: requestModel.SessionOneDate,
                 schedule: requestModel.SessionOneSchedule,
                 shuttle: requestModel.SessionOneShuttle,
                 sessionLocation: requestModel.SessionOneLocation
@@ -59,6 +60,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
          
             await SessionRepository.CreateSessionTwoAsync(
                 studentId: studentId,
+                sessionDate: requestModel.SessionTwoDate,
                 schedule: requestModel.SessionTwoSchedule,
                 shuttle: requestModel.SessionTwoShuttle,
                 sessionLocation: requestModel.SessionTwoLocation
@@ -66,6 +68,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             
             await SessionRepository.CreateSessionThreeAsync(
                 studentId: studentId,
+                sessionDate: requestModel.SessionThreeDate,
                 schedule: requestModel.SessionThreeSchedule,
                 shuttle: requestModel.SessionThreeShuttle,
                 sessionLocation: requestModel.SessionThreeLocation

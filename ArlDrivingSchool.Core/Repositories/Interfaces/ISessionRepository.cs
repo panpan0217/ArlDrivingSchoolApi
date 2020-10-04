@@ -8,8 +8,8 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
 {
     public interface ISessionRepository
     {
-        Task<int> CreateSessionOneAsync(int studentId, string schedule, bool shuttle, string sessionLocation);
-        Task<int> CreateSessionTwoAsync(int studentId, string schedule, bool shuttle, string sessionLocation);
-        Task<int> CreateSessionThreeAsync(int studentId, string schedule, bool shuttle, string sessionLocation);
+        Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
+        Task<int> CreateSessionTwoAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
+        Task<int> CreateSessionThreeAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
     }
 }
