@@ -66,9 +66,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             
             await SessionRepository.CreateSessionThreeAsync(
                 studentId: studentId,
-                schedule: requestModel.SessionTwoSchedule,
-                shuttle: requestModel.SessionTwoShuttle,
-                sessionLocation: requestModel.SessionTwoLocation
+                schedule: requestModel.SessionThreeSchedule,
+                shuttle: requestModel.SessionThreeShuttle,
+                sessionLocation: requestModel.SessionThreeLocation
                 );
 
             await PaymentRepository.CreatePaymentAsync(
