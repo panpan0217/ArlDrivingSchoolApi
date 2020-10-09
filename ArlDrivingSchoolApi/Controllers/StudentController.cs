@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ArlDrivingSchool.Core.DataTransferObject.Request;
+using ArlDrivingSchool.Core.Models.Users;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +14,7 @@ namespace ArlDrivingSchoolApi.Controllers
     {
         private IStudentService StudentService { get; }
 
-        public StudentController(IStudentService studentService) 
+        public StudentController(IStudentService studentService)
         {
             StudentService = studentService;
         }
@@ -36,9 +37,23 @@ namespace ArlDrivingSchoolApi.Controllers
         public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
         {
             var firstName = requestModel.FirstName;
-            
+
             await StudentService.CreateStudentWithDetailsAsync(requestModel);
             return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateStudentDetailsRequestModel request)
+        {
+            //if (!ModelState.IsValid)
+            //    return BadRequest();
+
+            var hasUpdated = await StudentService.UpdateStudentByStudentIdAsync(request);
+         
+            if (hasUpdated)
+                return Ok();
+            else
+                return NotFound();
         }
 
     }

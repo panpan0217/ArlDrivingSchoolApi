@@ -1,6 +1,7 @@
 ﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
 using ArlDrivingSchool.Core.DataTransferObject.Response;
 using ArlDrivingSchool.Core.Models;
+using ArlDrivingSchool.Core.Models.Sessions;
 using ArlDrivingSchool.Core.Models.Users;
 using ArlDrivingSchool.Core.Repositories.Implementations;
 using ArlDrivingSchool.Core.Repositories.Interfaces;
@@ -80,6 +81,68 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 payment: requestModel.Payment,
                 balance: requestModel.Balance
                 );
+        }
+
+        public async Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel request)
+        {
+            var student = new Student
+            {
+                StudentId = request.StudentId,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                Location = request.Location,
+                FBContact = request.FBContact,
+                Mobile = request.Mobile,
+                StudentStatusId = request.StudentStatusId,
+                TDCStatusId = request.TDCStatusId,
+                ACESStatusId = request.ACESStatusId,
+                Remarks = request.Remarks
+            };
+
+            var sessionOne = new UpdateSessionRequestModel
+            {
+                StudentId = request.StudentId,
+                SessionDate = request.SessionOneDate,
+                Schedule = request.SessionOneSchedule,
+                SessionLocation = request.SessionOneLocation,
+                Shuttle = request.SessionOneShuttle
+            };
+
+            var sessionTwo = new UpdateSessionRequestModel
+            {
+                StudentId = request.StudentId,
+                SessionDate = request.SessionTwoDate,
+                Schedule = request.SessionTwoSchedule,
+                SessionLocation = request.SessionTwoLocation,
+                Shuttle = request.SessionTwoShuttle
+            };
+
+            var sessionThree = new UpdateSessionRequestModel
+            {
+                StudentId = request.StudentId,
+                SessionDate = request.SessionThreeDate,
+                Schedule = request.SessionThreeSchedule,
+                SessionLocation = request.SessionThreeLocation,
+                Shuttle = request.SessionThreeShuttle
+            };
+            var payment = new UpdatePaymentRequestModel
+            {
+                StudentId = request.StudentId,
+                Payment = request.Payment,
+                TotalAmount = request.TotalAmount,
+                Balance = request.Balance
+
+            };
+
+            await SessionRepository.UpdateSessionOneByStudentIdAsync(sessionOne);
+            await SessionRepository.UpdateSessionTwoByStudentIdAsync(sessionTwo);
+            await SessionRepository.UpdateSessionThreeByStudentIdAsync(sessionThree);
+
+            await PaymentRepository.UpdatePaymentByStudentIdAsync(payment);
+
+            return await StudentRepository.UpdateStudentByStudentIdAsync(student);
+            
         }
     }
 }

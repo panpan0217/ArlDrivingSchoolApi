@@ -77,5 +77,33 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
         }
+
+        public async Task<bool> UpdateStudentByStudentIdAsync(Student student)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var request = new
+            {
+                student.StudentId,
+                student.FirstName,
+                student.LastName,
+                student.Email,
+                student.Location,
+                student.FBContact,
+                student.Mobile,
+                student.StudentStatusId,
+                student.TDCStatusId,
+                student.ACESStatusId,
+                student.Remarks
+
+            };
+
+            var result = await connection.ExecuteAsync("users.uspUpdateStudentByStudentId",
+                                                        request, 
+                                                        commandType: CommandType.StoredProcedure);
+          
+
+            return result > 0;
+        }
     }
 }

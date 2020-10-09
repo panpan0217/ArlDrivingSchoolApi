@@ -95,6 +95,11 @@
     <Build Include="StoredProcedures\Lookups\uspGetStudentStatus.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetACESStatus.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetTDCStatus.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateStudentByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateSessionOneByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\upsUpdateSessionTwoByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateSessionThreeByStudentId.sql" />
+    <Build Include="StoredProcedures\Payments\uspUpdatePaymentByStudentId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

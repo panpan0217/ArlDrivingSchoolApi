@@ -23,7 +23,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             Configuration = configuration;
         }
 
-        public async Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate,string schedule, bool shuttle, string sessionLocation)
+        public async Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertSessionOne]",
@@ -69,6 +69,39 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return sessionId;
+        }
+
+        public async Task<bool> UpdateSessionOneByStudentIdAsync(UpdateSessionRequestModel paymentRequest)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdateSessionOneByStudentId]",
+                                                    paymentRequest,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
+
+        public async Task<bool> UpdateSessionTwoByStudentIdAsync(UpdateSessionRequestModel paymentRequest)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdateSessionTwoByStudentId]",
+                                                    paymentRequest,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
+
+        public async Task<bool> UpdateSessionThreeByStudentIdAsync(UpdateSessionRequestModel paymentRequest)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdateSessionThreeByStudentId]",
+                                                    paymentRequest,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
         }
     }
 }

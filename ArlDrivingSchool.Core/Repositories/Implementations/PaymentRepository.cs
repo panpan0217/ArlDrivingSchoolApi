@@ -1,4 +1,5 @@
-﻿using ArlDrivingSchool.Core.Repositories.Interfaces;
+﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
+using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Repositories.ObjectRelationalMapper;
 using Dapper;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +35,17 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return paymentId;
+        }
+
+        public async Task<bool> UpdatePaymentByStudentIdAsync(UpdatePaymentRequestModel request)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var result = await connection.ExecuteAsync("[payments].[uspUpdatePaymentByStudentId]",
+                                                    request,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
         }
     }
 }
