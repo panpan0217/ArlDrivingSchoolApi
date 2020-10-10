@@ -47,5 +47,17 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return result > 0;
         }
+
+        public async Task<int> DeletePaymentAsync(int studentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.ExecuteAsync("[payments].[uspDeletePayment]",
+                                                new
+                                                {
+                                                    StudentId = studentId
+                                                },
+                                                commandType: CommandType.StoredProcedure);
+        }
     }
 }

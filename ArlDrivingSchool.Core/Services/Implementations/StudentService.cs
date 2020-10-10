@@ -147,6 +147,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
         public async Task DeleteStudentAsync(int studentId)
         {
+            await PaymentRepository.DeletePaymentAsync(studentId);
+            await SessionRepository.DeleteSessionOneAsync(studentId);
+            await SessionRepository.DeleteSessionTwoAsync(studentId);
+            await SessionRepository.DeleteSessionThreeAsync(studentId);
+
             await StudentRepository.DeleteStudentAsync(studentId);
         }
     }

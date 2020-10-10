@@ -15,5 +15,8 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<bool> UpdateSessionOneByStudentIdAsync(UpdateSessionRequestModel paymentRequest);
         Task<bool> UpdateSessionTwoByStudentIdAsync(UpdateSessionRequestModel paymentRequest);
         Task<bool> UpdateSessionThreeByStudentIdAsync(UpdateSessionRequestModel paymentRequest);
+        Task<int> DeleteSessionOneAsync(int studentId);
+        Task<int> DeleteSessionTwoAsync(int studentId);
+        Task<int> DeleteSessionThreeAsync(int studentId);
     }
 }

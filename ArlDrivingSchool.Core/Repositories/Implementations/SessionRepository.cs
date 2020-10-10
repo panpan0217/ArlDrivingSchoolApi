@@ -103,5 +103,41 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return result > 0;
         }
+
+        public async Task<int> DeleteSessionOneAsync(int studentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.ExecuteAsync("[sessions].[uspDeleteSessionOne]",
+                                                new
+                                                {
+                                                    StudentId = studentId
+                                                },
+                                                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<int> DeleteSessionTwoAsync(int studentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.ExecuteAsync("[sessions].[uspDeleteSessionTwo]",
+                                                new
+                                                {
+                                                    StudentId = studentId
+                                                },
+                                                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<int> DeleteSessionThreeAsync(int studentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.ExecuteAsync("[sessions].[uspDeleteSessionThree]",
+                                                new
+                                                {
+                                                    StudentId = studentId
+                                                },
+                                                commandType: CommandType.StoredProcedure);
+        }
     }
 }
