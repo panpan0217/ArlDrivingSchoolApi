@@ -144,5 +144,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.UpdateStudentByStudentIdAsync(student);
             
         }
+
+        public async Task DeleteStudentAsync(int studentId)
+        {
+            await StudentRepository.DeleteStudentAsync(studentId);
+        }
     }
 }

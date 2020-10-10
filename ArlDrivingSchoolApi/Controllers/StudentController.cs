@@ -56,5 +56,20 @@ namespace ArlDrivingSchoolApi.Controllers
                 return NotFound();
         }
 
+        [HttpDelete("{studentId}")]
+        public async Task<IActionResult> DeleteStudentAsync(int studentId)
+        {
+            if(studentId != 0)
+            {
+                await StudentService.DeleteStudentAsync(studentId);
+
+            return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }
