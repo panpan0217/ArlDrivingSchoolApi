@@ -3,7 +3,7 @@
 	[StudentId]				INT				NOT NULL IDENTITY(1,1),
 	[FirstName]				NVARCHAR(255)	NOT NULL,
 	[LastName]				NVARCHAR(255)	NOT NULL,
-	[Email]					NVARCHAR(255)	NOT NULL,
+	[Email]					NVARCHAR(255)	NULL,
 	[Location]				NVARCHAR(255)	NULL,
 	[FBContact]				NVARCHAR(255)	NULL,
 	[Mobile]				NVARCHAR(64)	NULL,

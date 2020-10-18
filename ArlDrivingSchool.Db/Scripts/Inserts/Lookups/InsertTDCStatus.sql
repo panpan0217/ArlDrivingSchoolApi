@@ -14,10 +14,9 @@ INSERT INTO @TDCStatus
 )
 VALUES
  (1, 'Not Started')
-,(2, 'CR S1 Attended')
-,(3, 'OL S1 Attended')
-,(4, 'CR S2 Attended')
-,(5, 'OL S2 Attended')
+,(2, 'S1 Attended')
+,(4, 'S2 Attended')
+,(5, 'S3 Attended')
 ,(6, 'Completed');
 
 MERGE INTO [lookups].[TDCStatus] AS target
