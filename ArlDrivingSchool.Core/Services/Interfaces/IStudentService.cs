@@ -17,5 +17,6 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel);
         Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel student);
         Task DeleteStudentAsync(int studentId);
+        Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation);
     }
 }

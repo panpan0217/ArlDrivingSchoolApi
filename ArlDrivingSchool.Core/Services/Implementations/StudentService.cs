@@ -154,5 +154,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await StudentRepository.DeleteStudentAsync(studentId);
         }
+
+        public async Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessonLocation)
+        {
+            return await StudentRepository.GetStudentScheduleByDateAsync(date, schedule, sessonLocation);
+        }
     }
 }

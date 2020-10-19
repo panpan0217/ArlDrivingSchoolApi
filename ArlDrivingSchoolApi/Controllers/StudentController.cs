@@ -71,5 +71,14 @@ namespace ArlDrivingSchoolApi.Controllers
             }
         }
 
+
+        [HttpPost("schedule")]
+        public async Task<IActionResult> GetScheduleByDateAsync([FromBody] GetScheduleByDateRequestModel requestModel)
+        {
+            var studentSchedule = await StudentService.GetStudentScheduleByDateAsync(requestModel.Date, requestModel.Schedule, requestModel.SessionLocation);
+
+            return Ok(studentSchedule);
+        }
+
     }
 }

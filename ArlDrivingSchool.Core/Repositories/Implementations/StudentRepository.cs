@@ -118,5 +118,25 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 },
                                                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var parameter = new
+            {
+                Date = date,
+                Schedule = schedule,
+                SessionLocation = sessionLocation
+            };
+
+            var studentSchedule = await connection.QueryAsync<StudentSchedule>(
+                   "[users].[uspGetStudentScheduleByDate]",
+                   param: parameter,
+                   commandType: CommandType.StoredProcedure
+               );
+
+            return studentSchedule;
+        }
     }
 }

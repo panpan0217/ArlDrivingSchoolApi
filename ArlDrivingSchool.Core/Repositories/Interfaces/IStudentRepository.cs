@@ -19,5 +19,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<bool> UpdateStudentByStudentIdAsync(Student student);
 
         Task<int> DeleteStudentAsync(int studentId);
+        Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation);
     }
 }
