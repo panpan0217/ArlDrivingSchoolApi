@@ -4,7 +4,7 @@
 	@SessionLocation NVARCHAR(55)
 AS
 BEGIN
-	SELECT 
+		SELECT 
 		ss.StudentId
 	   ,FirstName
 	   ,LastName
@@ -13,14 +13,12 @@ BEGIN
 	   ,sth.Schedule
 	   ,sth.SessionLocation
 	   ,[Session] = 'Three'
-	   ,lt.TDCStatusId
-	   ,lt.StatusName
+	   ,sth.Attended
 
 	FROM users.Student AS ss
 
 	INNER JOIN sessions.SessionThree AS sth ON sth.StudentId = ss.StudentId
 	AND CAST(sth.SessionDate as date) = @Date AND sth.Schedule = @Schedule AND @SessionLocation = sth.SessionLocation
-	LEFT JOIN lookups.TDCStatus AS lt ON lt.TDCStatusId = ss.TDCStatusId
 
 	UNION ALL
 
@@ -33,14 +31,12 @@ BEGIN
 	   ,stw.Schedule
 	   ,stw.SessionLocation
 	   ,[Session] = 'Two'
-	   ,lt.TDCStatusId
-	   ,lt.StatusName
+	   ,stw.Attended
 
 	FROM users.Student AS ss
 
 	INNER JOIN sessions.SessionTwo AS stw ON stw.StudentId = ss.StudentId
 	AND CAST(stw.SessionDate as date) = @Date AND stw.Schedule = @Schedule AND stw.SessionLocation = @SessionLocation
-	LEFT JOIN lookups.TDCStatus AS lt ON lt.TDCStatusId = ss.TDCStatusId
 
 	UNION ALL
 
@@ -53,13 +49,11 @@ BEGIN
 	   ,so.Schedule
 	   ,so.SessionLocation
 	   ,[Session] = 'One'
-	   ,lt.TDCStatusId
-	   ,lt.StatusName
+	   ,so.Attended
 
 	FROM users.Student AS ss
 
 	INNER JOIN sessions.SessionOne AS so ON so.StudentId = ss.StudentId 
 	AND CAST(so.SessionDate as date) = @Date AND so.Schedule = @Schedule AND @SessionLocation = so.SessionLocation
-	LEFT JOIN lookups.TDCStatus AS lt ON lt.TDCStatusId = ss.TDCStatusId
 END
 GO;

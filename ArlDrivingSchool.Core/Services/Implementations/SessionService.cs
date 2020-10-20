@@ -3,6 +3,7 @@ using ArlDrivingSchool.Core.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ArlDrivingSchool.Core.Services.Implementations
 {
@@ -19,5 +20,19 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             SessionRepository = sessionRepository;
         }
 
+        public async Task<bool> UpdateSessionOneAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            return await SessionRepository.UpdateSessionOneAttendedByStudentIdAsync(studentId, attended);
+        }
+
+        public async Task<bool> UpdateSessionTwoAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            return await SessionRepository.UpdateSessionTwoAttendedByStudentIdAsync(studentId, attended);
+        }
+
+        public async Task<bool> UpdateSessionThreeAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            return await SessionRepository.UpdateSessionThreeAttendedByStudentIdAsync(studentId, attended);
+        }
     }
 }

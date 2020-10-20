@@ -106,6 +106,9 @@
     <Build Include="StoredProcedures\Sessions\uspDeleteSessionTwo.sql" />
     <Build Include="StoredProcedures\Sessions\uspDeleteSessionThree.sql" />
     <Build Include="StoredProcedures\Users\uspGetStudentScheduleByDate.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateSessionOneAttendedByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateSessionTwoAttendedByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateSessionThreeAttendedByStudentId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

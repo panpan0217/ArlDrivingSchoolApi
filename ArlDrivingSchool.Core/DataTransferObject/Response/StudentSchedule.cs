@@ -14,8 +14,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string Schedule { get; set; }
         public string Session { get; set; }
         public string SessionLocation { get; set; }
-        public int TDCStatusId { get; set; }
-        public string StatusName { get; set; }
+        public bool Attended { get; set; }
 
     }
 }

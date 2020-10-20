@@ -139,5 +139,56 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 },
                                                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<bool> UpdateSessionOneAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var request = new
+            {
+                StudentId = studentId,
+                Attended = attended
+            };
+
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdateSessionOneAttendedByStudentId]",
+                                                    request,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
+
+        public async Task<bool> UpdateSessionTwoAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var request = new
+            {
+                StudentId = studentId,
+                Attended = attended
+            };
+
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdateSessionTwoAttendedByStudentId]",
+                                                    request,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
+
+        public async Task<bool> UpdateSessionThreeAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var request = new
+            {
+                StudentId = studentId,
+                Attended = attended
+            };
+
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdateSessionThreeAttendedByStudentId]",
+                                                    request,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
     }
 }
