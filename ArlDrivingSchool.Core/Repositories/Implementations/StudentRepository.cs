@@ -138,5 +138,24 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return studentSchedule;
         }
+
+        public async Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var parameter = new
+            {
+                Date = date,
+                Schedule = schedule
+            };
+
+            var shuttleSchedule = await connection.QueryAsync<ShuttleSchedule>(
+                  "[users].[uspGetShuttleScheduleByDate]",
+                  param: parameter,
+                  commandType: CommandType.StoredProcedure
+              );
+
+            return shuttleSchedule;
+
+        }
     }
 }

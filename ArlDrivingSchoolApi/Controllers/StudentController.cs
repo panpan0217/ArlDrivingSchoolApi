@@ -80,5 +80,14 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(studentSchedule);
         }
 
+        [HttpPost("schedule/shuttle")]
+        public async Task<IActionResult> GetShuttleScheduleByDateAsync([FromBody] GetShuttleScheduleByDateRequestModel requestModel)
+        {
+            var shuttleSchedule = await StudentService.GetShuttleScheduleByDateAsync(requestModel.Date, requestModel.Schedule);
+
+            return Ok(shuttleSchedule);
+
+        }
+
     }
 }

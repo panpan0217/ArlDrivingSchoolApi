@@ -159,5 +159,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetStudentScheduleByDateAsync(date, schedule, sessonLocation);
         }
+
+        public async Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule)
+        {
+            return await StudentRepository.GetShuttleScheduleByDateAsync(date, schedule);
+        }
     }
 }
