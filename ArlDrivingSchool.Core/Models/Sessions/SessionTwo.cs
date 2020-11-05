@@ -12,5 +12,6 @@ namespace ArlDrivingSchool.Core.Models.Sessions
         public string Schedule { get; set; }
         public bool Shuttle { get; set; }
         public string SessionLocation { get; set; }
+        public bool Attended { get; set; }
     }
 }

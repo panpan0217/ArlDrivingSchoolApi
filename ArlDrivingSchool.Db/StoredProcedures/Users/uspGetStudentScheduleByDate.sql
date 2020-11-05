@@ -9,6 +9,7 @@ BEGIN
 	   ,FirstName
 	   ,LastName
 	   ,FBContact
+	   ,Remarks
 	   ,sth.SessionDate 
 	   ,sth.Schedule
 	   ,sth.SessionLocation
@@ -27,6 +28,7 @@ BEGIN
 	   ,FirstName
 	   ,LastName
 	   ,FBContact
+	   ,Remarks
 	   ,stw.SessionDate 
 	   ,stw.Schedule
 	   ,stw.SessionLocation
@@ -45,6 +47,7 @@ BEGIN
 	   ,FirstName
 	   ,LastName
 	   ,FBContact
+	   ,Remarks
 	   ,so.SessionDate 
 	   ,so.Schedule
 	   ,so.SessionLocation

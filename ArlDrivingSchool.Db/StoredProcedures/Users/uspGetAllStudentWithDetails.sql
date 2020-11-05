@@ -27,6 +27,7 @@ BEGIN
 		   ,sso.Schedule
 		   ,sso.Shuttle
 		   ,sso.SessionLocation
+		   ,sso.Attended
 
 		   ,sstw.SessionTwoId
 		   ,sstw.StudentId
@@ -34,6 +35,7 @@ BEGIN
 		   ,sstw.Schedule
 		   ,sstw.Shuttle
 		   ,sstw.SessionLocation
+		   ,sstw.Attended
 
 		   ,ssth.SessionThreeId
 		   ,ssth.StudentId
@@ -41,6 +43,7 @@ BEGIN
 		   ,ssth.Schedule
 		   ,ssth.Shuttle
 		   ,ssth.SessionLocation
+		   ,ssth.Attended
 
 	FROM users.Student AS us
 			INNER JOIN lookups.StudentStatus AS ls ON ls.StudentStatusId = us.StudentStatusId

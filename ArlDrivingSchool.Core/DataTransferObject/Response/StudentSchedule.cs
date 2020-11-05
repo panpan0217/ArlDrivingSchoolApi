@@ -10,6 +10,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FBContact { get; set; }
+        public string Remarks { get; set; }
         public DateTime SessionDate { get; set; }
         public string Schedule { get; set; }
         public string Session { get; set; }
