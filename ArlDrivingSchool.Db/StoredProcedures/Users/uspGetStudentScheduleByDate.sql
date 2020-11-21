@@ -13,7 +13,7 @@ BEGIN
 	   ,sth.SessionDate 
 	   ,sth.Schedule
 	   ,sth.SessionLocation
-	   ,[Session] = 'Three'
+	   ,[Session] = '3'
 	   ,sth.Attended
 
 	FROM users.Student AS ss
@@ -32,7 +32,7 @@ BEGIN
 	   ,stw.SessionDate 
 	   ,stw.Schedule
 	   ,stw.SessionLocation
-	   ,[Session] = 'Two'
+	   ,[Session] = '2'
 	   ,stw.Attended
 
 	FROM users.Student AS ss
@@ -51,7 +51,7 @@ BEGIN
 	   ,so.SessionDate 
 	   ,so.Schedule
 	   ,so.SessionLocation
-	   ,[Session] = 'One'
+	   ,[Session] = '1'
 	   ,so.Attended
 
 	FROM users.Student AS ss

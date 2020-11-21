@@ -25,12 +25,12 @@ namespace ArlDrivingSchoolApi.Controllers
 
             bool hasUpdated;
 
-            if (requestModel.Session.Contains("One"))
+            if (requestModel.Session.Contains("1"))
             {
                 hasUpdated = await SessionService.UpdateSessionOneAttendedByStudentIdAsync(requestModel.StudentId, 
                                                                                         requestModel.Attended);
             }
-            else if(requestModel.Session.Contains("Two"))
+            else if(requestModel.Session.Contains("2"))
             {
                 hasUpdated = await SessionService.UpdateSessionTwoAttendedByStudentIdAsync(requestModel.StudentId,
                                                                                              requestModel.Attended);
