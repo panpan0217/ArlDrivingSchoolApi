@@ -94,7 +94,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 student.StudentStatusId,
                 student.TDCStatusId,
                 student.ACESStatusId,
-                student.Remarks
+                student.Remarks,
+                student.DateRegistered
 
             };
 

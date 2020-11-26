@@ -97,7 +97,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 StudentStatusId = request.StudentStatusId,
                 TDCStatusId = request.TDCStatusId,
                 ACESStatusId = request.ACESStatusId,
-                Remarks = request.Remarks
+                Remarks = request.Remarks,
+                DateRegistered = request.DateRegistered
             };
 
             var sessionOne = new UpdateSessionRequestModel

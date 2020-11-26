@@ -9,7 +9,8 @@
 	@StudentStatusId	INT,
 	@TDCStatusId		INT,
 	@ACESStatusId		INT,
-	@Remarks			NVARCHAR(255)
+	@Remarks			NVARCHAR(255),
+	@DateRegistered		DATETIME2
 AS
 BEGIN
 	
@@ -25,6 +26,8 @@ BEGIN
 	,TDCStatusId = @TDCStatusId
 	,ACESStatusId = @ACESStatusId
 	,Remarks = @Remarks
+	,DateRegistered = @DateRegistered
+
 
 	WHERE StudentId = @StudentId
 
