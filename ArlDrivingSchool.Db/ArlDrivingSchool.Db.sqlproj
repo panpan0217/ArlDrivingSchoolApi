@@ -71,6 +71,7 @@
     <Folder Include="StoredProcedures\Sessions" />
     <Folder Include="Scripts\ClearAllData" />
     <Folder Include="StoredProcedures\Lookups" />
+    <Folder Include="Scripts\Inserts\User" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\Users.sql" />
@@ -110,6 +111,11 @@
     <Build Include="StoredProcedures\Sessions\uspUpdateSessionTwoAttendedByStudentId.sql" />
     <Build Include="StoredProcedures\Sessions\uspUpdateSessionThreeAttendedByStudentId.sql" />
     <Build Include="StoredProcedures\Users\uspGetShuttleScheduleByDate.sql" />
+    <Build Include="Tables\Users\User.sql" />
+    <Build Include="Tables\Lookups\UserType.sql" />
+    <Build Include="Tables\Users\Access.sql" />
+    <Build Include="StoredProcedures\Users\uspGetUserByUsername.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAccessByUserId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
@@ -117,6 +123,8 @@
     <None Include="Scripts\Inserts\Lookups\InsertTDCStatus.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertACESStatus.sql" />
     <None Include="Scripts\ClearAllData\DeleteAll.sql" />
+    <None Include="Scripts\Inserts\User\Users.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertUserType.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ArlDrivingSchool.Db.refactorlog" />

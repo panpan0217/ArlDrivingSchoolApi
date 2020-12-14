@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using ArlDrivingSchool.Core.DataTransferObject.Request;
 using ArlDrivingSchool.Core.Models.Users;
 using ArlDrivingSchool.Core.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ArlDrivingSchoolApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class StudentController : ControllerBase
     {
@@ -45,8 +47,8 @@ namespace ArlDrivingSchoolApi.Controllers
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateStudentDetailsRequestModel request)
         {
-            //if (!ModelState.IsValid)
-            //    return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest();
 
             var hasUpdated = await StudentService.UpdateStudentByStudentIdAsync(request);
          

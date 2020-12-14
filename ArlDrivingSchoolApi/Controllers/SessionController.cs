@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using ArlDrivingSchool.Core.DataTransferObject.Request;
 using ArlDrivingSchool.Core.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ArlDrivingSchoolApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class SessionController : Controller
     {

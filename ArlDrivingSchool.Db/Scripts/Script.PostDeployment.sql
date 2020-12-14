@@ -13,3 +13,7 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertStudentStatus.sql
 :r .\Inserts\Lookups\InsertTDCStatus.sql
 :r .\Inserts\Lookups\InsertACESStatus.sql
+:r .\Inserts\Lookups\InsertUserType.sql
+
+--NOTE: RUN INSERT SCRIPTS USER ONCE ONLY FOR INITIAL ADMIN 
+--:r .\Inserts\User\Users.sql
