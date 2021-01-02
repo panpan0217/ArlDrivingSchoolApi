@@ -165,5 +165,15 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetShuttleScheduleByDateAsync(date, schedule);
         }
+
+        public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()
+        {
+            return await StudentRepository.GetAllPDCStudentWithDetailsAsync();
+        }
+
+        public async Task DeletePDCStudentAsync(int pdcStudentId)
+        {
+            await StudentRepository.DeletePDCStudentAsync(pdcStudentId);
+        }
     }
 }

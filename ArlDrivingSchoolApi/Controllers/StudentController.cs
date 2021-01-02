@@ -91,5 +91,29 @@ namespace ArlDrivingSchoolApi.Controllers
 
         }
 
+        [AllowAnonymous]
+        [HttpGet("pdc/details")]
+        public async Task<IActionResult> GetAllPDCStudentWithDetailsAsync()
+        {
+            var studentsWithDetails = await StudentService.GetAllPDCStudentWithDetailsAsync();
+            return Ok(studentsWithDetails);
+        }
+
+        [AllowAnonymous]
+        [HttpDelete("pdc/{id}")]
+        public async Task<IActionResult> DeletePDCStudentAsync(int id)
+        {
+            if (id != 0)
+            {
+                await StudentService.DeletePDCStudentAsync(id);
+
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }

@@ -158,5 +158,41 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return shuttleSchedule;
 
         }
+
+        public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var pdcStudents = await connection.QueryAsync<PDCStudentWithStatus, PDCPayment, PDCSessionOne, PDCSessionTwo,
+                                                                            PDCSessionThree, PDCSessionFour, PDCStudentDetails>(
+               "[users].[uspGetAllPDCStudentWithDetails]",
+               map: (pdcStudentWithStatus, pdcPayment, pdcSessionOne, pdcSessionTwo, pdcSessionThree, pdcSessionFour) =>
+               {
+                   return new PDCStudentDetails
+                   {
+                       PDCStudentWithStatus = pdcStudentWithStatus,
+                       PDCPayment = pdcPayment,
+                       PDCSessionOne = pdcSessionOne,
+                       PDCSessionTwo = pdcSessionTwo,
+                       PDCSessionThree = pdcSessionThree,
+                       PDCSessionFour = pdcSessionFour
+                   };
+               },
+               splitOn: "PDCStudentId,PDCPaymentId,PDCSessionOneId,PDCSessionTwoId,PDCSessionThreeId,PDCSessionFourId",
+               commandType: CommandType.StoredProcedure);
+
+            return pdcStudents;
+        }
+
+        public async Task<int> DeletePDCStudentAsync(int pdcStudentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.ExecuteAsync("[users].[uspDeletePDCStudent]",
+                                                new
+                                                {
+                                                    PDCStudentId = pdcStudentId
+                                                },
+                                                commandType: CommandType.StoredProcedure);
+        }
     }
 }

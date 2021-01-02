@@ -19,5 +19,9 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task DeleteStudentAsync(int studentId);
         Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation);
         Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule);
+
+        Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync();
+
+        Task DeletePDCStudentAsync(int pdcStudentId);
     }
 }
