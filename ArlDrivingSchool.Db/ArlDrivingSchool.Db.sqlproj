@@ -116,6 +116,21 @@
     <Build Include="Tables\Users\Access.sql" />
     <Build Include="StoredProcedures\Users\uspGetUserByUsername.sql" />
     <Build Include="StoredProcedures\Users\uspGetAccessByUserId.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAllPDCStudentWithDetails.sql" />
+    <Build Include="Tables\Users\PDCStudent.sql" />
+    <Build Include="Tables\Payments\PDCPayment.sql" />
+    <Build Include="Tables\Sessions\PDCSessionOne.sql" />
+    <Build Include="Tables\Sessions\PDCSessionTwo.sql" />
+    <Build Include="Tables\Sessions\PDCSessionThree.sql" />
+    <Build Include="Tables\Sessions\PDCSessionFour.sql" />
+    <Build Include="StoredProcedures\Users\uspDeletePDCStudent.sql" />
+    <Build Include="StoredProcedures\Users\uspInsertPDCStudent.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdatePDCStudentByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertPDCSessionOne.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertPDCSessionTwo.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertPDCSessionThree.sql" />
+    <Build Include="StoredProcedures\Payments\uspInsertPDCPayment.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertPDCSessionFour.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

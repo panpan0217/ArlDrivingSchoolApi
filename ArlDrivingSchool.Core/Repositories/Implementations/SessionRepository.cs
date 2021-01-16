@@ -190,5 +190,69 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return result > 0;
         }
+
+        public async Task<int> CreatePDCSessionOneAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertPDCSessionOne]",
+                                                                    new
+                                                                    {
+                                                                        PDCStudentId = pDCStudentId,
+                                                                        Date = date,
+                                                                        StartTime = startTime,
+                                                                        EndTime = endTime,
+                                                                        Attended = attended
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return sessionId;
+        }
+
+        public async Task<int> CreatePDCSessionTwoAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertPDCSessionTwo]",
+                                                                    new
+                                                                    {
+                                                                        PDCStudentId = pDCStudentId,
+                                                                        Date = date,
+                                                                        StartTime = startTime,
+                                                                        EndTime = endTime,
+                                                                        Attended = attended
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return sessionId;
+        }
+
+        public async Task<int> CreatePDCSessionThreeAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertPDCSessionThree]",
+                                                                    new
+                                                                    {
+                                                                        PDCStudentId = pDCStudentId,
+                                                                        Date = date,
+                                                                        StartTime = startTime,
+                                                                        EndTime = endTime,
+                                                                        Attended = attended
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return sessionId;
+        }
+
+        public async Task<int> CreatePDCSessionFourAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertPDCSessionFour]",
+                                                                    new
+                                                                    {
+                                                                        PDCStudentId = pDCStudentId,
+                                                                        Date = date,
+                                                                        StartTime = startTime,
+                                                                        EndTime = endTime,
+                                                                        Attended = attended
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return sessionId;
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<int> CreatePaymentAsync(int studentId, int totalAmount, int payment, int balance);
         Task<bool> UpdatePaymentByStudentIdAsync(UpdatePaymentRequestModel payment);
         Task<int> DeletePaymentAsync(int studentId);
+        Task<int> CreatePDCPaymentAsync(int pdcStudentId, int totalAmount, int payment, int balance);
     }
 }

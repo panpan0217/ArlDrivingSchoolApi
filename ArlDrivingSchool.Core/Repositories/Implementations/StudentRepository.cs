@@ -194,5 +194,21 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 },
                                                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<int> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var studentId = await connection.ExecuteScalarAsync<int>("[users].[uspInsertPDCStudent]",
+                                                                    new
+                                                                    {
+                                                                        FullName = requestModel.FullName,
+                                                                        FBContact = requestModel.FBContact,
+                                                                        Mobile = requestModel.Mobile,
+                                                                        ACESStatusId = requestModel.ACESStatusId,
+                                                                        Remarks = requestModel.Remarks,
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return studentId;
+        }
     }
 }

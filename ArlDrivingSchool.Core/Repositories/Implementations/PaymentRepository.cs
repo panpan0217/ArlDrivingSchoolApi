@@ -59,5 +59,20 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 },
                                                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<int> CreatePDCPaymentAsync(int pdcStudentId, int totalAmount, int payment, int balance)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var paymentId = await connection.ExecuteScalarAsync<int>("[payments].[uspInsertPDCPayment]",
+                                                                    new
+                                                                    {
+                                                                        PDCStudentId = pdcStudentId,
+                                                                        TotalAmount = totalAmount,
+                                                                        Payment = payment,
+                                                                        Balance = balance
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return paymentId;
+        }
     }
 }

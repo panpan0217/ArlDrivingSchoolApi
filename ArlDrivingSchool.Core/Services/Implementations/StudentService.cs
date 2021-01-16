@@ -166,6 +166,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.GetShuttleScheduleByDateAsync(date, schedule);
         }
 
+        //FOR PDC STUDENTS BELOW!!!
         public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()
         {
             return await StudentRepository.GetAllPDCStudentWithDetailsAsync();
@@ -174,6 +175,57 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task DeletePDCStudentAsync(int pdcStudentId)
         {
             await StudentRepository.DeletePDCStudentAsync(pdcStudentId);
+        }
+
+        public async Task CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel)
+        {
+            var pdcStudentId = await StudentRepository.CreatePDCStudentWithDetailsAsync(new PDCStudentFullDetailRequestModel
+            {
+                FullName = requestModel.FullName,
+                FBContact = requestModel.FBContact,
+                Mobile = requestModel.Mobile,
+                ACESStatusId = requestModel.ACESStatusId,
+                Remarks = requestModel.Remarks
+            });
+
+            await SessionRepository.CreatePDCSessionOneAsync(
+                pDCStudentId: pdcStudentId,
+                date: requestModel.SessionOneDate,
+                startTime: requestModel.SessionOneStartTime,
+                endTime: requestModel.SessionOneEndTime,
+                attended: requestModel.SessionOneAttended
+                );
+
+            await SessionRepository.CreatePDCSessionTwoAsync(
+                pDCStudentId: pdcStudentId,
+                date: requestModel.SessionTwoDate,
+                startTime: requestModel.SessionTwoStartTime,
+                endTime: requestModel.SessionTwoEndTime,
+                attended: requestModel.SessionTwoAttended
+                );
+
+            await SessionRepository.CreatePDCSessionThreeAsync(
+                pDCStudentId: pdcStudentId,
+                date: requestModel.SessionThreeDate,
+                startTime: requestModel.SessionThreeStartTime,
+                endTime: requestModel.SessionThreeEndTime,
+                attended: requestModel.SessionThreeAttended
+                );
+
+            await SessionRepository.CreatePDCSessionFourAsync(
+                pDCStudentId: pdcStudentId,
+                date: requestModel.SessionFourDate,
+                startTime: requestModel.SessionFourStartTime,
+                endTime: requestModel.SessionFourEndTime,
+                attended: requestModel.SessionFourAttended
+                );
+
+            await PaymentRepository.CreatePDCPaymentAsync(
+                pdcStudentId,
+                totalAmount: requestModel.TotalAmount,
+                payment: requestModel.Payment,
+                balance: requestModel.Balance
+                );
         }
     }
 }

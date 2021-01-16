@@ -115,5 +115,12 @@ namespace ArlDrivingSchoolApi.Controllers
             }
         }
 
+        [HttpPost("pdc")]
+        public async Task<IActionResult> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel)
+        {
+            await StudentService.CreatePDCStudentWithDetailsAsync(requestModel);
+            return Ok();
+        }
+
     }
 }
