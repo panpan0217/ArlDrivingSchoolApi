@@ -131,6 +131,13 @@
     <Build Include="Tables\Users\Instructor.sql" />
     <Build Include="Tables\Lookups\Restriction.sql" />
     <Build Include="Tables\Lookups\Transmission.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetRestriction.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetTransmission.sql" />
+    <Build Include="StoredProcedures\Payments\uspUpdatePDCPaymentByStudentId.sql" />
+    <Build Include="StoredProcedures\Users\uspDeleteInstructorById.sql" />
+    <Build Include="StoredProcedures\Users\uspGetInstructor.sql" />
+    <Build Include="StoredProcedures\Users\uspInsertInstructor.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateInstructor.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
