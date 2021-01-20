@@ -74,5 +74,16 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                     , commandType: CommandType.StoredProcedure);
             return paymentId;
         }
+
+        public async Task<bool> UpdatePDCPaymentByStudentIdAsync(UpdatePaymentRequestModel request)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var result = await connection.ExecuteAsync("[payments].[uspUpdatePDCPaymentByStudentId]",
+                                                    request,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
     }
 }

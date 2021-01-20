@@ -12,6 +12,8 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string FBContact { get; set; }
         public string Mobile { get; set; }
         public int ACESStatusId { get; set; }
+        public int RestrictionId { get; set; }
+        public int TransmissionId { get; set; }
         public string Remarks { get; set; }
     }
 }

@@ -162,22 +162,17 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
         public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
-            var pdcStudents = await connection.QueryAsync<PDCStudentWithStatus, PDCPayment, PDCSessionOne, PDCSessionTwo,
-                                                                            PDCSessionThree, PDCSessionFour, PDCStudentDetails>(
+            var pdcStudents = await connection.QueryAsync<PDCStudentWithStatus, PDCPayment, PDCStudentDetails>(
                "[users].[uspGetAllPDCStudentWithDetails]",
-               map: (pdcStudentWithStatus, pdcPayment, pdcSessionOne, pdcSessionTwo, pdcSessionThree, pdcSessionFour) =>
+               map: (pdcStudentWithStatus, pdcPayment) =>
                {
                    return new PDCStudentDetails
                    {
                        PDCStudentWithStatus = pdcStudentWithStatus,
-                       PDCPayment = pdcPayment,
-                       PDCSessionOne = pdcSessionOne,
-                       PDCSessionTwo = pdcSessionTwo,
-                       PDCSessionThree = pdcSessionThree,
-                       PDCSessionFour = pdcSessionFour
+                       PDCPayment = pdcPayment
                    };
                },
-               splitOn: "PDCStudentId,PDCPaymentId,PDCSessionOneId,PDCSessionTwoId,PDCSessionThreeId,PDCSessionFourId",
+               splitOn: "PDCStudentId,PDCPaymentId",
                commandType: CommandType.StoredProcedure);
 
             return pdcStudents;
@@ -205,10 +200,38 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         FBContact = requestModel.FBContact,
                                                                         Mobile = requestModel.Mobile,
                                                                         ACESStatusId = requestModel.ACESStatusId,
+                                                                        RestrictionId = requestModel.RestrictionId,
+                                                                        requestModel.TransmissionId,
                                                                         Remarks = requestModel.Remarks,
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
+        }
+
+        public async Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudent pdcStudent)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var request = new
+            {
+                pdcStudent.PDCStudentId,
+                pdcStudent.DateRegistered,
+                pdcStudent.FullName,
+                pdcStudent.FBContact,
+                pdcStudent.Mobile,
+                pdcStudent.ACESStatusId,
+                pdcStudent.RestrictionId,
+                pdcStudent.TransmissionId,
+                pdcStudent.Remarks
+
+            };
+
+            var result = await connection.ExecuteAsync("[users].[uspUpdatePDCStudentByStudentId]",
+                                                        request,
+                                                        commandType: CommandType.StoredProcedure);
+
+
+            return result > 0;
         }
     }
 }

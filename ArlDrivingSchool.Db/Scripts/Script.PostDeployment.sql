@@ -14,6 +14,9 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertTDCStatus.sql
 :r .\Inserts\Lookups\InsertACESStatus.sql
 :r .\Inserts\Lookups\InsertUserType.sql
+:r .\Inserts\Lookups\InsertRestriction.sql
+:r .\Inserts\Lookups\InsertTransmission.sql
+
 
 --NOTE: RUN INSERT SCRIPTS USER ONCE ONLY FOR INITIAL ADMIN 
 --:r .\Inserts\User\Users.sql

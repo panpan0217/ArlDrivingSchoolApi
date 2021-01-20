@@ -58,6 +58,20 @@ namespace ArlDrivingSchoolApi.Controllers
                 return NotFound();
         }
 
+        [HttpPut("pdc")]
+        public async Task<IActionResult> UpdatePDC([FromBody] PDCStudentFullDetailRequestModel request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var hasUpdated = await StudentService.UpdatePDCStudentByStudentIdAsync(request);
+
+            if (hasUpdated)
+                return Ok();
+            else
+                return NotFound();
+        }
+
         [HttpDelete("{studentId}")]
         public async Task<IActionResult> DeleteStudentAsync(int studentId)
         {

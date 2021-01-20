@@ -4,6 +4,8 @@
 	@FBContact NVARCHAR(255),
 	@Mobile NVARCHAR(64),
 	@ACESStatusId INT,
+	@RestrictionId INT,
+	@TransmissionId INT,
 	@Remarks NVARCHAR(255)
 )
 AS
@@ -15,6 +17,8 @@ BEGIN
 		FBContact,
 		Mobile,
 		ACESStatusId,
+		RestrictionId,
+		TransmissionId,
 		Remarks
 	)
 	VALUES 
@@ -24,6 +28,8 @@ BEGIN
 		@FBContact,
 		@Mobile,
 		@ACESStatusId,
+		@RestrictionId,
+		@TransmissionId,
 		@Remarks
 	);
 

@@ -47,6 +47,10 @@ namespace ArlDrivingSchoolApi
             services.AddTransient<ITDCStatusService, TDCStatusService>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ILookupsRepository, LookupsRepository>();
+            services.AddTransient<ILookupsService, LookupsService>();
+            services.AddTransient<IInstructorRepository, InstructorRepository>();
+            services.AddTransient<IInstructorService, InstructorService>();
             services.AddControllers();
 
             var appSettingsSection = Configuration.GetSection("AppSettings");

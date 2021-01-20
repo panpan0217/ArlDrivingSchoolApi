@@ -6,14 +6,18 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
 {
     public class PDCStudentFullDetailRequestModel
     {
+        public int PDCStudentId { get; set; }
         public string FullName { get; set; }
         public string FBContact { get; set; }
         public string Mobile { get; set; }
         public int ACESStatusId { get; set; }
+        public int RestrictionId { get; set; }
+        public int TransmissionId { get; set; }
         public string Remarks { get; set; }
         public int TotalAmount { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }
+        public DateTime DateRegistered { get; set; }
         public DateTime SessionOneDate { get; set; }
         public DateTime SessionOneStartTime { get; set; }
         public DateTime SessionOneEndTime { get; set; }
