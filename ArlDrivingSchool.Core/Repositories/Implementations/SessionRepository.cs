@@ -10,6 +10,7 @@ using Dapper;
 using System.Data.SqlClient;
 using System.Data;
 using ArlDrivingSchool.Core.DataTransferObject.Request;
+using ArlDrivingSchool.Core.DataTransferObject.Response;
 
 namespace ArlDrivingSchool.Core.Repositories.Implementations
 {
@@ -21,6 +22,32 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             : base(configuration)
         {
             Configuration = configuration;
+        }
+
+        public async Task<IEnumerable<PDCSession>> GetPDCSessionByInstructorId(int instructorId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var parameter = new
+            {
+                Id = instructorId
+            };
+
+            var pDCSessions = await connection.QueryAsync<PDCSession>(
+                   "[sessions].[uspGetPDCSessionByInstructorId]",
+                   param: parameter,
+                   commandType: CommandType.StoredProcedure
+               );
+
+            return pDCSessions;
+        }
+
+        public async Task<IEnumerable<PDCSession>> GetAllPDCSessionAsync()
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var pDCSessions = await connection.QueryAsync<PDCSession>("[sessions].[uspGetPDCSession]"
+                                                                , commandType: CommandType.StoredProcedure);
+            return pDCSessions;
         }
 
         public async Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation)

@@ -13,5 +13,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<bool> UpdateInstructorByIdAsync(UpdateInstructorRequestModel instructor);
         Task<int> CreateInstructorAsync(Instructor instructor);
         Task<int> DeleteInstructorByIdAsync(int instructorId);
+        Task<Instructor> GetInstructorById(int instructorId);
     }
 }

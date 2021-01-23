@@ -23,6 +23,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await InstructorRepository.GetAllInstructorAsync();
         }
 
+        public async Task<Instructor> GetInstructorByIdAsync(int instructorId)
+        {
+            return await InstructorRepository.GetInstructorById(instructorId);
+        }
+
         public async Task<bool> UpdateInstructorByIdAsync(UpdateInstructorRequestModel instructor)
         {
             return await InstructorRepository.UpdateInstructorByIdAsync(instructor);

@@ -1,4 +1,5 @@
-﻿using ArlDrivingSchool.Core.Repositories.Interfaces;
+﻿using ArlDrivingSchool.Core.DataTransferObject.Response;
+using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,16 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             StudentRepository = studentRepository;
             PaymentRepository = paymentRepository;
             SessionRepository = sessionRepository;
+        }
+
+        public async Task<IEnumerable<PDCSession>> GetAllPDCSessionAsync()
+        {
+            return await SessionRepository.GetAllPDCSessionAsync();
+        }
+
+        public async Task<IEnumerable<PDCSession>> GetAllPDCSessionByInstructorIdAsync(int instructorId)
+        {
+            return await SessionRepository.GetPDCSessionByInstructorId(instructorId);
         }
 
         public async Task<bool> UpdateSessionOneAttendedByStudentIdAsync(int studentId, bool attended)

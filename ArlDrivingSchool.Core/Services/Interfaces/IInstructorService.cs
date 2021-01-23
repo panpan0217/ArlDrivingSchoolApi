@@ -10,6 +10,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
     public interface IInstructorService
     {
         Task<IEnumerable<Instructor>> GetAllInstructorAsync();
+        Task<Instructor> GetInstructorByIdAsync(int instructorId);
         Task<bool> UpdateInstructorByIdAsync(UpdateInstructorRequestModel instructor);
         Task<int> CreateInstructorAsync(Instructor instructor);
         Task<int> DeleteInstructorByIdAsync(int instructorId);

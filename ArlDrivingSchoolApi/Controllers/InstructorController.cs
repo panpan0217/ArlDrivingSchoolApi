@@ -27,9 +27,19 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(restrictions);
         }
 
+        [HttpGet("getInstructor/{instructorId}")]
+        public async Task<IActionResult> GetInstructorById(int instructorId)
+        {
+            var instructor = await InstructorService.GetInstructorByIdAsync(instructorId);
+            return Ok(instructor);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateAsync([FromBody] Instructor request)
         {
+            if (request == null)
+                return NotFound();
+
             await InstructorService.CreateInstructorAsync(request);
             return Ok();
         }

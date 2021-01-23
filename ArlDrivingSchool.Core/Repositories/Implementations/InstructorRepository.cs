@@ -23,6 +23,24 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             Configuration = configuration;
         }
 
+        public async Task<Instructor> GetInstructorById(int instructorId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var parameter = new
+            {
+                Id = instructorId
+            };
+
+            var instructor = await connection.QuerySingleAsync<Instructor>(
+                   "[users].[uspGetInstructorById]",
+                   param: parameter,
+                   commandType: CommandType.StoredProcedure
+               );
+
+            return instructor;
+        }
+
         public async Task<IEnumerable<Instructor>> GetAllInstructorAsync()
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));

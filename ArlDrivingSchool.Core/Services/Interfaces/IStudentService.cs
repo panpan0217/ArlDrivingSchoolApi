@@ -12,6 +12,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
     public interface IStudentService
     {
         Task<IEnumerable<Student>> GetAllAsync();
+        Task<PDCStudent> GetPDCStudentByIdAsync(int pDCStudentId);
         Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync();
 
         Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel);

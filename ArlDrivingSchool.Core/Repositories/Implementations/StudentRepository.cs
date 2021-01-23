@@ -34,6 +34,24 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return students;
         }
 
+        public async Task<PDCStudent> GetPDCStudentById(int pDCStudentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var parameter = new
+            {
+                Id = pDCStudentId
+            };
+
+            var pDCStudent = await connection.QuerySingleAsync<PDCStudent>(
+                   "[users].[uspGetPDCStudentById]",
+                   param: parameter,
+                   commandType: CommandType.StoredProcedure
+               );
+
+            return pDCStudent;
+        }
+
         public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync()
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));

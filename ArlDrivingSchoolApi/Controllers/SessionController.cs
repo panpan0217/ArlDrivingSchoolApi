@@ -19,6 +19,20 @@ namespace ArlDrivingSchoolApi.Controllers
             SessionService = sessionService;
         }
 
+        [HttpGet("getAllPDCSession")]
+        public async Task<IActionResult> GetAllPDCSession()
+        {
+            var pDCSession = await SessionService.GetAllPDCSessionAsync();
+            return Ok(pDCSession);
+        }
+
+        [HttpGet("getPDCSession/{instructorId}")]
+        public async Task<IActionResult> GetAllPDCSession(int instructorId)
+        {
+            var pDCSessions = await SessionService.GetAllPDCSessionByInstructorIdAsync(instructorId);
+            return Ok(pDCSessions);
+        }
+
         [HttpPut("attended")]
         public async Task<IActionResult> UpdateSessionAttended([FromBody] UpdateSessionAttendedRequestModel requestModel)
         {

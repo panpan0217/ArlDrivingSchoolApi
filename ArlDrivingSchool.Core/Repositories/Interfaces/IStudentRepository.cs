@@ -26,6 +26,7 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<int> DeletePDCStudentAsync(int pdcStudentId);
         Task<int> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel);
         Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudent pdcStudent);
+        Task<PDCStudent> GetPDCStudentById(int pDCStudentId);
 
     }
 }

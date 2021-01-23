@@ -1,4 +1,5 @@
 ﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
+using ArlDrivingSchool.Core.DataTransferObject.Response;
 using ArlDrivingSchool.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
 {
     public interface ISessionRepository
     {
+        Task<IEnumerable<PDCSession>> GetPDCSessionByInstructorId(int instructorId);
+        Task<IEnumerable<PDCSession>> GetAllPDCSessionAsync();
         Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
         Task<int> CreateSessionTwoAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
         Task<int> CreateSessionThreeAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);

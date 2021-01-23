@@ -31,6 +31,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.GetAllAsync();
         }
 
+        public async Task<PDCStudent> GetPDCStudentByIdAsync(int pDCStudentId)
+        {
+            return await StudentRepository.GetPDCStudentById(pDCStudentId);
+        }
+
         public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync()
         {
             return await StudentRepository.GetAllStudentWithDetailsAsync();

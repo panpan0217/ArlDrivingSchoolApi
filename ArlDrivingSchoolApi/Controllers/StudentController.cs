@@ -136,5 +136,12 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok();
         }
 
+        [HttpGet("getPDCStudent/{pDCStudentId}")]
+        public async Task<IActionResult> GetPDCStudentById(int pDCStudentId)
+        {
+            var student = await StudentService.GetPDCStudentByIdAsync(pDCStudentId);
+            return Ok(student);
+        }
+
     }
 }
