@@ -1,4 +1,5 @@
-﻿using ArlDrivingSchool.Core.DataTransferObject.Response;
+﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
+using ArlDrivingSchool.Core.DataTransferObject.Response;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,8 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<bool> UpdateSessionTwoAttendedByStudentIdAsync(int studentId, bool attended);
         Task<bool> UpdateSessionThreeAttendedByStudentIdAsync(int studentId, bool attended);
         Task<IEnumerable<PDCSession>> GetAllPDCSessionByInstructorIdAsync(int instructorId);
+        Task<int> CreatePDCSession(int pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended);
+        Task UpdatePDCSession(PDCSessionRequestModel requestModel);
+        Task DeletePDCSession(int pDCSessionId);
     }
 }

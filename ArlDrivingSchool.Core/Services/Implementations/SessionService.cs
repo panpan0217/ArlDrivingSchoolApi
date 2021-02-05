@@ -1,4 +1,5 @@
-﻿using ArlDrivingSchool.Core.DataTransferObject.Response;
+﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
+using ArlDrivingSchool.Core.DataTransferObject.Response;
 using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using System;
@@ -44,6 +45,21 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task<bool> UpdateSessionThreeAttendedByStudentIdAsync(int studentId, bool attended)
         {
             return await SessionRepository.UpdateSessionThreeAttendedByStudentIdAsync(studentId, attended);
+        }
+
+        public async Task<int> CreatePDCSession(int pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended)
+        {
+            return await SessionRepository.CreatePDCSessionAsync(pdcStudentId, date, startTime, endTime, instructorId, attended);
+        }
+
+        public async Task UpdatePDCSession(PDCSessionRequestModel requestModel)
+        {
+            await SessionRepository.UpdatePDCSessionAsync(requestModel);
+        }
+
+        public async Task DeletePDCSession(int pDCSessionId)
+        {
+            await SessionRepository.DeletePDCSessionAsync(pDCSessionId);
         }
     }
 }

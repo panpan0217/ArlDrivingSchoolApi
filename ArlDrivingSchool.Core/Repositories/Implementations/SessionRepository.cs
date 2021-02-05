@@ -218,6 +218,40 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return result > 0;
         }
 
+        public async Task<int> CreatePDCSessionAsync(int pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertPDCSession]",
+                                                                    new
+                                                                    {
+                                                                        PDCStudentId = pdcStudentId,
+                                                                        Date = date,
+                                                                        StartTime = startTime,
+                                                                        EndTime = endTime,
+                                                                        InstructorId = instructorId,
+                                                                        Attended = attended
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return sessionId;
+        }
+
+        public async Task UpdatePDCSessionAsync(PDCSessionRequestModel request)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdatePDCSession]",
+                                                    new 
+                                                    {
+                                                        PDCSessionId = request.PDCSessionId,
+                                                        PDCStudentId = request.PDCStudentId,
+                                                        Date = request.Date,
+                                                        StartTime = request.StartTime,
+                                                        EndTime = request.EndTime,
+                                                        InstructorId = request.InstructorId,
+                                                        Attended = request.Attended
+                                                    },
+                                                    commandType: CommandType.StoredProcedure);
+        }
+
         public async Task<int> CreatePDCSessionOneAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
@@ -280,6 +314,18 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return sessionId;
+        }
+
+        public async Task DeletePDCSessionAsync(int pDCSessionId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            await connection.ExecuteAsync("[sessions].[uspDeletePDCSession]",
+                                                new
+                                                {
+                                                    PDCSessionId = pDCSessionId
+                                                },
+                                                commandType: CommandType.StoredProcedure);
         }
     }
 }

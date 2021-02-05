@@ -63,5 +63,33 @@ namespace ArlDrivingSchoolApi.Controllers
                 return NotFound();
 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePDCSession(PDCSessionRequestModel requestModel)
+        {
+            await SessionService.CreatePDCSession(
+                requestModel.PDCStudentId,
+                requestModel.Date,
+                requestModel.StartTime,
+                requestModel.EndTime,
+                requestModel.InstructorId,
+                requestModel.Attended
+                );
+            return Ok();
+        }
+
+        [HttpPut("pdcSession")]
+        public async Task<IActionResult> UpdatePDCSession(PDCSessionRequestModel requestModel)
+        {
+            await SessionService.UpdatePDCSession(requestModel);
+            return Ok();
+        }
+
+        [HttpDelete("pdcSession/{pDCSessionId}")]
+        public async Task<IActionResult> DeletePDCSession(int pDCSessionId)
+        {
+            await SessionService.DeletePDCSession(pDCSessionId);
+            return Ok();
+        }
     }
 }
