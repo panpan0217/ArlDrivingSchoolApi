@@ -143,6 +143,8 @@
     <Build Include="StoredProcedures\Users\uspGetInstructorById.sql" />
     <Build Include="StoredProcedures\Sessions\uspGetPDCSessionByInstructorId.sql" />
     <Build Include="StoredProcedures\Sessions\uspDeletePDCSession.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdatePDCSession.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertPDCSession.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
