@@ -218,7 +218,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return result > 0;
         }
 
-        public async Task<int> CreatePDCSessionAsync(int pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended)
+        public async Task<int> CreatePDCSessionAsync(string pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertPDCSession]",

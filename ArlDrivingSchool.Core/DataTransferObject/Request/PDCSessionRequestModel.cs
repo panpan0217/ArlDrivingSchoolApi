@@ -7,7 +7,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
     public class PDCSessionRequestModel
     {
         public int? PDCSessionId { get; set; }
-        public int PDCStudentId { get; set; }
+        public string PDCStudentId { get; set; }
         public DateTime Date { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }

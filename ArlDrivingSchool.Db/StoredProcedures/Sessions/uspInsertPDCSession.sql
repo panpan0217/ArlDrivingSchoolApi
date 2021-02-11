@@ -3,7 +3,7 @@
 	@Date DATETIME2,
 	@StartTime DATETIME2,
 	@EndTime DATETIME2,
-	@PDCStudentId INT,
+	@PDCStudentId NVARCHAR(128),
 	@InstructorId INT,
 	@Attended BIT
 )

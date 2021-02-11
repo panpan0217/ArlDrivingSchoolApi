@@ -47,7 +47,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await SessionRepository.UpdateSessionThreeAttendedByStudentIdAsync(studentId, attended);
         }
 
-        public async Task<int> CreatePDCSession(int pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended)
+        public async Task<int> CreatePDCSession(string pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended)
         {
             return await SessionRepository.CreatePDCSessionAsync(pdcStudentId, date, startTime, endTime, instructorId, attended);
         }
