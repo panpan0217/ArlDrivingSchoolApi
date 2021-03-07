@@ -26,7 +26,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 return user;
 
             var access = await QueryFirstOrDefaultAsync<Access>("[users].[uspGetAccessByUserId]",
-                new { Userid = user.UserId});
+                new { UserId = user.UserId});
 
             if (access.Auth == Hash.Create(password, access.Salt))
                 return user;
