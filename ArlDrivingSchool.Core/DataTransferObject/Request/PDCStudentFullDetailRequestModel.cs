@@ -11,7 +11,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string FBContact { get; set; }
         public string Mobile { get; set; }
         public int ACESStatusId { get; set; }
-        public int RestrictionId { get; set; }
+        public string RestrictionId { get; set; }
         public int TransmissionId { get; set; }
         public string Remarks { get; set; }
         public int TotalAmount { get; set; }

@@ -6,7 +6,7 @@ namespace ArlDrivingSchool.Core.Models.Lookups
 {
     public class Restriction
     {
-        public int RestrictionId { get; set; }
+        public string RestrictionId { get; set; }
         public string RestrictionCode { get; set; }
 
     }

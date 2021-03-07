@@ -5,7 +5,7 @@
 	@FBContact			NVARCHAR(255),
 	@Mobile				NVARCHAR(64),
 	@ACESStatusId		INT,
-	@RestrictionId		INT,
+	@RestrictionId		NVARCHAR(128),
 	@TransmissionId		INT,
 	@Remarks			NVARCHAR(255)
 AS
