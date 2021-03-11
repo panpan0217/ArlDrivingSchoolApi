@@ -9,7 +9,8 @@
 	@StudentStatusId INT,
 	@TDCStatusId INT,
 	@ACESStatusId INT,
-	@Remarks NVARCHAR(255)
+	@Remarks NVARCHAR(255),
+	@CreatedBy NVARCHAR(255)
 )
 AS
 BEGIN 
@@ -25,7 +26,8 @@ BEGIN
 		TDCStatusId,
 		ACESStatusId,
 		Remarks,
-		DateRegistered
+		DateRegistered,
+		CreatedBy
 	)
 	VALUES 
 	(
@@ -39,7 +41,8 @@ BEGIN
 		@TDCStatusId,
 		@ACESStatusId,
 		@Remarks,
-		GETUTCDATE()
+		GETUTCDATE(),
+		@CreatedBy
 	);
 
 	SELECT SCOPE_IDENTITY();

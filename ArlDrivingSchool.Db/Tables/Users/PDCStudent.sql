@@ -9,6 +9,9 @@
 	[RestrictionId]		NVARCHAR(128)	NOT NULL,
 	[TransmissionId]	INT				NOT NULL,
 	[Remarks]			NVARCHAR(255)	NULL,
+	[StudentPermit]		NVARCHAR(MAX)	NULL,
+	[CreatedBy]         NVARCHAR(257)   NOT NULL DEFAULT 'admin', 
+	[UpdatedBy]         NVARCHAR(257)   NULL,
 
 	CONSTRAINT [PK_PDCStudent] PRIMARY KEY CLUSTERED ([PDCStudentId] ASC),
 	CONSTRAINT FK_PDCStudent_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),

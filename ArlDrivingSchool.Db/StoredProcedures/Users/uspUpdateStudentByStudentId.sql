@@ -10,7 +10,8 @@
 	@TDCStatusId		INT,
 	@ACESStatusId		INT,
 	@Remarks			NVARCHAR(255),
-	@DateRegistered		DATETIME2
+	@DateRegistered		DATETIME2,
+	@UpdatedBy			NVARCHAR(255)
 AS
 BEGIN
 	
@@ -27,7 +28,7 @@ BEGIN
 	,ACESStatusId = @ACESStatusId
 	,Remarks = @Remarks
 	,DateRegistered = @DateRegistered
-
+	,UpdatedBy = @UpdatedBy
 
 	WHERE StudentId = @StudentId
 

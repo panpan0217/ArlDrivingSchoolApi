@@ -18,12 +18,14 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         private IStudentRepository StudentRepository { get; }
         private ISessionRepository SessionRepository { get; }
         private IPaymentRepository PaymentRepository { get; }
-
-        public StudentService(IStudentRepository studentRepository, ISessionRepository sessionRepository, IPaymentRepository paymentRepository)
+        private IUserRepository UserRepository { get; }
+        public StudentService(IStudentRepository studentRepository, ISessionRepository sessionRepository, 
+            IPaymentRepository paymentRepository, IUserRepository userRepository)
         {
             StudentRepository = studentRepository;
             SessionRepository = sessionRepository;
             PaymentRepository = paymentRepository;
+            UserRepository = userRepository;
         }
 
         public async Task<IEnumerable<Student>> GetAllAsync()
@@ -41,9 +43,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.GetAllStudentWithDetailsAsync();
         }
 
-        public async Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
+        public async Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId)
         {
-            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(new StudentFullDetailsRequestModel {
+            var user = await UserRepository.GetUserByUserId(userId);
+            var studentRequest = new StudentFullDetailsRequestModel
+            {
                 FirstName = requestModel.FirstName,
                 LastName = requestModel.LastName,
                 Email = requestModel.Email,
@@ -53,8 +57,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 StudentStatusId = requestModel.StudentStatusId,
                 TDCStatusId = requestModel.TDCStatusId,
                 ACESStatusId = requestModel.ACESStatusId,
-                Remarks = requestModel.Remarks
-            });
+                Remarks = requestModel.Remarks,
+            };
+            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
 
             await SessionRepository.CreateSessionOneAsync(
                 studentId: studentId,
@@ -88,8 +93,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 );
         }
 
-        public async Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel request)
+        public async Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel request, int userId)
         {
+            var user = await UserRepository.GetUserByUserId(userId);
             var student = new Student
             {
                 StudentId = request.StudentId,
@@ -147,7 +153,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await PaymentRepository.UpdatePaymentByStudentIdAsync(payment);
 
-            return await StudentRepository.UpdateStudentByStudentIdAsync(student);
+            return await StudentRepository.UpdateStudentByStudentIdAsync(student, $"{user.FirstName} {user.LastName}");
             
         }
 
@@ -171,7 +177,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.GetShuttleScheduleByDateAsync(date, schedule);
         }
 
-        //FOR PDC STUDENTS BELOW!!!
+        //FOR PDC STUDENTS BELOW!!! GALET?
         public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()
         {
             return await StudentRepository.GetAllPDCStudentWithDetailsAsync();
@@ -182,19 +188,26 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             await StudentRepository.DeletePDCStudentAsync(pdcStudentId);
         }
 
-        public async Task CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel)
+        public async Task CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel, int userId)
         {
-            var pdcStudentId = await StudentRepository.CreatePDCStudentWithDetailsAsync(new PDCStudentFullDetailRequestModel
+            var user = await UserRepository.GetUserByUserId(userId);
+
+            var student = new PDCStudentFullDetailRequestModel
             {
+                PDCStudentId = requestModel.PDCStudentId,
+                DateRegistered = requestModel.DateRegistered,
                 FullName = requestModel.FullName,
                 FBContact = requestModel.FBContact,
                 Mobile = requestModel.Mobile,
                 ACESStatusId = requestModel.ACESStatusId,
                 RestrictionId = requestModel.RestrictionId,
                 TransmissionId = requestModel.TransmissionId,
-                Remarks = requestModel.Remarks
-            });
+                Remarks = requestModel.Remarks,
+                StudentPermit = requestModel.StudentPermit
 
+            };
+
+            var pdcStudentId = await StudentRepository.CreatePDCStudentWithDetailsAsync(student, $"{user.FirstName} {user.LastName}");
 
             await PaymentRepository.CreatePDCPaymentAsync(
                 pdcStudentId,
@@ -204,8 +217,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 );
         }
 
-        public async Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudentFullDetailRequestModel request)
+        public async Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudentFullDetailRequestModel request, int userId)
         {
+            var user = await UserRepository.GetUserByUserId(userId);
             var student = new PDCStudent
             {
                 PDCStudentId = request.PDCStudentId,
@@ -217,6 +231,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 RestrictionId = request.RestrictionId,
                 TransmissionId = request.TransmissionId,
                 Remarks = request.Remarks,
+                StudentPermit = request.StudentPermit
                
             };
 
@@ -230,7 +245,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             };
 
             await PaymentRepository.UpdatePDCPaymentByStudentIdAsync(payment);
-            return await StudentRepository.UpdatePDCStudentByStudentIdAsync(student);
+            return await StudentRepository.UpdatePDCStudentByStudentIdAsync(student, $"{user.FirstName} {user.LastName}");
 
         }
     }

@@ -15,8 +15,8 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<PDCStudent> GetPDCStudentByIdAsync(int pDCStudentId);
         Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync();
 
-        Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel);
-        Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel student);
+        Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId);
+        Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel student, int userId);
         Task DeleteStudentAsync(int studentId);
         Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation);
         Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule);
@@ -24,7 +24,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync();
 
         Task DeletePDCStudentAsync(int pdcStudentId);
-        Task CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel);
-        Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudentFullDetailRequestModel requestModel);
+        Task CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel, int userId);
+        Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudentFullDetailRequestModel requestModel, int userId);
     }
 }

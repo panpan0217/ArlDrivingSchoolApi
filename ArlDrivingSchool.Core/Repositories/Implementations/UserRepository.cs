@@ -34,5 +34,13 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 return null;
                 
         }
+
+        public async Task<User> GetUserByUserId(int userId)
+        {
+            return await QueryFirstOrDefaultAsync<User>("[users].[uspGetUserByUserId]", new
+            {
+                UserId = userId,
+            });
+        }
     }
 }

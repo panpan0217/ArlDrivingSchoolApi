@@ -14,6 +14,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string RestrictionId { get; set; }
         public int TransmissionId { get; set; }
         public string Remarks { get; set; }
+        public string StudentPermit { get; set; }
         public int TotalAmount { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }

@@ -6,7 +6,9 @@
 	@ACESStatusId INT,
 	@RestrictionId NVARCHAR(128),
 	@TransmissionId INT,
-	@Remarks NVARCHAR(255)
+	@Remarks NVARCHAR(255),
+	@StudentPermit NVARCHAR(255),
+	@CreatedBy NVARCHAR(255)
 )
 AS
 BEGIN 
@@ -19,7 +21,9 @@ BEGIN
 		ACESStatusId,
 		RestrictionId,
 		TransmissionId,
-		Remarks
+		Remarks,
+		StudentPermit,
+		CreatedBy
 	)
 	VALUES 
 	(
@@ -30,7 +34,9 @@ BEGIN
 		@ACESStatusId,
 		@RestrictionId,
 		@TransmissionId,
-		@Remarks
+		@Remarks,	
+		@StudentPermit,
+		@CreatedBy
 	);
 
 	SELECT SCOPE_IDENTITY();

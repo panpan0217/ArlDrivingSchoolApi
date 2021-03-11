@@ -15,5 +15,6 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string RestrictionId { get; set; }
         public int TransmissionId { get; set; }
         public string Remarks { get; set; }
+        public string StudentPermit { get; set; }
     }
 }

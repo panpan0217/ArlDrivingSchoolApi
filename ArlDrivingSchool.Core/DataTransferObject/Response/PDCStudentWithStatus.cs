@@ -16,6 +16,11 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string TransmissionName { get; set; }
 
         public string Remarks { get; set; }
+        public string StudentPermit { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
+
+
     }
 
 }

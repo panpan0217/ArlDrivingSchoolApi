@@ -9,5 +9,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
     public interface IUserRepository
     {
         Task<User> AuthenticateUserAsync(string userName, string password);
+        Task<User> GetUserByUserId(int userId);
     }
 }

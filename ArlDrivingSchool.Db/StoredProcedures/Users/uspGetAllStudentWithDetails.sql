@@ -14,6 +14,8 @@ BEGIN
 		   ,lt.StatusName [TDCStatus]
 		   ,us.Remarks
 		   ,us.DateRegistered
+		   ,us.CreatedBy
+		   ,us.UpdatedBy
 
 		   ,pp.PaymentId
 		   ,pp.StudentId

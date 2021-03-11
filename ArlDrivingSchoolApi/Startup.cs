@@ -7,6 +7,7 @@ using ArlDrivingSchool.Core.Repositories.Implementations;
 using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Services.Implementations;
 using ArlDrivingSchool.Core.Services.Interfaces;
+using ArlDrivingSchool.Utility.Cryptography;
 using ArlDrivingSchool.Utility.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -53,6 +54,7 @@ namespace ArlDrivingSchoolApi
             services.AddTransient<IInstructorService, InstructorService>();
             services.AddControllers();
 
+            services.AddScoped<JWToken>();
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 

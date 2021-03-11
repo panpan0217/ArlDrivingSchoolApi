@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using ArlDrivingSchool.Core.DataTransferObject.Request;
 using ArlDrivingSchool.Core.Models.Users;
 using ArlDrivingSchool.Core.Services.Interfaces;
+using ArlDrivingSchool.Utility.Cryptography;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SEO.Utility.Extensions;
 
 namespace ArlDrivingSchoolApi.Controllers
 {
@@ -15,10 +17,12 @@ namespace ArlDrivingSchoolApi.Controllers
     public class StudentController : ControllerBase
     {
         private IStudentService StudentService { get; }
+        private JWToken JWToken { get; }
 
-        public StudentController(IStudentService studentService)
+        public StudentController(IStudentService studentService, JWToken jwToken)
         {
             StudentService = studentService;
+            JWToken = jwToken;
         }
 
         [HttpGet]
@@ -35,12 +39,14 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(studentsWithDetails);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
         {
-            var firstName = requestModel.FirstName;
 
-            await StudentService.CreateStudentWithDetailsAsync(requestModel);
+            var userId = Request.GetUserId(JWToken);
+
+            await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
             return Ok();
         }
 
@@ -50,7 +56,9 @@ namespace ArlDrivingSchoolApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var hasUpdated = await StudentService.UpdateStudentByStudentIdAsync(request);
+            var userId = Request.GetUserId(JWToken);
+
+            var hasUpdated = await StudentService.UpdateStudentByStudentIdAsync(request, userId);
          
             if (hasUpdated)
                 return Ok();
@@ -64,7 +72,8 @@ namespace ArlDrivingSchoolApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var hasUpdated = await StudentService.UpdatePDCStudentByStudentIdAsync(request);
+            var userId = Request.GetUserId(JWToken);
+            var hasUpdated = await StudentService.UpdatePDCStudentByStudentIdAsync(request, userId);
 
             if (hasUpdated)
                 return Ok();
@@ -132,7 +141,9 @@ namespace ArlDrivingSchoolApi.Controllers
         [HttpPost("pdc")]
         public async Task<IActionResult> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel)
         {
-            await StudentService.CreatePDCStudentWithDetailsAsync(requestModel);
+            var userId = Request.GetUserId(JWToken);
+
+            await StudentService.CreatePDCStudentWithDetailsAsync(requestModel, userId);
             return Ok();
         }
 

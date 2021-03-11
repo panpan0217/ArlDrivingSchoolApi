@@ -72,6 +72,7 @@
     <Folder Include="Scripts\ClearAllData" />
     <Folder Include="StoredProcedures\Lookups" />
     <Folder Include="Scripts\Inserts\User" />
+    <Folder Include="Scripts\Updates" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\Users.sql" />
@@ -145,6 +146,7 @@
     <Build Include="StoredProcedures\Sessions\uspDeletePDCSession.sql" />
     <Build Include="StoredProcedures\Sessions\uspUpdatePDCSession.sql" />
     <Build Include="StoredProcedures\Sessions\uspInsertPDCSession.sql" />
+    <Build Include="StoredProcedures\Users\uspGetUserByUserId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

@@ -7,7 +7,9 @@
 	@ACESStatusId		INT,
 	@RestrictionId		NVARCHAR(128),
 	@TransmissionId		INT,
-	@Remarks			NVARCHAR(255)
+	@Remarks			NVARCHAR(255),
+	@StudentPermit		NVARCHAR(MAX),
+	@UpdatedBy			NVARCHAR(255)
 AS
 BEGIN
 	
@@ -21,7 +23,8 @@ BEGIN
 	,TransmissionId = @TransmissionId
 	,Remarks = @Remarks
 	,DateRegistered = @DateRegistered
-
+	,StudentPermit = @StudentPermit
+	,UpdatedBy = @UpdatedBy
 
 	WHERE PDCStudentId = @PDCStudentId
 

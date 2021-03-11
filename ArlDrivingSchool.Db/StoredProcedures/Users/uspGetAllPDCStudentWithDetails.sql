@@ -10,7 +10,10 @@ BEGIN
 		   ,ups.RestrictionId [RestrictionCode]
 		   ,t.TransmissionName [TransmissionName]
 		   ,ups.Remarks
+		   ,ups.StudentPermit
 		   ,ups.DateRegistered
+		   ,ups.CreatedBy
+		   ,ups.UpdatedBy
 
 		   ,pp.PDCPaymentId
 		   ,pp.PDCStudentId

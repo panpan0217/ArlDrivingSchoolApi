@@ -75,7 +75,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return students;
         }
 
-        public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
+        public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, string createdBy)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var studentId = await connection.ExecuteScalarAsync<int>("[users].[uspInsertStudent]",
@@ -91,12 +91,13 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         TDCStatusId = requestModel.TDCStatusId,
                                                                         ACESStatusId = requestModel.ACESStatusId,
                                                                         Remarks = requestModel.Remarks,
+                                                                        CreatedBy = createdBy
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
         }
 
-        public async Task<bool> UpdateStudentByStudentIdAsync(Student student)
+        public async Task<bool> UpdateStudentByStudentIdAsync(Student student, string updatedBy)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -113,7 +114,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 student.TDCStatusId,
                 student.ACESStatusId,
                 student.Remarks,
-                student.DateRegistered
+                student.DateRegistered,
+                UpdatedBy = updatedBy
 
             };
 
@@ -208,7 +210,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<int> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel)
+        public async Task<int> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel, string createdBy)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var studentId = await connection.ExecuteScalarAsync<int>("[users].[uspInsertPDCStudent]",
@@ -221,12 +223,14 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         RestrictionId = requestModel.RestrictionId,
                                                                         requestModel.TransmissionId,
                                                                         Remarks = requestModel.Remarks,
+                                                                        StudentPermit = requestModel.StudentPermit,
+                                                                        CreatedBy = createdBy
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
         }
 
-        public async Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudent pdcStudent)
+        public async Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudent pdcStudent, string updatedBy)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -240,7 +244,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 pdcStudent.ACESStatusId,
                 pdcStudent.RestrictionId,
                 pdcStudent.TransmissionId,
-                pdcStudent.Remarks
+                pdcStudent.Remarks,
+                pdcStudent.StudentPermit,
+                UpdatedBy = updatedBy
 
             };
 
