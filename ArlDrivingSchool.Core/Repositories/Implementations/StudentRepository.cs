@@ -221,7 +221,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         Mobile = requestModel.Mobile,
                                                                         ACESStatusId = requestModel.ACESStatusId,
                                                                         RestrictionId = requestModel.RestrictionId,
-                                                                        requestModel.TransmissionId,
+                                                                        requestModel.ATransmissionId,
+                                                                        requestModel.A1TransmissionId,
+                                                                        requestModel.BTransmissionId,
                                                                         Remarks = requestModel.Remarks,
                                                                         StudentPermit = requestModel.StudentPermit,
                                                                         CreatedBy = createdBy
@@ -243,7 +245,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 pdcStudent.Mobile,
                 pdcStudent.ACESStatusId,
                 pdcStudent.RestrictionId,
-                pdcStudent.TransmissionId,
+                pdcStudent.ATransmissionId,
+                pdcStudent.A1TransmissionId,
+                pdcStudent.BTransmissionId,
                 pdcStudent.Remarks,
                 pdcStudent.StudentPermit,
                 UpdatedBy = updatedBy

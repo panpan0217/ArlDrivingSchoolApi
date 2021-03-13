@@ -5,7 +5,9 @@
 	@Mobile NVARCHAR(64),
 	@ACESStatusId INT,
 	@RestrictionId NVARCHAR(128),
-	@TransmissionId INT,
+	@ATransmissionId INT,
+	@A1TransmissionId INT,
+	@BTransmissionId INT,
 	@Remarks NVARCHAR(255),
 	@StudentPermit NVARCHAR(255),
 	@CreatedBy NVARCHAR(255)
@@ -20,7 +22,9 @@ BEGIN
 		Mobile,
 		ACESStatusId,
 		RestrictionId,
-		TransmissionId,
+		ATransmissionId,
+		A1TransmissionId,
+		BTransmissionId,
 		Remarks,
 		StudentPermit,
 		CreatedBy
@@ -33,7 +37,9 @@ BEGIN
 		@Mobile,
 		@ACESStatusId,
 		@RestrictionId,
-		@TransmissionId,
+		@ATransmissionId,
+		@A1TransmissionId,
+		@BTransmissionId,
 		@Remarks,	
 		@StudentPermit,
 		@CreatedBy

@@ -6,7 +6,9 @@
 	@Mobile				NVARCHAR(64),
 	@ACESStatusId		INT,
 	@RestrictionId		NVARCHAR(128),
-	@TransmissionId		INT,
+	@ATransmissionId		INT,
+	@A1TransmissionId		INT,
+	@BTransmissionId		INT,
 	@Remarks			NVARCHAR(255),
 	@StudentPermit		NVARCHAR(MAX),
 	@UpdatedBy			NVARCHAR(255)
@@ -20,7 +22,9 @@ BEGIN
 	,Mobile = @Mobile
 	,ACESStatusId = @ACESStatusId
 	,RestrictionId = @RestrictionId
-	,TransmissionId = @TransmissionId
+	,ATransmissionId = @ATransmissionId
+	,A1TransmissionId = @A1TransmissionId
+	,BTransmissionId = @BTransmissionId
 	,Remarks = @Remarks
 	,DateRegistered = @DateRegistered
 	,StudentPermit = @StudentPermit

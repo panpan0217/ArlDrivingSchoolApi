@@ -8,7 +8,9 @@ AS
 			[Mobile],
 			[ACESStatusId],
 			[RestrictionId],
-			[TransmissionId],
+			[ATransmissionId],
+			[A1TransmissionId],
+			[BTransmissionId],
 			Remarks
 	FROM [users].PDCStudent
 	WHERE PDCStudentId = @Id

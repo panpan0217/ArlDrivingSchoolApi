@@ -177,7 +177,6 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.GetShuttleScheduleByDateAsync(date, schedule);
         }
 
-        //FOR PDC STUDENTS BELOW!!! GALET?
         public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()
         {
             return await StudentRepository.GetAllPDCStudentWithDetailsAsync();
@@ -201,7 +200,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 Mobile = requestModel.Mobile,
                 ACESStatusId = requestModel.ACESStatusId,
                 RestrictionId = requestModel.RestrictionId,
-                TransmissionId = requestModel.TransmissionId,
+                ATransmissionId = requestModel.ATransmissionId,
+                A1TransmissionId = requestModel.A1TransmissionId,
+                BTransmissionId = requestModel.BTransmissionId,
                 Remarks = requestModel.Remarks,
                 StudentPermit = requestModel.StudentPermit
 
@@ -229,7 +230,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 Mobile = request.Mobile,
                 ACESStatusId = request.ACESStatusId,
                 RestrictionId = request.RestrictionId,
-                TransmissionId = request.TransmissionId,
+                ATransmissionId = request.ATransmissionId,
+                A1TransmissionId = request.A1TransmissionId,
+                BTransmissionId = request.BTransmissionId,
                 Remarks = request.Remarks,
                 StudentPermit = request.StudentPermit
                

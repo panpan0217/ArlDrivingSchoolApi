@@ -7,7 +7,9 @@
 	[Mobile]			NVARCHAR(64)	NULL,
 	[ACESStatusId]		INT				NOT NULL,
 	[RestrictionId]		NVARCHAR(128)	NOT NULL,
-	[TransmissionId]	INT				NOT NULL,
+	[ATransmissionId]	INT				NOT NULL ,
+	[A1TransmissionId]	INT				NOT NULL DEFAULT 1,
+	[BTransmissionId]	INT				NOT NULL DEFAULT 1,
 	[Remarks]			NVARCHAR(255)	NULL,
 	[StudentPermit]		NVARCHAR(MAX)	NULL,
 	[CreatedBy]         NVARCHAR(257)   NOT NULL DEFAULT 'admin', 
@@ -16,7 +18,9 @@
 	CONSTRAINT [PK_PDCStudent] PRIMARY KEY CLUSTERED ([PDCStudentId] ASC),
 	CONSTRAINT FK_PDCStudent_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
 	--CONSTRAINT FK_PDCStudent_Restriction_RestrictionId FOREIGN KEY (RestrictionId) REFERENCES [lookups].[Restriction] (RestrictionId),
-	CONSTRAINT FK_PDCStudent_Transmission_TransmissionId FOREIGN KEY (TransmissionId) REFERENCES [lookups].[Transmission] (TransmissionId),
+	--CONSTRAINT FK_PDCStudent_Transmission_ATransmissionId FOREIGN KEY ([ATransmissionId]) REFERENCES [lookups].[Transmission] (TransmissionId),
+	--CONSTRAINT FK_PDCStudent_Transmission_A1TransmissionId FOREIGN KEY ([A1TransmissionId]) REFERENCES [lookups].[Transmission] (TransmissionId),
+	--CONSTRAINT FK_PDCStudent_Transmission_BTransmissionId FOREIGN KEY ([BTransmissionId]) REFERENCES [lookups].[Transmission] (TransmissionId),
 
 
 )

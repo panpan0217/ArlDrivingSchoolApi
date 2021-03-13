@@ -12,7 +12,9 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string Mobile { get; set; }
         public int ACESStatusId { get; set; }
         public string RestrictionId { get; set; }
-        public int TransmissionId { get; set; }
+        public int ATransmissionId { get; set; }
+        public int A1TransmissionId { get; set; }
+        public int BTransmissionId { get; set; }
         public string Remarks { get; set; }
         public string StudentPermit { get; set; }
         public int TotalAmount { get; set; }

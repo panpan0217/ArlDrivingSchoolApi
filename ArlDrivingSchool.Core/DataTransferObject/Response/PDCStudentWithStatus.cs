@@ -13,7 +13,9 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string Mobile { get; set; }
         public string ACESStatus { get; set; }
         public string RestrictionCode { get; set; }
-        public string TransmissionName { get; set; }
+        public int ATransmissionId { get; set; }
+        public int A1TransmissionId { get; set; }
+        public int BTransmissionId { get; set; }
 
         public string Remarks { get; set; }
         public string StudentPermit { get; set; }
