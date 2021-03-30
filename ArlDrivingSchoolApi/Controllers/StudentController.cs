@@ -154,5 +154,58 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(student);
         }
 
+
+        [HttpPost("params")]
+        public async Task<IActionResult> GetStudentByParams([FromBody] GetCertifiedRequestModel requestModel)
+        {
+            var students = await StudentService.GetStudentByParams(requestModel.Certificated);
+            return Ok(students);
+        }
+        [HttpPost("pdc/params")]
+        public async Task<IActionResult> GetPDCStudentByParams([FromBody] GetCertifiedRequestModel requestModel)
+        {
+            var students = await StudentService.GetPDCStudentByParams(requestModel.Certificated);
+            return Ok(students);
+        }
+
+        [HttpPut("certification")]
+        public async Task<IActionResult> UpdateStudentCertificationByIdsAsync([FromBody] string studentIds)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await StudentService.UpdateStudentCertificationByIdsAsync(studentIds);
+            return Ok();
+        }
+
+        [HttpPut("pdc/certification")]
+        public async Task<IActionResult> UpdatePDCStudentCertificationByIdsAsync([FromBody] string studentIds)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await StudentService.UpdatePDCStudentCertificationByIdsAsync(studentIds);
+            return Ok();
+        }
+
+        [HttpPut("uncertified")]
+        public async Task<IActionResult> UpdateUncertifiedStudentByIdAsync([FromBody] int studentIds)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await StudentService.UpdateUncertifiedStudentByIdAsync(studentIds);
+            return Ok();
+        }
+        [HttpPut("pdc/uncertified")]
+        public async Task<IActionResult> UpdateUncertifiedPDCStudentByIdAsync([FromBody] int studentIds)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await StudentService.UpdateUncertifiedPDCStudentByIdAsync(studentIds);
+            return Ok();
+        }
+
     }
 }

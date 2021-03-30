@@ -14,6 +14,8 @@ BEGIN
 		   ,ups.Remarks
 		   ,ups.StudentPermit
 		   ,ups.DateRegistered
+		   ,ups.Certified
+		   ,ups.DateCertified
 		   ,ups.CreatedBy
 		   ,ups.UpdatedBy
 

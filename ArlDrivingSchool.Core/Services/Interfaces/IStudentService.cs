@@ -26,5 +26,11 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task DeletePDCStudentAsync(int pdcStudentId);
         Task CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel, int userId);
         Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudentFullDetailRequestModel requestModel, int userId);
+        Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified);
+        Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified);
+        Task UpdateStudentCertificationByIdsAsync(string ids);
+        Task UpdatePDCStudentCertificationByIdsAsync(string ids);
+        Task UpdateUncertifiedStudentByIdAsync(int id);
+        Task UpdateUncertifiedPDCStudentByIdAsync(int id);
     }
 }

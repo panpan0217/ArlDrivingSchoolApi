@@ -14,6 +14,8 @@ BEGIN
 		   ,lt.StatusName [TDCStatus]
 		   ,us.Remarks
 		   ,us.DateRegistered
+		   ,us.Certified
+		   ,us.DateCertified
 		   ,us.CreatedBy
 		   ,us.UpdatedBy
 

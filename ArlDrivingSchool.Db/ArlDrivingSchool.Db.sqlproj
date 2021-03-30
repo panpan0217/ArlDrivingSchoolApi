@@ -147,6 +147,12 @@
     <Build Include="StoredProcedures\Sessions\uspUpdatePDCSession.sql" />
     <Build Include="StoredProcedures\Sessions\uspInsertPDCSession.sql" />
     <Build Include="StoredProcedures\Users\uspGetUserByUserId.sql" />
+    <Build Include="StoredProcedures\Users\uspGetPDCStudentByParams.sql" />
+    <Build Include="StoredProcedures\Users\uspGetTDCStudentByParams.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdatePDCStudentCertificationByIds.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateStudentCertificationByIds.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateUncertifiedPDCStudentById.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateUncertifiedStudentById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

@@ -251,5 +251,34 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.UpdatePDCStudentByStudentIdAsync(student, $"{user.FirstName} {user.LastName}");
 
         }
+
+        public async Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified)
+        {
+            return await StudentRepository.GetStudentByParams(certified);
+        }
+
+        public async Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified)
+        {
+            return await StudentRepository.GetPDCStudentByParams(certified);
+        }
+
+        public async Task UpdateStudentCertificationByIdsAsync(string ids)
+        {
+            await StudentRepository.UpdateStudentCertificationByIdsAsync(ids);
+        }
+        public async Task UpdatePDCStudentCertificationByIdsAsync(string ids)
+        {
+            await StudentRepository.UpdatePDCStudentCertificationByIdsAsync(ids);
+        }
+
+        public async Task UpdateUncertifiedStudentByIdAsync(int id)
+        {
+            await StudentRepository.UpdateUncertifiedStudentByIdAsync(id);
+        }
+
+        public async Task UpdateUncertifiedPDCStudentByIdAsync(int id)
+        {
+            await StudentRepository.UpdateUncertifiedPDCStudentByIdAsync(id);
+        }
     }
 }

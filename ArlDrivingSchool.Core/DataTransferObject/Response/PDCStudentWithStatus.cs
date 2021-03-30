@@ -19,6 +19,8 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
 
         public string Remarks { get; set; }
         public string StudentPermit { get; set; }
+        public bool Certified { get; set; }
+        public DateTime DateCertified { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
 

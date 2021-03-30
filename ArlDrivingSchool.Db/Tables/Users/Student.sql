@@ -12,6 +12,8 @@
 	[ACESStatusId]			INT				NOT NULL,
 	[Remarks]				NVARCHAR(255)	NULL,
 	[DateRegistered]		DATETIME2		NOT NULL,
+	[Certified]				BIT				NOT NULL DEFAULT 0,
+	[DateCertified]			DATETIME2		NULL,
 	[CreatedBy]             NVARCHAR(257)   NOT NULL DEFAULT 'admin', 
 	[UpdatedBy]             NVARCHAR(257)   NULL,
 	CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),

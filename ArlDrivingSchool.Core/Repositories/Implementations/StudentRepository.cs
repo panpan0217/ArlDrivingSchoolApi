@@ -261,5 +261,75 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return result > 0;
         }
+
+        public async Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.QueryAsync<StudentCertification>(
+                   "[users].[uspGetTDCStudentByParams]",
+                   new {
+                        Certificated = certified
+                   },
+                   commandType: CommandType.StoredProcedure
+               );
+
+        }
+
+        public async Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.QueryAsync<PDCStudentCertification>(
+                   "[users].[uspGetPDCStudentByParams]",
+                   new
+                   {
+                       Certificated = certified
+                   },
+                   commandType: CommandType.StoredProcedure
+               );
+        }
+
+        public async Task UpdateStudentCertificationByIdsAsync(string ids)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var result = await connection.ExecuteAsync("[users].[usp_UpdateStudentCertificationByIds]",
+                                                      new { 
+                                                        Ids = $",{ids},"
+                                                      },
+                                                      commandType: CommandType.StoredProcedure);
+        }
+        public async Task UpdatePDCStudentCertificationByIdsAsync(string ids)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var result = await connection.ExecuteAsync("[users].[uspUpdatePDCStudentCertificationByIds]",
+                                                      new
+                                                      {
+                                                          Ids = $",{ids},"
+                                                      },
+                                                      commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task UpdateUncertifiedStudentByIdAsync(int id)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var result = await connection.ExecuteAsync("[users].[uspUpdateUncertifiedStudentById]",
+                                                      new
+                                                      {
+                                                          Id = id
+                                                      },
+                                                      commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task UpdateUncertifiedPDCStudentByIdAsync(int id)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var result = await connection.ExecuteAsync("[users].[uspUpdateUncertifiedPDCStudentById]",
+                                                      new
+                                                      {
+                                                          Id = id
+                                                      },
+                                                      commandType: CommandType.StoredProcedure);
+        }
     }
 }
