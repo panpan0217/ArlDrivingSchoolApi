@@ -38,7 +38,15 @@ namespace ArlDrivingSchoolApi.Controllers
             var studentsWithDetails = await StudentService.GetAllStudentWithDetailsAsync();
             return Ok(studentsWithDetails);
         }
+        [HttpPost("details/dateRange")]
+        public async Task<IActionResult> GetStudentWithDetailsByDateRangeAsync([FromBody] DateRangeRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
 
+            var studentsWithDetails = await StudentService.GetStudentWithDetailsByDateRangeAsync(requestModel.StartDate, requestModel.EndDate);
+            return Ok(studentsWithDetails);
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)

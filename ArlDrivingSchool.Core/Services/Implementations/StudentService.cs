@@ -42,7 +42,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetAllStudentWithDetailsAsync();
         }
-
+        public async Task<IEnumerable<StudentDetails>> GetStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            return await StudentRepository.GetStudentWithDetailsByDateRangeAsync(startDate, endDate);
+        }
         public async Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId)
         {
             var user = await UserRepository.GetUserByUserId(userId);
@@ -280,5 +283,6 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             await StudentRepository.UpdateUncertifiedPDCStudentByIdAsync(id);
         }
+
     }
 }

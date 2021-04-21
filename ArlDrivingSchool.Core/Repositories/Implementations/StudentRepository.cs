@@ -55,7 +55,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
         public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync()
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
-            var students = await connection.QueryAsync<StudentWithStatus, Payment, SessionOne,SessionTwo, 
+            var students = await connection.QueryAsync<StudentWithStatus, Payment, SessionOne, SessionTwo,
                                                                             SessionThree, StudentDetails>(
                "users.uspGetAllStudentWithDetails",
                map: (studentWithStatus, payment, sessionOne, sessionTwo, sessionThree) =>
@@ -70,6 +70,36 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                    };
                },
                splitOn: "StudentId,PaymentId,SessionOneId,SessionTwoId,SessionThreeId",
+               commandType: CommandType.StoredProcedure);
+
+            return students;
+        }
+
+        public async Task<IEnumerable<StudentDetails>> GetStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var students = await connection.QueryAsync<StudentWithStatus, Payment, SessionOne, SessionTwo,
+                                                                            SessionThree, StudentDetails>(
+               "[users].[uspGetStudentWithDetailsByDateRange]",
+
+               map: (studentWithStatus, payment, sessionOne, sessionTwo, sessionThree) =>
+               {
+                   return new StudentDetails
+                   {
+                       StudentWithStatus = studentWithStatus,
+                       Payment = payment,
+                       SessionOne = sessionOne,
+                       SessionTwo = sessionTwo,
+                       SessionThree = sessionThree
+                   };
+               },
+               new
+               {
+                   StartDate = startDate,
+                   EndDate = endDate
+               },
+               splitOn: "StudentId,PaymentId,SessionOneId,SessionTwoId,SessionThreeId",
+
                commandType: CommandType.StoredProcedure);
 
             return students;
@@ -120,9 +150,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             };
 
             var result = await connection.ExecuteAsync("users.uspUpdateStudentByStudentId",
-                                                        request, 
+                                                        request,
                                                         commandType: CommandType.StoredProcedure);
-          
+
 
             return result > 0;
         }
@@ -268,8 +298,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return await connection.QueryAsync<StudentCertification>(
                    "[users].[uspGetTDCStudentByParams]",
-                   new {
-                        Certificated = certified
+                   new
+                   {
+                       Certificated = certified
                    },
                    commandType: CommandType.StoredProcedure
                );
@@ -294,8 +325,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var result = await connection.ExecuteAsync("[users].[usp_UpdateStudentCertificationByIds]",
-                                                      new { 
-                                                        Ids = $",{ids},"
+                                                      new
+                                                      {
+                                                          Ids = $",{ids},"
                                                       },
                                                       commandType: CommandType.StoredProcedure);
         }

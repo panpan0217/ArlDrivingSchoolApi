@@ -153,6 +153,7 @@
     <Build Include="StoredProcedures\Users\uspUpdateStudentCertificationByIds.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateUncertifiedPDCStudentById.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateUncertifiedStudentById.sql" />
+    <Build Include="StoredProcedures\Users\uspGetStudentWithDetailsByDateRange.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
