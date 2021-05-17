@@ -8,5 +8,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
     {
         public DateTime Date { get; set; }
         public string Schedule { get; set; }
+        public int BranchId { get; set; }
     }
 }

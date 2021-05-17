@@ -50,7 +50,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return pDCSessions;
         }
 
-        public async Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation)
+        public async Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, 
+            string sessionLocation, int branchId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertSessionOne]",
@@ -60,13 +61,15 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         SessionDate = sessionDate,
                                                                         Schedule = schedule,
                                                                         Shuttle = shuttle,
-                                                                        SessionLocation = sessionLocation
+                                                                        SessionLocation = sessionLocation,
+                                                                        BranchId = branchId
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return sessionId;
         }
 
-        public async Task<int> CreateSessionTwoAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation)
+        public async Task<int> CreateSessionTwoAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, 
+            string sessionLocation, int branchId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertSessionTwo]",
@@ -76,13 +79,15 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         SessionDate = sessionDate,
                                                                         Schedule = schedule,
                                                                         Shuttle = shuttle,
-                                                                        SessionLocation = sessionLocation
+                                                                        SessionLocation = sessionLocation,
+                                                                        BranchId = branchId
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return sessionId;
         }
 
-        public async Task<int> CreateSessionThreeAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation)
+        public async Task<int> CreateSessionThreeAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, 
+            string sessionLocation, int branchId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertSessionThree]",
@@ -92,7 +97,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         SessionDate = sessionDate,
                                                                         Schedule = schedule,
                                                                         Shuttle = shuttle,
-                                                                        SessionLocation = sessionLocation
+                                                                        SessionLocation = sessionLocation,
+                                                                        BranchId = branchId
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return sessionId;

@@ -1,7 +1,8 @@
 ﻿CREATE PROCEDURE [users].[uspGetStudentScheduleByDate]
 	@Date		DATETIME2,
 	@Schedule	NVARCHAR(55),
-	@SessionLocation NVARCHAR(55)
+	@SessionLocation NVARCHAR(55),
+	@BranchId		INT
 AS
 BEGIN
 		SELECT 
@@ -20,6 +21,7 @@ BEGIN
 
 	INNER JOIN sessions.SessionThree AS sth ON sth.StudentId = ss.StudentId
 	AND CAST(sth.SessionDate as date) = @Date AND sth.Schedule = @Schedule AND @SessionLocation = sth.SessionLocation
+	AND sth.BranchId =@BranchId
 
 	UNION ALL
 
@@ -39,7 +41,7 @@ BEGIN
 
 	INNER JOIN sessions.SessionTwo AS stw ON stw.StudentId = ss.StudentId
 	AND CAST(stw.SessionDate as date) = @Date AND stw.Schedule = @Schedule AND stw.SessionLocation = @SessionLocation
-
+	AND stw.BranchId =@BranchId
 	UNION ALL
 
 	SELECT 
@@ -58,5 +60,6 @@ BEGIN
 
 	INNER JOIN sessions.SessionOne AS so ON so.StudentId = ss.StudentId 
 	AND CAST(so.SessionDate as date) = @Date AND so.Schedule = @Schedule AND @SessionLocation = so.SessionLocation
+	AND so.BranchId =@BranchId
 END
 GO;

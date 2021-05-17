@@ -16,6 +16,7 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertUserType.sql
 :r .\Inserts\Lookups\InsertRestriction.sql
 :r .\Inserts\Lookups\InsertTransmission.sql
+:r .\Inserts\Lookups\InsertBranch.sql
 
 
 --NOTE: RUN INSERT SCRIPTS USER ONCE ONLY FOR INITIAL ADMIN 

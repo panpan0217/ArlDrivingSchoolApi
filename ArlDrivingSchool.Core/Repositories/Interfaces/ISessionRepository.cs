@@ -12,9 +12,9 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
     {
         Task<IEnumerable<PDCSession>> GetPDCSessionByInstructorId(int instructorId);
         Task<IEnumerable<PDCSession>> GetAllPDCSessionAsync();
-        Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
-        Task<int> CreateSessionTwoAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
-        Task<int> CreateSessionThreeAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation);
+        Task<int> CreateSessionOneAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation, int branchId);
+        Task<int> CreateSessionTwoAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation, int branchId);
+        Task<int> CreateSessionThreeAsync(int studentId, DateTime sessionDate, string schedule, bool shuttle, string sessionLocation, int branchId);
         Task<bool> UpdateSessionOneByStudentIdAsync(UpdateSessionRequestModel paymentRequest);
         Task<bool> UpdateSessionTwoByStudentIdAsync(UpdateSessionRequestModel paymentRequest);
         Task<bool> UpdateSessionThreeByStudentIdAsync(UpdateSessionRequestModel paymentRequest);

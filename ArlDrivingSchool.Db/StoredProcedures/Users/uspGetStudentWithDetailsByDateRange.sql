@@ -33,6 +33,8 @@ BEGIN
 		   ,sso.Shuttle
 		   ,sso.SessionLocation
 		   ,sso.Attended
+		   ,sso.BranchId
+		   ,(SELECT BranchName FROM [lookups].Branch WHERE BranchId = sso.BranchId) AS BranchName
 
 		   ,sstw.SessionTwoId
 		   ,sstw.StudentId
@@ -41,6 +43,8 @@ BEGIN
 		   ,sstw.Shuttle
 		   ,sstw.SessionLocation
 		   ,sstw.Attended
+		   ,sstw.BranchId
+		   ,(SELECT BranchName FROM [lookups].Branch WHERE BranchId = sstw.BranchId) AS BranchName
 
 		   ,ssth.SessionThreeId
 		   ,ssth.StudentId
@@ -49,6 +53,8 @@ BEGIN
 		   ,ssth.Shuttle
 		   ,ssth.SessionLocation
 		   ,ssth.Attended
+		   ,ssth.BranchId
+		   ,(SELECT BranchName FROM [lookups].Branch WHERE BranchId = ssth.BranchId) AS BranchName
 
 	FROM users.Student AS us
 			INNER JOIN lookups.StudentStatus AS ls ON ls.StudentStatusId = us.StudentStatusId

@@ -108,7 +108,11 @@ namespace ArlDrivingSchoolApi.Controllers
         [HttpPost("schedule")]
         public async Task<IActionResult> GetScheduleByDateAsync([FromBody] GetScheduleByDateRequestModel requestModel)
         {
-            var studentSchedule = await StudentService.GetStudentScheduleByDateAsync(requestModel.Date, requestModel.Schedule, requestModel.SessionLocation);
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var studentSchedule = await StudentService.GetStudentScheduleByDateAsync(requestModel.Date, requestModel.Schedule, 
+                requestModel.SessionLocation, requestModel.BranchId);
 
             return Ok(studentSchedule);
         }
@@ -116,7 +120,7 @@ namespace ArlDrivingSchoolApi.Controllers
         [HttpPost("schedule/shuttle")]
         public async Task<IActionResult> GetShuttleScheduleByDateAsync([FromBody] GetShuttleScheduleByDateRequestModel requestModel)
         {
-            var shuttleSchedule = await StudentService.GetShuttleScheduleByDateAsync(requestModel.Date, requestModel.Schedule);
+            var shuttleSchedule = await StudentService.GetShuttleScheduleByDateAsync(requestModel.Date, requestModel.Schedule, requestModel.BranchId);
 
             return Ok(shuttleSchedule);
 

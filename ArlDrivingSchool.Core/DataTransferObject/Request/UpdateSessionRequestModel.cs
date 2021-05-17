@@ -11,5 +11,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string Schedule { get; set; }
         public bool Shuttle { get; set; }
         public string SessionLocation { get; set; }
+        public int SessionBranchId { get; set; }
     }
 }

@@ -26,13 +26,16 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string SessionOneSchedule { get; set; }
         public bool SessionOneShuttle { get; set; }
         public string SessionOneLocation { get; set; }
+        public int SessionOneBranchId { get; set; }
         public DateTime SessionTwoDate { get; set; }
         public string SessionTwoSchedule { get; set; }
         public bool SessionTwoShuttle { get; set; }
         public string SessionTwoLocation { get; set; }
+        public int SessionTwoBranchId { get; set; }
         public DateTime SessionThreeDate { get; set; }
         public string SessionThreeSchedule { get; set; }
         public bool SessionThreeShuttle { get; set; }
         public string SessionThreeLocation { get; set; }
+        public int SessionThreeBranchId { get; set; }
     }
 }

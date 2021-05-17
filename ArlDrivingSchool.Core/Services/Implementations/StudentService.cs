@@ -69,7 +69,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 sessionDate: requestModel.SessionOneDate,
                 schedule: requestModel.SessionOneSchedule,
                 shuttle: requestModel.SessionOneShuttle,
-                sessionLocation: requestModel.SessionOneLocation
+                sessionLocation: requestModel.SessionOneLocation,
+                branchId: requestModel.SessionOneBranchId
                 );
          
             await SessionRepository.CreateSessionTwoAsync(
@@ -77,7 +78,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 sessionDate: requestModel.SessionTwoDate,
                 schedule: requestModel.SessionTwoSchedule,
                 shuttle: requestModel.SessionTwoShuttle,
-                sessionLocation: requestModel.SessionTwoLocation
+                sessionLocation: requestModel.SessionTwoLocation,
+                branchId : requestModel.SessionTwoBranchId
                 );
             
             await SessionRepository.CreateSessionThreeAsync(
@@ -85,7 +87,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 sessionDate: requestModel.SessionThreeDate,
                 schedule: requestModel.SessionThreeSchedule,
                 shuttle: requestModel.SessionThreeShuttle,
-                sessionLocation: requestModel.SessionThreeLocation
+                sessionLocation: requestModel.SessionThreeLocation,
+                 branchId: requestModel.SessionThreeBranchId
                 );
 
             await PaymentRepository.CreatePaymentAsync(
@@ -121,7 +124,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 SessionDate = request.SessionOneDate,
                 Schedule = request.SessionOneSchedule,
                 SessionLocation = request.SessionOneLocation,
-                Shuttle = request.SessionOneShuttle
+                Shuttle = request.SessionOneShuttle,
+                SessionBranchId =  request.SessionOneBranchId
             };
 
             var sessionTwo = new UpdateSessionRequestModel
@@ -130,7 +134,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 SessionDate = request.SessionTwoDate,
                 Schedule = request.SessionTwoSchedule,
                 SessionLocation = request.SessionTwoLocation,
-                Shuttle = request.SessionTwoShuttle
+                Shuttle = request.SessionTwoShuttle,
+                SessionBranchId = request.SessionTwoBranchId
             };
 
             var sessionThree = new UpdateSessionRequestModel
@@ -139,7 +144,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 SessionDate = request.SessionThreeDate,
                 Schedule = request.SessionThreeSchedule,
                 SessionLocation = request.SessionThreeLocation,
-                Shuttle = request.SessionThreeShuttle
+                Shuttle = request.SessionThreeShuttle,
+                SessionBranchId = request.SessionThreeBranchId
             };
             var payment = new UpdatePaymentRequestModel
             {
@@ -170,14 +176,14 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             await StudentRepository.DeleteStudentAsync(studentId);
         }
 
-        public async Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessonLocation)
+        public async Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessonLocation, int branchId)
         {
-            return await StudentRepository.GetStudentScheduleByDateAsync(date, schedule, sessonLocation);
+            return await StudentRepository.GetStudentScheduleByDateAsync(date, schedule, sessonLocation, branchId);
         }
 
-        public async Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule)
+        public async Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule, int branchId)
         {
-            return await StudentRepository.GetShuttleScheduleByDateAsync(date, schedule);
+            return await StudentRepository.GetShuttleScheduleByDateAsync(date, schedule, branchId);
         }
 
         public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()

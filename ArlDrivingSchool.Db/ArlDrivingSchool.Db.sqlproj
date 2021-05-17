@@ -99,7 +99,7 @@
     <Build Include="StoredProcedures\Lookups\uspGetTDCStatus.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateStudentByStudentId.sql" />
     <Build Include="StoredProcedures\Sessions\uspUpdateSessionOneByStudentId.sql" />
-    <Build Include="StoredProcedures\Sessions\upsUpdateSessionTwoByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateSessionTwoByStudentId.sql" />
     <Build Include="StoredProcedures\Sessions\uspUpdateSessionThreeByStudentId.sql" />
     <Build Include="StoredProcedures\Payments\uspUpdatePaymentByStudentId.sql" />
     <Build Include="StoredProcedures\Users\uspDeleteStudent.sql" />
@@ -154,6 +154,7 @@
     <Build Include="StoredProcedures\Users\uspUpdateUncertifiedPDCStudentById.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateUncertifiedStudentById.sql" />
     <Build Include="StoredProcedures\Users\uspGetStudentWithDetailsByDateRange.sql" />
+    <Build Include="Tables\Lookups\Branch.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
@@ -165,6 +166,7 @@
     <None Include="Scripts\Inserts\Lookups\InsertUserType.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertRestriction.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertTransmission.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertBranch.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ArlDrivingSchool.Db.refactorlog" />

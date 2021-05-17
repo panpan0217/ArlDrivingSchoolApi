@@ -18,8 +18,8 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId);
         Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel student, int userId);
         Task DeleteStudentAsync(int studentId);
-        Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation);
-        Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule);
+        Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation, int branchId);
+        Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule, int branchId);
 
         Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync();
 

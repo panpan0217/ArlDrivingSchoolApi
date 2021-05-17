@@ -3,7 +3,8 @@
 	@SessionDate		Date,
 	@Schedule			NVARCHAR(55),
 	@Shuttle			BIT,
-	@SessionLocation	NVARCHAR(55)
+	@SessionLocation	NVARCHAR(55),
+	@SessionBranchId	INT
 AS
 BEGIN
 	
@@ -13,7 +14,7 @@ BEGIN
 	,Schedule = @Schedule
 	,Shuttle = @Shuttle
 	,SessionLocation =@SessionLocation
-
+	,BranchId = @SessionBranchId
 	WHERE StudentId = @StudentId
 END
 GO;

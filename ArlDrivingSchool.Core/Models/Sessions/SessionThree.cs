@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ArlDrivingSchool.Core.Models.Sessions
 {
@@ -13,6 +11,8 @@ namespace ArlDrivingSchool.Core.Models.Sessions
         public bool Shuttle { get; set; }
         public string SessionLocation { get; set; }
         public bool Attended { get; set; }
+        public int BranchId { get; set; }
+        public string BranchName { get; set; }
 
     }
 }

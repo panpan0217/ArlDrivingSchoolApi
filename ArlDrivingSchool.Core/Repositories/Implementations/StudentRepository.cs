@@ -170,7 +170,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation)
+        public async Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation, int branchId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -178,7 +178,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             {
                 Date = date,
                 Schedule = schedule,
-                SessionLocation = sessionLocation
+                SessionLocation = sessionLocation,
+                BranchId = branchId
             };
 
             var studentSchedule = await connection.QueryAsync<StudentSchedule>(
@@ -190,13 +191,14 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return studentSchedule;
         }
 
-        public async Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule)
+        public async Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule, int branchId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var parameter = new
             {
                 Date = date,
-                Schedule = schedule
+                Schedule = schedule,
+                BranchId = branchId
             };
 
             var shuttleSchedule = await connection.QueryAsync<ShuttleSchedule>(

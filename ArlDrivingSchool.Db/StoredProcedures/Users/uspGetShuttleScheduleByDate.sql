@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [users].[uspGetShuttleScheduleByDate]
 	@Date		DATETIME2,
-	@Schedule	NVARCHAR(55)
+	@Schedule	NVARCHAR(55),
+	@BranchId	INT
 AS
 BEGIN
 	SELECT 
@@ -13,7 +14,7 @@ BEGIN
 	FROM users.Student AS ss
 	INNER JOIN sessions.SessionOne AS so ON so.StudentId = ss.StudentId
 	AND CAST(so.SessionDate as date) = @Date AND so.Schedule = @Schedule AND so.Shuttle = 1
-
+	AND so.BranchId = @BranchId
 	UNION ALL
 
 	SELECT 
@@ -26,7 +27,7 @@ BEGIN
 	FROM users.Student AS ss
 	INNER JOIN sessions.SessionTwo AS st ON st.StudentId = ss.StudentId
 	AND CAST(st.SessionDate as date) = @Date AND st.Schedule = @Schedule AND st.Shuttle = 1
-
+	AND st.BranchId = @BranchId
 	UNION ALL
 
 	SELECT 
@@ -39,6 +40,6 @@ BEGIN
 	FROM users.Student AS ss
 	INNER JOIN sessions.SessionThree AS sth ON sth.StudentId = ss.StudentId
 	AND CAST(sth.SessionDate as date) = @Date AND sth.Schedule = @Schedule AND sth.Shuttle = 1
-
+	AND sth.BranchId = @BranchId
 END
 GO;

@@ -4,7 +4,8 @@
 	@SessionDate Date,
 	@Schedule NVARCHAR(55),
 	@Shuttle BIT,
-	@SessionLocation NVARCHAR(55)
+	@SessionLocation NVARCHAR(55),
+	@BranchId INT
 )
 AS
 BEGIN 
@@ -14,7 +15,8 @@ BEGIN
 		SessionDate,
 		Schedule,
 		Shuttle,
-		SessionLocation
+		SessionLocation,
+		BranchId
 	)
 	VALUES 
 	(
@@ -22,7 +24,8 @@ BEGIN
 		@SessionDate,
 		@Schedule,
 		@Shuttle,
-		@SessionLocation
+		@SessionLocation,
+		@BranchId
 	);
 
 	SELECT SCOPE_IDENTITY();
