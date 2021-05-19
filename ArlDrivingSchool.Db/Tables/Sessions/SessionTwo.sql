@@ -7,7 +7,7 @@
     [Shuttle]           BIT             NOT NULL DEFAULT 0, 
     [SessionLocation]   NVARCHAR(50)    NULL,
     [Attended]          BIT             NOT NULL DEFAULT 0, 
-    [BranchId]          INT             NULL,
+    [BranchId]          INT             NULL DEFAULT 2,
 
     CONSTRAINT [PK_SessionTwo] PRIMARY KEY CLUSTERED ([SessionTwoId] ASC),
     CONSTRAINT FK_SessionTwo_Student_StudentId FOREIGN KEY (StudentId) REFERENCES [users].[Student] (StudentId),
