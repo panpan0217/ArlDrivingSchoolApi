@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [users].[uspGetStudentWithDetailsByDateRange]
-	@StartDate DATETIME2 = '03-11-2021',
-	@EndDate DATETIME2 = '04-12-2021'
+	@StartDate DATETIME2,
+	@EndDate DATETIME2
 AS
 BEGIN
 	SELECT	us.StudentId
