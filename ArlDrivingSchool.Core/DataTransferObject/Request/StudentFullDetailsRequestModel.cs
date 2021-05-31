@@ -34,5 +34,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public bool SessionThreeShuttle { get; set; }
         public string SessionThreeLocation { get; set; }
         public int SessionThreeBranchId { get; set; }
+        public bool ForceCreate { get; set; }
     }
 }

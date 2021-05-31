@@ -290,5 +290,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             await StudentRepository.UpdateUncertifiedPDCStudentByIdAsync(id);
         }
 
+        public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsByFullNameAsync(string firstName, string lastName)
+        {
+            return await StudentRepository.GetAllStudentWithDetailsByFullNameAsync(firstName, lastName);
+        }
     }
 }

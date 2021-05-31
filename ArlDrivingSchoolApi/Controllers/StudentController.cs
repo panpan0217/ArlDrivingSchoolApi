@@ -53,8 +53,20 @@ namespace ArlDrivingSchoolApi.Controllers
         {
 
             var userId = Request.GetUserId(JWToken);
-
-            await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
+            var students = await StudentService.GetAllStudentWithDetailsByFullNameAsync(requestModel.FirstName, requestModel.LastName);
+            if (requestModel.ForceCreate)
+            {
+                await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
+                return Ok();
+            }
+            else
+            {
+                if (students.Count() > 0)
+                {
+                    return Ok(students);
+                }
+            }
+           
             return Ok();
         }
 

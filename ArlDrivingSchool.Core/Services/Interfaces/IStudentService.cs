@@ -14,6 +14,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<IEnumerable<Student>> GetAllAsync();
         Task<PDCStudent> GetPDCStudentByIdAsync(int pDCStudentId);
         Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync();
+        Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsByFullNameAsync(string firstName, string lastName);
         Task<IEnumerable<StudentDetails>> GetStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId);
         Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel student, int userId);

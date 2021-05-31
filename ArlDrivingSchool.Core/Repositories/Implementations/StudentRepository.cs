@@ -365,5 +365,32 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                       },
                                                       commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsByFullNameAsync(string firstName, string lastName)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var students = await connection.QueryAsync<StudentWithStatus, Payment, SessionOne, SessionTwo,
+                                                                            SessionThree, StudentDetails>(
+               "[users].[uspGetAllStudentWithDetailsByFullName]",
+               map: (studentWithStatus, payment, sessionOne, sessionTwo, sessionThree) =>
+               {
+                   return new StudentDetails
+                   {
+                       StudentWithStatus = studentWithStatus,
+                       Payment = payment,
+                       SessionOne = sessionOne,
+                       SessionTwo = sessionTwo,
+                       SessionThree = sessionThree
+                   };
+               },
+               new { 
+                    FirstName = firstName,
+                    LastName = lastName
+               },
+               splitOn: "StudentId,PaymentId,SessionOneId,SessionTwoId,SessionThreeId",
+               commandType: CommandType.StoredProcedure);
+
+            return students;
+        }
     }
 }
