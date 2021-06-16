@@ -17,8 +17,9 @@ INSERT INTO @UserType
 VALUES
  (1, 'Admin')
 ,(2, 'Manager')
-,(3, 'Instructor')
-,(4, 'Student');
+,(3, 'Assistant')
+,(4, 'Instructor')
+,(5, 'Student');
 
 MERGE INTO [lookups].[UserType] AS target
 USING @UserType AS source
