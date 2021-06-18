@@ -66,7 +66,9 @@ namespace ArlDrivingSchoolApi.Controllers
                     return Ok(students);
                 }
             }
-           
+
+            // If no same record student
+            await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
             return Ok();
         }
 
