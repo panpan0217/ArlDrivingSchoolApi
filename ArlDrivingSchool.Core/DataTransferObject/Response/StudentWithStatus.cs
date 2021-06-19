@@ -24,6 +24,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
 
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
+        public string FullName => FirstName + ' ' + LastName;
 
 
     }
