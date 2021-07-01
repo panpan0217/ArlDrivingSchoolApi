@@ -191,6 +191,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.GetAllPDCStudentWithDetailsAsync();
         }
 
+        public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsByFullNameAsync(string fullName)
+        {
+            return await StudentRepository.GetAllPDCStudentWithDetailsByFullNameAsync(fullName);
+        }
+
         public async Task DeletePDCStudentAsync(int pdcStudentId)
         {
             await StudentRepository.DeletePDCStudentAsync(pdcStudentId);

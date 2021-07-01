@@ -156,6 +156,7 @@
     <Build Include="StoredProcedures\Users\uspGetStudentWithDetailsByDateRange.sql" />
     <Build Include="Tables\Lookups\Branch.sql" />
     <Build Include="StoredProcedures\Users\uspGetAllStudentWithDetailsByFullName.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAllPDCStudentWithDetailsByFullName.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

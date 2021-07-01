@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [users].[uspGetAllStudentWithDetailsByFullName]
 (
-	 @FirstName NVARCHAR(164) = 'test'
+	 @FirstName NVARCHAR(164)
 	,@LastName	NVARCHAR(164)
 )
 AS

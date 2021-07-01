@@ -37,5 +37,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public DateTime SessionFourStartTime { get; set; }
         public DateTime SessionFourEndTime { get; set; }
         public bool SessionFourAttended { get; set; }
+        public bool ForceCreate { get; set; }
     }
 }

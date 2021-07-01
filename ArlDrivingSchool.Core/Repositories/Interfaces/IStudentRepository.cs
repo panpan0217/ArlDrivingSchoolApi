@@ -24,6 +24,7 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule, int branchId);
 
         Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync();
+        Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsByFullNameAsync(string fullName);
         Task<int> DeletePDCStudentAsync(int pdcStudentId);
         Task<int> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel, string createdBy);
         Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudent pdcStudent, string updatedBy);

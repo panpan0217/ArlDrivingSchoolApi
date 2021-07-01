@@ -168,7 +168,21 @@ namespace ArlDrivingSchoolApi.Controllers
         public async Task<IActionResult> CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel)
         {
             var userId = Request.GetUserId(JWToken);
+            var students = await StudentService.GetAllPDCStudentWithDetailsByFullNameAsync(requestModel.FullName);
+            if (requestModel.ForceCreate)
+            {
+                await StudentService.CreatePDCStudentWithDetailsAsync(requestModel, userId);
+                return Ok();
+            }
+            else
+            {
+                if (students.Count() > 0)
+                {
+                    return Ok(students);
+                }
+            }
 
+            // If no same record student
             await StudentService.CreatePDCStudentWithDetailsAsync(requestModel, userId);
             return Ok();
         }

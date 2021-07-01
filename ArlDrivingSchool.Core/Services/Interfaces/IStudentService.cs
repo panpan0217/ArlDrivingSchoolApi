@@ -23,6 +23,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule, int branchId);
 
         Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync();
+        Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsByFullNameAsync(string fullName);
 
         Task DeletePDCStudentAsync(int pdcStudentId);
         Task CreatePDCStudentWithDetailsAsync(PDCStudentFullDetailRequestModel requestModel, int userId);

@@ -210,7 +210,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return shuttleSchedule;
 
         }
-
+        
         public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsAsync()
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
@@ -224,6 +224,29 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                        PDCPayment = pdcPayment
                    };
                },
+               splitOn: "PDCStudentId,PDCPaymentId",
+               commandType: CommandType.StoredProcedure);
+
+            return pdcStudents;
+        }
+
+        public async Task<IEnumerable<PDCStudentDetails>> GetAllPDCStudentWithDetailsByFullNameAsync(string fullName)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var pdcStudents = await connection.QueryAsync<PDCStudentWithStatus, PDCPayment, PDCStudentDetails>(
+               "[users].[uspGetAllPDCStudentWithDetailsByFullName]",
+               map: (pdcStudentWithStatus, pdcPayment) =>
+               {
+                   return new PDCStudentDetails
+                   {
+                       PDCStudentWithStatus = pdcStudentWithStatus,
+                       PDCPayment = pdcPayment
+                   };
+               },
+                new
+                {
+                    FullName = fullName,
+                },
                splitOn: "PDCStudentId,PDCPaymentId",
                commandType: CommandType.StoredProcedure);
 
