@@ -5,6 +5,11 @@
 )
 AS
 BEGIN
+	IF(@LastName IS NULL)
+		BEGIN
+			SET @LastName = ''
+		END
+
 	SELECT	us.StudentId
 		   ,us.FirstName
 		   ,us.LastName
