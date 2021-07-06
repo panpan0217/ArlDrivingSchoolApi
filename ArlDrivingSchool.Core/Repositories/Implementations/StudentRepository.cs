@@ -13,6 +13,7 @@ using ArlDrivingSchool.Core.DataTransferObject.Response;
 using ArlDrivingSchool.Core.Models.Payments;
 using ArlDrivingSchool.Core.Models.Sessions;
 using ArlDrivingSchool.Core.DataTransferObject.Request;
+using System.Linq;
 
 namespace ArlDrivingSchool.Core.Repositories.Implementations
 {
@@ -50,6 +51,33 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                );
 
             return pDCStudent;
+        }
+
+        public async Task<StudentDetails> GetStudentByIdAsync(int studentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var students = await connection.QueryAsync<StudentWithStatus, Payment, SessionOne, SessionTwo,
+                                                                            SessionThree, StudentDetails>(
+               "[users].[uspGetStudentWithDetailsById]",
+               map: (studentWithStatus, payment, sessionOne, sessionTwo, sessionThree) =>
+               {
+                   return new StudentDetails
+                   {
+                       StudentWithStatus = studentWithStatus,
+                       Payment = payment,
+                       SessionOne = sessionOne,
+                       SessionTwo = sessionTwo,
+                       SessionThree = sessionThree
+                   };
+               },
+               new
+               {
+                   StudentId = studentId
+               },
+               splitOn: "StudentId,PaymentId,SessionOneId,SessionTwoId,SessionThreeId",
+               commandType: CommandType.StoredProcedure);
+
+            return students.First();
         }
 
         public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsAsync()

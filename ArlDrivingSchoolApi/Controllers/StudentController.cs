@@ -38,6 +38,14 @@ namespace ArlDrivingSchoolApi.Controllers
             var studentsWithDetails = await StudentService.GetAllStudentWithDetailsAsync();
             return Ok(studentsWithDetails);
         }
+
+        [HttpGet("getStudentBy/{studentId}")]
+        public async Task<IActionResult> GetStudentById(int studentId)
+        {
+            var student = await StudentService.GetStudentByIdAsync(studentId);
+            return Ok(student);
+        }
+
         [HttpPost("details/dateRange")]
         public async Task<IActionResult> GetStudentWithDetailsByDateRangeAsync([FromBody] DateRangeRequestModel requestModel)
         {

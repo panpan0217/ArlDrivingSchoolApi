@@ -14,4 +14,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Schedule" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="532d9fab-bb6f-4b4e-b300-116fb4d78486" ChangeDateTime="03/13/2021 01:39:06">
+    <Property Name="ElementName" Value="[users].[PDCStudent].[TransmissionId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[users].[PDCStudent]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ATransmissionId" />
+  </Operation>
 </Operations>

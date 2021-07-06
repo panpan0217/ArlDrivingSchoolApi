@@ -34,5 +34,6 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task UpdatePDCStudentCertificationByIdsAsync(string ids);
         Task UpdateUncertifiedStudentByIdAsync(int id);
         Task UpdateUncertifiedPDCStudentByIdAsync(int id);
+        Task<StudentDetails> GetStudentByIdAsync(int studentId);
     }
 }
