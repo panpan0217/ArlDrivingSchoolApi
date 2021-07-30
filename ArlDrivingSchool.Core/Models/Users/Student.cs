@@ -19,7 +19,6 @@ namespace ArlDrivingSchool.Core.Models.Users
         public int ACESStatusId { get; set; }
         public string Remarks { get; set; }
         public DateTime DateRegistered { get; set; }
-
-
+        public string AuthenticatedBy { get; set; }
     }
 }

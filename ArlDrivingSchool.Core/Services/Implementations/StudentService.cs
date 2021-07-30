@@ -66,6 +66,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 TDCStatusId = requestModel.TDCStatusId,
                 ACESStatusId = requestModel.ACESStatusId,
                 Remarks = requestModel.Remarks,
+                AuthenticatedBy = requestModel.AuthenticatedBy
             };
             var studentId = await StudentRepository.CreateStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
 
@@ -120,7 +121,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 TDCStatusId = request.TDCStatusId,
                 ACESStatusId = request.ACESStatusId,
                 Remarks = request.Remarks,
-                DateRegistered = request.DateRegistered
+                DateRegistered = request.DateRegistered,
+                AuthenticatedBy = request.AuthenticatedBy
             };
 
             var sessionOne = new UpdateSessionRequestModel

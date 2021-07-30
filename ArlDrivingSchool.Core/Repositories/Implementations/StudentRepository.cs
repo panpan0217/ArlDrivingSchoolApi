@@ -149,7 +149,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         TDCStatusId = requestModel.TDCStatusId,
                                                                         ACESStatusId = requestModel.ACESStatusId,
                                                                         Remarks = requestModel.Remarks,
-                                                                        CreatedBy = createdBy
+                                                                        CreatedBy = createdBy,
+                                                                        AuthenticatedBy = requestModel.AuthenticatedBy
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
@@ -173,6 +174,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 student.ACESStatusId,
                 student.Remarks,
                 student.DateRegistered,
+                student.AuthenticatedBy,
                 UpdatedBy = updatedBy
 
             };

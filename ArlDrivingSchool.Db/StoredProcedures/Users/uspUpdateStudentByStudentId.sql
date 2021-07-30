@@ -11,7 +11,8 @@
 	@ACESStatusId		INT,
 	@Remarks			NVARCHAR(255),
 	@DateRegistered		DATETIME2,
-	@UpdatedBy			NVARCHAR(255)
+	@UpdatedBy			NVARCHAR(255),
+	@AuthenticatedBy	NVARCHAR(255)
 AS
 BEGIN
 	
@@ -29,6 +30,7 @@ BEGIN
 	,Remarks = @Remarks
 	,DateRegistered = @DateRegistered
 	,UpdatedBy = @UpdatedBy
+	,AuthenticatedBy = @AuthenticatedBy
 
 	WHERE StudentId = @StudentId
 
