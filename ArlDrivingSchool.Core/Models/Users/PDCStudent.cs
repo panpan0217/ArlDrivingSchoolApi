@@ -18,5 +18,6 @@ namespace ArlDrivingSchool.Core.Models.Users
         public int BTransmissionId { get; set; }
         public string Remarks { get; set; }
         public string StudentPermit { get; set; }
+        public string AuthenticatedBy { get; set; }
     }
 }

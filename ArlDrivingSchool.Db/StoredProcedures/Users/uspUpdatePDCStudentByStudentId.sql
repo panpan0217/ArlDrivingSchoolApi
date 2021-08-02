@@ -11,7 +11,8 @@
 	@BTransmissionId		INT,
 	@Remarks			NVARCHAR(255),
 	@StudentPermit		NVARCHAR(MAX),
-	@UpdatedBy			NVARCHAR(255)
+	@UpdatedBy			NVARCHAR(255),
+	@AuthenticatedBy	NVARCHAR(255)
 AS
 BEGIN
 	
@@ -29,7 +30,7 @@ BEGIN
 	,DateRegistered = @DateRegistered
 	,StudentPermit = @StudentPermit
 	,UpdatedBy = @UpdatedBy
-
+	,AuthenticatedBy = @AuthenticatedBy
 	WHERE PDCStudentId = @PDCStudentId
 
 END

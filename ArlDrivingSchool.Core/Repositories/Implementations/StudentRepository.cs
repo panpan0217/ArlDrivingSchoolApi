@@ -311,7 +311,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.BTransmissionId,
                                                                         Remarks = requestModel.Remarks,
                                                                         StudentPermit = requestModel.StudentPermit,
-                                                                        CreatedBy = createdBy
+                                                                        CreatedBy = createdBy,
+                                                                        AuthenticatedBy = requestModel.AuthenticatedBy
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
@@ -335,7 +336,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 pdcStudent.BTransmissionId,
                 pdcStudent.Remarks,
                 pdcStudent.StudentPermit,
-                UpdatedBy = updatedBy
+                UpdatedBy = updatedBy,
+                pdcStudent.AuthenticatedBy
 
             };
 

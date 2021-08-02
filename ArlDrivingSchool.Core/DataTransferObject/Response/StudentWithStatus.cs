@@ -21,7 +21,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public DateTime DateRegistered { get; set; }
         public bool Certified { get; set; }
         public DateTime DateCertified { get; set; }
-
+        public string AuthenticatedBy { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string FullName => FirstName + ' ' + LastName;

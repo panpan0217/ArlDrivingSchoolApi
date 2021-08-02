@@ -23,6 +23,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public DateTime DateCertified { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
+        public string AuthenticatedBy { get; set; }
 
 
     }

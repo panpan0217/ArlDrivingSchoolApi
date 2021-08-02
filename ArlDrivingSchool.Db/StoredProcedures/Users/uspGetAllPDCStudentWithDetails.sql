@@ -18,6 +18,7 @@ BEGIN
 		   ,ups.DateCertified
 		   ,ups.CreatedBy
 		   ,ups.UpdatedBy
+		   ,ups.AuthenticatedBy
 
 		   ,pp.PDCPaymentId
 		   ,pp.PDCStudentId

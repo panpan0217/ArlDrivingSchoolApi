@@ -225,7 +225,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 A1TransmissionId = requestModel.A1TransmissionId,
                 BTransmissionId = requestModel.BTransmissionId,
                 Remarks = requestModel.Remarks,
-                StudentPermit = requestModel.StudentPermit
+                StudentPermit = requestModel.StudentPermit,
+                AuthenticatedBy = requestModel.AuthenticatedBy
 
             };
 
@@ -255,7 +256,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 A1TransmissionId = request.A1TransmissionId,
                 BTransmissionId = request.BTransmissionId,
                 Remarks = request.Remarks,
-                StudentPermit = request.StudentPermit
+                StudentPermit = request.StudentPermit,
+                AuthenticatedBy = request.AuthenticatedBy
                
             };
 

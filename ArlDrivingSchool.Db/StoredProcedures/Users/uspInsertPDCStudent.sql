@@ -10,7 +10,8 @@
 	@BTransmissionId INT,
 	@Remarks NVARCHAR(255),
 	@StudentPermit NVARCHAR(255),
-	@CreatedBy NVARCHAR(255)
+	@CreatedBy NVARCHAR(255),
+	@AuthenticatedBy NVARCHAR(255)
 )
 AS
 BEGIN 
@@ -27,7 +28,8 @@ BEGIN
 		BTransmissionId,
 		Remarks,
 		StudentPermit,
-		CreatedBy
+		CreatedBy,
+		AuthenticatedBy
 	)
 	VALUES 
 	(
@@ -42,7 +44,8 @@ BEGIN
 		@BTransmissionId,
 		@Remarks,	
 		@StudentPermit,
-		@CreatedBy
+		@CreatedBy,
+		@AuthenticatedBy
 	);
 
 	SELECT SCOPE_IDENTITY();
