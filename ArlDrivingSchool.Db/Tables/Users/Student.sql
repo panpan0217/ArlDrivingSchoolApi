@@ -17,6 +17,7 @@
 	[CreatedBy]             NVARCHAR(257)   NOT NULL DEFAULT 'admin', 
 	[UpdatedBy]             NVARCHAR(257)   NULL,
 	[AuthenticatedBy]		NVARCHAR(255)	NULL, 
+	[SessionLocation]		NVARCHAR(50)    NULL,
     CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),
 	CONSTRAINT FK_Student_StudentStatus_StudentStatusId FOREIGN KEY (StudentStatusId) REFERENCES [lookups].[StudentStatus] (StudentStatusId),
 	CONSTRAINT FK_Student_TDCStatus_TDCStatusId FOREIGN KEY (TDCStatusId) REFERENCES [lookups].[TDCStatus] (TDCStatusId),
