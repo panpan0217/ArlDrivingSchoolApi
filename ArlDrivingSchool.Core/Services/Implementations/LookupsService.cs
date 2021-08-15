@@ -25,5 +25,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await LookupsRepository.GetALLTransmissionAsync();
         }
+
+        public async Task<IEnumerable<DriveSafeStatus>> GetDriveSafeStatusAsync()
+        {
+            return await LookupsRepository.GetDriveSafeStatusAsync();
+        }
     }
 }

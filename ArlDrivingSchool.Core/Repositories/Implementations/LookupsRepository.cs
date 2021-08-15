@@ -36,5 +36,10 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return await connection.QueryAsync<Transmission>("[lookups].[uspGetTransmission]"
                                                                 , commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<IEnumerable<DriveSafeStatus>> GetDriveSafeStatusAsync()
+        {
+            return await QueryAsync<DriveSafeStatus>("lookups.uspGetDriveSafeStatus");
+        }
     }
 }

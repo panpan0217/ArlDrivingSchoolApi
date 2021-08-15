@@ -29,5 +29,13 @@ namespace ArlDrivingSchoolApi.Controllers
             var trasmissions = await LookupsService.GetALLTransmissionAsync();
             return Ok(trasmissions);
         }
+
+        [HttpGet("driveSafeStatus")]
+        public async Task<IActionResult> GetDriveSafeStatusAsync()
+        {
+            var driveSafeStatuses = await LookupsService.GetDriveSafeStatusAsync();
+
+            return Ok(driveSafeStatuses);
+        }
     }
 }

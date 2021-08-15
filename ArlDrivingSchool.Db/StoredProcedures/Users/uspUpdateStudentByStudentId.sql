@@ -12,7 +12,10 @@
 	@Remarks			NVARCHAR(255),
 	@DateRegistered		DATETIME2,
 	@UpdatedBy			NVARCHAR(255),
-	@AuthenticatedBy	NVARCHAR(255)
+	@AuthenticatedBy	NVARCHAR(255),
+	@ClassType			NVARCHAR(55),
+	@SessionEmail		NVARCHAR(255),
+	@DriveSafeStatusId	INT
 AS
 BEGIN
 	
@@ -31,7 +34,9 @@ BEGIN
 	,DateRegistered = @DateRegistered
 	,UpdatedBy = @UpdatedBy
 	,AuthenticatedBy = @AuthenticatedBy
-
+	,ClassType = @ClassType
+	,SessionEmail = @SessionEmail
+	,DriveSafeStatusId = @DriveSafeStatusId
 	WHERE StudentId = @StudentId
 
 END

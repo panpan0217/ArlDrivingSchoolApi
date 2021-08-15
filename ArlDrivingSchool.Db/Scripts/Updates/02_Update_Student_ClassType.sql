@@ -1,13 +1,13 @@
 ﻿	DECLARE @StudentSessionOne TABLE
 	(
 		 StudentId     INT,
-		 SessionLocation NVARCHAR(50)
+		 ClassType NVARCHAR(50)
 	);
 
 	    INSERT INTO @StudentSessionOne
     (
          StudentId,
-		 SessionLocation
+		 ClassType
     )
     SELECT	StudentId, SessionLocation	
 	FROM [sessions].SessionOne;
@@ -18,4 +18,4 @@
 	USING @StudentSessionOne AS source
 		ON target.StudentId = source.StudentId
 	WHEN MATCHED THEN
-		UPDATE SET target.SessionLocation = source.SessionLocation;
+		UPDATE SET target.ClassType = source.ClassType;

@@ -20,6 +20,9 @@ BEGIN
 		   ,us.AuthenticatedBy
 		   ,us.CreatedBy
 		   ,us.UpdatedBy
+			,us.ClassType
+		   ,us.SessionEmail
+		   ,dss.StatusName [DriveSafeStatus]
 
 		   ,pp.PaymentId
 		   ,pp.StudentId
@@ -61,6 +64,7 @@ BEGIN
 			INNER JOIN lookups.StudentStatus AS ls ON ls.StudentStatusId = us.StudentStatusId
 			INNER JOIN lookups.ACESStatus AS la ON la.ACESStatusId = us.ACESStatusId
 			INNER JOIN lookups.TDCStatus AS lt ON lt.TDCStatusId = us.TDCStatusId
+			INNER JOIN lookups.DriveSafeStatus AS dss ON dss.DriveSafeStatusId = us.DriveSafeStatusId
 			LEFT JOIN payments.Payment AS pp ON pp.StudentId = us.StudentId
 			LEFT JOIN [sessions].SessionOne AS sso ON sso.StudentId = us.StudentId
 			LEFT JOIN [sessions].SessionTwo AS sstw ON sstw.StudentId = us.StudentId

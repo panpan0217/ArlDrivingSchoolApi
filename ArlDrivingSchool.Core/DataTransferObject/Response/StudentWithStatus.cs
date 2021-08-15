@@ -24,6 +24,9 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string AuthenticatedBy { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
+        public string ClassType { get; set; }
+        public string SessionEmail { get; set; }
+        public string DriveSafeStatus { get; set; }
         public string FullName => FirstName + ' ' + LastName;
 
 

@@ -38,5 +38,8 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string SessionThreeLocation { get; set; }
         public int SessionThreeBranchId { get; set; }
         public string AuthenticatedBy { get; set; }
+        public string ClassType { get; set; }
+        public string SessionEmail { get; set; }
+        public int DriveSafeStatusId { get; set; }
     }
 }

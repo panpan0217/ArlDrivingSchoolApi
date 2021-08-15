@@ -150,7 +150,11 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         ACESStatusId = requestModel.ACESStatusId,
                                                                         Remarks = requestModel.Remarks,
                                                                         CreatedBy = createdBy,
-                                                                        AuthenticatedBy = requestModel.AuthenticatedBy
+                                                                        AuthenticatedBy = requestModel.AuthenticatedBy,
+                                                                        ClassType = requestModel.ClassType,
+                                                                        SessionEmail = requestModel.SessionEmail,
+                                                                        DriveSafeStatusId = requestModel.DriveSafeStatusId
+
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
@@ -175,6 +179,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 student.Remarks,
                 student.DateRegistered,
                 student.AuthenticatedBy,
+                ClassType = student.ClassType,
+                SessionEmail = student.SessionEmail,
+                DriveSafeStatusId = student.DriveSafeStatusId,
                 UpdatedBy = updatedBy
 
             };

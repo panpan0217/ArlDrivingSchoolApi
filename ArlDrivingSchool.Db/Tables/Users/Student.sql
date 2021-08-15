@@ -18,8 +18,13 @@
 	[UpdatedBy]             NVARCHAR(257)   NULL,
 	[AuthenticatedBy]		NVARCHAR(255)	NULL, 
 	[SessionLocation]		NVARCHAR(50)    NULL,
+	[ClassType]				NVARCHAR(50)	NULL, 
+    [DriveSafeStatusId]		INT				NULL, 
+    [SessionEmail]			NVARCHAR(MAX)	NULL,
+
     CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),
 	CONSTRAINT FK_Student_StudentStatus_StudentStatusId FOREIGN KEY (StudentStatusId) REFERENCES [lookups].[StudentStatus] (StudentStatusId),
 	CONSTRAINT FK_Student_TDCStatus_TDCStatusId FOREIGN KEY (TDCStatusId) REFERENCES [lookups].[TDCStatus] (TDCStatusId),
 	CONSTRAINT FK_Student_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
+	CONSTRAINT FK_Student_DriveSafeStatus_DriveSafeStatusId FOREIGN KEY (DriveSafeStatusId) REFERENCES [lookups].[DriveSafeStatus] (DriveSafeStatusId)
 )

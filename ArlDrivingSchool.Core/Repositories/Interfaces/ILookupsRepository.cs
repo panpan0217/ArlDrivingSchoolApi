@@ -8,5 +8,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
     {
         Task<IEnumerable<Restriction>> GetAllRestrictionAsync();
         Task<IEnumerable<Transmission>> GetALLTransmissionAsync();
+        Task<IEnumerable<DriveSafeStatus>> GetDriveSafeStatusAsync();
     }
 }

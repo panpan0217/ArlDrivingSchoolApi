@@ -12,7 +12,6 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string Email { get; set; }
         public string Location { get; set; }
         public string FBContact { get; set; }
-   
         public string Mobile { get; set; }
         public int StudentStatusId { get; set; }
         public int TDCStatusId { get; set; }
@@ -20,5 +19,8 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string Remarks { get; set; }
         public DateTime DateRegistered { get; set; }
         public string AuthenticatedBy { get; set; }
+        public string ClassType { get; set; }
+        public string SessionEmail { get; set; }
+        public int DriveSafeStatusId { get; set; }
     }
 }

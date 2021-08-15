@@ -158,7 +158,8 @@
     <Build Include="StoredProcedures\Users\uspGetAllStudentWithDetailsByFullName.sql" />
     <Build Include="StoredProcedures\Users\uspGetAllPDCStudentWithDetailsByFullName.sql" />
     <Build Include="StoredProcedures\Users\uspGetStudentWithDetailsById.sql" />
-    <Build Include="Scripts\Updates\02_Update_Student_ClassType.sql" />
+    <None Include="Scripts\Updates\02_Update_Student_ClassType.sql" />
+    <Build Include="Tables\Lookups\DriveSafeStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
