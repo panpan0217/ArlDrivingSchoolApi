@@ -18,7 +18,10 @@
 	@DriveSafeStatusId	INT
 AS
 BEGIN
-	
+	IF (@DriveSafeStatusId = 0)
+	BEGIN
+		SET @DriveSafeStatusId = NULL;
+	END
 	UPDATE users.Student
 	SET
 	 FirstName = @FirstName

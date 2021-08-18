@@ -161,6 +161,7 @@
     <None Include="Scripts\Updates\02_Update_Student_ClassType.sql" />
     <Build Include="Tables\Lookups\DriveSafeStatus.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetDriveSafeStatus.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertDriveSafeStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

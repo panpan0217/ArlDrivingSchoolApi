@@ -17,6 +17,7 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertRestriction.sql
 :r .\Inserts\Lookups\InsertTransmission.sql
 :r .\Inserts\Lookups\InsertBranch.sql
+:r .\Inserts\Lookups\InsertDriveSafeStatus.sql
 
 
 --NOTE: RUN INSERT SCRIPTS USER ONCE ONLY FOR INITIAL ADMIN 
