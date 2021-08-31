@@ -39,6 +39,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public bool SessionFourAttended { get; set; }
         public bool ForceCreate { get; set; }
         public string AuthenticatedBy { get; set; }
+        public bool Certified { get; set; }
     }
 
 }

@@ -69,7 +69,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 AuthenticatedBy = requestModel.AuthenticatedBy,
                 ClassType = requestModel.ClassType,
                 SessionEmail = requestModel.SessionEmail,
-                DriveSafeStatusId = requestModel.DriveSafeStatusId
+                DriveSafeStatusId = requestModel.DriveSafeStatusId,
+                Certified = requestModel.Certified
             };
             var studentId = await StudentRepository.CreateStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
 
@@ -232,7 +233,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 BTransmissionId = requestModel.BTransmissionId,
                 Remarks = requestModel.Remarks,
                 StudentPermit = requestModel.StudentPermit,
-                AuthenticatedBy = requestModel.AuthenticatedBy
+                AuthenticatedBy = requestModel.AuthenticatedBy,
+                Certified = requestModel.Certified
 
             };
 
