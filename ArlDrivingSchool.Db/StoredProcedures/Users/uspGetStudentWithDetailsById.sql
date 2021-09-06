@@ -18,6 +18,7 @@ BEGIN
 		   ,us.DateRegistered
 		   ,us.Certified
 		   ,us.DateCertified
+		   ,us.AuthenticatedBy
 		   ,us.CreatedBy
 		   ,us.UpdatedBy
 

@@ -21,6 +21,8 @@ BEGIN
 		   ,us.DateRegistered
 		   ,us.Certified
 		   ,us.DateCertified
+		   ,us.ClassType
+		   ,us.AuthenticatedBy
 		   ,us.CreatedBy
 		   ,us.UpdatedBy
 
