@@ -9,6 +9,7 @@ BEGIN
 		ss.StudentId
 	   ,FirstName
 	   ,LastName
+	   ,a.StatusName AS AcesStatus
 	   ,FBContact
 	   ,Remarks
 	   ,sth.SessionDate 
@@ -18,7 +19,7 @@ BEGIN
 	   ,sth.Attended
 
 	FROM users.Student AS ss
-
+	INNER JOIN [lookups].[ACESStatus] AS a ON ss.ACESStatusId = a.ACESStatusId
 	INNER JOIN sessions.SessionThree AS sth ON sth.StudentId = ss.StudentId
 	AND CAST(sth.SessionDate as date) = @Date AND sth.Schedule = @Schedule AND @SessionLocation = sth.SessionLocation
 	AND sth.BranchId =@BranchId
@@ -29,6 +30,7 @@ BEGIN
 		ss.StudentId
 	   ,FirstName
 	   ,LastName
+	   ,a.StatusName AS AcesStatus
 	   ,FBContact
 	   ,Remarks
 	   ,stw.SessionDate 
@@ -38,7 +40,7 @@ BEGIN
 	   ,stw.Attended
 
 	FROM users.Student AS ss
-
+	INNER JOIN [lookups].[ACESStatus] AS a ON ss.ACESStatusId = a.ACESStatusId
 	INNER JOIN sessions.SessionTwo AS stw ON stw.StudentId = ss.StudentId
 	AND CAST(stw.SessionDate as date) = @Date AND stw.Schedule = @Schedule AND stw.SessionLocation = @SessionLocation
 	AND stw.BranchId =@BranchId
@@ -48,6 +50,7 @@ BEGIN
 		ss.StudentId
 	   ,FirstName
 	   ,LastName
+	   ,a.StatusName AS AcesStatus
 	   ,FBContact
 	   ,Remarks
 	   ,so.SessionDate 
@@ -57,7 +60,7 @@ BEGIN
 	   ,so.Attended
 
 	FROM users.Student AS ss
-
+	INNER JOIN [lookups].[ACESStatus] AS a ON ss.ACESStatusId = a.ACESStatusId
 	INNER JOIN sessions.SessionOne AS so ON so.StudentId = ss.StudentId 
 	AND CAST(so.SessionDate as date) = @Date AND so.Schedule = @Schedule AND @SessionLocation = so.SessionLocation
 	AND so.BranchId =@BranchId

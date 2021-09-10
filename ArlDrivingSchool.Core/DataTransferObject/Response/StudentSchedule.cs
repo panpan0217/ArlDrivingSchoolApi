@@ -9,6 +9,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public int StudentId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string AcesStatus { get; set; }
         public string FBContact { get; set; }
         public string Remarks { get; set; }
         public DateTime SessionDate { get; set; }
