@@ -8,6 +8,7 @@ using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -192,7 +193,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
         public async Task<IEnumerable<StudentSchedule>> GetStudentScheduleByDateAsync(DateTime date, string schedule, string sessonLocation, int branchId)
         {
-            return await StudentRepository.GetStudentScheduleByDateAsync(date, schedule, sessonLocation, branchId);
+            var scheduleByDate = await StudentRepository.GetStudentScheduleByDateAsync(date, schedule, sessonLocation, branchId);
+            scheduleByDate.ToList().ForEach(s => s.SessionsAttendedCount = s.SessionsAttended.Split(",").FirstOrDefault() == "" ? 0 : s.SessionsAttended.Split(",").Length);
+
+            return scheduleByDate;
+
         }
 
         public async Task<IEnumerable<ShuttleSchedule>> GetShuttleScheduleByDateAsync(DateTime date, string schedule, int branchId)

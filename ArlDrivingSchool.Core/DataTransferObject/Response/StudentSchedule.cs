@@ -17,6 +17,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string Session { get; set; }
         public string SessionLocation { get; set; }
         public string SessionsAttended { get; set; }
+        public int SessionsAttendedCount { get; set; }
         public bool Attended { get; set; }
 
     }
