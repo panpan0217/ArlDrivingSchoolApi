@@ -21,6 +21,7 @@
 	[ClassType]				NVARCHAR(50)	NULL, 
     [DriveSafeStatusId]		INT				NULL, 
     [SessionEmail]			NVARCHAR(MAX)	NULL,
+    [TextForm]				NVARCHAR(MAX)	NULL,
 
     CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),
 	CONSTRAINT FK_Student_StudentStatus_StudentStatusId FOREIGN KEY (StudentStatusId) REFERENCES [lookups].[StudentStatus] (StudentStatusId),

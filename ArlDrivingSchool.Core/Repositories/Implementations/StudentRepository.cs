@@ -154,7 +154,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         ClassType = requestModel.ClassType,
                                                                         SessionEmail = requestModel.SessionEmail,
                                                                         DriveSafeStatusId = requestModel.DriveSafeStatusId,
-                                                                        requestModel.Certified
+                                                                        requestModel.Certified,
+                                                                        requestModel.TextForm
 
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
@@ -183,6 +184,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 ClassType = student.ClassType,
                 SessionEmail = student.SessionEmail,
                 DriveSafeStatusId = student.DriveSafeStatusId,
+                student.TextForm,
                 UpdatedBy = updatedBy
 
             };

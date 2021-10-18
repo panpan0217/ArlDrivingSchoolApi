@@ -71,7 +71,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 ClassType = requestModel.ClassType,
                 SessionEmail = requestModel.SessionEmail,
                 DriveSafeStatusId = requestModel.DriveSafeStatusId,
-                Certified = requestModel.Certified
+                Certified = requestModel.Certified,
+                TextForm = requestModel.TextForm
             };
             var studentId = await StudentRepository.CreateStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
 
@@ -130,7 +131,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 AuthenticatedBy = request.AuthenticatedBy,
                 ClassType = request.ClassType,
                 SessionEmail = request.SessionEmail,
-                DriveSafeStatusId = request.DriveSafeStatusId
+                DriveSafeStatusId = request.DriveSafeStatusId,
+                TextForm = request.TextForm
             };
 
             var sessionOne = new UpdateSessionRequestModel

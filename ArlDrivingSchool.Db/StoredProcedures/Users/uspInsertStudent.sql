@@ -15,7 +15,8 @@
 	@ClassType NVARCHAR(55),
 	@SessionEmail NVARCHAR(255),
 	@DriveSafeStatusId INT,
-	@Certified BIT
+	@Certified BIT,
+	@TextForm NVARCHAR(MAX)
 )
 AS
 BEGIN 
@@ -44,6 +45,7 @@ BEGIN
 			SessionEmail,
 			DriveSafeStatusId,
 			Certified,
+			TextForm,
 			DateCertified
 		)
 		VALUES 
@@ -65,6 +67,7 @@ BEGIN
 			@SessionEmail,
 			@DriveSafeStatusId,
 			@Certified,
+			@TextForm,
 			GETDATE()
 		);
 
@@ -89,7 +92,8 @@ BEGIN
 			AuthenticatedBy,
 			ClassType,
 			SessionEmail,
-			DriveSafeStatusId
+			DriveSafeStatusId,
+			TextForm
 		)
 		VALUES 
 		(
@@ -108,7 +112,8 @@ BEGIN
 			@AuthenticatedBy,
 			@ClassType,
 			@SessionEmail,
-			@DriveSafeStatusId
+			@DriveSafeStatusId,
+			@TextForm
 		);
 
 		SELECT SCOPE_IDENTITY();

@@ -41,5 +41,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string ClassType { get; set; }
         public string SessionEmail { get; set; }
         public int DriveSafeStatusId { get; set; }
+        public string TextForm { get; set; }
     }
 }

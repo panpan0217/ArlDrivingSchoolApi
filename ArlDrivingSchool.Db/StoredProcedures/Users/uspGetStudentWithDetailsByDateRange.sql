@@ -23,6 +23,7 @@ BEGIN
 			,us.ClassType
 		   ,us.SessionEmail
 		   ,dss.StatusName [DriveSafeStatus]
+		   ,us.TextForm
 
 		   ,pp.PaymentId
 		   ,pp.StudentId

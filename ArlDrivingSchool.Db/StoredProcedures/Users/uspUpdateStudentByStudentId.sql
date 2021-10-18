@@ -15,7 +15,8 @@
 	@AuthenticatedBy	NVARCHAR(255),
 	@ClassType			NVARCHAR(55),
 	@SessionEmail		NVARCHAR(255),
-	@DriveSafeStatusId	INT
+	@DriveSafeStatusId	INT,
+	@TextForm			NVARCHAR(MAX)
 AS
 BEGIN
 	IF (@DriveSafeStatusId = 0)
@@ -40,6 +41,7 @@ BEGIN
 	,ClassType = @ClassType
 	,SessionEmail = @SessionEmail
 	,DriveSafeStatusId = @DriveSafeStatusId
+	,TextForm = @TextForm
 	WHERE StudentId = @StudentId
 
 END
