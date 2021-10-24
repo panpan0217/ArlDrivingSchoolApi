@@ -42,5 +42,14 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 UserId = userId,
             });
         }
+
+        public async Task SaveProfileLinkAync(int userId, string profileLink)
+        {
+            await ExecuteAsync("[users].[uspSaveProfileLink]", new
+            {
+                UserId = userId,
+                ProfileLink = profileLink
+            });
+        }
     }
 }

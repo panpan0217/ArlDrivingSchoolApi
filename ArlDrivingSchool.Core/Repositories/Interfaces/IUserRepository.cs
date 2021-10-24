@@ -10,5 +10,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
     {
         Task<User> AuthenticateUserAsync(string userName, string password);
         Task<User> GetUserByUserId(int userId);
+        Task SaveProfileLinkAync(int userId, string profileLink);
     }
 }

@@ -162,6 +162,7 @@
     <Build Include="Tables\Lookups\DriveSafeStatus.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetDriveSafeStatus.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertDriveSafeStatus.sql" />
+    <Build Include="StoredProcedures\Users\uspSaveProfileLink.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

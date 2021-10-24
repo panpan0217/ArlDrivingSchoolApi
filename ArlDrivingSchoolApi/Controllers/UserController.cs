@@ -39,5 +39,16 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(user);
         }
 
+        [AllowAnonymous]
+        [HttpPut("profile")]
+        public async Task<ActionResult> UpdateProfileLink([FromBody] SaveProfileLinkRequest requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(new { message = "Not Allowed!" });
+
+            await UserService.SaveProfileLinkAync(requestModel.UserId, requestModel.ProfileLink);
+            return Ok();
+        }
+
     }
 }

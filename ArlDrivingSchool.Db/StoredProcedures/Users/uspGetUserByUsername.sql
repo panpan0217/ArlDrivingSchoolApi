@@ -9,6 +9,7 @@ AS
 		  ,u.Email
 		  ,u.Username
 		  ,u.UserTypeId
+		  ,u.ProfileLink
 		  ,ut.[Name] AS 'UserType'
 		  FROM [users].[User] u
 		INNER JOIN [lookups].UserType ut ON ut.UserTypeId = u.UserTypeId

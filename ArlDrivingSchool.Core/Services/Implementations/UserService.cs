@@ -44,7 +44,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                     new Claim(ClaimTypes.Role, user.UserType),
                     new Claim("Email", user.Email),
                     new Claim("UserId", $"{user.UserId}"),
-                    new Claim("UserName", user.Username)
+                    new Claim("UserName", user.Username),
+                    new Claim("ProfileLink", user.ProfileLink)
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -62,6 +63,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 UserTypeId = user.UserTypeId,
                 Token = stringToken
             };
+        }
+
+        public async Task SaveProfileLinkAync(int userId, string profileLink)
+        {
+            await UserRepository.SaveProfileLinkAync(userId, profileLink);
         }
     }
 }

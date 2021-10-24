@@ -16,5 +16,6 @@ namespace ArlDrivingSchool.Core.Models.Users
         public DateTime UpdatedAt { get; set; }
         public int UserTypeId { get; set; }
         public string UserType { get; set; }
+        public string ProfileLink { get; set; }
     }
 }
