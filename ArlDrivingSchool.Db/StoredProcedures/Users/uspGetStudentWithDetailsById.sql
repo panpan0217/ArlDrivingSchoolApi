@@ -19,6 +19,10 @@ BEGIN
 		   ,us.Certified
 		   ,us.DateCertified
 		   ,us.AuthenticatedBy
+		   ,us.ClassType
+		   ,us.DriveSafeStatusId
+		   ,us.SessionEmail
+		   ,us.TextForm
 		   ,us.CreatedBy
 		   ,us.UpdatedBy
 
