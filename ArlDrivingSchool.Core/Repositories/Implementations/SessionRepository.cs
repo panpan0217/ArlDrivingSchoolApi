@@ -333,5 +333,22 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 },
                                                 commandType: CommandType.StoredProcedure);
         }
+
+        //dep
+        public async Task<int> CreateDEPSessionOneAsync(int studentId, DateTime sessionDate, string schedule, string sessionLocation, int branchId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertDEPSession]",
+                                                                    new
+                                                                    {
+                                                                        StudentId = studentId,
+                                                                        Date = sessionDate,
+                                                                        Schedule = schedule,
+                                                                        SessionLocation = sessionLocation,
+                                                                        BranchId = branchId
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return sessionId;
+        }
     }
 }

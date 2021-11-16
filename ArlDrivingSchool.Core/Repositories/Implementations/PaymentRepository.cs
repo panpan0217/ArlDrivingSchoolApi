@@ -85,5 +85,20 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return result > 0;
         }
+
+        public async Task<int> CreateDEPPaymentAsync(int studentId, int totalAmount, int payment, int balance)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var paymentId = await connection.ExecuteScalarAsync<int>("[payments].[uspInsertDEPPayment]",
+                                                                    new
+                                                                    {
+                                                                        DEPStudentId = studentId,
+                                                                        TotalAmount = totalAmount,
+                                                                        Payment = payment,
+                                                                        Balance = balance
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return paymentId;
+        }
     }
 }

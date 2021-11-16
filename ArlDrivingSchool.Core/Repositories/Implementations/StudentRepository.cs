@@ -458,5 +458,55 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return students;
         }
+
+        public async Task<int> CreateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel, string createdBy)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var studentId = await connection.ExecuteScalarAsync<int>("[users].[uspInsertDEPStudent]",
+                                                                    new
+                                                                    {
+                                                                        requestModel.FullName,
+                                                                        requestModel.Email,
+                                                                        requestModel.Location,
+                                                                        requestModel.FBContact,
+                                                                        requestModel.Mobile,
+                                                                        requestModel.LicenseNumber,
+                                                                        requestModel.ExpirationDate,
+                                                                        requestModel.Remarks,
+                                                                        CreatedBy = createdBy,
+                                                                        requestModel.ClassType,
+                                                                        requestModel.SessionEmail,
+                                                                        requestModel.DriveSafeStatusId,
+                                                                        requestModel.TextForm
+
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return studentId;
+        }
+
+        public async Task<IEnumerable<DEPStudentDetails>> GetAllDEPStudentWithDetailsAsync(DateTime startDate, DateTime endDate)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var students = await connection.QueryAsync<DEPStudent, DEPPayment, DEPSession, DEPStudentDetails>(
+               "[users].[uspGetAllDEPStudentWithDetails]",
+               map: (studentWithStatus, payment, sessionOne) =>
+               {
+                   return new DEPStudentDetails
+                   {
+                       DEPStudent = studentWithStatus,
+                       DEPPayment = payment,
+                       DEPSession = sessionOne,
+                   };
+               },
+                new
+                {
+                    StartDate = startDate,
+                    EndDate = endDate
+                },
+               splitOn: "DEPStudentId,DEPPaymentId,DEPSessionId",
+               commandType: CommandType.StoredProcedure);
+
+            return students;
+        }
     }
 }

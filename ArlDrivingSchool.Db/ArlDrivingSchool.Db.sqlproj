@@ -9,8 +9,7 @@
     <ProjectGuid>{40f72ce4-b987-4cee-836f-c7f2bf80dc7e}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>ArlDrivingSchool.Db</RootNamespace>
     <AssemblyName>ArlDrivingSchool.Db</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -163,6 +161,16 @@
     <Build Include="StoredProcedures\Lookups\uspGetDriveSafeStatus.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertDriveSafeStatus.sql" />
     <Build Include="StoredProcedures\Users\uspSaveProfileLink.sql" />
+    <Build Include="Tables\Users\DEPStudent.sql" />
+    <Build Include="Tables\Sessions\DEPSession.sql" />
+    <Build Include="Tables\Payments\DEPPayment.sql" />
+    <Build Include="StoredProcedures\Payments\uspInsertDEPPayment.sql" />
+    <Build Include="StoredProcedures\Payments\uspUpdateDEPPaymentByStudentId.sql" />
+    <Build Include="StoredProcedures\Sessions\uspInsertDEPSession.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateDEPSession.sql" />
+    <Build Include="StoredProcedures\Users\uspInsertDEPStudent.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateDEPStudentByStudentId.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAllDEPStudentWithDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

@@ -323,5 +323,48 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetAllStudentWithDetailsByFullNameAsync(firstName, lastName);
         }
+
+        //DEP
+        public async Task CreateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel, int userId)
+        {
+            var user = await UserRepository.GetUserByUserId(userId);
+            var studentRequest = new DEPStudentFullDetailsRequestModel
+            {
+                FullName = requestModel.FullName,
+                Email = requestModel.Email,
+                Location = requestModel.Location,
+                FBContact = requestModel.FBContact,
+                Mobile = requestModel.Mobile,
+                LicenseNumber = requestModel.LicenseNumber,
+                ExpirationDate = requestModel.ExpirationDate,
+                Remarks = requestModel.Remarks,
+                ClassType = requestModel.ClassType,
+                SessionEmail = requestModel.SessionEmail,
+                DriveSafeStatusId = requestModel.DriveSafeStatusId,
+                TextForm = requestModel.TextForm
+            };
+            var studentId = await StudentRepository.CreateDEPStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
+
+
+            await SessionRepository.CreateDEPSessionOneAsync(
+                studentId: studentId,
+                sessionDate: requestModel.SessionOneDate,
+                schedule: requestModel.SessionOneSchedule,
+                sessionLocation: requestModel.SessionOneLocation,
+                branchId: requestModel.SessionOneBranchId
+                );
+
+            await PaymentRepository.CreateDEPPaymentAsync(
+                studentId,
+                totalAmount: requestModel.TotalAmount,
+                payment: requestModel.Payment,
+                balance: requestModel.Balance
+                );
+        }
+
+        public async Task<IEnumerable<DEPStudentDetails>> GetAllDEPStudentWithDetailsAsync(DateTime startDate, DateTime endDate)
+        {
+            return await StudentRepository.GetAllDEPStudentWithDetailsAsync(startDate, endDate);
+        }
     }
 }

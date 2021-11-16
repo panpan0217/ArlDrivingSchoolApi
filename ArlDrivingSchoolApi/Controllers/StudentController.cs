@@ -255,5 +255,26 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok();
         }
 
+        //DEP
+        [HttpPost("dep")]
+        public async Task<IActionResult> CreateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel)
+        {
+
+            var userId = Request.GetUserId(JWToken);
+            // If no same record student
+            await StudentService.CreateDEPStudentWithDetailsAsync(requestModel, userId);
+            return Ok();
+        }
+
+        [HttpPost("dep/daterange")]
+        public async Task<IActionResult> GetAllDEPStudentWithDetailsAsync([FromBody] DateRangeRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var students = await StudentService.GetAllDEPStudentWithDetailsAsync(requestModel.StartDate, requestModel.EndDate);
+            return Ok(students);
+        }
+
     }
 }
