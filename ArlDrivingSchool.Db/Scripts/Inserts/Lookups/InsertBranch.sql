@@ -15,6 +15,7 @@ INSERT INTO @Branch
 VALUES
  (1, 'AC')
 ,(2, 'SF')
+,(3, 'MX')
 
 MERGE INTO [lookups].[Branch] AS target
 USING @Branch AS source
