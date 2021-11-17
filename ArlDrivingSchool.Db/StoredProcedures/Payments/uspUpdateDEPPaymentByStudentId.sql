@@ -6,13 +6,11 @@
 AS
 BEGIN
 	
-	UPDATE [payments].PDCPayment
+	UPDATE [payments].DEPPayment
 	SET
 	 TotalAmount = @TotalAmount
 	,Payment = @Payment
 	,Balance = @Balance
-
-
-	WHERE PDCStudentId = @DEPStudentId
+	WHERE DEPStudentId = @DEPStudentId
 END
 GO;

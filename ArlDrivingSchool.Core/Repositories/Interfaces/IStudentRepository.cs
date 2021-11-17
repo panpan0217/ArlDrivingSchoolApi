@@ -40,6 +40,7 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
 
         //DEP
         Task<int> CreateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel, string createdBy);
+        Task<bool> UpdateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel, string createdBy);
         Task<IEnumerable<DEPStudentDetails>> GetAllDEPStudentWithDetailsAsync(DateTime startDate, DateTime endDate);
     }
 }

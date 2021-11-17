@@ -1,8 +1,8 @@
 ﻿DECLARE
-	@FirstName	NVARCHAR(255) = 'jm',
-	@LastName	NVARCHAR(255) = 'cayanan',
-	@UserName	NVARCHAR(255) = 'jmcayanan',
-	@Email		NVARCHAR(255) = 'jmcayanan@mailinator.com',
+	@FirstName	NVARCHAR(255) = 'ej',
+	@LastName	NVARCHAR(255) = 'modesto',
+	@UserName	NVARCHAR(255) = 'ejmodesto',
+	@Email		NVARCHAR(255) = 'ejmodesto@mailinator.com',
 	@UserId		INT
 	
 	SELECT @UserId = UserId FROM [users].[User] WHERE Username = @UserName;
@@ -27,12 +27,12 @@
 		)
 		VALUES( 
 			@UserId
-			,'gZgut2OcrokZyV0rPR3tD6PX0YShu1G8zsePVre0h5Y='
+			,'/XrUkVgo3B0moPNt1eAea3g7h+FXiVjhxwhOiU3Ptqo='
 			,'2120-03-18T09:28:38.322Z'
 			,'0'
 			,GETUTCDATE()
 			,GETUTCDATE()
-			,'+NOJDf1h5zWjS5mZxET74w=='
+			,'pIhjk3ILGZ3b3r2Z5s8SFg=='
 			)
 
 

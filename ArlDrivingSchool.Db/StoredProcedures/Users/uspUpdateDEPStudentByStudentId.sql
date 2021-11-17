@@ -1,12 +1,11 @@
 ﻿CREATE PROCEDURE [users].[uspUpdateDEPStudentByStudentId]
-	@DEPStundent INT,
+	@DEPStudentId INT,
 	@FullName NVARCHAR(255),
 	@Email NVARCHAR(255),
 	@Location NVARCHAR(255),
 	@FBContact NVARCHAR(255),
 	@Mobile NVARCHAR(64),
 	@Remarks NVARCHAR(255),
-	@CreatedBy NVARCHAR(255),
 	@ClassType NVARCHAR(55),
 	@SessionEmail NVARCHAR(255),
 	@LicenseNumber NVARCHAR(255),
@@ -35,7 +34,7 @@ BEGIN
 	,SessionEmail = @SessionEmail
 	,DriveSafeStatusId = @DriveSafeStatusId
 	,TextForm = @TextForm
-	WHERE DEPStudentId = @DEPStundent
+	WHERE DEPStudentId = @DEPStudentId
 
 END
 GO;

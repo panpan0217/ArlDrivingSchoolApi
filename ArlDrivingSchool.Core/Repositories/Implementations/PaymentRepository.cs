@@ -100,5 +100,22 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                     , commandType: CommandType.StoredProcedure);
             return paymentId;
         }
+
+        public async Task<bool> UpdateDEPPaymentByStudentIdAsync(int studentId, int totalAmount, int payment, int balance)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var result = await connection.ExecuteAsync("[payments].[uspUpdateDEPPaymentByStudentId]",
+                                                     new
+                                                     {
+                                                         DEPStudentId = studentId,
+                                                         TotalAmount = totalAmount,
+                                                         Payment = payment,
+                                                         Balance = balance
+                                                     },
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
     }
 }

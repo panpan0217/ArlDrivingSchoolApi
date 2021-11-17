@@ -33,5 +33,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task DeletePDCSessionAsync(int pDCSessionId);
 
         Task<int> CreateDEPSessionOneAsync(int studentId, DateTime sessionDate, string schedule, string sessionLocation, int branchId);
+        Task<bool> UpdateDEPSessionOneByStudentIdAsync(int studentId, DateTime sessionDate, string schedule, string sessionLocation, int branchId);
     }
 }

@@ -89,7 +89,7 @@ namespace ArlDrivingSchoolApi.Controllers
             var userId = Request.GetUserId(JWToken);
 
             var hasUpdated = await StudentService.UpdateStudentByStudentIdAsync(request, userId);
-         
+
             if (hasUpdated)
                 return Ok();
             else
@@ -114,11 +114,11 @@ namespace ArlDrivingSchoolApi.Controllers
         [HttpDelete("{studentId}")]
         public async Task<IActionResult> DeleteStudentAsync(int studentId)
         {
-            if(studentId != 0)
+            if (studentId != 0)
             {
                 await StudentService.DeleteStudentAsync(studentId);
 
-            return Ok();
+                return Ok();
             }
             else
             {
@@ -133,7 +133,7 @@ namespace ArlDrivingSchoolApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var studentSchedule = await StudentService.GetStudentScheduleByDateAsync(requestModel.Date, requestModel.Schedule, 
+            var studentSchedule = await StudentService.GetStudentScheduleByDateAsync(requestModel.Date, requestModel.Schedule,
                 requestModel.SessionLocation, requestModel.BranchId);
 
             return Ok(studentSchedule);
@@ -264,6 +264,22 @@ namespace ArlDrivingSchoolApi.Controllers
             // If no same record student
             await StudentService.CreateDEPStudentWithDetailsAsync(requestModel, userId);
             return Ok();
+        }
+
+        [HttpPut("dep")]
+        public async Task<IActionResult> UpdateDEPStudent([FromBody] DEPStudentFullDetailsRequestModel request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var userId = Request.GetUserId(JWToken);
+
+            var hasUpdated = await StudentService.UpdateStudentByStudentIdAsync(request, userId);
+
+            if (hasUpdated)
+                return Ok();
+            else
+                return NotFound();
         }
 
         [HttpPost("dep/daterange")]

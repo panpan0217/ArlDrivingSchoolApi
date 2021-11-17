@@ -19,6 +19,7 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string ClassType { get; set; }
         public string SessionEmail { get; set; }
         public int DriveSafeStatusId { get; set; }
+        public string DriveSafeStatus { get; set; }
         public string TextForm { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }

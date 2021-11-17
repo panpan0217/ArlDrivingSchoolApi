@@ -6,6 +6,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
 {
     public class DEPStudentFullDetailsRequestModel
     {
+        public int DEPStudentId { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Location { get; set; }

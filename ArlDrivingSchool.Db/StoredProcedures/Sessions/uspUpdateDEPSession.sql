@@ -1,12 +1,10 @@
 ﻿CREATE PROCEDURE [sessions].[uspUpdateDEPSession]
 (
-	@DEPSessionId INT,
 	@Date DATETIME2,
-	@DEPStudentId NVARCHAR(128),
+	@StudentId NVARCHAR(128),
 	@SessionLocation  NVARCHAR(128),
 	@BranchId INT,
-	@InstructorId INT,
-	@Attended BIT
+	@Schedule NVARCHAR(55)
 )
 AS
 BEGIN 
@@ -14,12 +12,10 @@ BEGIN
 	
 	SET 
 		[Date] = @Date,
-		DEPStudentId = @DEPStudentId,
 		SessionLocation = @SessionLocation,
 		BranchId = @BranchId,
-		InstructorId = @InstructorId,
-		Attended = @Attended
-	WHERE DEPSessionId = @DEPSessionId
+		[Schedule] = @Schedule
+	WHERE DEPStudentId = @StudentId
 END
 GO
 

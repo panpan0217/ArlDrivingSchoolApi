@@ -366,5 +366,29 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetAllDEPStudentWithDetailsAsync(startDate, endDate);
         }
+
+        public async Task<bool> UpdateStudentByStudentIdAsync(DEPStudentFullDetailsRequestModel requestModel, int userId)
+        {
+            var user = await UserRepository.GetUserByUserId(userId);
+            await SessionRepository.UpdateDEPSessionOneByStudentIdAsync(
+                studentId: requestModel.DEPStudentId,
+                sessionDate: requestModel.SessionOneDate,
+                schedule: requestModel.SessionOneSchedule,
+                sessionLocation: requestModel.SessionOneLocation,
+                branchId: requestModel.SessionOneBranchId
+                );
+
+            await PaymentRepository.UpdateDEPPaymentByStudentIdAsync(
+               studentId: requestModel.DEPStudentId,
+               totalAmount: requestModel.TotalAmount,
+               payment: requestModel.Payment,
+               balance: requestModel.Balance
+               );
+
+            var student = await StudentRepository.UpdateDEPStudentWithDetailsAsync(requestModel, $"{user.FirstName} {user.LastName}");
+
+            return student;
+
+        }
     }
 }

@@ -508,5 +508,31 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return students;
         }
+
+        public async Task<bool> UpdateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel, string createdBy)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var studentId = await connection.ExecuteAsync("[users].[uspUpdateDEPStudentByStudentId]",
+                                                                    new
+                                                                    {
+                                                                        requestModel.DEPStudentId,
+                                                                        requestModel.FullName,
+                                                                        requestModel.Email,
+                                                                        requestModel.Location,
+                                                                        requestModel.FBContact,
+                                                                        requestModel.Mobile,
+                                                                        requestModel.LicenseNumber,
+                                                                        requestModel.ExpirationDate,
+                                                                        requestModel.Remarks,
+                                                                        UpdatedBy = createdBy,
+                                                                        requestModel.ClassType,
+                                                                        requestModel.SessionEmail,
+                                                                        requestModel.DriveSafeStatusId,
+                                                                        requestModel.TextForm
+
+                                                                    }
+                                                                    , commandType: CommandType.StoredProcedure);
+            return studentId > 0;
+        }
     }
 }
