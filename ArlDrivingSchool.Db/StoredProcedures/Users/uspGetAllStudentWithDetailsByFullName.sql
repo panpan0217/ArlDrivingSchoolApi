@@ -138,7 +138,7 @@ BEGIN
 				LEFT JOIN [sessions].SessionTwo AS sstw ON sstw.StudentId = us.StudentId
 				LEFT JOIN [sessions].SessionThree AS ssth ON ssth.StudentId = us.StudentId
 
-			WHERE (us.FirstName LIKE '%'+@FirstName+'%' AND us.LastName LIKE LastName)
+			WHERE (us.FirstName LIKE '%'+@FirstName+'%' AND us.LastName LIKE '%'+@LastName+'%' )
 		END
 	
 
