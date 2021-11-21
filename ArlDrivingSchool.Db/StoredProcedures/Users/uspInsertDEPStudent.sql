@@ -10,7 +10,7 @@
 	@ClassType NVARCHAR(55),
 	@SessionEmail NVARCHAR(255),
 	@LicenseNumber NVARCHAR(255),
-	@ExpirationDate DATETIME2,
+	@ExpirationDate NVARCHAR(65),
 	@DriveSafeStatusId INT,
 	@TextForm NVARCHAR(MAX)
 )

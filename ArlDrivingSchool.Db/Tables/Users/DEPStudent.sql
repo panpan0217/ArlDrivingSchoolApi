@@ -7,7 +7,7 @@
 	[FBContact]				NVARCHAR(255)	NULL,
 	[Mobile]				NVARCHAR(64)	NULL,
 	[LicenseNumber]			NVARCHAR(64)	NULL,
-	[ExpirationDate]		DATETIME2		NOT NULL,
+	[ExpirationDate]		NVARCHAR(64)	NULL,
 	[Remarks]				NVARCHAR(255)	NULL,
 	[DateRegistered]		DATETIME2		NOT NULL,
 	[CreatedBy]             NVARCHAR(257)   NOT NULL DEFAULT 'admin', 

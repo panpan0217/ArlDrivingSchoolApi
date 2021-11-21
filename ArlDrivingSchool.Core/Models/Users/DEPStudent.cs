@@ -13,7 +13,7 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string FBContact { get; set; }
         public string Mobile { get; set; }
         public string LicenseNumber { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public string ExpirationDate { get; set; }
         public string Remarks { get; set; }
         public bool ForceCreate { get; set; }
         public string ClassType { get; set; }
