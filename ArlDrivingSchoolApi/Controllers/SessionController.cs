@@ -91,5 +91,20 @@ namespace ArlDrivingSchoolApi.Controllers
             await SessionService.DeletePDCSession(pDCSessionId);
             return Ok();
         }
+
+        [HttpPut("dep/attended")]
+        public async Task<IActionResult> UpdateDEPSessionAttended([FromBody] UpdateSessionAttendedRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var hasUpdated = await SessionService.UpdateDEPSessionOneAttendedByStudentIdAsync(requestModel.StudentId,
+                                                                                        requestModel.Attended);
+            if (hasUpdated)
+                return Ok();
+            else
+                return NotFound();
+
+        }
     }
 }

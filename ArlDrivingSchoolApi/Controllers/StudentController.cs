@@ -292,5 +292,25 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(students);
         }
 
+
+        [HttpPost("dep/schedule")]
+        public async Task<IActionResult> GetDEPScheduleByDateAsync([FromBody] GetScheduleByDateRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var studentSchedule = await StudentService.GetDEPStudentScheduleByDateAsync(requestModel.Date, requestModel.Schedule,
+                requestModel.SessionLocation, requestModel.BranchId);
+
+            return Ok(studentSchedule);
+        }
+
+        [HttpGet("getDEPStudentBy/{studentId}")]
+        public async Task<IActionResult> GetDEPStudentById(int studentId)
+        {
+            var student = await StudentService.GetDEPStudentByIdAsync(studentId);
+            return Ok(student);
+        }
+
     }
 }

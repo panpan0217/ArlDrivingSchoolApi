@@ -171,6 +171,9 @@
     <Build Include="StoredProcedures\Users\uspInsertDEPStudent.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateDEPStudentByStudentId.sql" />
     <Build Include="StoredProcedures\Users\uspGetAllDEPStudentWithDetails.sql" />
+    <Build Include="StoredProcedures\Users\uspGetDEPStudentScheduleByDate.sql" />
+    <Build Include="StoredProcedures\Users\uspGetDEPStudentWithById.sql" />
+    <Build Include="StoredProcedures\Sessions\uspUpdateDEPSessionOneAttendedByStudentId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

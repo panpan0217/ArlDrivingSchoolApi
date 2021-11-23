@@ -390,5 +390,15 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return student;
 
         }
+
+        public async Task<IEnumerable<DEPStudentSchedule>> GetDEPStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation, int branchId)
+        {
+            return await StudentRepository.GetDEPStudentScheduleByDateAsync(date, schedule, sessionLocation, branchId);
+        }
+
+        public async Task<DEPStudentDetails> GetDEPStudentByIdAsync(int studentId)
+        {
+            return await StudentRepository.GetDEPStudentByIdAsync(studentId);
+        }
     }
 }

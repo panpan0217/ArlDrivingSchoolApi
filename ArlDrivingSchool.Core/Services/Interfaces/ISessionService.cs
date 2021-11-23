@@ -17,5 +17,6 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<int> CreatePDCSession(string pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended);
         Task UpdatePDCSession(PDCSessionRequestModel requestModel);
         Task DeletePDCSession(int pDCSessionId);
+        Task<bool> UpdateDEPSessionOneAttendedByStudentIdAsync(int studentId, bool attended);
     }
 }

@@ -368,5 +368,22 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             return result > 0;
         }
+
+        public async Task<bool> UpdateDEPSessionOneAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var request = new
+            {
+                StudentId = studentId,
+                Attended = attended
+            };
+
+            var result = await connection.ExecuteAsync("[sessions].[uspUpdateDEPSessionOneAttendedByStudentId]",
+                                                    request,
+                                                    commandType: CommandType.StoredProcedure);
+
+            return result > 0;
+        }
     }
 }

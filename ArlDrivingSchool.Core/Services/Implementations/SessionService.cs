@@ -61,5 +61,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             await SessionRepository.DeletePDCSessionAsync(pDCSessionId);
         }
+
+        public async Task<bool> UpdateDEPSessionOneAttendedByStudentIdAsync(int studentId, bool attended)
+        {
+            return await SessionRepository.UpdateDEPSessionOneAttendedByStudentIdAsync(studentId, attended);
+        }
     }
 }

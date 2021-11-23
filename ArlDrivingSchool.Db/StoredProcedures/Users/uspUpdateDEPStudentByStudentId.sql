@@ -19,6 +19,7 @@ BEGIN
 	BEGIN
 		SET @DriveSafeStatusId = NULL;
 	END
+
 	UPDATE users.DEPStudent
 	SET
 	 FullName = @FullName

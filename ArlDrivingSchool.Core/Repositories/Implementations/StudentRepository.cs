@@ -534,5 +534,50 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId > 0;
         }
+
+        public async Task<IEnumerable<DEPStudentSchedule>> GetDEPStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation, int branchId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var parameter = new
+            {
+                Date = date,
+                Schedule = schedule,
+                SessionLocation = sessionLocation,
+                BranchId = branchId
+            };
+
+            var studentSchedule = await connection.QueryAsync<DEPStudentSchedule>(
+                   "[users].[uspGetDEPStudentScheduleByDate]",
+                   param: parameter,
+                   commandType: CommandType.StoredProcedure
+               );
+
+            return studentSchedule;
+        }
+
+        public async Task<DEPStudentDetails> GetDEPStudentByIdAsync(int studentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var student = await connection.QueryAsync<DEPStudent, DEPPayment, DEPSession, DEPStudentDetails>(
+               "[users].[uspGetDEPStudentWithById]",
+               map: (studentWithStatus, payment, sessionOne) =>
+               {
+                   return new DEPStudentDetails
+                   {
+                       DEPStudent = studentWithStatus,
+                       DEPPayment = payment,
+                       DEPSession = sessionOne,
+                   };
+               },
+                new
+                {
+                    StudentId = studentId,
+                },
+               splitOn: "DEPStudentId,DEPPaymentId,DEPSessionId",
+               commandType: CommandType.StoredProcedure);
+
+            return student.FirstOrDefault();
+        }
     }
 }
