@@ -71,6 +71,9 @@
     <Folder Include="StoredProcedures\Lookups" />
     <Folder Include="Scripts\Inserts\User" />
     <Folder Include="Scripts\Updates" />
+    <Folder Include="Tables\Setting" />
+    <Folder Include="Scripts\Inserts\InitialData" />
+    <Folder Include="StoredProcedures\Setting" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\Users.sql" />
@@ -174,6 +177,9 @@
     <Build Include="StoredProcedures\Users\uspGetDEPStudentScheduleByDate.sql" />
     <Build Include="StoredProcedures\Users\uspGetDEPStudentWithById.sql" />
     <Build Include="StoredProcedures\Sessions\uspUpdateDEPSessionOneAttendedByStudentId.sql" />
+    <Build Include="Tables\Setting\Billing.sql" />
+    <Build Include="StoredProcedures\Setting\uspGetBillingSetting.sql" />
+    <Build Include="StoredProcedures\Setting\uspUpdateBillingSetting.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
@@ -187,6 +193,8 @@
     <None Include="Scripts\Inserts\Lookups\InsertTransmission.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertBranch.sql" />
     <None Include="Scripts\Updates\01_update_branch.sql" />
+    <Build Include="Schemas\Setting.sql" />
+    <None Include="Scripts\Inserts\InitialData\01_Insert_Billing_Setting.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ArlDrivingSchool.Db.refactorlog" />

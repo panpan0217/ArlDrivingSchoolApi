@@ -52,6 +52,8 @@ namespace ArlDrivingSchoolApi
             services.AddTransient<ILookupsService, LookupsService>();
             services.AddTransient<IInstructorRepository, InstructorRepository>();
             services.AddTransient<IInstructorService, InstructorService>();
+            services.AddTransient<IBillingRepository, BillingRepository>();
+            services.AddTransient<IBillingService, BillingService>();
             services.AddControllers();
 
             services.AddScoped<JWToken>();

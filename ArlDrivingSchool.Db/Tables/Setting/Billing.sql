@@ -1,0 +1,21 @@
+﻿CREATE TABLE [setting].[Billing]
+(
+	[BillingId]				INT				NOT NULL IDENTITY(1,1),
+	[TDCOnline]				INT				NOT NULL,
+	[TDCClassroom]			INT				NOT NULL,
+	[DEPOnline]				INT				NOT NULL,
+	[DEPClassroom]			INT				NOT NULL,
+	[PDCCarManual]			INT				NOT NULL,
+	[PDCCarMatic]			INT				NOT NULL,
+	[PDCCarCombination]		INT				NOT NULL,
+	[PDCMotorManual]		INT				NOT NULL,
+	[PDCMotorMatic]			INT				NOT NULL,
+	[PDCMotorCombination]	INT				NOT NULL,
+	[PDCTricycleManual]		INT				NOT NULL,
+	[PDCTricycleMatic]		INT				NOT NULL,
+	[PDCTricycleCombination]	INT				NOT NULL,
+	[CreatedAt]             DATETIME2 (7)   NOT NULL,
+    [CreatedBy]             NVARCHAR (256)  NOT NULL,
+    [UpdatedAt]             DATETIME2 (7)   NULL,
+    [UpdatedBy]             NVARCHAR (256)  NULL,
+)

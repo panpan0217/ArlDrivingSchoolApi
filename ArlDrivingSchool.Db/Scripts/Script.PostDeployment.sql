@@ -19,6 +19,8 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertBranch.sql
 :r .\Inserts\Lookups\InsertDriveSafeStatus.sql
 
+:r Inserts\InitialData\01_Insert_Billing_Setting.sql
+
 
 --NOTE: RUN INSERT SCRIPTS USER ONCE ONLY FOR INITIAL ADMIN 
 --:r .\Inserts\User\Users.sql
