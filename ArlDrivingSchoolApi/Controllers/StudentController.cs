@@ -56,6 +56,16 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(studentsWithDetails);
         }
 
+        [HttpPost("detailsPDC/dateRange")]
+        public async Task<IActionResult> GetPDCStudentWithDetailsByDateRangeAsync([FromBody] DateRangeRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var studentsWithDetails = await StudentService.GetPDCStudentWithDetailsByDateRangeAsync(requestModel.StartDate, requestModel.EndDate);
+            return Ok(studentsWithDetails);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
         {
@@ -206,13 +216,13 @@ namespace ArlDrivingSchoolApi.Controllers
         [HttpPost("params")]
         public async Task<IActionResult> GetStudentByParams([FromBody] GetCertifiedRequestModel requestModel)
         {
-            var students = await StudentService.GetStudentByParams(requestModel.Certificated);
+            var students = await StudentService.GetStudentByParams(requestModel.Certificated, requestModel.StartDate, requestModel.EndDate);
             return Ok(students);
         }
         [HttpPost("pdc/params")]
         public async Task<IActionResult> GetPDCStudentByParams([FromBody] GetCertifiedRequestModel requestModel)
         {
-            var students = await StudentService.GetPDCStudentByParams(requestModel.Certificated);
+            var students = await StudentService.GetPDCStudentByParams(requestModel.Certificated, requestModel.StartDate, requestModel.EndDate);
             return Ok(students);
         }
 

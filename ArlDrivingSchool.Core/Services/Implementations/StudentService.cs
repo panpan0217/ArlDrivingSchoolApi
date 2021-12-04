@@ -52,6 +52,12 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetStudentWithDetailsByDateRangeAsync(startDate, endDate);
         }
+
+        public async Task<IEnumerable<PDCStudentDetails>> GetPDCStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            return await StudentRepository.GetPDCStudentWithDetailsByDateRangeAsync(startDate, endDate);
+        }
+
         public async Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId)
         {
             var user = await UserRepository.GetUserByUserId(userId);
@@ -290,14 +296,14 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
         }
 
-        public async Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified)
+        public async Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified, DateTime startDate, DateTime endDate)
         {
-            return await StudentRepository.GetStudentByParams(certified);
+            return await StudentRepository.GetStudentByParams(certified, startDate, endDate);
         }
 
-        public async Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified)
+        public async Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified, DateTime startDate, DateTime endDate)
         {
-            return await StudentRepository.GetPDCStudentByParams(certified);
+            return await StudentRepository.GetPDCStudentByParams(certified, startDate, endDate);
         }
 
         public async Task UpdateStudentCertificationByIdsAsync(string ids)

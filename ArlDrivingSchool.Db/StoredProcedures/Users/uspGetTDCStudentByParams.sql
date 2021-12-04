@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [users].[uspGetTDCStudentByParams]
 (
-	@Certificated BIT
+	@Certificated BIT,
+	@StartDate DATETIME2,
+	@EndDate DATETIME2
 )
 AS
 BEGIN
@@ -9,7 +11,7 @@ BEGIN
 		  ,Certified
 		  ,DateCertified
 	FROM [users].[Student]
-	WHERE Certified = @Certificated
+	WHERE Certified = @Certificated AND CAST(DateRegistered as date) BETWEEN @StartDate AND @EndDate
 END 
 GO;
 

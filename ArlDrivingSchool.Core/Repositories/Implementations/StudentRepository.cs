@@ -133,6 +133,30 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return students;
         }
 
+        public async Task<IEnumerable<PDCStudentDetails>> GetPDCStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var pdcStudents = await connection.QueryAsync<PDCStudentWithStatus, PDCPayment, PDCStudentDetails>(
+               "[users].[uspGetPDCStudentWithDetailsByDateRange]",
+               map: (pdcStudentWithStatus, pdcPayment) =>
+               {
+                   return new PDCStudentDetails
+                   {
+                       PDCStudentWithStatus = pdcStudentWithStatus,
+                       PDCPayment = pdcPayment
+                   };
+               },
+               new
+               {
+                   StartDate = startDate,
+                   EndDate = endDate
+               },
+               splitOn: "PDCStudentId,PDCPaymentId",
+               commandType: CommandType.StoredProcedure);
+
+            return pdcStudents;
+        }
+
         public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, string createdBy)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
@@ -360,7 +384,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return result > 0;
         }
 
-        public async Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified)
+        public async Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified, DateTime startDate, DateTime endDate)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -368,14 +392,17 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                    "[users].[uspGetTDCStudentByParams]",
                    new
                    {
-                       Certificated = certified
+                       Certificated = certified,
+                       StartDate = startDate,
+                       EndDate = endDate
+
                    },
                    commandType: CommandType.StoredProcedure
                );
 
         }
 
-        public async Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified)
+        public async Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified, DateTime startDate, DateTime endDate)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -383,7 +410,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                    "[users].[uspGetPDCStudentByParams]",
                    new
                    {
-                       Certificated = certified
+                       Certificated = certified,
+                       StartDate = startDate,
+                       EndDate = endDate
                    },
                    commandType: CommandType.StoredProcedure
                );

@@ -180,6 +180,7 @@
     <Build Include="Tables\Setting\Billing.sql" />
     <Build Include="StoredProcedures\Setting\uspGetBillingSetting.sql" />
     <Build Include="StoredProcedures\Setting\uspUpdateBillingSetting.sql" />
+    <Build Include="StoredProcedures\Users\uspGetPDCStudentWithDetailsByDateRange.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
