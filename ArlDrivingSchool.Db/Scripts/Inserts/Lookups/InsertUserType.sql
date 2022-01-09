@@ -17,7 +17,7 @@ INSERT INTO @UserType
 VALUES
  (1, 'Admin')
 ,(2, 'Manager')
-,(3, 'Assistant')
+,(3, 'Staff')
 ,(4, 'Instructor')
 ,(5, 'Student');
 
