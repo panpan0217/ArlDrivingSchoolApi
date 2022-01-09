@@ -11,7 +11,7 @@ BEGIN
 		  ,Certified
 		  ,DateCertified
 	FROM [users].[Student]
-	WHERE Certified = @Certificated AND CAST(DateRegistered as date) BETWEEN @StartDate AND @EndDate
+	WHERE Certified = @Certificated AND CAST(DateCertified as date) BETWEEN @StartDate AND @EndDate
 END 
 GO;
 
