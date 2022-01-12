@@ -6,13 +6,24 @@
 )
 AS
 BEGIN
-	SELECT PDCStudentId
+	IF(@Certificated = 1)
+	BEGIN
+		SELECT PDCStudentId
 		  ,FullName
 		  ,Certified
 		  ,DateCertified
-	FROM [users].[PDCStudent]
-	WHERE Certified = @Certificated AND CAST(DateCertified as date) BETWEEN @StartDate AND @EndDate
-
+		FROM [users].[PDCStudent]
+		WHERE Certified = @Certificated AND CAST(DateCertified as date) BETWEEN @StartDate AND @EndDate
+	END
+	ELSE
+	BEGIN
+		SELECT PDCStudentId
+		  ,FullName
+		  ,Certified
+		  ,DateCertified
+		FROM [users].[PDCStudent]
+		WHERE Certified = @Certificated;
+	END
 END 
 GO;
 
