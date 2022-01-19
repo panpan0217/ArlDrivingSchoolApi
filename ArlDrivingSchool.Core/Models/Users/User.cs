@@ -17,5 +17,7 @@ namespace ArlDrivingSchool.Core.Models.Users
         public int UserTypeId { get; set; }
         public string UserType { get; set; }
         public string ProfileLink { get; set; }
+        public string Address { get; set; }
+        public string Birthday { get; set; }
     }
 }

@@ -1,15 +1,15 @@
 ﻿using ArlDrivingSchool.Core.Models.Users;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ArlDrivingSchool.Core.Repositories.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository 
     {
+        Task CreateAsync(User user);
         Task<User> AuthenticateUserAsync(string userName, string password);
         Task<User> GetUserByUserId(int userId);
         Task SaveProfileLinkAync(int userId, string profileLink);
+        Task<IEnumerable<User>> GetAllUser();
     }
 }

@@ -53,6 +53,7 @@ namespace ArlDrivingSchoolApi
             services.AddTransient<IInstructorRepository, InstructorRepository>();
             services.AddTransient<IInstructorService, InstructorService>();
             services.AddTransient<IBillingRepository, BillingRepository>();
+            services.AddTransient<IUAuthRepository, UAuthRepository>();
             services.AddTransient<IBillingService, BillingService>();
             services.AddControllers();
 

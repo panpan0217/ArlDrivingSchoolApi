@@ -181,6 +181,9 @@
     <Build Include="StoredProcedures\Setting\uspGetBillingSetting.sql" />
     <Build Include="StoredProcedures\Setting\uspUpdateBillingSetting.sql" />
     <Build Include="StoredProcedures\Users\uspGetPDCStudentWithDetailsByDateRange.sql" />
+    <Build Include="StoredProcedures\Users\uspInsertUser.sql" />
+    <Build Include="StoredProcedures\Users\uspInsertAccess.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAllUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

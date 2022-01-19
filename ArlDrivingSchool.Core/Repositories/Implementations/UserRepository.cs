@@ -35,6 +35,34 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 
         }
 
+        public async Task CreateAsync(User entity)
+        {
+            await ExecuteAsync("[users].[uspInsertUser]", new
+            {
+                entity.FirstName,
+                entity.LastName,
+                entity.Username,
+                entity.Email,
+                entity.CreatedAt,
+                entity.UpdatedAt,
+                entity.UserTypeId,
+                entity.Address,
+                entity.Birthday
+            });
+
+            var user = await QueryFirstOrDefaultAsync<User>("[users].[uspGetUserByUsername]", new
+            {
+                entity.Username,
+            });
+
+            entity.UserId = user.UserId;
+        }
+
+        public async Task<IEnumerable<User>> GetAllUser()
+        {
+            return await QueryAsync<User>("[users].[uspGetAllUser]");
+        }
+
         public async Task<User> GetUserByUserId(int userId)
         {
             return await QueryFirstOrDefaultAsync<User>("[users].[uspGetUserByUserId]", new

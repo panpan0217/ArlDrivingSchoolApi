@@ -1,15 +1,11 @@
 ﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
 using ArlDrivingSchool.Core.DataTransferObject.Response;
-using ArlDrivingSchool.Core.Models;
-using ArlDrivingSchool.Core.Models.Sessions;
 using ArlDrivingSchool.Core.Models.Users;
-using ArlDrivingSchool.Core.Repositories.Implementations;
 using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ArlDrivingSchool.Core.Services.Implementations

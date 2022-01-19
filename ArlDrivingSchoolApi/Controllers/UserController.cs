@@ -38,6 +38,28 @@ namespace ArlDrivingSchoolApi.Controllers
 
             return Ok(user);
         }
+        [AllowAnonymous]
+        [HttpPost("Register")]
+        public async Task<ActionResult> Register([FromBody] RegisterRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(new { message = "Not Allowed!" });
+
+            var user = new User
+            {
+                FirstName = requestModel.FirstName,
+                LastName = requestModel.LastName,
+                Username = requestModel.Username,
+                Email = requestModel.Email,
+                UserTypeId = requestModel.UserTypeId,
+                Address = requestModel.Address,
+                Birthday =requestModel.Birthday
+            };
+
+            await UserService.CreateAsync(user, requestModel.Password);
+
+            return Ok();
+        }
 
         [AllowAnonymous]
         [HttpPut("profile")]
@@ -48,6 +70,14 @@ namespace ArlDrivingSchoolApi.Controllers
 
             await UserService.SaveProfileLinkAync(requestModel.UserId, requestModel.ProfileLink);
             return Ok();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult> GetAll()
+        {
+            var users = await UserService.GetAllUser();
+            return Ok(users);
         }
 
     }
