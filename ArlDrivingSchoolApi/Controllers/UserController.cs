@@ -80,5 +80,43 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(users);
         }
 
+        [AllowAnonymous]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            if (id != 0)
+            {
+                await UserService.DeleteByIdAsync(id);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPut]
+        public async Task<ActionResult> Update([FromBody] UpdateUserRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(new { message = "Not Allowed!" });
+
+            var user = new User
+            {
+                UserId = requestModel.UserId,
+                FirstName = requestModel.FirstName,
+                LastName = requestModel.LastName,
+                Username = requestModel.Username,
+                Email = requestModel.Email,
+                UserTypeId = requestModel.UserTypeId,
+                Address = requestModel.Address,
+                Birthday = requestModel.Birthday
+            };
+
+            await UserService.UpdateAsync(user, requestModel.Password);
+
+            return Ok();
+        }
     }
 }

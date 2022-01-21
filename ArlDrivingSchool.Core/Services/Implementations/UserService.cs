@@ -110,5 +110,19 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await UserRepository.GetAllUser();
         }
+
+        public async Task DeleteByIdAsync(int id)
+        {
+            await UserRepository.DeleteByIdAsync(id);
+        }
+
+        public async Task UpdateAsync(User entity, string password)
+        {
+            entity.UpdatedAt = DateTime.UtcNow;
+
+            await UserRepository.UpdateAsync(entity);
+
+            await CreatePasswordAsync(entity, password);
+        }
     }
 }

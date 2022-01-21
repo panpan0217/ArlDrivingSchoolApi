@@ -11,5 +11,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task SaveProfileLinkAync(int userId, string profileLink);
         Task CreateAsync(User entity, string password);
         Task<IEnumerable<User>> GetAllUser();
+        Task DeleteByIdAsync(int id);
+        Task UpdateAsync(User entity, string password);
     }
 }

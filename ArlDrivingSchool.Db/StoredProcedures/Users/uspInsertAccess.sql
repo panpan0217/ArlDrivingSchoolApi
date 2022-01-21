@@ -10,22 +10,35 @@
 )
 AS
 BEGIN
-	INSERT INTO [users].[Access]
-	(Auth,
-	Salt,
-	UserId,
-	CreatedAt,
-	UpdatedAt,
-	ExpirationDate,
-	IsTempAuthActive
-	)
-	VALUES
-	(@Auth,
-	@Salt,
-	@UserId,
-	@CreatedAt,
-	@UpdatedAt,
-	@ExpirationDate,
-	@IsTempAuthActive);
+	IF EXISTS(SELECT * FROM [users].Access WHERE UserId = @UserId)            
+		BEGIN            
+			UPDATE [users].[Access] SET
+			Auth = @Auth,
+			Salt = @Salt,
+			UpdatedAt = @UpdatedAt,
+			ExpirationDate = @ExpirationDate,
+			IsTempAuthActive = @IsTempAuthActive
+			WHERE UserId = @UserId;
+		END                    
+	ELSE            
+		BEGIN  
+			INSERT INTO [users].[Access]
+			(Auth,
+			Salt,
+			UserId,
+			CreatedAt,
+			UpdatedAt,
+			ExpirationDate,
+			IsTempAuthActive
+			)
+			VALUES
+			(@Auth,
+			@Salt,
+			@UserId,
+			@CreatedAt,
+			@UpdatedAt,
+			@ExpirationDate,
+			@IsTempAuthActive);
+		END 
 END
 GO

@@ -79,5 +79,31 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 ProfileLink = profileLink
             });
         }
+
+        public async Task DeleteByIdAsync(int id)
+        {
+            await ExecuteAsync("[users].[uspDeleteUserById]", new
+            {
+                id
+            });
+        }
+
+        public async Task UpdateAsync(User entity)
+        {
+            await ExecuteAsync("[users].[uspUpdateUser]", new
+            {
+                entity.UserId,
+                entity.FirstName,
+                entity.LastName,
+                entity.Username,
+                entity.Email,
+                entity.UpdatedAt,
+                entity.UserTypeId,
+                entity.Address,
+                entity.Birthday
+            });
+
+            
+        }
     }
 }
