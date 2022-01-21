@@ -184,6 +184,9 @@
     <Build Include="StoredProcedures\Users\uspInsertUser.sql" />
     <Build Include="StoredProcedures\Users\uspInsertAccess.sql" />
     <Build Include="StoredProcedures\Users\uspGetAllUser.sql" />
+    <Build Include="StoredProcedures\Users\uspDeleteUserById.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateUser.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateAccess.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
