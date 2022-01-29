@@ -417,6 +417,21 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                    commandType: CommandType.StoredProcedure
                );
         }
+        public async Task<IEnumerable<DEPStudentCertification>> GetDEPStudentByParams(int certified, DateTime startDate, DateTime endDate)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            return await connection.QueryAsync<DEPStudentCertification>(
+                   "[users].[uspGetDEPStudentByParams]",
+                   new
+                   {
+                       Certificated = certified,
+                       StartDate = startDate,
+                       EndDate = endDate
+                   },
+                   commandType: CommandType.StoredProcedure
+               );
+        }
 
         public async Task UpdateStudentCertificationByIdsAsync(string ids)
         {
@@ -432,6 +447,16 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var result = await connection.ExecuteAsync("[users].[uspUpdatePDCStudentCertificationByIds]",
+                                                      new
+                                                      {
+                                                          Ids = $",{ids},"
+                                                      },
+                                                      commandType: CommandType.StoredProcedure);
+        }
+        public async Task UpdateDEPStudentCertificationByIdsAsync(string ids)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var result = await connection.ExecuteAsync("[users].[uspUpdateDEPStudentCertificationByIds]",
                                                       new
                                                       {
                                                           Ids = $",{ids},"
@@ -460,6 +485,18 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                       },
                                                       commandType: CommandType.StoredProcedure);
         }
+        public async Task UpdateUncertifiedDEPStudentByIdAsync(int id)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var result = await connection.ExecuteAsync("[users].[uspUpdateUncertifiedDEPStudentById]",
+                                                      new
+                                                      {
+                                                          Id = id
+                                                      },
+                                                      commandType: CommandType.StoredProcedure);
+        }
+        
+
 
         public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsByFullNameAsync(string firstName, string lastName)
         {

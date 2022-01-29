@@ -9,6 +9,7 @@
 	[ProfileLink]	NVARCHAR(MAX)	NULL,
 	[Address]		NVARCHAR(MAX)	NULL,
 	[birthday]		NVARCHAR(MAX)	NULL,
+	[PhoneNumber]	VARCHAR (128)	NULL,
 	[Active]		BIT             NOT NULL	DEFAULT 1,
     [Deleted]		BIT             NOT NULL	DEFAULT 0,
     [CreatedAt]     DATETIME2 (7)   NOT NULL,

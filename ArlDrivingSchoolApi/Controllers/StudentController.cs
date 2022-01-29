@@ -225,6 +225,12 @@ namespace ArlDrivingSchoolApi.Controllers
             var students = await StudentService.GetPDCStudentByParams(requestModel.Certificated, requestModel.StartDate, requestModel.EndDate);
             return Ok(students);
         }
+        [HttpPost("dep/params")]
+        public async Task<IActionResult> GetDEPStudentByParams([FromBody] GetCertifiedRequestModel requestModel)
+        {
+            var students = await StudentService.GetDEPStudentByParams(requestModel.Certificated, requestModel.StartDate, requestModel.EndDate);
+            return Ok(students);
+        }
 
         [HttpPut("certification")]
         public async Task<IActionResult> UpdateStudentCertificationByIdsAsync([FromBody] string studentIds)
@@ -246,6 +252,16 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok();
         }
 
+        [HttpPut("dep/certification")]
+        public async Task<IActionResult> UpdateDEPStudentCertificationByIdsAsync([FromBody] string studentIds)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await StudentService.UpdateDEPStudentCertificationByIdsAsync(studentIds);
+            return Ok();
+        }
+
         [HttpPut("uncertified")]
         public async Task<IActionResult> UpdateUncertifiedStudentByIdAsync([FromBody] int studentIds)
         {
@@ -262,6 +278,15 @@ namespace ArlDrivingSchoolApi.Controllers
                 return BadRequest();
 
             await StudentService.UpdateUncertifiedPDCStudentByIdAsync(studentIds);
+            return Ok();
+        }
+        [HttpPut("dep/uncertified")]
+        public async Task<IActionResult> UpdateUncertifiedDEPStudentByIdAsync([FromBody] int studentIds)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await StudentService.UpdateUncertifiedDEPStudentByIdAsync(studentIds);
             return Ok();
         }
 

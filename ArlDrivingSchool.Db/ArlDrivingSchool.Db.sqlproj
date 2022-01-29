@@ -187,6 +187,9 @@
     <Build Include="StoredProcedures\Users\uspDeleteUserById.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateUser.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateAccess.sql" />
+    <Build Include="StoredProcedures\Users\uspGetDEPStudentByParams.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateDEPStudentCertificationByIds.sql" />
+    <Build Include="StoredProcedures\Users\uspUpdateUncertifiedDEPStudentById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

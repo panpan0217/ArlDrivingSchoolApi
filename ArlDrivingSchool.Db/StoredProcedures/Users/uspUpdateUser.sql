@@ -7,8 +7,8 @@
 	@UpdatedAt DATETIME2,
 	@UserTypeId INT,
 	@Address NVARCHAR(255),
-	@Birthday NVARCHAR(50)
-
+	@Birthday NVARCHAR(50),
+	@PhoneNumber NVARCHAR(255)
 AS
 BEGIN
 	
@@ -22,6 +22,7 @@ BEGIN
 	,UserTypeId = @UserTypeId
 	,[Address] = @Address
 	,birthday = @Birthday
+	,PhoneNumber = @PhoneNumber
 
 	WHERE UserId = @UserId
 

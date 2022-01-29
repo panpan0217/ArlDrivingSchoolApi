@@ -53,7 +53,8 @@ namespace ArlDrivingSchoolApi.Controllers
                 Email = requestModel.Email,
                 UserTypeId = requestModel.UserTypeId,
                 Address = requestModel.Address,
-                Birthday =requestModel.Birthday
+                Birthday =requestModel.Birthday,
+                PhoneNumber =requestModel.PhoneNumber
             };
 
             await UserService.CreateAsync(user, requestModel.Password);
@@ -111,7 +112,8 @@ namespace ArlDrivingSchoolApi.Controllers
                 Email = requestModel.Email,
                 UserTypeId = requestModel.UserTypeId,
                 Address = requestModel.Address,
-                Birthday = requestModel.Birthday
+                Birthday = requestModel.Birthday,
+                PhoneNumber = requestModel.PhoneNumber
             };
 
             await UserService.UpdateAsync(user, requestModel.Password);

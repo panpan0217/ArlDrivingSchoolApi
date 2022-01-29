@@ -9,6 +9,7 @@ BEGIN
 		   ,[Address]
 		   ,UserTypeId
 		   ,birthday
+		   ,PhoneNumber
 	FROM users.[User]
 	WHERE Deleted = 0
 	

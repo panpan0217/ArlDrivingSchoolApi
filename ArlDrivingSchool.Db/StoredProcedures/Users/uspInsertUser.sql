@@ -7,6 +7,7 @@
 	@Email NVARCHAR (128),
 	@Address NVARCHAR(MAX),
 	@birthday NVARCHAR(MAX),
+	@PhoneNumber NVARCHAR (128),
 	@CreatedAt DATETIME2,
 	@UpdatedAt DATETIME2
 )
@@ -20,6 +21,7 @@ BEGIN
 	Email,
 	Address,
 	birthday,
+	PhoneNumber,
 	CreatedAt,
 	UpdatedAt
 	)
@@ -31,6 +33,7 @@ BEGIN
 	@Email,
 	@Address,
 	@birthday,
+	@PhoneNumber,
 	@CreatedAt,
 	@UpdatedAt
 	);

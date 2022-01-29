@@ -31,10 +31,13 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<PDCStudent> GetPDCStudentById(int pDCStudentId);
         Task<IEnumerable<StudentCertification>> GetStudentByParams(int certified, DateTime startDate, DateTime endDate);
         Task<IEnumerable<PDCStudentCertification>> GetPDCStudentByParams(int certified, DateTime startDate, DateTime endDate);
+        Task<IEnumerable<DEPStudentCertification>> GetDEPStudentByParams(int certified, DateTime startDate, DateTime endDate);
         Task UpdateStudentCertificationByIdsAsync(string ids);
         Task UpdatePDCStudentCertificationByIdsAsync(string ids);
+        Task UpdateDEPStudentCertificationByIdsAsync(string ids);
         Task UpdateUncertifiedStudentByIdAsync(int id);
         Task UpdateUncertifiedPDCStudentByIdAsync(int id);
+        Task UpdateUncertifiedDEPStudentByIdAsync(int id);
         Task<IEnumerable<StudentDetails>> GetStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<IEnumerable<PDCStudentDetails>> GetPDCStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<StudentDetails> GetStudentByIdAsync(int studentId);

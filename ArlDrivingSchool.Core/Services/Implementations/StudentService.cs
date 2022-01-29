@@ -301,6 +301,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetPDCStudentByParams(certified, startDate, endDate);
         }
+        public async Task<IEnumerable<DEPStudentCertification>> GetDEPStudentByParams(int certified, DateTime startDate, DateTime endDate)
+        {
+            return await StudentRepository.GetDEPStudentByParams(certified, startDate, endDate);
+        }
 
         public async Task UpdateStudentCertificationByIdsAsync(string ids)
         {
@@ -311,6 +315,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             await StudentRepository.UpdatePDCStudentCertificationByIdsAsync(ids);
         }
 
+        public async Task UpdateDEPStudentCertificationByIdsAsync(string ids)
+        {
+            await StudentRepository.UpdateDEPStudentCertificationByIdsAsync(ids);
+        }
         public async Task UpdateUncertifiedStudentByIdAsync(int id)
         {
             await StudentRepository.UpdateUncertifiedStudentByIdAsync(id);
@@ -320,7 +328,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             await StudentRepository.UpdateUncertifiedPDCStudentByIdAsync(id);
         }
-
+        public async Task UpdateUncertifiedDEPStudentByIdAsync(int id)
+        {
+            await StudentRepository.UpdateUncertifiedDEPStudentByIdAsync(id);
+        }
         public async Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsByFullNameAsync(string firstName, string lastName)
         {
             return await StudentRepository.GetAllStudentWithDetailsByFullNameAsync(firstName, lastName);

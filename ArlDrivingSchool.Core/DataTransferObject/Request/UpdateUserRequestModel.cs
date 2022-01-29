@@ -15,5 +15,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string Address { get; set; }
         public string Birthday { get; set; }
         public int UserTypeId { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

@@ -47,7 +47,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 entity.UpdatedAt,
                 entity.UserTypeId,
                 entity.Address,
-                entity.Birthday
+                entity.Birthday,
+                entity.PhoneNumber
             });
 
             var user = await QueryFirstOrDefaultAsync<User>("[users].[uspGetUserByUsername]", new
@@ -100,7 +101,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 entity.UpdatedAt,
                 entity.UserTypeId,
                 entity.Address,
-                entity.Birthday
+                entity.Birthday,
+                entity.PhoneNumber
             });
 
             

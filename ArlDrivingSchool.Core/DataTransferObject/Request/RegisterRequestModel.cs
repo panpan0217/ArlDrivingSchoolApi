@@ -30,6 +30,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
 
         [Required]
         public int UserTypeId { get; set; }
+        public string PhoneNumber { get; set; }
 
     }
 }
