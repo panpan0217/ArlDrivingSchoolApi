@@ -116,9 +116,41 @@ namespace ArlDrivingSchoolApi.Controllers
                 PhoneNumber = requestModel.PhoneNumber
             };
 
-            await UserService.UpdateAsync(user, requestModel.Password);
+            await UserService.UpdateAsync(user);
 
             return Ok();
+        }
+
+        [AllowAnonymous]
+        [HttpPut("updatePassword")]
+        public async Task<ActionResult> UpdatePassword([FromBody] UpdateUserRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(new { message = "Not Allowed!" });
+
+            var user = new User
+            {
+                UserId = requestModel.UserId,
+            };
+
+            await UserService.UpdatePasswordAsync(user, requestModel.Password);
+
+            return Ok();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetByIdAsync(int userId)
+        {
+            if (userId != 0)
+            {
+                var user = await UserService.GetByIdAsync(userId);
+                return Ok(user);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

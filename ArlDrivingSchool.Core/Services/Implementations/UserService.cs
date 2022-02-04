@@ -38,6 +38,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await CreatePasswordAsync(entity, password);
         }
+        public async Task UpdatePasswordAsync(User entity, string password)
+        {
+            await CreatePasswordAsync(entity, password);
+        }
 
         private async Task CreatePasswordAsync(User user, string password)
         {
@@ -116,13 +120,16 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             await UserRepository.DeleteByIdAsync(id);
         }
 
-        public async Task UpdateAsync(User entity, string password)
+        public async Task<User> GetByIdAsync(int userId)
+        {
+            return await UserRepository.GetUserByUserId(userId);
+        }
+
+        public async Task UpdateAsync(User entity)
         {
             entity.UpdatedAt = DateTime.UtcNow;
 
             await UserRepository.UpdateAsync(entity);
-
-            await CreatePasswordAsync(entity, password);
         }
     }
 }
