@@ -190,6 +190,10 @@
     <Build Include="StoredProcedures\Users\uspGetDEPStudentByParams.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateDEPStudentCertificationByIds.sql" />
     <Build Include="StoredProcedures\Users\uspUpdateUncertifiedDEPStudentById.sql" />
+    <Build Include="Tables\Users\ActivityLog.sql" />
+    <Build Include="Tables\Lookups\AcivityLogType.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertActivityLog.sql" />
+    <Build Include="StoredProcedures\Users\uspInsertActivityLog.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

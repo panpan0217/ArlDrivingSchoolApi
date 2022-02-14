@@ -18,6 +18,7 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertTransmission.sql
 :r .\Inserts\Lookups\InsertBranch.sql
 :r .\Inserts\Lookups\InsertDriveSafeStatus.sql
+:r .\Inserts\Lookups\InsertActivityLog.sql
 
 :r Inserts\InitialData\01_Insert_Billing_Setting.sql
 

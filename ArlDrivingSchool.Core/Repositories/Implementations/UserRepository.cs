@@ -107,5 +107,14 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
             
         }
+
+        public async Task CreateLogActivityAsync(ActivityLog activityLog)
+        {
+            await ExecuteAsync("[users].[uspInsertActivityLog]", new
+            {
+                activityLog.UserId,
+                activityLog.ActivityLogTypeId,
+            });
+        }
     }
 }

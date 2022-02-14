@@ -152,5 +152,20 @@ namespace ArlDrivingSchoolApi.Controllers
                 return BadRequest();
             }
         }
+
+        [AllowAnonymous]
+        [HttpPost("Log")]
+        public async Task<ActionResult> LogUserActivity([FromBody] ActivityLogRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(new { message = "Not Allowed!" });
+            var activityLog = new ActivityLog
+            {
+                ActivityLogTypeId = requestModel.ActivityLogTypeId,
+                UserId = requestModel.UserId
+            };
+            await UserService.CreateLogActivityAsync(activityLog);
+            return Ok();
+        }
     }
 }

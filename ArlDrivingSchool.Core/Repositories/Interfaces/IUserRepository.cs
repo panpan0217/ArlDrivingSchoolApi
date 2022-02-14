@@ -13,5 +13,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<IEnumerable<User>> GetAllUser();
         Task DeleteByIdAsync(int id);
         Task UpdateAsync(User entity);
+        Task CreateLogActivityAsync(ActivityLog activityLog);
     }
 }

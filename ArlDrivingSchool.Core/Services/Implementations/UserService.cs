@@ -131,5 +131,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await UserRepository.UpdateAsync(entity);
         }
+
+        public async Task CreateLogActivityAsync(ActivityLog activityLog)
+        {
+            await UserRepository.CreateLogActivityAsync(activityLog);
+        }
     }
 }
