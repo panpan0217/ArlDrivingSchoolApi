@@ -116,5 +116,18 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 activityLog.ActivityLogTypeId,
             });
         }
+
+        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync()
+        {
+            return await QueryAsync<ActivityLog>("[users].[uspGetAllActivityLogs]");
+        }
+
+        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId)
+        {
+            return await QueryAsync<ActivityLog>("[users].[uspGetAllActivityLogsByUser]", new
+            {
+                UserId = userId
+            });
+        }
     }
 }

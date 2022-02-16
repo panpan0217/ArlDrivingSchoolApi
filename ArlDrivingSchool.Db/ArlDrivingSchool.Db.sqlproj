@@ -194,6 +194,8 @@
     <Build Include="Tables\Lookups\AcivityLogType.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertActivityLog.sql" />
     <Build Include="StoredProcedures\Users\uspInsertActivityLog.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAllActivityLogs.sql" />
+    <Build Include="StoredProcedures\Users\uspGetActivityLogsByUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

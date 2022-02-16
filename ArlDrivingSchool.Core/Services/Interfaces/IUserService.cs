@@ -16,5 +16,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task UpdatePasswordAsync(User entity, string password);
         Task<User> GetByIdAsync(int userId);
         Task CreateLogActivityAsync(ActivityLog activityLog);
+        Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync();
+        Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId);
     }
 }

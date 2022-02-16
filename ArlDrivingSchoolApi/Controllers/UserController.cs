@@ -167,5 +167,22 @@ namespace ArlDrivingSchoolApi.Controllers
             await UserService.CreateLogActivityAsync(activityLog);
             return Ok();
         }
+
+
+        [Authorize]
+        [HttpGet("ActivityLogs")]
+        public async Task<ActionResult> GetAllActivityLogs()
+        {
+            var activityLogs = await UserService.GetAllActivityLogsAsync();
+            return Ok(activityLogs);
+        }
+
+        [Authorize]
+        [HttpGet("ActivityLogsBy/{userId}")]
+        public async Task<ActionResult> GetAllActivityLogs(int userId)
+        {
+            var activityLogs = await UserService.GetAllActivityLogsByUserAsync(userId);
+            return Ok(activityLogs);
+        }
     }
 }
