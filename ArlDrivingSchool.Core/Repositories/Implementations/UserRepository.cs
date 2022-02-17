@@ -124,7 +124,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
         public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId)
         {
-            return await QueryAsync<ActivityLog>("[users].[uspGetAllActivityLogsByUser]", new
+            return await QueryAsync<ActivityLog>("[users].[uspGetActivityLogsByUser]", new
             {
                 UserId = userId
             });

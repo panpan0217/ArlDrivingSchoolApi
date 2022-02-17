@@ -177,7 +177,7 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(activityLogs);
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("ActivityLogsBy/{userId}")]
         public async Task<ActionResult> GetAllActivityLogs(int userId)
         {
