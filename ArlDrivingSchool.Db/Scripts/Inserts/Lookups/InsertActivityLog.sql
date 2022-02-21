@@ -16,6 +16,8 @@ VALUES
  (1, 'Create')
 ,(2, 'Update')
 ,(3, 'Delete')
+,(4, 'Certified')
+,(5, 'Uncertified')
 
 MERGE INTO [lookups].[ActivityLogType] AS target
 USING @ActivityLogType AS source

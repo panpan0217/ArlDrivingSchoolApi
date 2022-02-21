@@ -5,6 +5,8 @@ BEGIN
 			,al.UserId
 			,CONCAT(u.FirstName, ' ', u.LastName) AS FullName
 			,LogDate
+			,StudentFullName
+			,PageName
 			,al.ActivityLogTypeId
 			,alt.[Name] as ActivityLogName
 	FROM users.[ActivityLog] AS al

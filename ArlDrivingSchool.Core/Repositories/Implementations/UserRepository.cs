@@ -114,6 +114,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             {
                 activityLog.UserId,
                 activityLog.ActivityLogTypeId,
+                activityLog.StudentFullName,
+                activityLog.PageName
             });
         }
 

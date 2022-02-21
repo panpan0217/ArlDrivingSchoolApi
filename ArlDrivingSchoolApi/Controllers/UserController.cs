@@ -162,7 +162,9 @@ namespace ArlDrivingSchoolApi.Controllers
             var activityLog = new ActivityLog
             {
                 ActivityLogTypeId = requestModel.ActivityLogTypeId,
-                UserId = requestModel.UserId
+                UserId = requestModel.UserId,
+                StudentFullName = requestModel.StudentFullName,
+                PageName = requestModel.PageName
             };
             await UserService.CreateLogActivityAsync(activityLog);
             return Ok();

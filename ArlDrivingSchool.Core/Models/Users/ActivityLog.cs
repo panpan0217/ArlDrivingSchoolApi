@@ -10,5 +10,7 @@ namespace ArlDrivingSchool.Core.Models.Users
         public DateTime LogDate { get; set; }
         public string ActivityLogName { get; set; }
         public string FullName { get; set; }
+        public string StudentFullName { get; set; }
+        public string PageName { get; set; }
     }
 }
