@@ -137,14 +137,14 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             await UserRepository.CreateLogActivityAsync(activityLog);
         }
 
-        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync()
+        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync(DateTime startDate, DateTime endDate)
         {
-            return await UserRepository.GetAllActivityLogsAsync();
+            return await UserRepository.GetAllActivityLogsAsync(startDate, endDate);
         }
 
-        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId)
+        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId, DateTime startDate, DateTime endDate)
         {
-            return await UserRepository.GetAllActivityLogsByUserAsync(userId);
+            return await UserRepository.GetAllActivityLogsByUserAsync(userId, startDate, endDate);
         }
     }
 }

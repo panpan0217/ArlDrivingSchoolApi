@@ -1,9 +1,9 @@
 ﻿CREATE PROCEDURE [users].[uspGetInstructorById]
 	@Id int
 AS
-	SELECT	InstructorId,
-			FullName,
-			[Status]
-	FROM [users].Instructor
-	WHERE InstructorId = @Id
+	SELECT UserId AS InstructorId	 
+			,CONCAT(FirstName, ' ' , LastName) AS FullName
+			,IIF(Deleted = 1, 'Inactive', 'Active') AS [Status] 
+	FROM users.[User]
+	WHERE UserId = @Id
 GO

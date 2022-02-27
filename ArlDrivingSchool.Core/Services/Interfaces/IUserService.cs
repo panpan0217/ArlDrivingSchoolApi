@@ -1,5 +1,6 @@
 ﻿using ArlDrivingSchool.Core.DataTransferObject.Response;
 using ArlDrivingSchool.Core.Models.Users;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task UpdatePasswordAsync(User entity, string password);
         Task<User> GetByIdAsync(int userId);
         Task CreateLogActivityAsync(ActivityLog activityLog);
-        Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync();
-        Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId);
+        Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync(DateTime startDate, DateTime endDate);
+        Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId, DateTime startDate, DateTime endDate);
     }
 }

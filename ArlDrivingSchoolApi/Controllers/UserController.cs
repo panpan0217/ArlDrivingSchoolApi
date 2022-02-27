@@ -172,19 +172,20 @@ namespace ArlDrivingSchoolApi.Controllers
 
 
         [Authorize]
-        [HttpGet("ActivityLogs")]
-        public async Task<ActionResult> GetAllActivityLogs()
+        [HttpPost("ActivityLogs")]
+        public async Task<ActionResult> GetAllActivityLogs([FromBody] DateRangeRequestModel requestModel)
         {
-            var activityLogs = await UserService.GetAllActivityLogsAsync();
-            return Ok(activityLogs);
-        }
+            if (requestModel.UserId != 0)
+            {
+                var activityLogs = await UserService.GetAllActivityLogsByUserAsync(requestModel.UserId, requestModel.StartDate, requestModel.EndDate);
+                return Ok(activityLogs);
+            }
+            else
+            {
+                var activityLogs = await UserService.GetAllActivityLogsAsync(requestModel.StartDate, requestModel.EndDate);
+                return Ok(activityLogs);
+            }
 
-        [AllowAnonymous]
-        [HttpGet("ActivityLogsBy/{userId}")]
-        public async Task<ActionResult> GetAllActivityLogs(int userId)
-        {
-            var activityLogs = await UserService.GetAllActivityLogsByUserAsync(userId);
-            return Ok(activityLogs);
         }
     }
 }

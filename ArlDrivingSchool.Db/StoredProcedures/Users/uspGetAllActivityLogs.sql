@@ -1,4 +1,6 @@
 ﻿CREATE PROCEDURE [users].[uspGetAllActivityLogs]
+	@StartDate	DATETIME2,
+	@EndDate	DATETIME2
 AS
 BEGIN
 	SELECT	 ActivityLogId
@@ -12,5 +14,6 @@ BEGIN
 	FROM users.[ActivityLog] AS al
 	INNER JOIN users.[User] as u ON al.UserId = u.UserId
 	INNER JOIN lookups.[ActivityLogType] as alt ON al.ActivityLogTypeId = alt.ActivityLogTypeId 
+	WHERE  CAST(LogDate as DATE) BETWEEN @StartDate AND @EndDate
 END
 GO;

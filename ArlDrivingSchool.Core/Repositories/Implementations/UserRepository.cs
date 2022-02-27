@@ -119,16 +119,22 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             });
         }
 
-        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync()
+        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsAsync(DateTime startDate, DateTime endDate)
         {
-            return await QueryAsync<ActivityLog>("[users].[uspGetAllActivityLogs]");
+            return await QueryAsync<ActivityLog>("[users].[uspGetAllActivityLogs]", new
+            {
+                StartDate = startDate,
+                EndDate = endDate
+            });
         }
 
-        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId)
+        public async Task<IEnumerable<ActivityLog>> GetAllActivityLogsByUserAsync(int userId, DateTime startDate, DateTime endDate)
         {
             return await QueryAsync<ActivityLog>("[users].[uspGetActivityLogsByUser]", new
             {
-                UserId = userId
+                UserId = userId,
+                StartDate = startDate,
+                EndDate = endDate
             });
         }
     }
