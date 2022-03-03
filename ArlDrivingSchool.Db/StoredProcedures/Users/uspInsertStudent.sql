@@ -16,7 +16,9 @@
 	@SessionEmail NVARCHAR(255),
 	@DriveSafeStatusId INT,
 	@Certified BIT,
-	@TextForm NVARCHAR(MAX)
+	@TextForm NVARCHAR(MAX),
+	@OfficeId INT,
+	@PaymentModeId INT
 )
 AS
 BEGIN 
@@ -46,7 +48,9 @@ BEGIN
 			DriveSafeStatusId,
 			Certified,
 			TextForm,
-			DateCertified
+			DateCertified,
+			OfficeId,
+			PaymentModeId
 		)
 		VALUES 
 		(
@@ -68,7 +72,9 @@ BEGIN
 			@DriveSafeStatusId,
 			@Certified,
 			@TextForm,
-			GETDATE()
+			GETDATE(),
+			@OfficeId,
+			@PaymentModeId
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -93,7 +99,9 @@ BEGIN
 			ClassType,
 			SessionEmail,
 			DriveSafeStatusId,
-			TextForm
+			TextForm,
+			OfficeId,
+			PaymentModeId
 		)
 		VALUES 
 		(
@@ -113,7 +121,9 @@ BEGIN
 			@ClassType,
 			@SessionEmail,
 			@DriveSafeStatusId,
-			@TextForm
+			@TextForm,
+			@OfficeId,
+			@PaymentModeId
 		);
 
 		SELECT SCOPE_IDENTITY();

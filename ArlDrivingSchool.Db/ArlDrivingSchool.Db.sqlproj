@@ -196,6 +196,12 @@
     <Build Include="StoredProcedures\Users\uspInsertActivityLog.sql" />
     <Build Include="StoredProcedures\Users\uspGetAllActivityLogs.sql" />
     <Build Include="StoredProcedures\Users\uspGetActivityLogsByUser.sql" />
+    <Build Include="Tables\Lookups\Office.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertOffice.sql" />
+    <Build Include="Tables\Lookups\PaymentMode.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertPaymentMode.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetOffice.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetPaymentMethod.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

@@ -19,6 +19,8 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertBranch.sql
 :r .\Inserts\Lookups\InsertDriveSafeStatus.sql
 :r .\Inserts\Lookups\InsertActivityLog.sql
+:r .\Inserts\Lookups\InsertOffice.sql
+:r .\Inserts\Lookups\InsertPaymentMode.sql
 
 :r Inserts\InitialData\01_Insert_Billing_Setting.sql
 

@@ -37,5 +37,22 @@ namespace ArlDrivingSchoolApi.Controllers
 
             return Ok(driveSafeStatuses);
         }
+
+
+        [HttpGet("office")]
+        public async Task<IActionResult> GetOfficeAsync()
+        {
+            var offices = await LookupsService.GetAllOfficeAsync();
+
+            return Ok(offices);
+        }
+
+        [HttpGet("payment-mode")]
+        public async Task<IActionResult> GetPaymentModeAsybc()
+        {
+            var paymentModes = await LookupsService.GetAllPaymentModeAsync();
+
+            return Ok(paymentModes);
+        }
     }
 }

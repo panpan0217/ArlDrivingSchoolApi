@@ -8,6 +8,8 @@ BEGIN
 		   ,ups.FBContact
 		   ,ups.Mobile
 		   ,la.StatusName [ACESStatus]
+		   ,o.OfficeName
+		   ,pm.PaymentModeName
 		   ,ups.RestrictionId [RestrictionCode]
 		   ,ups.ATransmissionId
 		   ,ups.A1TransmissionId
@@ -29,6 +31,8 @@ BEGIN
 
 	FROM users.PDCStudent AS ups
 			INNER JOIN lookups.ACESStatus AS la ON la.ACESStatusId = ups.ACESStatusId
+			INNER JOIN lookups.Office AS o ON o.OfficeId = ups.OfficeId
+			INNER JOIN lookups.PaymentMode AS pm ON pm.PaymentModeId = ups.PaymentModeId
 			--INNER JOIN lookups.Restriction AS r ON r.RestrictionId = ups.RestrictionId
 			LEFT JOIN payments.PDCPayment AS pp ON pp.PDCStudentId = ups.PDCStudentId
 	WHERE  CAST(ups.DateRegistered as date) BETWEEN @StartDate AND @EndDate

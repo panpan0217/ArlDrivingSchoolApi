@@ -12,7 +12,9 @@
 	@Remarks			NVARCHAR(255),
 	@StudentPermit		NVARCHAR(MAX),
 	@UpdatedBy			NVARCHAR(255),
-	@AuthenticatedBy	NVARCHAR(255)
+	@AuthenticatedBy	NVARCHAR(255),
+	@OfficeId	INT,
+	@PaymentModeId INT
 AS
 BEGIN
 	
@@ -31,6 +33,8 @@ BEGIN
 	,StudentPermit = @StudentPermit
 	,UpdatedBy = @UpdatedBy
 	,AuthenticatedBy = @AuthenticatedBy
+	,OfficeId = @OfficeId
+	,PaymentModeId = @PaymentModeId
 	WHERE PDCStudentId = @PDCStudentId
 
 END

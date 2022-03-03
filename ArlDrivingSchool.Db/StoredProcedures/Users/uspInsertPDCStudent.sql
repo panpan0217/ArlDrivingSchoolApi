@@ -12,7 +12,9 @@
 	@StudentPermit NVARCHAR(255),
 	@CreatedBy NVARCHAR(255),
 	@AuthenticatedBy NVARCHAR(255),
-	@Certified BIT
+	@Certified BIT,
+	@OfficeId INT,
+	@PaymentModeId INT
 )
 AS
 BEGIN 
@@ -34,7 +36,9 @@ BEGIN
 			CreatedBy,
 			AuthenticatedBy,
 			Certified,
-			DateCertified
+			DateCertified,
+			OfficeId,
+			PaymentModeId
 		)
 		VALUES 
 		(
@@ -52,7 +56,9 @@ BEGIN
 			@CreatedBy,
 			@AuthenticatedBy,
 			@Certified,
-			GETDATE()
+			GETDATE(),
+			@OfficeId,
+			@PaymentModeId
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -73,7 +79,9 @@ BEGIN
 			Remarks,
 			StudentPermit,
 			CreatedBy,
-			AuthenticatedBy
+			AuthenticatedBy,
+			OfficeId,
+			PaymentModeId
 		)
 		VALUES 
 		(
@@ -89,7 +97,9 @@ BEGIN
 			@Remarks,	
 			@StudentPermit,
 			@CreatedBy,
-			@AuthenticatedBy
+			@AuthenticatedBy,
+			@OfficeId,
+			@PaymentModeId
 		);
 
 		SELECT SCOPE_IDENTITY();

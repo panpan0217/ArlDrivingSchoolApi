@@ -30,5 +30,15 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await LookupsRepository.GetDriveSafeStatusAsync();
         }
+
+        public async Task<IEnumerable<Office>> GetAllOfficeAsync()
+        {
+            return await LookupsRepository.GetAllOfficeAsync();
+        }
+
+        public async Task<IEnumerable<PaymentMode>> GetAllPaymentModeAsync()
+        {
+            return await LookupsRepository.GetAllPaymentModeAsync();
+        }
     }
 }

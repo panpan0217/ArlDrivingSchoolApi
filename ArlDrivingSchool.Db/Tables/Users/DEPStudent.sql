@@ -18,7 +18,11 @@
     [DriveSafeStatusId]		INT				NULL, 
     [SessionEmail]			NVARCHAR(MAX)	NULL,
     [TextForm]				NVARCHAR(MAX)	NULL,
+	[OfficeId]				INT				NULL,
+	[PaymentModeId]			INT				NULL,
 
 	CONSTRAINT [PK_DEPStudent] PRIMARY KEY CLUSTERED ([DEPStudentId] ASC),
-	CONSTRAINT FK_DEPStudent_DriveSafeStatus_DriveSafeStatusId FOREIGN KEY (DriveSafeStatusId) REFERENCES [lookups].[DriveSafeStatus] (DriveSafeStatusId)
+	CONSTRAINT FK_DEPStudent_DriveSafeStatus_DriveSafeStatusId FOREIGN KEY (DriveSafeStatusId) REFERENCES [lookups].[DriveSafeStatus] (DriveSafeStatusId),
+	CONSTRAINT FK_DEPStudent_Office_OfficeId FOREIGN KEY (OfficeId) REFERENCES [lookups].[Office] (OfficeId),
+	CONSTRAINT FK_DEPStudent_PaymentMode_PaymentModeId FOREIGN KEY (PaymentModeId) REFERENCES [lookups].[PaymentMode] (PaymentModeId),
 )

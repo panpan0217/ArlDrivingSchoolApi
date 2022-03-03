@@ -18,6 +18,8 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string TDCStatus { get; set; }
         public string ACESStatus { get; set; }
         public string Remarks { get; set; }
+        public string OfficeName { get; set; }
+        public string PaymentModeName { get; set; }
         public DateTime DateRegistered { get; set; }
         public bool Certified { get; set; }
         public DateTime DateCertified { get; set; }

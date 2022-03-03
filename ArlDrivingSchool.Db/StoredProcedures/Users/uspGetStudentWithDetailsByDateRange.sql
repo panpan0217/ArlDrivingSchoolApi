@@ -13,6 +13,8 @@ BEGIN
 		   ,ls.StatusName [StudentStatus]
 		   ,la.StatusName [ACESStatus]
 		   ,lt.StatusName [TDCStatus]
+		   ,o.OfficeName
+		   ,pm.PaymentModeName
 		   ,us.Remarks
 		   ,us.DateRegistered
 		   ,us.Certified
@@ -65,6 +67,8 @@ BEGIN
 			INNER JOIN lookups.StudentStatus AS ls ON ls.StudentStatusId = us.StudentStatusId
 			INNER JOIN lookups.ACESStatus AS la ON la.ACESStatusId = us.ACESStatusId
 			INNER JOIN lookups.TDCStatus AS lt ON lt.TDCStatusId = us.TDCStatusId
+			INNER JOIN lookups.Office AS o ON o.OfficeId = us.OfficeId
+			INNER JOIN lookups.PaymentMode AS pm ON pm.PaymentModeId = us.PaymentModeId
 			LEFT JOIN lookups.DriveSafeStatus AS dss ON dss.DriveSafeStatusId = us.DriveSafeStatusId
 			LEFT JOIN payments.Payment AS pp ON pp.StudentId = us.StudentId
 			LEFT JOIN [sessions].SessionOne AS sso ON sso.StudentId = us.StudentId

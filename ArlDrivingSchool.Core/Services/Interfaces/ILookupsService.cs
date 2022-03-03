@@ -9,5 +9,8 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<IEnumerable<Restriction>> GetAllRestrictionAsync();
         Task<IEnumerable<Transmission>> GetALLTransmissionAsync();
         Task<IEnumerable<DriveSafeStatus>> GetDriveSafeStatusAsync();
+        Task<IEnumerable<Office>> GetAllOfficeAsync();
+        Task<IEnumerable<PaymentMode>> GetAllPaymentModeAsync();
+
     }
 }

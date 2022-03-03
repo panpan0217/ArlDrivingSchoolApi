@@ -17,9 +17,13 @@
 	[CreatedBy]         NVARCHAR(257)   NOT NULL DEFAULT 'admin', 
 	[UpdatedBy]         NVARCHAR(257)   NULL,
 	[AuthenticatedBy]	NVARCHAR(255)	NULL, 
+	[OfficeId]				INT				NULL,
+	[PaymentModeId]			INT				NULL,
 
 	CONSTRAINT [PK_PDCStudent] PRIMARY KEY CLUSTERED ([PDCStudentId] ASC),
 	CONSTRAINT FK_PDCStudent_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
+	CONSTRAINT FK_PDCStudent_Office_OfficeId FOREIGN KEY (OfficeId) REFERENCES [lookups].[Office] (OfficeId),
+	CONSTRAINT FK_PDCStudent_PaymentMode_PaymentModeId FOREIGN KEY (PaymentModeId) REFERENCES [lookups].[PaymentMode] (PaymentModeId),
 	--CONSTRAINT FK_PDCStudent_Restriction_RestrictionId FOREIGN KEY (RestrictionId) REFERENCES [lookups].[Restriction] (RestrictionId),
 	--CONSTRAINT FK_PDCStudent_Transmission_ATransmissionId FOREIGN KEY ([ATransmissionId]) REFERENCES [lookups].[Transmission] (TransmissionId),
 	--CONSTRAINT FK_PDCStudent_Transmission_A1TransmissionId FOREIGN KEY ([A1TransmissionId]) REFERENCES [lookups].[Transmission] (TransmissionId),

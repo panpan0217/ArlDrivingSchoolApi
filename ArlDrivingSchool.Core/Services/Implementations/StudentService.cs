@@ -74,7 +74,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 SessionEmail = requestModel.SessionEmail,
                 DriveSafeStatusId = requestModel.DriveSafeStatusId,
                 Certified = requestModel.Certified,
-                TextForm = requestModel.TextForm
+                TextForm = requestModel.TextForm,
+                OfficeId =requestModel.OfficeId,
+                PaymentModeId = requestModel.PaymentModeId
             };
             var studentId = await StudentRepository.CreateStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
 
@@ -134,7 +136,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 ClassType = request.ClassType,
                 SessionEmail = request.SessionEmail,
                 DriveSafeStatusId = request.DriveSafeStatusId,
-                TextForm = request.TextForm
+                TextForm = request.TextForm,
+                OfficeId = request.OfficeId,
+                PaymentModeId = request.PaymentModeId
             };
 
             var sessionOne = new UpdateSessionRequestModel
@@ -243,7 +247,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 Remarks = requestModel.Remarks,
                 StudentPermit = requestModel.StudentPermit,
                 AuthenticatedBy = requestModel.AuthenticatedBy,
-                Certified = requestModel.Certified
+                Certified = requestModel.Certified,
+                OfficeId = requestModel.OfficeId,
+                PaymentModeId = requestModel.PaymentModeId
 
             };
 
@@ -274,8 +280,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 BTransmissionId = request.BTransmissionId,
                 Remarks = request.Remarks,
                 StudentPermit = request.StudentPermit,
-                AuthenticatedBy = request.AuthenticatedBy
-               
+                AuthenticatedBy = request.AuthenticatedBy,
+                OfficeId = request.OfficeId,
+                PaymentModeId = request.PaymentModeId
+
             };
 
             var payment = new UpdatePaymentRequestModel
