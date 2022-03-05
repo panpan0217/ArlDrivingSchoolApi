@@ -22,14 +22,17 @@
     [DriveSafeStatusId]		INT				NULL, 
     [SessionEmail]			NVARCHAR(MAX)	NULL,
     [TextForm]				NVARCHAR(MAX)	NULL,
+	[EnrollmentModeId]		INT				NOT NULL DEFAULT 1,
 	[OfficeId]				INT				NULL,
-	[PaymentModeId]			INT				NULL,
+	[UserId]				INT				NULL,
 
     CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),
 	CONSTRAINT FK_Student_StudentStatus_StudentStatusId FOREIGN KEY (StudentStatusId) REFERENCES [lookups].[StudentStatus] (StudentStatusId),
 	CONSTRAINT FK_Student_TDCStatus_TDCStatusId FOREIGN KEY (TDCStatusId) REFERENCES [lookups].[TDCStatus] (TDCStatusId),
 	CONSTRAINT FK_Student_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
 	CONSTRAINT FK_Student_DriveSafeStatus_DriveSafeStatusId FOREIGN KEY (DriveSafeStatusId) REFERENCES [lookups].[DriveSafeStatus] (DriveSafeStatusId),
+	CONSTRAINT FK_Student_EnrollmentMode_EnrollmentModeId FOREIGN KEY (EnrollmentModeId) REFERENCES [lookups].[EnrollmentMode] (EnrollmentModeId),
 	CONSTRAINT FK_Student_Office_OfficeId FOREIGN KEY (OfficeId) REFERENCES [lookups].[Office] (OfficeId),
-	CONSTRAINT FK_Student_PaymentMode_PaymentModeId FOREIGN KEY (PaymentModeId) REFERENCES [lookups].[PaymentMode] (PaymentModeId),
+	CONSTRAINT FK_Student_User_UserId FOREIGN KEY (UserId) REFERENCES [users].[User] (UserId),
+
 )

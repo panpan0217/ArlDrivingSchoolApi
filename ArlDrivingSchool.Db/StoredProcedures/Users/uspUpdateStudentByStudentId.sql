@@ -18,12 +18,22 @@
 	@DriveSafeStatusId	INT,
 	@TextForm			NVARCHAR(MAX),
 	@OfficeId INT,
-	@PaymentModeId INT
+	@EnrollmentModeId INT,
+	@UserId INT
 AS
 BEGIN
 	IF (@DriveSafeStatusId = 0)
 	BEGIN
 		SET @DriveSafeStatusId = NULL;
+	END
+	IF (@UserId = 0)
+	BEGIN
+		SET @UserId = NULL;
+	END
+
+	IF (@OfficeId = 0)
+	BEGIN
+		SET @OfficeId = NULL;
 	END
 	UPDATE users.Student
 	SET
@@ -44,8 +54,9 @@ BEGIN
 	,SessionEmail = @SessionEmail
 	,DriveSafeStatusId = @DriveSafeStatusId
 	,TextForm = @TextForm
+	,EnrollmentModeId = @EnrollmentModeId
 	,OfficeId = @OfficeId
-	,PaymentModeId = @PaymentModeId
+	,UserId = @UserId
 	WHERE StudentId = @StudentId
 
 END

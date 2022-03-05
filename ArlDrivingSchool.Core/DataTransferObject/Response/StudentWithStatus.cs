@@ -18,8 +18,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string TDCStatus { get; set; }
         public string ACESStatus { get; set; }
         public string Remarks { get; set; }
-        public string OfficeName { get; set; }
-        public string PaymentModeName { get; set; }
         public DateTime DateRegistered { get; set; }
         public bool Certified { get; set; }
         public DateTime DateCertified { get; set; }
@@ -32,6 +30,11 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string TextForm { get; set; }
         public string FullName => FirstName + ' ' + LastName;
 
-
+        public int OfficeId { get; set; }
+        public string OfficeName { get; set; }
+        public int EnrollmentModeId { get; set; }
+        public string EnrollmentModeName { get; set; }
+        public int UserId { get; set; }
+        public string Staff { get; set; }
     }
 }

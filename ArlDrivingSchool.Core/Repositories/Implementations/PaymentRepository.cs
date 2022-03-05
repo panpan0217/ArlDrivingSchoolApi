@@ -22,7 +22,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             Configuration = configuration;
         }
 
-        public async Task<int> CreatePaymentAsync(int studentId, int totalAmount, int payment, int balance)
+        public async Task<int> CreatePaymentAsync(int studentId, int totalAmount, int payment, int balance, int paymentModeId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var paymentId = await connection.ExecuteScalarAsync<int>("[payments].[uspInsertPayment]",
@@ -31,7 +31,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         StudentId = studentId,
                                                                         TotalAmount = totalAmount,
                                                                         Payment = payment,
-                                                                        Balance = balance
+                                                                        Balance = balance,
+                                                                        PaymentModeId = paymentModeId,
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return paymentId;
@@ -60,7 +61,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<int> CreatePDCPaymentAsync(int pdcStudentId, int totalAmount, int payment, int balance)
+        public async Task<int> CreatePDCPaymentAsync(int pdcStudentId, int totalAmount, int payment, int balance, int paymentModeId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var paymentId = await connection.ExecuteScalarAsync<int>("[payments].[uspInsertPDCPayment]",
@@ -69,7 +70,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         PDCStudentId = pdcStudentId,
                                                                         TotalAmount = totalAmount,
                                                                         Payment = payment,
-                                                                        Balance = balance
+                                                                        Balance = balance,
+                                                                        PaymentModeId = paymentModeId
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return paymentId;

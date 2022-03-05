@@ -13,11 +13,22 @@
 	@CreatedBy NVARCHAR(255),
 	@AuthenticatedBy NVARCHAR(255),
 	@Certified BIT,
-	@OfficeId INT,
-	@PaymentModeId INT
+	@EnrollmentModeId INT,
+	@UserId INT,
+	@OfficeId INT
 )
 AS
 BEGIN 
+	IF (@UserId = 0)
+	BEGIN
+		SET @UserId = NULL;
+	END
+
+	IF (@OfficeId = 0)
+	BEGIN
+		SET @OfficeId = NULL;
+	END
+
 	IF(@Certified = 1)
 	BEGIN
 		INSERT INTO [users].[PDCStudent]
@@ -37,8 +48,9 @@ BEGIN
 			AuthenticatedBy,
 			Certified,
 			DateCertified,
-			OfficeId,
-			PaymentModeId
+			EnrollmentModeId,
+			UserId,
+			OfficeId
 		)
 		VALUES 
 		(
@@ -57,8 +69,9 @@ BEGIN
 			@AuthenticatedBy,
 			@Certified,
 			GETDATE(),
-			@OfficeId,
-			@PaymentModeId
+			@EnrollmentModeId,
+			@UserId,
+			@OfficeId
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -80,8 +93,9 @@ BEGIN
 			StudentPermit,
 			CreatedBy,
 			AuthenticatedBy,
-			OfficeId,
-			PaymentModeId
+			EnrollmentModeId,
+			UserId,
+			OfficeId
 		)
 		VALUES 
 		(
@@ -98,8 +112,9 @@ BEGIN
 			@StudentPermit,
 			@CreatedBy,
 			@AuthenticatedBy,
-			@OfficeId,
-			@PaymentModeId
+			@EnrollmentModeId,
+			@UserId,
+			@OfficeId
 		);
 
 		SELECT SCOPE_IDENTITY();

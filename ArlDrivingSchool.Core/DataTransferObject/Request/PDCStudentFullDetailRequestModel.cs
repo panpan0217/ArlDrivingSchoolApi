@@ -40,6 +40,8 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public bool ForceCreate { get; set; }
         public string AuthenticatedBy { get; set; }
         public bool Certified { get; set; }
+        public int EnrollmentModeId { get; set; }
+        public int UserId { get; set; }
         public int OfficeId { get; set; }
         public int PaymentModeId { get; set; }
     }

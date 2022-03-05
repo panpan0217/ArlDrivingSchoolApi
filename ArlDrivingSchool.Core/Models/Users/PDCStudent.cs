@@ -19,7 +19,8 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string Remarks { get; set; }
         public string StudentPermit { get; set; }
         public string AuthenticatedBy { get; set; }
+        public int EnrollmentModeId { get; set; }
+        public int UserId { get; set; }
         public int OfficeId { get; set; }
-        public int PaymentModeId { get; set; }
     }
 }

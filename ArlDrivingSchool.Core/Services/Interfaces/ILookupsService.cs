@@ -11,6 +11,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<IEnumerable<DriveSafeStatus>> GetDriveSafeStatusAsync();
         Task<IEnumerable<Office>> GetAllOfficeAsync();
         Task<IEnumerable<PaymentMode>> GetAllPaymentModeAsync();
+        Task<IEnumerable<EnrollmentMode>> GetAllEnrollmentModeAsync();
 
     }
 }

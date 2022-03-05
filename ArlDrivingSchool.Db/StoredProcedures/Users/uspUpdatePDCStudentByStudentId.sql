@@ -13,11 +13,21 @@
 	@StudentPermit		NVARCHAR(MAX),
 	@UpdatedBy			NVARCHAR(255),
 	@AuthenticatedBy	NVARCHAR(255),
-	@OfficeId	INT,
-	@PaymentModeId INT
+	@OfficeId INT,
+	@EnrollmentModeId INT,
+	@UserId INT
 AS
 BEGIN
-	
+	IF (@UserId = 0)
+	BEGIN
+		SET @UserId = NULL;
+	END
+
+	IF (@OfficeId = 0)
+	BEGIN
+		SET @OfficeId = NULL;
+	END
+
 	UPDATE users.PDCStudent
 	SET
 	 FullName = @FullName
@@ -33,8 +43,9 @@ BEGIN
 	,StudentPermit = @StudentPermit
 	,UpdatedBy = @UpdatedBy
 	,AuthenticatedBy = @AuthenticatedBy
+	,EnrollmentModeId = @EnrollmentModeId
 	,OfficeId = @OfficeId
-	,PaymentModeId = @PaymentModeId
+	,UserId = @UserId
 	WHERE PDCStudentId = @PDCStudentId
 
 END

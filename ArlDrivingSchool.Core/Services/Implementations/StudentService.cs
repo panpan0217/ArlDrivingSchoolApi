@@ -57,28 +57,29 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId)
         {
             var user = await UserRepository.GetUserByUserId(userId);
-            var studentRequest = new StudentFullDetailsRequestModel
-            {
-                FirstName = requestModel.FirstName,
-                LastName = requestModel.LastName,
-                Email = requestModel.Email,
-                Location = requestModel.Location,
-                FBContact = requestModel.FBContact,
-                Mobile = requestModel.Mobile,
-                StudentStatusId = requestModel.StudentStatusId,
-                TDCStatusId = requestModel.TDCStatusId,
-                ACESStatusId = requestModel.ACESStatusId,
-                Remarks = requestModel.Remarks,
-                AuthenticatedBy = requestModel.AuthenticatedBy,
-                ClassType = requestModel.ClassType,
-                SessionEmail = requestModel.SessionEmail,
-                DriveSafeStatusId = requestModel.DriveSafeStatusId,
-                Certified = requestModel.Certified,
-                TextForm = requestModel.TextForm,
-                OfficeId =requestModel.OfficeId,
-                PaymentModeId = requestModel.PaymentModeId
-            };
-            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
+            //var studentRequest = new StudentFullDetailsRequestModel
+            //{
+            //    FirstName = requestModel.FirstName,
+            //    LastName = requestModel.LastName,
+            //    Email = requestModel.Email,
+            //    Location = requestModel.Location,
+            //    FBContact = requestModel.FBContact,
+            //    Mobile = requestModel.Mobile,
+            //    StudentStatusId = requestModel.StudentStatusId,
+            //    TDCStatusId = requestModel.TDCStatusId,
+            //    ACESStatusId = requestModel.ACESStatusId,
+            //    Remarks = requestModel.Remarks,
+            //    AuthenticatedBy = requestModel.AuthenticatedBy,
+            //    ClassType = requestModel.ClassType,
+            //    SessionEmail = requestModel.SessionEmail,
+            //    DriveSafeStatusId = requestModel.DriveSafeStatusId,
+            //    Certified = requestModel.Certified,
+            //    EnrollmentModeId = requestModel.EnrollmentModeId,
+            //    TextForm = requestModel.TextForm,
+            //    OfficeId =requestModel.OfficeId,
+              
+            //};
+            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(requestModel, $"{user.FirstName} {user.LastName}");
 
             await SessionRepository.CreateSessionOneAsync(
                 studentId: studentId,
@@ -109,9 +110,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await PaymentRepository.CreatePaymentAsync(
                 studentId,
-                totalAmount: requestModel.TotalAmount,
-                payment: requestModel.Payment,
-                balance: requestModel.Balance
+                requestModel.TotalAmount,
+                requestModel.Payment,
+                requestModel.Balance,
+                requestModel.PaymentModeId
                 );
         }
 
@@ -137,8 +139,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 SessionEmail = request.SessionEmail,
                 DriveSafeStatusId = request.DriveSafeStatusId,
                 TextForm = request.TextForm,
+                EnrollmentModeId = request.EnrollmentModeId,
                 OfficeId = request.OfficeId,
-                PaymentModeId = request.PaymentModeId
+                UserId = request.UserId
+                
             };
 
             var sessionOne = new UpdateSessionRequestModel
@@ -175,8 +179,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 StudentId = request.StudentId,
                 Payment = request.Payment,
                 TotalAmount = request.TotalAmount,
-                Balance = request.Balance
-
+                Balance = request.Balance,
+                PaymentModeId = request.PaymentModeId
             };
 
             await SessionRepository.UpdateSessionOneByStudentIdAsync(sessionOne);
@@ -232,34 +236,14 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             var user = await UserRepository.GetUserByUserId(userId);
 
-            var student = new PDCStudentFullDetailRequestModel
-            {
-                PDCStudentId = requestModel.PDCStudentId,
-                DateRegistered = requestModel.DateRegistered,
-                FullName = requestModel.FullName,
-                FBContact = requestModel.FBContact,
-                Mobile = requestModel.Mobile,
-                ACESStatusId = requestModel.ACESStatusId,
-                RestrictionId = requestModel.RestrictionId,
-                ATransmissionId = requestModel.ATransmissionId,
-                A1TransmissionId = requestModel.A1TransmissionId,
-                BTransmissionId = requestModel.BTransmissionId,
-                Remarks = requestModel.Remarks,
-                StudentPermit = requestModel.StudentPermit,
-                AuthenticatedBy = requestModel.AuthenticatedBy,
-                Certified = requestModel.Certified,
-                OfficeId = requestModel.OfficeId,
-                PaymentModeId = requestModel.PaymentModeId
-
-            };
-
-            var pdcStudentId = await StudentRepository.CreatePDCStudentWithDetailsAsync(student, $"{user.FirstName} {user.LastName}");
+            var pdcStudentId = await StudentRepository.CreatePDCStudentWithDetailsAsync(requestModel, $"{user.FirstName} {user.LastName}");
 
             await PaymentRepository.CreatePDCPaymentAsync(
                 pdcStudentId,
                 totalAmount: requestModel.TotalAmount,
                 payment: requestModel.Payment,
-                balance: requestModel.Balance
+                balance: requestModel.Balance,
+                requestModel.PaymentModeId
                 );
         }
 
@@ -281,8 +265,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 Remarks = request.Remarks,
                 StudentPermit = request.StudentPermit,
                 AuthenticatedBy = request.AuthenticatedBy,
+                EnrollmentModeId = request.EnrollmentModeId,
+                UserId =request.UserId,
                 OfficeId = request.OfficeId,
-                PaymentModeId = request.PaymentModeId
 
             };
 
@@ -291,8 +276,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 StudentId = request.PDCStudentId,
                 Payment = request.Payment,
                 TotalAmount = request.TotalAmount,
-                Balance = request.Balance
-
+                Balance = request.Balance,
+                PaymentModeId = request.PaymentModeId
             };
 
             await PaymentRepository.UpdatePDCPaymentByStudentIdAsync(payment);

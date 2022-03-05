@@ -10,5 +10,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int TotalAmount { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }
+        public int PaymentModeId { get; set; }
     }
 }

@@ -3,7 +3,8 @@
 	@StudentId INT,
 	@TotalAmount INT,
 	@Payment INT,
-	@Balance INT
+	@Balance INT,
+	@PaymentModeId INT
 )
 AS
 BEGIN 
@@ -13,7 +14,8 @@ BEGIN
 		PaymentDate,
 		TotalAmount,
 		Payment,
-		Balance
+		Balance,
+		PaymentModeId
 	)
 	VALUES 
 	(
@@ -21,7 +23,8 @@ BEGIN
 		GETUTCDATE(),
 		@TotalAmount,
 		@Payment,
-		@Balance
+		@Balance,
+		@PaymentModeId
 	);
 
 	SELECT SCOPE_IDENTITY();

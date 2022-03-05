@@ -54,5 +54,12 @@ namespace ArlDrivingSchoolApi.Controllers
 
             return Ok(paymentModes);
         }
+        [HttpGet("enrollment-mode")]
+        public async Task<IActionResult> GetEnrollmentModeAsybc()
+        {
+            var enrollmentModes = await LookupsService.GetAllEnrollmentModeAsync();
+
+            return Ok(enrollmentModes);
+        }
     }
 }

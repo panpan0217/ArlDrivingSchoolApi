@@ -8,7 +8,12 @@ BEGIN
 		   ,ups.FBContact
 		   ,ups.Mobile
 		   ,la.StatusName [ACESStatus]
+		   ,o.OfficeId
 		   ,o.OfficeName
+		   ,em.EnrollmentModeId
+		   ,em.EnrollmentModeName
+		   ,u.UserId
+		   ,CONCAT(u.FirstName, ' ', u.LastName) [Staff] 
 		   ,pm.PaymentModeName
 		   ,ups.RestrictionId [RestrictionCode]
 		   ,ups.ATransmissionId
@@ -28,13 +33,17 @@ BEGIN
 		   ,pp.TotalAmount
 		   ,pp.Payment [PaymentAmount]
 		   ,pp.Balance
+		   ,pp.PaymentModeId
+		   ,pm.PaymentModeName
 
 	FROM users.PDCStudent AS ups
 			INNER JOIN lookups.ACESStatus AS la ON la.ACESStatusId = ups.ACESStatusId
-			INNER JOIN lookups.Office AS o ON o.OfficeId = ups.OfficeId
-			INNER JOIN lookups.PaymentMode AS pm ON pm.PaymentModeId = ups.PaymentModeId
+			INNER JOIN lookups.EnrollmentMode AS em ON em.EnrollmentModeId = ups.EnrollmentModeId
+			LEFT JOIN lookups.Office AS o ON o.OfficeId = ups.OfficeId
+			LEFT JOIN users.[User] AS u ON u.UserId = ups.UserId
 			--INNER JOIN lookups.Restriction AS r ON r.RestrictionId = ups.RestrictionId
 			LEFT JOIN payments.PDCPayment AS pp ON pp.PDCStudentId = ups.PDCStudentId
+			INNER JOIN lookups.PaymentMode AS pm ON pm.PaymentModeId = pp.PaymentModeId
 	WHERE  CAST(ups.DateRegistered as date) BETWEEN @StartDate AND @EndDate
 END
 GO;

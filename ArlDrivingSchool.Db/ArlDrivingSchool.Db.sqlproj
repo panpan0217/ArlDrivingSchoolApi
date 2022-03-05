@@ -202,6 +202,9 @@
     <None Include="Scripts\Inserts\Lookups\InsertPaymentMode.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetOffice.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetPaymentMethod.sql" />
+    <Build Include="Tables\Lookups\EnrollmentMode.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertEnrollmentMode.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetEnrollmentMode.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
@@ -217,6 +220,7 @@
     <None Include="Scripts\Updates\01_update_branch.sql" />
     <Build Include="Schemas\Setting.sql" />
     <None Include="Scripts\Inserts\InitialData\01_Insert_Billing_Setting.sql" />
+    <None Include="Scripts\Updates\01_Remove_PaymentMode_On_User_Table.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ArlDrivingSchool.Db.refactorlog" />

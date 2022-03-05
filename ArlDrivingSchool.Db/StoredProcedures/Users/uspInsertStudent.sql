@@ -17,8 +17,9 @@
 	@DriveSafeStatusId INT,
 	@Certified BIT,
 	@TextForm NVARCHAR(MAX),
-	@OfficeId INT,
-	@PaymentModeId INT
+	@EnrollmentModeId INT,
+	@UserId INT,
+	@OfficeId INT
 )
 AS
 BEGIN 
@@ -26,6 +27,17 @@ BEGIN
 	BEGIN
 		SET @DriveSafeStatusId = NULL;
 	END
+
+	IF (@UserId = 0)
+	BEGIN
+		SET @UserId = NULL;
+	END
+
+	IF (@OfficeId = 0)
+	BEGIN
+		SET @OfficeId = NULL;
+	END
+
 	IF(@Certified = 1)
 	BEGIN
 		INSERT INTO [users].[Student]
@@ -49,8 +61,9 @@ BEGIN
 			Certified,
 			TextForm,
 			DateCertified,
-			OfficeId,
-			PaymentModeId
+			EnrollmentModeId,
+			UserId,
+			OfficeId
 		)
 		VALUES 
 		(
@@ -73,8 +86,9 @@ BEGIN
 			@Certified,
 			@TextForm,
 			GETDATE(),
-			@OfficeId,
-			@PaymentModeId
+			@EnrollmentModeId,
+			@UserId,
+			@OfficeId
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -100,8 +114,9 @@ BEGIN
 			SessionEmail,
 			DriveSafeStatusId,
 			TextForm,
-			OfficeId,
-			PaymentModeId
+			EnrollmentModeId,
+			UserId,
+			OfficeId
 		)
 		VALUES 
 		(
@@ -122,8 +137,9 @@ BEGIN
 			@SessionEmail,
 			@DriveSafeStatusId,
 			@TextForm,
-			@OfficeId,
-			@PaymentModeId
+			@EnrollmentModeId,
+			@UserId,
+			@OfficeId
 		);
 
 		SELECT SCOPE_IDENTITY();

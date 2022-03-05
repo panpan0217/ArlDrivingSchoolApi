@@ -180,8 +180,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         DriveSafeStatusId = requestModel.DriveSafeStatusId,
                                                                         requestModel.Certified,
                                                                         requestModel.TextForm,
+                                                                        requestModel.EnrollmentModeId,
+                                                                        requestModel.UserId,
                                                                         requestModel.OfficeId,
-                                                                        requestModel.PaymentModeId
 
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
@@ -212,8 +213,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 DriveSafeStatusId = student.DriveSafeStatusId,
                 student.TextForm,
                 UpdatedBy = updatedBy,
-                student.PaymentModeId,
-                student.OfficeId
+                student.OfficeId,
+                student.EnrollmentModeId,
+                student.UserId
 
             };
 
@@ -352,8 +354,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         CreatedBy = createdBy,
                                                                         AuthenticatedBy = requestModel.AuthenticatedBy,
                                                                         requestModel.Certified,
+                                                                        requestModel.EnrollmentModeId,
                                                                         requestModel.OfficeId,
-                                                                        requestModel.PaymentModeId
+                                                                        requestModel.UserId
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
@@ -380,7 +383,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 UpdatedBy = updatedBy,
                 pdcStudent.AuthenticatedBy,
                 pdcStudent.OfficeId,
-                pdcStudent.PaymentModeId
+                pdcStudent.EnrollmentModeId,
+                pdcStudent.UserId
 
             };
 
