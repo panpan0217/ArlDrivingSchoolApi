@@ -15,5 +15,6 @@ BEGIN
 	INNER JOIN users.[User] as u ON al.UserId = u.UserId
 	INNER JOIN lookups.[ActivityLogType] as alt ON al.ActivityLogTypeId = alt.ActivityLogTypeId 
 	WHERE  CAST(LogDate as DATE) BETWEEN @StartDate AND @EndDate
+	ORDER BY ActivityLogId DESC
 END
 GO;
