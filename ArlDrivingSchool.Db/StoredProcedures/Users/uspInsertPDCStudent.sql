@@ -19,14 +19,18 @@
 )
 AS
 BEGIN 
-	IF (@UserId = 0)
+	IF(@EnrollmentModeId = 1)
 	BEGIN
 		SET @UserId = NULL;
-	END
-
-	IF (@OfficeId = 0)
-	BEGIN
 		SET @OfficeId = NULL;
+	END
+	IF(@EnrollmentModeId = 2)
+	BEGIN
+		SET @OfficeId = NULL
+	END
+	IF(@EnrollmentModeId = 3)
+	BEGIN
+		SET @UserId = NULL
 	END
 
 	IF(@Certified = 1)
