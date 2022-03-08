@@ -5,5 +5,5 @@ AS
 			,CONCAT(FirstName, ' ' , LastName) AS FullName
 			,IIF(Deleted = 1, 'Inactive', 'Active') AS [Status] 
 	FROM users.[User]
-	WHERE UserId = @Id
+	WHERE UserId = @Id AND UserTypeId = 4
 GO
