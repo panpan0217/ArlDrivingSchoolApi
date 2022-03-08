@@ -205,6 +205,7 @@
     <Build Include="Tables\Lookups\EnrollmentMode.sql" />
     <None Include="Scripts\Inserts\Lookups\InsertEnrollmentMode.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetEnrollmentMode.sql" />
+    <Build Include="StoredProcedures\Users\uspGetTotalStudentAndCertification.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

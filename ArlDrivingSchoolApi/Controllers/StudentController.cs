@@ -347,5 +347,12 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(student);
         }
 
+        [HttpGet("total")]
+        public async Task<IActionResult> GetTotalStudentAndCertificationAsync()
+        {
+            var total = await StudentService.GetTotalStudentAndCertificationAsync();
+            return Ok(total);
+        }
+
     }
 }

@@ -27,6 +27,16 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             Configuration = configuration;
         }
 
+        private DateTime GetPhilippineDateTime()
+        {
+            var utc = DateTime.UtcNow;
+            TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("Singapore Standard Time");
+
+            // it's a simple one-liner
+            DateTime dateTime = TimeZoneInfo.ConvertTimeFromUtc(utc, tzi);
+            return dateTime;
+        }
+
         public async Task<IEnumerable<Student>> GetAllAsync()
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
@@ -451,7 +461,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             var result = await connection.ExecuteAsync("[users].[usp_UpdateStudentCertificationByIds]",
                                                       new
                                                       {
-                                                          Ids = $",{ids},"
+                                                          Ids = $",{ids},",
+                                                          CurrentDate = GetPhilippineDateTime()
                                                       },
                                                       commandType: CommandType.StoredProcedure);
         }
@@ -461,7 +472,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             var result = await connection.ExecuteAsync("[users].[uspUpdatePDCStudentCertificationByIds]",
                                                       new
                                                       {
-                                                          Ids = $",{ids},"
+                                                          Ids = $",{ids},",
+                                                          CurrentDate = GetPhilippineDateTime()
                                                       },
                                                       commandType: CommandType.StoredProcedure);
         }
@@ -471,7 +483,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             var result = await connection.ExecuteAsync("[users].[uspUpdateDEPStudentCertificationByIds]",
                                                       new
                                                       {
-                                                          Ids = $",{ids},"
+                                                          Ids = $",{ids},",
+                                                          CurrentDate = GetPhilippineDateTime()
                                                       },
                                                       commandType: CommandType.StoredProcedure);
         }
@@ -656,6 +669,11 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                commandType: CommandType.StoredProcedure);
 
             return student.FirstOrDefault();
+        }
+
+        public async Task<IEnumerable<TotalStudentAndCertification>> GetTotalStudentAndCertificationAsync()
+        {
+            return await QueryAsync<TotalStudentAndCertification>("[users].[uspGetTotalStudentAndCertification]");
         }
     }
 }

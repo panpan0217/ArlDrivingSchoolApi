@@ -406,5 +406,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetDEPStudentByIdAsync(studentId);
         }
+
+        public async Task<IEnumerable<TotalStudentAndCertification>> GetTotalStudentAndCertificationAsync()
+        {
+            return await StudentRepository.GetTotalStudentAndCertificationAsync();
+        }
     }
 }
