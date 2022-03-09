@@ -2,7 +2,8 @@
 	@DEPStudentId	INT,
 	@TotalAmount	INT,
 	@Payment		INT,
-	@Balance		INT
+	@Balance		INT,
+	@PaymentModeId	INT
 AS
 BEGIN
 	
@@ -11,6 +12,7 @@ BEGIN
 	 TotalAmount = @TotalAmount
 	,Payment = @Payment
 	,Balance = @Balance
+	,PaymentModeId = @PaymentModeId
 	WHERE DEPStudentId = @DEPStudentId
 END
 GO;

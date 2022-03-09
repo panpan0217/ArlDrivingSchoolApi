@@ -334,22 +334,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task CreateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel, int userId)
         {
             var user = await UserRepository.GetUserByUserId(userId);
-            var studentRequest = new DEPStudentFullDetailsRequestModel
-            {
-                FullName = requestModel.FullName,
-                Email = requestModel.Email,
-                Location = requestModel.Location,
-                FBContact = requestModel.FBContact,
-                Mobile = requestModel.Mobile,
-                LicenseNumber = requestModel.LicenseNumber,
-                ExpirationDate = requestModel.ExpirationDate,
-                Remarks = requestModel.Remarks,
-                ClassType = requestModel.ClassType,
-                SessionEmail = requestModel.SessionEmail,
-                DriveSafeStatusId = requestModel.DriveSafeStatusId,
-                TextForm = requestModel.TextForm
-            };
-            var studentId = await StudentRepository.CreateDEPStudentWithDetailsAsync(studentRequest, $"{user.FirstName} {user.LastName}");
+            var studentId = await StudentRepository.CreateDEPStudentWithDetailsAsync(requestModel, $"{user.FirstName} {user.LastName}");
 
 
             await SessionRepository.CreateDEPSessionOneAsync(
@@ -364,7 +349,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 studentId,
                 totalAmount: requestModel.TotalAmount,
                 payment: requestModel.Payment,
-                balance: requestModel.Balance
+                balance: requestModel.Balance,
+                requestModel.PaymentModeId
                 );
         }
 
@@ -388,7 +374,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                studentId: requestModel.DEPStudentId,
                totalAmount: requestModel.TotalAmount,
                payment: requestModel.Payment,
-               balance: requestModel.Balance
+               balance: requestModel.Balance,
+               requestModel.PaymentModeId
                );
 
             var student = await StudentRepository.UpdateDEPStudentWithDetailsAsync(requestModel, $"{user.FirstName} {user.LastName}");

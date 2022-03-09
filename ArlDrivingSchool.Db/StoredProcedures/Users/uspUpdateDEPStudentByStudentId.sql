@@ -12,12 +12,29 @@
 	@ExpirationDate NVARCHAR(65),
 	@DriveSafeStatusId INT,
 	@TextForm NVARCHAR(MAX),
-	@UpdatedBy NVARCHAR(255)
+	@UpdatedBy NVARCHAR(255),
+	@OfficeId INT,
+	@EnrollmentModeId INT,
+	@UserId INT
 AS
 BEGIN
 	IF (@DriveSafeStatusId = 0)
 	BEGIN
 		SET @DriveSafeStatusId = NULL;
+	END
+
+	IF(@EnrollmentModeId = 1)
+	BEGIN
+		SET @UserId = NULL;
+		SET @OfficeId = NULL;
+	END
+	IF(@EnrollmentModeId = 2)
+	BEGIN
+		SET @OfficeId = NULL
+	END
+	IF(@EnrollmentModeId = 3)
+	BEGIN
+		SET @UserId = NULL
 	END
 
 	UPDATE users.DEPStudent
@@ -35,6 +52,9 @@ BEGIN
 	,SessionEmail = @SessionEmail
 	,DriveSafeStatusId = @DriveSafeStatusId
 	,TextForm = @TextForm
+	,EnrollmentModeId = @EnrollmentModeId
+	,OfficeId = @OfficeId
+	,UserId = @UserId
 	WHERE DEPStudentId = @DEPStudentId
 
 END

@@ -568,7 +568,10 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.ClassType,
                                                                         requestModel.SessionEmail,
                                                                         requestModel.DriveSafeStatusId,
-                                                                        requestModel.TextForm
+                                                                        requestModel.TextForm,
+                                                                        requestModel.EnrollmentModeId,
+                                                                        requestModel.OfficeId,
+                                                                        requestModel.UserId
 
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
@@ -619,7 +622,10 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.ClassType,
                                                                         requestModel.SessionEmail,
                                                                         requestModel.DriveSafeStatusId,
-                                                                        requestModel.TextForm
+                                                                        requestModel.TextForm,
+                                                                        requestModel.EnrollmentModeId,
+                                                                        requestModel.OfficeId,
+                                                                        requestModel.UserId
 
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);

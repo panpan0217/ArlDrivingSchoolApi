@@ -88,7 +88,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return result > 0;
         }
 
-        public async Task<int> CreateDEPPaymentAsync(int studentId, int totalAmount, int payment, int balance)
+        public async Task<int> CreateDEPPaymentAsync(int studentId, int totalAmount, int payment, int balance, int paymentModeId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var paymentId = await connection.ExecuteScalarAsync<int>("[payments].[uspInsertDEPPayment]",
@@ -97,13 +97,14 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         DEPStudentId = studentId,
                                                                         TotalAmount = totalAmount,
                                                                         Payment = payment,
-                                                                        Balance = balance
+                                                                        Balance = balance,
+                                                                        PaymentModeId = paymentModeId
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return paymentId;
         }
 
-        public async Task<bool> UpdateDEPPaymentByStudentIdAsync(int studentId, int totalAmount, int payment, int balance)
+        public async Task<bool> UpdateDEPPaymentByStudentIdAsync(int studentId, int totalAmount, int payment, int balance, int paymentModeId)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -113,7 +114,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                          DEPStudentId = studentId,
                                                          TotalAmount = totalAmount,
                                                          Payment = payment,
-                                                         Balance = balance
+                                                         Balance = balance,
+                                                         PaymentModeId = paymentModeId
                                                      },
                                                     commandType: CommandType.StoredProcedure);
 

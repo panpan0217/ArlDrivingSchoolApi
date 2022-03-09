@@ -11,5 +11,7 @@ namespace ArlDrivingSchool.Core.Models.Payments
         public int TotalAmount { get; set; }
         public int PaymentAmount { get; set; }
         public int Balance { get; set; }
+        public int PaymentModeId { get; set; }
+        public string PaymentModeName { get; set; }
     }
 }
