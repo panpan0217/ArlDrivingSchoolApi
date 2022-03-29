@@ -677,9 +677,12 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return student.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<TotalStudentAndCertification>> GetTotalStudentAndCertificationAsync()
+        public async Task<IEnumerable<TotalStudentAndCertification>> GetTotalStudentAndCertificationAsync(DateTime startDate, DateTime endDate)
         {
-            return await QueryAsync<TotalStudentAndCertification>("[users].[uspGetTotalStudentAndCertification]");
+            return await QueryAsync<TotalStudentAndCertification>("[users].[uspGetTotalStudentAndCertification]",
+                new { StartDate = startDate,
+                      EndDate = endDate
+                    });
         }
     }
 }

@@ -347,10 +347,10 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(student);
         }
 
-        [HttpGet("total")]
-        public async Task<IActionResult> GetTotalStudentAndCertificationAsync()
+        [HttpPost("total")]
+        public async Task<IActionResult> GetTotalStudentAndCertificationAsync([FromBody] DateRangeRequestModel requestModel )
         {
-            var total = await StudentService.GetTotalStudentAndCertificationAsync();
+            var total = await StudentService.GetTotalStudentAndCertificationAsync(requestModel.StartDate, requestModel.EndDate);
             return Ok(total);
         }
 
