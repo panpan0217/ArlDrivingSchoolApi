@@ -35,11 +35,13 @@ BEGIN
 	   ,sth.SessionLocation
 	   ,[Session] = '3'
 	   ,sth.Attended
+	   ,p.Balance
 	   ,(SELECT CASE WHEN LEN(sa.SessionsAttended) > 1 THEN SUBSTRING(sa.SessionsAttended, 1, (LEN(sa.SessionsAttended) - 1)) ELSE  sa.SessionsAttended END FROM @SessionsAttended AS sa where sa.StudentId = ss.StudentId) AS [SessionsAttended]
 
 	FROM users.Student AS ss
 	INNER JOIN [lookups].[ACESStatus] AS a ON ss.ACESStatusId = a.ACESStatusId
 	INNER JOIN sessions.SessionThree AS sth ON sth.StudentId = ss.StudentId
+	INNER JOIN payments.Payment AS p ON ss.StudentId = p.StudentId
 	AND CAST(sth.SessionDate as date) = @Date AND sth.Schedule = @Schedule AND @SessionLocation = sth.SessionLocation
 	AND sth.BranchId =@BranchId
 
@@ -57,11 +59,13 @@ BEGIN
 	   ,stw.SessionLocation
 	   ,[Session] = '2'
 	   ,stw.Attended
+	   ,p.Balance
 	   ,(SELECT CASE WHEN LEN(sa.SessionsAttended) > 1 THEN SUBSTRING(sa.SessionsAttended, 1, (LEN(sa.SessionsAttended) - 1)) ELSE  sa.SessionsAttended END FROM @SessionsAttended AS sa where sa.StudentId = ss.StudentId) AS [SessionsAttended]
 
 	FROM users.Student AS ss
 	INNER JOIN [lookups].[ACESStatus] AS a ON ss.ACESStatusId = a.ACESStatusId
 	INNER JOIN sessions.SessionTwo AS stw ON stw.StudentId = ss.StudentId
+	INNER JOIN payments.Payment AS p ON ss.StudentId = p.StudentId
 	AND CAST(stw.SessionDate as date) = @Date AND stw.Schedule = @Schedule AND stw.SessionLocation = @SessionLocation
 	AND stw.BranchId =@BranchId
 	UNION ALL
@@ -78,11 +82,13 @@ BEGIN
 	   ,so.SessionLocation
 	   ,[Session] = '1'
 	   ,so.Attended
+	   ,p.Balance
 	   ,(SELECT CASE WHEN LEN(sa.SessionsAttended) > 1 THEN SUBSTRING(sa.SessionsAttended, 1, (LEN(sa.SessionsAttended) - 1)) ELSE  sa.SessionsAttended END FROM @SessionsAttended AS sa where sa.StudentId = ss.StudentId) AS [SessionsAttended]
 
 	FROM users.Student AS ss
 	INNER JOIN [lookups].[ACESStatus] AS a ON ss.ACESStatusId = a.ACESStatusId
 	INNER JOIN sessions.SessionOne AS so ON so.StudentId = ss.StudentId 
+	INNER JOIN payments.Payment AS p ON ss.StudentId = p.StudentId
 	AND CAST(so.SessionDate as date) = @Date AND so.Schedule = @Schedule AND @SessionLocation = so.SessionLocation
 	AND so.BranchId =@BranchId
 END
