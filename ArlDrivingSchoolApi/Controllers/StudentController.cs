@@ -74,8 +74,8 @@ namespace ArlDrivingSchoolApi.Controllers
             var students = await StudentService.GetAllStudentWithDetailsByFullNameAsync(requestModel.FirstName, requestModel.LastName);
             if (requestModel.ForceCreate)
             {
-                await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
-                return Ok();
+                var id = await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
+                return Ok(id);
             }
             else
             {
@@ -86,8 +86,8 @@ namespace ArlDrivingSchoolApi.Controllers
             }
 
             // If no same record student
-            await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
-            return Ok();
+            var studentId = await StudentService.CreateStudentWithDetailsAsync(requestModel, userId);
+            return Ok(studentId);
         }
 
         [HttpPut]

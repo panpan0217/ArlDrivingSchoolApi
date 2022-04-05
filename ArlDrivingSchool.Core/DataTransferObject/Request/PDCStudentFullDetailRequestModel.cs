@@ -44,6 +44,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int UserId { get; set; }
         public int OfficeId { get; set; }
         public int PaymentModeId { get; set; }
+        public int? TdcStudentId { get; set; }
     }
 
 }

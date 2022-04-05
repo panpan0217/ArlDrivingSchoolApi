@@ -54,7 +54,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             return await StudentRepository.GetPDCStudentWithDetailsByDateRangeAsync(startDate, endDate);
         }
 
-        public async Task CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId)
+        public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId)
         {
             var user = await UserRepository.GetUserByUserId(userId);
             //var studentRequest = new StudentFullDetailsRequestModel
@@ -115,6 +115,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 requestModel.Balance,
                 requestModel.PaymentModeId
                 );
+            return studentId;
         }
 
         public async Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel request, int userId)

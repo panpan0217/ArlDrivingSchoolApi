@@ -15,7 +15,8 @@
 	@Certified BIT,
 	@EnrollmentModeId INT,
 	@UserId INT,
-	@OfficeId INT
+	@OfficeId INT,
+	@TdcStudentId INT
 )
 AS
 BEGIN 
@@ -54,7 +55,8 @@ BEGIN
 			DateCertified,
 			EnrollmentModeId,
 			UserId,
-			OfficeId
+			OfficeId,
+			StudentId
 		)
 		VALUES 
 		(
@@ -75,7 +77,8 @@ BEGIN
 			GETDATE(),
 			@EnrollmentModeId,
 			@UserId,
-			@OfficeId
+			@OfficeId,
+			@TdcStudentId
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -99,7 +102,8 @@ BEGIN
 			AuthenticatedBy,
 			EnrollmentModeId,
 			UserId,
-			OfficeId
+			OfficeId,
+			StudentId
 		)
 		VALUES 
 		(
@@ -118,7 +122,8 @@ BEGIN
 			@AuthenticatedBy,
 			@EnrollmentModeId,
 			@UserId,
-			@OfficeId
+			@OfficeId,
+			@TdcStudentId
 		);
 
 		SELECT SCOPE_IDENTITY();
