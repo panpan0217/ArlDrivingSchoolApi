@@ -32,6 +32,8 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string EnrollmentModeName { get; set; }
         public int UserId { get; set; }
         public string Staff { get; set; }
+        public int TransactionId { get; set; }
+        public string TransactionName { get; set; }
     }
 
 }

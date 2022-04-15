@@ -269,7 +269,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 EnrollmentModeId = request.EnrollmentModeId,
                 UserId =request.UserId,
                 OfficeId = request.OfficeId,
-
+                TransactionId = request.TransactionId
             };
 
             var payment = new UpdatePaymentRequestModel

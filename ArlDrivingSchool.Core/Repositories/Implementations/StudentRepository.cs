@@ -367,7 +367,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.EnrollmentModeId,
                                                                         requestModel.OfficeId,
                                                                         requestModel.UserId,
-                                                                        requestModel.TdcStudentId
+                                                                        requestModel.TdcStudentId,
+                                                                        requestModel.TransactionId
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
@@ -395,7 +396,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 pdcStudent.AuthenticatedBy,
                 pdcStudent.OfficeId,
                 pdcStudent.EnrollmentModeId,
-                pdcStudent.UserId
+                pdcStudent.UserId,
+                pdcStudent.TransactionId
 
             };
 

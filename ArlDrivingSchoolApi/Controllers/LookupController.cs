@@ -61,5 +61,13 @@ namespace ArlDrivingSchoolApi.Controllers
 
             return Ok(enrollmentModes);
         }
+
+        [HttpGet("transaction")]
+        public async Task<IActionResult> GetAllTransactionAsync()
+        {
+            var transactions = await LookupsService.GetAllTransactionAsync();
+
+            return Ok(transactions);
+        }
     }
 }

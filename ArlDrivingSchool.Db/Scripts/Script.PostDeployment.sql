@@ -22,6 +22,7 @@ Post-Deployment Script Template
 :r .\Inserts\Lookups\InsertEnrollmentMode.sql
 :r .\Inserts\Lookups\InsertOffice.sql
 :r .\Inserts\Lookups\InsertPaymentMode.sql
+:r .\Inserts\Lookups\InsertTransaction.sql
 
 :r Inserts\InitialData\01_Insert_Billing_Setting.sql
 

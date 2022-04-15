@@ -16,7 +16,8 @@
 	@EnrollmentModeId INT,
 	@UserId INT,
 	@OfficeId INT,
-	@TdcStudentId INT
+	@TdcStudentId INT,
+	@TransactionId INT
 )
 AS
 BEGIN 
@@ -56,7 +57,8 @@ BEGIN
 			EnrollmentModeId,
 			UserId,
 			OfficeId,
-			StudentId
+			StudentId,
+			TransactionId
 		)
 		VALUES 
 		(
@@ -78,7 +80,8 @@ BEGIN
 			@EnrollmentModeId,
 			@UserId,
 			@OfficeId,
-			@TdcStudentId
+			@TdcStudentId,
+			@TransactionId
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -103,7 +106,8 @@ BEGIN
 			EnrollmentModeId,
 			UserId,
 			OfficeId,
-			StudentId
+			StudentId,
+			TransactionId
 		)
 		VALUES 
 		(
@@ -123,7 +127,8 @@ BEGIN
 			@EnrollmentModeId,
 			@UserId,
 			@OfficeId,
-			@TdcStudentId
+			@TdcStudentId,
+			@TransactionId
 		);
 
 		SELECT SCOPE_IDENTITY();

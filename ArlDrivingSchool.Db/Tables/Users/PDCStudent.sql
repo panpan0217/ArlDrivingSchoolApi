@@ -21,11 +21,13 @@
 	[OfficeId]				INT				NULL,
 	[UserId]				INT				NULL,
 	[StudentId]				INT				NULL,
+	[TransactionId]			INT				NULL,
 
 	CONSTRAINT [PK_PDCStudent] PRIMARY KEY CLUSTERED ([PDCStudentId] ASC),
 	CONSTRAINT FK_PDCStudent_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
 	CONSTRAINT FK_PDCStudent_EnrollmentMode_EnrollmentModeId FOREIGN KEY (EnrollmentModeId) REFERENCES [lookups].[EnrollmentMode] (EnrollmentModeId),
 	CONSTRAINT FK_PDCStudent_Office_OfficeId FOREIGN KEY (OfficeId) REFERENCES [lookups].[Office] (OfficeId),
+	CONSTRAINT FK_PDCStudent_Transaction_TransactionId FOREIGN KEY (TransactionId) REFERENCES [lookups].[Transaction] (TransactionId),
 	CONSTRAINT FK_PDCStudent_User_UserId FOREIGN KEY (UserId) REFERENCES [users].[User] (UserId),
 	CONSTRAINT FK_PDCStudent_Student_StudentId FOREIGN KEY (StudentId) REFERENCES [users].[Student] (StudentId),
 	--CONSTRAINT FK_PDCStudent_Restriction_RestrictionId FOREIGN KEY (RestrictionId) REFERENCES [lookups].[Restriction] (RestrictionId),

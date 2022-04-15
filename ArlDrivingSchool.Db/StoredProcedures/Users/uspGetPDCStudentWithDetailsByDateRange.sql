@@ -15,6 +15,8 @@ BEGIN
 		   ,u.UserId
 		   ,CONCAT(u.FirstName, ' ', u.LastName) [Staff] 
 		   ,pm.PaymentModeName
+		   ,t.TransactionId
+		   ,t.TransactionName
 		   ,ups.RestrictionId [RestrictionCode]
 		   ,ups.ATransmissionId
 		   ,ups.A1TransmissionId
@@ -44,6 +46,7 @@ BEGIN
 			--INNER JOIN lookups.Restriction AS r ON r.RestrictionId = ups.RestrictionId
 			LEFT JOIN payments.PDCPayment AS pp ON pp.PDCStudentId = ups.PDCStudentId
 			INNER JOIN lookups.PaymentMode AS pm ON pm.PaymentModeId = pp.PaymentModeId
+			INNER JOIN lookups.[Transaction] AS t ON ups.TransactionId = t.TransactionId
 	WHERE  CAST(ups.DateRegistered as date) BETWEEN @StartDate AND @EndDate
 END
 GO;

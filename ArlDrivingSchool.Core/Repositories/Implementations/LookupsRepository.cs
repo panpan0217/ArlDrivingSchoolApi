@@ -56,5 +56,10 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
         {
             return await QueryAsync<EnrollmentMode>("lookups.uspGetEnrollmentMode");
         }
+
+        public async Task<IEnumerable<Transaction>> GetAllTransactionAsync()
+        {
+            return await QueryAsync<Transaction>("[lookups].[uspGetTransaction]");
+        }
     }
 }

@@ -15,7 +15,8 @@
 	@AuthenticatedBy	NVARCHAR(255),
 	@OfficeId INT,
 	@EnrollmentModeId INT,
-	@UserId INT
+	@UserId INT,
+	@TransactionId INT
 AS
 BEGIN
 	IF(@EnrollmentModeId = 1)
@@ -50,6 +51,7 @@ BEGIN
 	,EnrollmentModeId = @EnrollmentModeId
 	,OfficeId = @OfficeId
 	,UserId = @UserId
+	,TransactionId = @TransactionId
 	WHERE PDCStudentId = @PDCStudentId
 
 END
