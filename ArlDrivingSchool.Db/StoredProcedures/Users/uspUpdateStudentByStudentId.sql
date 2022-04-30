@@ -19,7 +19,8 @@
 	@TextForm			NVARCHAR(MAX),
 	@OfficeId INT,
 	@EnrollmentModeId INT,
-	@UserId INT
+	@UserId INT,
+	@AcesSaveDate DATETIME2
 AS
 BEGIN
 	IF (@DriveSafeStatusId = 0)
@@ -62,6 +63,7 @@ BEGIN
 	,EnrollmentModeId = @EnrollmentModeId
 	,OfficeId = @OfficeId
 	,UserId = @UserId
+	,AcesSaveDate = @AcesSaveDate
 	WHERE StudentId = @StudentId
 
 END

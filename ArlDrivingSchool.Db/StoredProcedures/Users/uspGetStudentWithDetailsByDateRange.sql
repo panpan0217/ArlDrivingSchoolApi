@@ -10,6 +10,7 @@ BEGIN
 		   ,us.[Location]
 		   ,us.FBContact
 		   ,us.Mobile
+		   ,us.AcesSaveDate
 		   ,ls.StatusName [StudentStatus]
 		   ,la.StatusName [ACESStatus]
 		   ,lt.StatusName [TDCStatus]

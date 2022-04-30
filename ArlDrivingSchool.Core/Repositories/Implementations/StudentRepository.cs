@@ -167,7 +167,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return pdcStudents;
         }
 
-        public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, string createdBy)
+        public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, DateTime? acesSaveDate, string createdBy)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var studentId = await connection.ExecuteScalarAsync<int>("[users].[uspInsertStudent]",
@@ -193,13 +193,13 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.EnrollmentModeId,
                                                                         requestModel.UserId,
                                                                         requestModel.OfficeId,
-
+                                                                        AcesSaveDate = acesSaveDate
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
         }
 
-        public async Task<bool> UpdateStudentByStudentIdAsync(Student student, string updatedBy)
+        public async Task<bool> UpdateStudentByStudentIdAsync(Student student, DateTime? acesSaveDate, string updatedBy)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -225,8 +225,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 UpdatedBy = updatedBy,
                 student.OfficeId,
                 student.EnrollmentModeId,
-                student.UserId
-
+                student.UserId,
+                AcesSaveDate = acesSaveDate
             };
 
             var result = await connection.ExecuteAsync("users.uspUpdateStudentByStudentId",
@@ -235,6 +235,24 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
 
             return result > 0;
+        }
+
+        public async Task<Student> GetStudentInfoById(int studentId)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var parameter = new
+            {
+                StudentId = studentId
+            };
+
+            var student = await connection.QuerySingleAsync<Student>(
+                   "[users].[uspGetStudentId]",
+                   param: parameter,
+                   commandType: CommandType.StoredProcedure
+               );
+
+            return student;
         }
 
         public async Task<int> DeleteStudentAsync(int studentId)

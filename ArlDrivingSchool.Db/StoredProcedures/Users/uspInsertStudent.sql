@@ -19,7 +19,8 @@
 	@TextForm NVARCHAR(MAX),
 	@EnrollmentModeId INT,
 	@UserId INT,
-	@OfficeId INT
+	@OfficeId INT,
+	@AcesSaveDate DATETIME2
 )
 AS
 BEGIN 
@@ -67,7 +68,8 @@ BEGIN
 			DateCertified,
 			EnrollmentModeId,
 			UserId,
-			OfficeId
+			OfficeId,
+			AcesSaveDate
 		)
 		VALUES 
 		(
@@ -92,7 +94,8 @@ BEGIN
 			GETDATE(),
 			@EnrollmentModeId,
 			@UserId,
-			@OfficeId
+			@OfficeId,
+			@AcesSaveDate
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -120,7 +123,8 @@ BEGIN
 			TextForm,
 			EnrollmentModeId,
 			UserId,
-			OfficeId
+			OfficeId,
+			AcesSaveDate
 		)
 		VALUES 
 		(
@@ -143,7 +147,8 @@ BEGIN
 			@TextForm,
 			@EnrollmentModeId,
 			@UserId,
-			@OfficeId
+			@OfficeId,
+			@AcesSaveDate
 		);
 
 		SELECT SCOPE_IDENTITY();

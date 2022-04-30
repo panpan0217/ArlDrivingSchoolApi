@@ -25,6 +25,16 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             UserRepository = userRepository;
         }
 
+        private DateTime GetPhilippineDateTime()
+        {
+            var utc = DateTime.UtcNow;
+            TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("Singapore Standard Time");
+
+            // it's a simple one-liner
+            DateTime dateTime = TimeZoneInfo.ConvertTimeFromUtc(utc, tzi);
+            return dateTime;
+        }
+
         public async Task<IEnumerable<Student>> GetAllAsync()
         {
             return await StudentRepository.GetAllAsync();
@@ -57,6 +67,17 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId)
         {
             var user = await UserRepository.GetUserByUserId(userId);
+
+            DateTime? acesSaveDate;
+
+            if (requestModel.IsAcesDateSave == true)
+            {
+                acesSaveDate = GetPhilippineDateTime();
+            }
+            else
+            {
+                acesSaveDate = null;
+            }
             //var studentRequest = new StudentFullDetailsRequestModel
             //{
             //    FirstName = requestModel.FirstName,
@@ -77,9 +98,9 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             //    EnrollmentModeId = requestModel.EnrollmentModeId,
             //    TextForm = requestModel.TextForm,
             //    OfficeId =requestModel.OfficeId,
-              
+
             //};
-            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(requestModel, $"{user.FirstName} {user.LastName}");
+            var studentId = await StudentRepository.CreateStudentWithDetailsAsync(requestModel, acesSaveDate, $"{user.FirstName} {user.LastName}");
 
             await SessionRepository.CreateSessionOneAsync(
                 studentId: studentId,
@@ -121,6 +142,28 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel request, int userId)
         {
             var user = await UserRepository.GetUserByUserId(userId);
+            var studentInfo = await StudentRepository.GetStudentInfoById(request.StudentId);
+            DateTime? acesSaveDate;
+
+            if(request.IsAcesDateSave == true)
+            {
+                acesSaveDate = GetPhilippineDateTime();
+            }
+            else
+            {
+                if (studentInfo.AcesSaveDate != null)
+                {
+                    if(request.ACESStatusId == 1)
+                        acesSaveDate = null;
+                    else
+                        acesSaveDate = studentInfo.AcesSaveDate;
+                }
+                else
+                {
+                    acesSaveDate = null;
+                }
+            }
+
             var student = new Student
             {
                 StudentId = request.StudentId,
@@ -143,7 +186,6 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 EnrollmentModeId = request.EnrollmentModeId,
                 OfficeId = request.OfficeId,
                 UserId = request.UserId
-                
             };
 
             var sessionOne = new UpdateSessionRequestModel
@@ -190,7 +232,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await PaymentRepository.UpdatePaymentByStudentIdAsync(payment);
 
-            return await StudentRepository.UpdateStudentByStudentIdAsync(student, $"{user.FirstName} {user.LastName}");
+            return await StudentRepository.UpdateStudentByStudentIdAsync(student, acesSaveDate, $"{user.FirstName} {user.LastName}");
             
         }
 
