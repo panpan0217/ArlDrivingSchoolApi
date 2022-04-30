@@ -3,7 +3,8 @@
 	@UserId INT,
 	@ActivityLogTypeId INT,
 	@StudentFullName NVARCHAR(128),
-	@PageName NVARCHAR(128)
+	@PageName NVARCHAR(128),
+	@CurrentDate DATETIME2
 )
 AS
 BEGIN
@@ -17,7 +18,7 @@ BEGIN
 	VALUES
 	(@UserId,
 	@ActivityLogTypeId,
-	GETDATE(),
+	@CurrentDate,
 	@StudentFullName,
 	@PageName
 	);

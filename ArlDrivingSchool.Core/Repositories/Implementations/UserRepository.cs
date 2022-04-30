@@ -17,6 +17,16 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
         {
         }
 
+        private DateTime GetPhilippineDateTime()
+        {
+            var utc = DateTime.UtcNow;
+            TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("Singapore Standard Time");
+
+            // it's a simple one-liner
+            DateTime dateTime = TimeZoneInfo.ConvertTimeFromUtc(utc, tzi);
+            return dateTime;
+        }
+
         public async Task<User> AuthenticateUserAsync(string userName, string password)
         {
             var user = await QueryFirstOrDefaultAsync<User>("[users].[uspGetUserByUsername]",
@@ -115,7 +125,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 activityLog.UserId,
                 activityLog.ActivityLogTypeId,
                 activityLog.StudentFullName,
-                activityLog.PageName
+                activityLog.PageName,
+                CurrentDate = GetPhilippineDateTime()
             });
         }
 
