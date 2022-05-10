@@ -6,6 +6,7 @@
 	@FBContact NVARCHAR(255),
 	@Mobile NVARCHAR(64),
 	@Remarks NVARCHAR(255),
+	@DateRegistered		DATETIME2,
 	@ClassType NVARCHAR(55),
 	@SessionEmail NVARCHAR(255),
 	@LicenseNumber NVARCHAR(255),
@@ -45,6 +46,7 @@ BEGIN
 	,FBContact = @FBContact
 	,Mobile = @Mobile
 	,Remarks = @Remarks
+	,DateRegistered = @DateRegistered
 	,LicenseNumber = @LicenseNumber
 	,ExpirationDate = @ExpirationDate
 	,UpdatedBy = @UpdatedBy

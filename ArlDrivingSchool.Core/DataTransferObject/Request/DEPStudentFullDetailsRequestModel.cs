@@ -15,6 +15,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string LicenseNumber { get; set; }
         public string ExpirationDate { get; set; }
         public string Remarks { get; set; }
+        public DateTime DateRegistered { get; set; }
         public int TotalAmount { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }

@@ -639,6 +639,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.LicenseNumber,
                                                                         requestModel.ExpirationDate,
                                                                         requestModel.Remarks,
+                                                                        requestModel.DateRegistered,
                                                                         UpdatedBy = createdBy,
                                                                         requestModel.ClassType,
                                                                         requestModel.SessionEmail,
