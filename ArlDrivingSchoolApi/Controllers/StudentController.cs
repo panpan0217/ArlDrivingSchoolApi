@@ -32,6 +32,14 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(students);
         }
 
+        [HttpGet("filter")]
+        public async Task<IActionResult> FilterAsync(string firstName, string lastName)
+        {
+            var students = await StudentService.GetAllStudentWithDetailsByFullNameAsync(firstName, lastName);
+            return Ok(students);
+        }
+
+
         [HttpGet("details")]
         public async Task<IActionResult> GetAllStudentWithDetailsAsync()
         {
@@ -65,6 +73,7 @@ namespace ArlDrivingSchoolApi.Controllers
             var studentsWithDetails = await StudentService.GetPDCStudentWithDetailsByDateRangeAsync(requestModel.StartDate, requestModel.EndDate);
             return Ok(studentsWithDetails);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)
@@ -157,6 +166,14 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(shuttleSchedule);
 
         }
+
+        [HttpGet("pdc/filter")]
+        public async Task<IActionResult> FilterPDCAsync(string fullname)
+        {
+            var students = await StudentService.GetAllPDCStudentWithDetailsByFullNameAsync(fullname);
+            return Ok(students);
+        }
+
 
         [AllowAnonymous]
         [HttpGet("pdc/details")]
