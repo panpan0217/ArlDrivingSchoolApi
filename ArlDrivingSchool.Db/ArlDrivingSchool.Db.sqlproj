@@ -210,6 +210,7 @@
     <None Include="Scripts\Inserts\Lookups\InsertTransaction.sql" />
     <Build Include="StoredProcedures\Lookups\uspGetTransaction.sql" />
     <Build Include="StoredProcedures\Users\uspGetStudentById.sql" />
+    <Build Include="StoredProcedures\Users\uspGetAllDEPStudentWithDetailsByFullName.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

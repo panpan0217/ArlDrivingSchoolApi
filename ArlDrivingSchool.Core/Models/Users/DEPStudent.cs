@@ -24,6 +24,7 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime DateRegistered { get; set; }
+        public DateTime DateCertified { get; set; }
 
         public int OfficeId { get; set; }
         public string OfficeName { get; set; }

@@ -50,5 +50,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<IEnumerable<DEPStudentSchedule>> GetDEPStudentScheduleByDateAsync(DateTime date, string schedule, string sessionLocation, int branchId);
         Task<IEnumerable<TotalStudentAndCertification>> GetTotalStudentAndCertificationAsync(DateTime startDate, DateTime endDate);
         Task<Student> GetStudentInfoById(int studentId);
+        Task<IEnumerable<DEPStudentDetails>> GetAllDEPStudentWithDetailsByFullNameAsync(string fullName);
     }
 }

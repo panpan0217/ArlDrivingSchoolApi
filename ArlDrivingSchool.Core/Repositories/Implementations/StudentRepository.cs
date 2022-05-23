@@ -706,5 +706,29 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                       EndDate = endDate
                     });
         }
+
+        public async Task<IEnumerable<DEPStudentDetails>> GetAllDEPStudentWithDetailsByFullNameAsync(string fullName)
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var students = await connection.QueryAsync<DEPStudent, DEPPayment, DEPSession, DEPStudentDetails>(
+               "[users].[uspGetAllDEPStudentWithDetailsByFullName]",
+               map: (studentWithStatus, payment, sessionOne) =>
+               {
+                   return new DEPStudentDetails
+                   {
+                       DEPStudent = studentWithStatus,
+                       DEPPayment = payment,
+                       DEPSession = sessionOne,
+                   };
+               },
+                new
+                {
+                    FullName = fullName,
+                },
+               splitOn: "DEPStudentId,DEPPaymentId,DEPSessionId",
+               commandType: CommandType.StoredProcedure);
+
+            return students;
+        }
     }
 }

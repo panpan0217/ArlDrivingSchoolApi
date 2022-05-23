@@ -313,7 +313,20 @@ namespace ArlDrivingSchoolApi.Controllers
         {
 
             var userId = Request.GetUserId(JWToken);
-            // If no same record student
+            var students = await StudentService.GetAllDEPStudentWithDetailsByFullNameAsync(requestModel.FullName);
+            if (requestModel.ForceCreate)
+            {
+                await StudentService.CreateDEPStudentWithDetailsAsync(requestModel, userId);
+                return Ok();
+            }
+            else
+            {
+                if (students.Count() > 0)
+                {
+                    return Ok(students);
+                }
+            }
+    
             await StudentService.CreateDEPStudentWithDetailsAsync(requestModel, userId);
             return Ok();
         }
@@ -363,6 +376,14 @@ namespace ArlDrivingSchoolApi.Controllers
             var student = await StudentService.GetDEPStudentByIdAsync(studentId);
             return Ok(student);
         }
+
+        [HttpGet("dep/filter")]
+        public async Task<IActionResult> FilterDEPAsync(string fullname)
+        {
+            var students = await StudentService.GetAllDEPStudentWithDetailsByFullNameAsync(fullname);
+            return Ok(students);
+        }
+
 
         [HttpPost("total")]
         public async Task<IActionResult> GetTotalStudentAndCertificationAsync([FromBody] DateRangeRequestModel requestModel )

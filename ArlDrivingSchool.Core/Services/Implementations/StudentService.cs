@@ -441,5 +441,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetTotalStudentAndCertificationAsync(startDate, endDate);
         }
+
+        public async Task<IEnumerable<DEPStudentDetails>> GetAllDEPStudentWithDetailsByFullNameAsync(string fullName)
+        {
+            return await StudentRepository.GetAllDEPStudentWithDetailsByFullNameAsync(fullName);
+        }
     }
 }
