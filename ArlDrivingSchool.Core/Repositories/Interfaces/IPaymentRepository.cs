@@ -8,6 +8,9 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
 {
     public interface IPaymentRepository
     {
+        Task<int> GetMonthlyIncomeAsync();
+        Task<int> GetWeeklyIncomeAsync();
+        Task<int> GetDailyIncomeAsync();
         Task<int> CreatePaymentAsync(int studentId, int totalAmount, int payment, int balance, int paymentModeId);
         Task<bool> UpdatePaymentByStudentIdAsync(UpdatePaymentRequestModel payment);
         Task<int> DeletePaymentAsync(int studentId);

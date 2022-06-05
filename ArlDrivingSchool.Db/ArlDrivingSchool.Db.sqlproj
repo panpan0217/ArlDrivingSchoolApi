@@ -211,6 +211,15 @@
     <Build Include="StoredProcedures\Lookups\uspGetTransaction.sql" />
     <Build Include="StoredProcedures\Users\uspGetStudentById.sql" />
     <Build Include="StoredProcedures\Users\uspGetAllDEPStudentWithDetailsByFullName.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetTDCMonthlyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetPDCMonthlyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetDEPMonthlyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetTDCWeeklyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetPDCWeeklyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetDEPWeeklyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetTDCDailyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetPDCDailyIncome.sql" />
+    <Build Include="StoredProcedures\Payments\uspGetDEPDailyIncome.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

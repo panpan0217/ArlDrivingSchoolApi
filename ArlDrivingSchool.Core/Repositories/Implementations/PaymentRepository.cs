@@ -3,11 +3,8 @@ using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Repositories.ObjectRelationalMapper;
 using Dapper;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ArlDrivingSchool.Core.Repositories.Implementations
@@ -20,6 +17,48 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             : base(configuration)
         {
             Configuration = configuration;
+        }
+
+        public async Task<int> GetMonthlyIncomeAsync()
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var tdcIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetTDCMonthlyIncome]"
+                                                                , commandType: CommandType.StoredProcedure);
+            var pdcIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetPDCMonthlyIncome]"
+                                                    , commandType: CommandType.StoredProcedure);
+            var depIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetDEPMonthlyIncome]"
+                                                    , commandType: CommandType.StoredProcedure);
+
+            return tdcIncome + pdcIncome + depIncome;
+        }
+
+        public async Task<int> GetWeeklyIncomeAsync()
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var tdcIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetTDCWeeklyIncome]"
+                                                                , commandType: CommandType.StoredProcedure);
+            var pdcIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetPDCWeeklyIncome]"
+                                                    , commandType: CommandType.StoredProcedure);
+            var depIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetDEPWeeklyIncome]"
+                                                    , commandType: CommandType.StoredProcedure);
+
+            return tdcIncome + pdcIncome + depIncome;
+        }
+
+        public async Task<int> GetDailyIncomeAsync()
+        {
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+
+            var tdcIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetTDCDailyIncome]"
+                                                                , commandType: CommandType.StoredProcedure);
+            var pdcIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetPDCDailyIncome]"
+                                                    , commandType: CommandType.StoredProcedure);
+            var depIncome = await connection.ExecuteScalarAsync<int>("[payments].[uspGetDEPDailyIncome]"
+                                                    , commandType: CommandType.StoredProcedure);
+
+            return tdcIncome + pdcIncome + depIncome;
         }
 
         public async Task<int> CreatePaymentAsync(int studentId, int totalAmount, int payment, int balance, int paymentModeId)

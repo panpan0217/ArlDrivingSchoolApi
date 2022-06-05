@@ -1,21 +1,31 @@
 ﻿using ArlDrivingSchool.Core.Repositories.Interfaces;
 using ArlDrivingSchool.Core.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace ArlDrivingSchool.Core.Services.Implementations
 {
     public class PaymentService : IPaymentService
     {
-        private IStudentRepository StudentRepository { get; }
         private IPaymentRepository PaymentRepository { get; }
 
-        public PaymentService(IStudentRepository studentRepository, IPaymentRepository paymentRepository)
+        public PaymentService(IPaymentRepository paymentRepository)
         {
-            StudentRepository = studentRepository;
             PaymentRepository = paymentRepository;
         }
 
+        public async Task<int> GetMonthlyIncomeAsync()
+        {
+            return await PaymentRepository.GetMonthlyIncomeAsync();
+        }
+
+        public async Task<int> GetWeeklyIncomeAsync()
+        {
+            return await PaymentRepository.GetWeeklyIncomeAsync();
+        }
+
+        public async Task<int> GetDailyIncomeAsync()
+        {
+            return await PaymentRepository.GetDailyIncomeAsync();
+        }
     }
 }
