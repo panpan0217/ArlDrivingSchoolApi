@@ -54,6 +54,7 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(student);
         }
 
+
         [HttpPost("details/dateRange")]
         public async Task<IActionResult> GetStudentWithDetailsByDateRangeAsync([FromBody] DateRangeRequestModel requestModel)
         {
@@ -115,6 +116,12 @@ namespace ArlDrivingSchoolApi.Controllers
                 return NotFound();
         }
 
+        [HttpGet("pdc/{pdcStudentId}")]
+        public async Task<IActionResult> GetPDCStudentWithDetailsByIdAsync(int pdcStudentId)
+        {
+            var student = await StudentService.GetPDCStudentWithDetailsByIdAsync(pdcStudentId);
+            return Ok(student);
+        }
         [HttpPut("pdc")]
         public async Task<IActionResult> UpdatePDC([FromBody] PDCStudentFullDetailRequestModel request)
         {

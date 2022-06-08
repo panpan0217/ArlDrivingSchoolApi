@@ -220,6 +220,7 @@
     <Build Include="StoredProcedures\Payments\uspGetTDCDailyIncome.sql" />
     <Build Include="StoredProcedures\Payments\uspGetPDCDailyIncome.sql" />
     <Build Include="StoredProcedures\Payments\uspGetDEPDailyIncome.sql" />
+    <Build Include="StoredProcedures\Users\uspGetPDCStudentWithDetailsById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

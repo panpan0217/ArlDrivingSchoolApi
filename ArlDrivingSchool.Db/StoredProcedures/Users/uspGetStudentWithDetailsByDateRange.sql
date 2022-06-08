@@ -19,6 +19,7 @@ BEGIN
 		   ,em.EnrollmentModeId
 		   ,em.EnrollmentModeName
 		   ,u.UserId
+		   ,ps.PDCStudentId
 		   ,CONCAT(u.FirstName, ' ', u.LastName) [Staff] 
 
 		   ,us.Remarks
@@ -84,6 +85,7 @@ BEGIN
 			LEFT JOIN [sessions].SessionOne AS sso ON sso.StudentId = us.StudentId
 			LEFT JOIN [sessions].SessionTwo AS sstw ON sstw.StudentId = us.StudentId
 			LEFT JOIN [sessions].SessionThree AS ssth ON ssth.StudentId = us.StudentId
+			LEFT JOIN [users].PDCStudent AS ps ON ps.StudentId = us.StudentId
 	WHERE  CAST(us.DateRegistered as date) BETWEEN @StartDate AND @EndDate
 END
 GO;

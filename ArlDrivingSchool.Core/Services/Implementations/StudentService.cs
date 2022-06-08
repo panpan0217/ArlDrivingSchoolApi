@@ -446,5 +446,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await StudentRepository.GetAllDEPStudentWithDetailsByFullNameAsync(fullName);
         }
+
+        public async Task<PDCStudentDetails> GetPDCStudentWithDetailsByIdAsync(int studentId)
+        {
+            return await StudentRepository.GetPDCStudentWithDetailsByIdAsync(studentId);
+        }
     }
 }

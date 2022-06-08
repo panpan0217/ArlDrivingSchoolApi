@@ -41,6 +41,7 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<IEnumerable<StudentDetails>> GetStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<IEnumerable<PDCStudentDetails>> GetPDCStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<StudentDetails> GetStudentByIdAsync(int studentId);
+        Task<PDCStudentDetails> GetPDCStudentWithDetailsByIdAsync(int studentId);
 
         //DEP
         Task<int> CreateDEPStudentWithDetailsAsync(DEPStudentFullDetailsRequestModel requestModel, string createdBy);
