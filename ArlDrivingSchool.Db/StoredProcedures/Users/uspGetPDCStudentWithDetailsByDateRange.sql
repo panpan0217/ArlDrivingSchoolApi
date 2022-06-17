@@ -12,7 +12,9 @@ BEGIN
 		   ,o.OfficeName
 		   ,em.EnrollmentModeId
 		   ,em.EnrollmentModeName
+		   ,ups.OtherEnrollmentMode
 		   ,u.UserId
+		   ,ups.StudentId
 		   ,CONCAT(u.FirstName, ' ', u.LastName) [Staff] 
 		   ,pm.PaymentModeName
 		   ,t.TransactionId

@@ -18,6 +18,7 @@
 	[UpdatedBy]         NVARCHAR(257)   NULL,
 	[AuthenticatedBy]	NVARCHAR(255)	NULL, 
 	[EnrollmentModeId]		INT				NOT NULL DEFAULT 1,
+	[OtherEnrollmentMode]	NVARCHAR(255)	NULL,
 	[OfficeId]				INT				NULL,
 	[UserId]				INT				NULL,
 	[StudentId]				INT				NULL,

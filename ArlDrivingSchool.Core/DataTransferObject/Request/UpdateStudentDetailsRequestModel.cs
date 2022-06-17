@@ -43,9 +43,10 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int DriveSafeStatusId { get; set; }
         public string TextForm { get; set; }
         public int EnrollmentModeId { get; set; }
-        public int UserId { get; set; }
-        public int OfficeId { get; set; }
+        public int? UserId { get; set; }
+        public int? OfficeId { get; set; }
         public int PaymentModeId { get; set; }
         public bool IsAcesDateSave { get; set; }
+        public string OtherEnrollmentMode { get; set; }
     }
 }

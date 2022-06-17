@@ -19,6 +19,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int TotalAmount { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }
+        public DateTime DateRegistered { get; set; }
         public DateTime SessionOneDate { get; set; }
         public string SessionOneSchedule { get; set; }
         public bool SessionOneShuttle { get; set; }
@@ -42,9 +43,10 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public bool Certified { get; set; }
         public string TextForm { get; set; }
         public int EnrollmentModeId { get; set; }
-        public int UserId { get; set; }
-        public int OfficeId { get; set; }
+        public int? UserId { get; set; }
+        public int? OfficeId { get; set; }
         public int PaymentModeId { get; set; }
         public bool IsAcesDateSave { get; set; }
+        public string OtherEnrollmentMode { get; set; }
     }
 }

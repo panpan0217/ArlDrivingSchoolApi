@@ -16,7 +16,8 @@
 	@UpdatedBy NVARCHAR(255),
 	@OfficeId INT,
 	@EnrollmentModeId INT,
-	@UserId INT
+	@UserId INT,
+	@OtherEnrollmentMode NVARCHAR(255)
 AS
 BEGIN
 	IF (@DriveSafeStatusId = 0)
@@ -57,6 +58,7 @@ BEGIN
 	,EnrollmentModeId = @EnrollmentModeId
 	,OfficeId = @OfficeId
 	,UserId = @UserId
+	,OtherEnrollmentMode = @OtherEnrollmentMode
 	WHERE DEPStudentId = @DEPStudentId
 
 END

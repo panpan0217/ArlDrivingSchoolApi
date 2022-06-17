@@ -41,11 +41,12 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string AuthenticatedBy { get; set; }
         public bool Certified { get; set; }
         public int EnrollmentModeId { get; set; }
-        public int UserId { get; set; }
-        public int OfficeId { get; set; }
+        public int? UserId { get; set; }
+        public int? OfficeId { get; set; }
         public int PaymentModeId { get; set; }
         public int? TdcStudentId { get; set; }
         public int? TransactionId { get; set; }
+        public string OtherEnrollmentMode { get; set; }
     }
 
 }

@@ -15,7 +15,8 @@
 	@TextForm NVARCHAR(MAX),
 	@EnrollmentModeId INT,
 	@UserId INT,
-	@OfficeId INT
+	@OfficeId INT,
+	@OtherEnrollmentMode NVARCHAR(255)
 )
 AS
 BEGIN 
@@ -56,7 +57,8 @@ BEGIN
 		TextForm,
 		EnrollmentModeId,
 		UserId,
-		OfficeId
+		OfficeId,
+		OtherEnrollmentMode
 	)
 	VALUES 
 	(
@@ -76,7 +78,8 @@ BEGIN
 		@TextForm,
 		@EnrollmentModeId,
 		@UserId,
-		@OfficeId
+		@OfficeId,
+		@OtherEnrollmentMode
 	);
 
 	SELECT SCOPE_IDENTITY();

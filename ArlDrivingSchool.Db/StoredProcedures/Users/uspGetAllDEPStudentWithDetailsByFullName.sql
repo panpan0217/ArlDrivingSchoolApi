@@ -23,6 +23,7 @@ BEGIN
 		   ,o.OfficeName
 		   ,em.EnrollmentModeId
 		   ,em.EnrollmentModeName
+		   ,us.OtherEnrollmentMode
 		   ,u.UserId
 		   ,CONCAT(u.FirstName, ' ', u.LastName) [Staff] 
 

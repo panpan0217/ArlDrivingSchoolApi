@@ -16,6 +16,7 @@ VALUES
  (1, 'FB Enrollee')
 ,(2, 'Staff Enrollee')
 ,(3, 'Office Enrollee')
+,(4, 'Others')
 
 MERGE INTO [lookups].[EnrollmentMode] AS target
 USING @EnrollmentMode AS source

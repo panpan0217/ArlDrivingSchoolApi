@@ -20,7 +20,8 @@
 	@OfficeId INT,
 	@EnrollmentModeId INT,
 	@UserId INT,
-	@AcesSaveDate DATETIME2
+	@AcesSaveDate DATETIME2,
+	@OtherEnrollmentMode NVARCHAR(255)
 AS
 BEGIN
 	IF (@DriveSafeStatusId = 0)
@@ -63,7 +64,8 @@ BEGIN
 	,EnrollmentModeId = @EnrollmentModeId
 	,OfficeId = @OfficeId
 	,UserId = @UserId
-	,AcesSaveDate = @AcesSaveDate
+	,AcesSaveDate = @AcesSaveDate,
+	OtherEnrollmentMode = @OtherEnrollmentMode
 	WHERE StudentId = @StudentId
 
 END

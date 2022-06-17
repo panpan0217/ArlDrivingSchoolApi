@@ -32,5 +32,6 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string EnrollmentModeName { get; set; }
         public int UserId { get; set; }
         public string Staff { get; set; }
+        public string OtherEnrollmentMode { get; set; }
     }
 }

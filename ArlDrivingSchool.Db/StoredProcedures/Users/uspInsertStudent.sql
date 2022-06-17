@@ -20,7 +20,9 @@
 	@EnrollmentModeId INT,
 	@UserId INT,
 	@OfficeId INT,
-	@AcesSaveDate DATETIME2
+	@AcesSaveDate DATETIME2,
+	@OtherEnrollmentMode NVARCHAR(255),
+	@DateRegistered DATETIME2
 )
 AS
 BEGIN 
@@ -69,7 +71,8 @@ BEGIN
 			EnrollmentModeId,
 			UserId,
 			OfficeId,
-			AcesSaveDate
+			AcesSaveDate,
+			OtherEnrollmentMode
 		)
 		VALUES 
 		(
@@ -83,7 +86,7 @@ BEGIN
 			@TDCStatusId,
 			@ACESStatusId,
 			@Remarks,
-			GETUTCDATE(),
+			@DateRegistered,
 			@CreatedBy,
 			@AuthenticatedBy,
 			@ClassType,
@@ -95,7 +98,8 @@ BEGIN
 			@EnrollmentModeId,
 			@UserId,
 			@OfficeId,
-			@AcesSaveDate
+			@AcesSaveDate,
+			@OtherEnrollmentMode
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -124,7 +128,8 @@ BEGIN
 			EnrollmentModeId,
 			UserId,
 			OfficeId,
-			AcesSaveDate
+			AcesSaveDate,
+			OtherEnrollmentMode
 		)
 		VALUES 
 		(
@@ -148,7 +153,8 @@ BEGIN
 			@EnrollmentModeId,
 			@UserId,
 			@OfficeId,
-			@AcesSaveDate
+			@AcesSaveDate,
+			@OtherEnrollmentMode
 		);
 
 		SELECT SCOPE_IDENTITY();

@@ -17,7 +17,9 @@
 	@UserId INT,
 	@OfficeId INT,
 	@TdcStudentId INT,
-	@TransactionId INT
+	@TransactionId INT,
+	@OtherEnrollmentMode NVARCHAR(255),
+	@DateRegistered DATETIME2
 )
 AS
 BEGIN 
@@ -58,11 +60,12 @@ BEGIN
 			UserId,
 			OfficeId,
 			StudentId,
-			TransactionId
+			TransactionId,
+			OtherEnrollmentMode
 		)
 		VALUES 
 		(
-			GETUTCDATE(),
+			@DateRegistered,
 			@FullName,
 			@FBContact,
 			@Mobile,
@@ -81,7 +84,8 @@ BEGIN
 			@UserId,
 			@OfficeId,
 			@TdcStudentId,
-			@TransactionId
+			@TransactionId,
+			@OtherEnrollmentMode
 		);
 
 		SELECT SCOPE_IDENTITY();
@@ -107,11 +111,12 @@ BEGIN
 			UserId,
 			OfficeId,
 			StudentId,
-			TransactionId
+			TransactionId,
+			OtherEnrollmentMode
 		)
 		VALUES 
 		(
-			GETUTCDATE(),
+			@DateRegistered,
 			@FullName,
 			@FBContact,
 			@Mobile,
@@ -128,7 +133,8 @@ BEGIN
 			@UserId,
 			@OfficeId,
 			@TdcStudentId,
-			@TransactionId
+			@TransactionId,
+			@OtherEnrollmentMode
 		);
 
 		SELECT SCOPE_IDENTITY();

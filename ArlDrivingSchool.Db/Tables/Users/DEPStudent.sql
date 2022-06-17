@@ -19,6 +19,7 @@
     [SessionEmail]			NVARCHAR(MAX)	NULL,
     [TextForm]				NVARCHAR(MAX)	NULL,
 	[EnrollmentModeId]		INT				NOT NULL DEFAULT 1,
+	[OtherEnrollmentMode]	NVARCHAR(255)	NULL,
 	[OfficeId]				INT				NULL,
 	[UserId]				INT				NULL,
 

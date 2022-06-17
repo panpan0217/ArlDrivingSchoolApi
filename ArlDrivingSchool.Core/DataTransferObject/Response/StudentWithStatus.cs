@@ -38,5 +38,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public int PDCStudentId { get; set; }
         public string Staff { get; set; }
         public DateTime? AcesSaveDate { get; set; }
+        public string OtherEnrollmentMode { get; set; }
     }
 }

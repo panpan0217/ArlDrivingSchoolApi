@@ -20,8 +20,9 @@ namespace ArlDrivingSchool.Core.Models.Users
         public string StudentPermit { get; set; }
         public string AuthenticatedBy { get; set; }
         public int EnrollmentModeId { get; set; }
-        public int UserId { get; set; }
-        public int OfficeId { get; set; }
+        public int? UserId { get; set; }
+        public int? OfficeId { get; set; }
         public int? TransactionId { get; set; }
+        public string? OtherEnrollmentMode { get; set; }
     }
 }

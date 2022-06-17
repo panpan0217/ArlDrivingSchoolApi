@@ -185,7 +185,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 TextForm = request.TextForm,
                 EnrollmentModeId = request.EnrollmentModeId,
                 OfficeId = request.OfficeId,
-                UserId = request.UserId
+                UserId = request.UserId,
+                OtherEnrollmentMode = request.OtherEnrollmentMode
             };
 
             var sessionOne = new UpdateSessionRequestModel
@@ -311,7 +312,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 EnrollmentModeId = request.EnrollmentModeId,
                 UserId =request.UserId,
                 OfficeId = request.OfficeId,
-                TransactionId = request.TransactionId
+                TransactionId = request.TransactionId,
+                OtherEnrollmentMode = request.OtherEnrollmentMode
             };
 
             var payment = new UpdatePaymentRequestModel

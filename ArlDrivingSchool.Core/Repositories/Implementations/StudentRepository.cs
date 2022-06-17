@@ -216,7 +216,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.EnrollmentModeId,
                                                                         requestModel.UserId,
                                                                         requestModel.OfficeId,
-                                                                        AcesSaveDate = acesSaveDate
+                                                                        AcesSaveDate = acesSaveDate,
+                                                                        requestModel.OtherEnrollmentMode,
+                                                                        requestModel.DateRegistered
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
@@ -249,7 +251,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 student.OfficeId,
                 student.EnrollmentModeId,
                 student.UserId,
-                AcesSaveDate = acesSaveDate
+                AcesSaveDate = acesSaveDate,
+                student.OtherEnrollmentMode
             };
 
             var result = await connection.ExecuteAsync("users.uspUpdateStudentByStudentId",
@@ -409,7 +412,9 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.OfficeId,
                                                                         requestModel.UserId,
                                                                         requestModel.TdcStudentId,
-                                                                        requestModel.TransactionId
+                                                                        requestModel.TransactionId,
+                                                                        requestModel.OtherEnrollmentMode,
+                                                                        requestModel.DateRegistered
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return studentId;
@@ -438,7 +443,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 pdcStudent.OfficeId,
                 pdcStudent.EnrollmentModeId,
                 pdcStudent.UserId,
-                pdcStudent.TransactionId
+                pdcStudent.TransactionId,
+                pdcStudent.OtherEnrollmentMode
 
             };
 
@@ -615,7 +621,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.TextForm,
                                                                         requestModel.EnrollmentModeId,
                                                                         requestModel.OfficeId,
-                                                                        requestModel.UserId
+                                                                        requestModel.UserId,
+                                                                        requestModel.OtherEnrollmentMode
 
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
@@ -670,7 +677,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.TextForm,
                                                                         requestModel.EnrollmentModeId,
                                                                         requestModel.OfficeId,
-                                                                        requestModel.UserId
+                                                                        requestModel.UserId,
+                                                                        requestModel.OtherEnrollmentMode
 
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
