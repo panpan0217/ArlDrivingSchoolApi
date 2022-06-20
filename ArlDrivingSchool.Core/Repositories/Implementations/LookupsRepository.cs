@@ -61,5 +61,10 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
         {
             return await QueryAsync<Transaction>("[lookups].[uspGetTransaction]");
         }
+
+        public async Task<IEnumerable<Course>> GetAllCourseAsync()
+        {
+            return await QueryAsync<Course>("[lookups].[uspGetCourse]");
+        }
     }
 }

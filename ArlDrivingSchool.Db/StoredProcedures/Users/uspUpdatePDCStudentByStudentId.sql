@@ -9,6 +9,9 @@
 	@ATransmissionId		INT,
 	@A1TransmissionId		INT,
 	@BTransmissionId		INT,
+	@ACourseId INT,
+	@A1CourseId INT,
+	@BCourseId INT,
 	@Remarks			NVARCHAR(255),
 	@StudentPermit		NVARCHAR(MAX),
 	@UpdatedBy			NVARCHAR(255),
@@ -44,6 +47,9 @@ BEGIN
 	,ATransmissionId = @ATransmissionId
 	,A1TransmissionId = @A1TransmissionId
 	,BTransmissionId = @BTransmissionId
+	,ACourseId = @ACourseId
+	,A1CourseId = @A1CourseId
+	,BCourseId = @BCourseId
 	,Remarks = @Remarks
 	,DateRegistered = @DateRegistered
 	,StudentPermit = @StudentPermit

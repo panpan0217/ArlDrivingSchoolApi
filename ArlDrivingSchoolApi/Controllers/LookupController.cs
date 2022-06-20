@@ -69,5 +69,13 @@ namespace ArlDrivingSchoolApi.Controllers
 
             return Ok(transactions);
         }
+
+        [HttpGet("course")]
+        public async Task<IActionResult> GetAllCourseAsync()
+        {
+            var courses = await LookupsService.GetAllCourseAsync();
+
+            return Ok(courses);
+        }
     }
 }

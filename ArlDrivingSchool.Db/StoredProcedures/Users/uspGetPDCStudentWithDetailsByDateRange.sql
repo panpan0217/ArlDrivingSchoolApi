@@ -23,6 +23,9 @@ BEGIN
 		   ,ups.ATransmissionId
 		   ,ups.A1TransmissionId
 		   ,ups.BTransmissionId
+		   ,ups.ACourseId
+		   ,ups.A1CourseId
+		   ,ups.BCourseId
 		   ,ups.Remarks
 		   ,ups.StudentPermit
 		   ,ups.DateRegistered

@@ -13,5 +13,6 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<IEnumerable<PaymentMode>> GetAllPaymentModeAsync();
         Task<IEnumerable<EnrollmentMode>> GetAllEnrollmentModeAsync();
         Task<IEnumerable<Transaction>> GetAllTransactionAsync();
+        Task<IEnumerable<Course>> GetAllCourseAsync();
     }
 }

@@ -16,6 +16,9 @@ namespace ArlDrivingSchool.Core.Models.Users
         public int ATransmissionId { get; set; }
         public int A1TransmissionId { get; set; }
         public int BTransmissionId { get; set; }
+        public int ACourseId { get; set; }
+        public int A1CourseId { get; set; }
+        public int BCourseId { get; set; }
         public string Remarks { get; set; }
         public string StudentPermit { get; set; }
         public string AuthenticatedBy { get; set; }

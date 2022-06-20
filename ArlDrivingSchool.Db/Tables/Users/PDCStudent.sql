@@ -10,6 +10,11 @@
 	[ATransmissionId]	INT				NOT NULL,
 	[A1TransmissionId]	INT				NOT NULL DEFAULT 1,
 	[BTransmissionId]	INT				NOT NULL DEFAULT 1,
+
+	[ACourseId]	INT				NOT NULL DEFAULT 1,
+	[A1CourseId]	INT				NOT NULL DEFAULT 1,
+	[BCourseId]	INT				NOT NULL DEFAULT 1,
+
 	[Remarks]			NVARCHAR(255)	NULL,
 	[StudentPermit]		NVARCHAR(MAX)	NULL,
 	[Certified]			BIT				NOT NULL DEFAULT 0,

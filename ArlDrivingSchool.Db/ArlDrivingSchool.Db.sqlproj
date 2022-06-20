@@ -221,6 +221,10 @@
     <Build Include="StoredProcedures\Payments\uspGetPDCDailyIncome.sql" />
     <Build Include="StoredProcedures\Payments\uspGetDEPDailyIncome.sql" />
     <Build Include="StoredProcedures\Users\uspGetPDCStudentWithDetailsById.sql" />
+    <None Include="Scripts\Updates\03_Update_Transaction.sql" />
+    <Build Include="Tables\Lookups\Course.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertCourse.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetCourse.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />
