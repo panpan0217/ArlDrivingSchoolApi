@@ -224,7 +224,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return result > 0;
         }
 
-        public async Task<int> CreatePDCSessionAsync(string pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended)
+        public async Task<int> CreatePDCSessionAsync(string pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended, string remarks)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
             var sessionId = await connection.ExecuteScalarAsync<int>("[sessions].[uspInsertPDCSession]",
@@ -235,7 +235,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         StartTime = startTime,
                                                                         EndTime = endTime,
                                                                         InstructorId = instructorId,
-                                                                        Attended = attended
+                                                                        Attended = attended,
+                                                                        Remarks = remarks
                                                                     }
                                                                     , commandType: CommandType.StoredProcedure);
             return sessionId;
@@ -253,7 +254,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                         StartTime = request.StartTime,
                                                         EndTime = request.EndTime,
                                                         InstructorId = request.InstructorId,
-                                                        Attended = request.Attended
+                                                        Attended = request.Attended,
+                                                        Remarks = request.Remarks
                                                     },
                                                     commandType: CommandType.StoredProcedure);
         }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ArlDrivingSchool.Core.DataTransferObject.Request;
+﻿using ArlDrivingSchool.Core.DataTransferObject.Request;
 using ArlDrivingSchool.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace ArlDrivingSchoolApi.Controllers
 {
@@ -73,7 +70,8 @@ namespace ArlDrivingSchoolApi.Controllers
                 requestModel.StartTime,
                 requestModel.EndTime,
                 requestModel.InstructorId,
-                requestModel.Attended
+                requestModel.Attended,
+                requestModel.Remarks
                 );
             return Ok();
         }

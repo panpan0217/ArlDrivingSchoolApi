@@ -28,7 +28,7 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<int> CreatePDCSessionTwoAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended);
         Task<int> CreatePDCSessionThreeAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended);
         Task<int> CreatePDCSessionFourAsync(int pDCStudentId, DateTime date, DateTime startTime, DateTime endTime, bool attended);
-        Task<int> CreatePDCSessionAsync(string pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended);
+        Task<int> CreatePDCSessionAsync(string pdcStudentId, DateTime date, DateTime startTime, DateTime endTime, int instructorId, bool attended, string remarks);
         Task UpdatePDCSessionAsync(PDCSessionRequestModel request);
         Task DeletePDCSessionAsync(int pDCSessionId);
 

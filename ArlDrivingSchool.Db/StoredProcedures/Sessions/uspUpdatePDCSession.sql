@@ -6,7 +6,8 @@
 	@EndTime DATETIME2,
 	@PDCStudentId NVARCHAR(128),
 	@InstructorId INT,
-	@Attended BIT
+	@Attended BIT,
+	@Remarks NVARCHAR(128)
 )
 AS
 BEGIN 
@@ -18,7 +19,8 @@ BEGIN
 		EndTime = @EndTime,
 		PDCStudentId = @PDCStudentId,
 		InstructorId = @InstructorId,
-		Attended = @Attended
+		Attended = @Attended,
+		Remarks = @Remarks
 
 	WHERE PDCSessionId = @PDCSessionId
 END

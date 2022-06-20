@@ -13,5 +13,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string PDCStudentId { get; set; }
         public int InstructorId { get; set; }
         public bool Attended { get; set; }
-	}
+        public string Remarks { get; set; }
+    }
 }

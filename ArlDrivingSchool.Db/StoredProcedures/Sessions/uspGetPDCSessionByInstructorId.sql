@@ -9,6 +9,7 @@ BEGIN
 		   ,PDCStudentId
 		   ,InstructorId
 		   ,Attended
+		   ,Remarks
 	FROM sessions.PDCSession
 	WHERE InstructorId = @Id
 END

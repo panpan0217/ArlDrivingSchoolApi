@@ -13,5 +13,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public DateTime EndTime { get; set; }
         public int InstructorId { get; set; }
         public bool Attended { get; set; }
+        public string Remarks { get; set; }
     }
 }
