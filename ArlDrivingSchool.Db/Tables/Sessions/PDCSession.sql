@@ -5,7 +5,7 @@
 	[StartTime]			DATETIME2		NULL,
 	[EndTime]			DATETIME2		NULL,
 	[PDCStudentId]		NVARCHAR(128)	NOT NULL,
-	[Remarks]			NVARCHAR(128)	NOT NULL,
+	[Remarks]			NVARCHAR(128)	NULL,
 	[InstructorId]		INT				NOT NULL,
 	[Attended]          BIT				NOT NULL DEFAULT 0,
 	
