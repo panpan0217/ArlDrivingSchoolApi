@@ -143,7 +143,7 @@ BEGIN
 			@TDCStatusId,
 			@ACESStatusId,
 			@Remarks,
-			GETUTCDATE(),
+			@DateRegistered,
 			@CreatedBy,
 			@AuthenticatedBy,
 			@ClassType,

@@ -20,5 +20,6 @@ namespace ArlDrivingSchool.Core.Models.Setting
         public int PDCTricycleManual { get; set; }
         public int PDCTricycleMatic { get; set; }
         public int PDCTricycleCombination { get; set; }
+        public int PDCPackage { get; set; }
     }
 }

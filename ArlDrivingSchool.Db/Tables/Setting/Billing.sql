@@ -14,6 +14,7 @@
 	[PDCTricycleManual]		INT				NOT NULL,
 	[PDCTricycleMatic]		INT				NOT NULL,
 	[PDCTricycleCombination]	INT				NOT NULL,
+	[PDCPackage]	INT				NOT NULL DEFAULT 0,
 	[CreatedAt]             DATETIME2 (7)   NOT NULL,
     [CreatedBy]             NVARCHAR (256)  NOT NULL,
     [UpdatedAt]             DATETIME2 (7)   NULL,

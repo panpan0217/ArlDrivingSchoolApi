@@ -17,12 +17,14 @@ BEGIN
 			,PDCTricycleManual
 			,PDCTricycleMatic
 			,PDCTricycleCombination
+			,PDCPackage
 			,CreatedBy
 			,CreatedAt
 
 		)
 		VALUES(
 			 1500
+			,1500
 			,1500
 			,1500
 			,1500

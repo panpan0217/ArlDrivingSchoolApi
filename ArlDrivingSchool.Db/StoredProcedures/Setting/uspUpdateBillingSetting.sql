@@ -12,7 +12,8 @@
 	@PDCMotorCombination	INT,
 	@PDCTricycleManual		INT,
 	@PDCTricycleMatic		INT,
-	@PDCTricycleCombination	INT
+	@PDCTricycleCombination	INT,
+	@PDCPackage	INT
 AS
 BEGIN
 	
@@ -31,6 +32,7 @@ BEGIN
 	,PDCTricycleManual = @PDCTricycleManual
 	,PDCTricycleMatic = @PDCTricycleMatic
 	,PDCTricycleCombination = @PDCTricycleCombination
+	,PDCPackage = @PDCPackage
 	WHERE BillingId = @BillingId
 END
 GO;

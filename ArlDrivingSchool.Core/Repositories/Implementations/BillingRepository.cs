@@ -36,7 +36,8 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                     billing.PDCMotorMatic,
                     billing.PDCTricycleCombination,
                     billing.PDCTricycleManual,
-                    billing.PDCTricycleMatic
+                    billing.PDCTricycleMatic,
+                    billing.PDCPackage
                 });
         }
     }

@@ -14,6 +14,7 @@ AS
 			,PDCTricycleManual
 			,PDCTricycleMatic
 			,PDCTricycleCombination
+			,PDCPackage
 	FROM [setting].[Billing]
 GO
 
