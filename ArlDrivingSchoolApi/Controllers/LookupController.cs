@@ -51,8 +51,10 @@ namespace ArlDrivingSchoolApi.Controllers
         public async Task<IActionResult> GetPaymentModeAsybc()
         {
             var paymentModes = await LookupsService.GetAllPaymentModeAsync();
-
-            return Ok(paymentModes);
+            var dtos = paymentModes
+            .Where(p => !p.PaymentModeName.Contains("remittance", StringComparison.OrdinalIgnoreCase))
+            .ToList();
+            return Ok(dtos);
         }
         [HttpGet("enrollment-mode")]
         public async Task<IActionResult> GetEnrollmentModeAsybc()

@@ -13,7 +13,7 @@ INSERT INTO @Course
 	,[CourseName]
 )
 VALUES
- (1, 'Driving Lession')
+ (1, 'Driving Lesson')
 ,(2, ' Assessment')
 
 MERGE INTO [lookups].[Course] AS target

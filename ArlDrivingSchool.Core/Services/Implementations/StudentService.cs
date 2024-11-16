@@ -120,14 +120,14 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 branchId : requestModel.SessionTwoBranchId
                 );
             
-            await SessionRepository.CreateSessionThreeAsync(
-                studentId: studentId,
-                sessionDate: requestModel.SessionThreeDate,
-                schedule: requestModel.SessionThreeSchedule,
-                shuttle: requestModel.SessionThreeShuttle,
-                sessionLocation: requestModel.SessionThreeLocation,
-                 branchId: requestModel.SessionThreeBranchId
-                );
+            //await SessionRepository.CreateSessionThreeAsync(
+            //    studentId: studentId,
+            //    sessionDate: requestModel.SessionThreeDate,
+            //    schedule: requestModel.SessionThreeSchedule,
+            //    shuttle: requestModel.SessionThreeShuttle,
+            //    sessionLocation: requestModel.SessionThreeLocation,
+            //     branchId: requestModel.SessionThreeBranchId
+            //    );
 
             await PaymentRepository.CreatePaymentAsync(
                 studentId,
@@ -229,7 +229,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             await SessionRepository.UpdateSessionOneByStudentIdAsync(sessionOne);
             await SessionRepository.UpdateSessionTwoByStudentIdAsync(sessionTwo);
-            await SessionRepository.UpdateSessionThreeByStudentIdAsync(sessionThree);
+            //await SessionRepository.UpdateSessionThreeByStudentIdAsync(sessionThree);
 
             await PaymentRepository.UpdatePaymentByStudentIdAsync(payment);
 

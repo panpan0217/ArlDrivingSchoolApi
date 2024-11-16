@@ -13,9 +13,9 @@ INSERT INTO @EnrollmentMode
 	,[EnrollmentModeName]
 )
 VALUES
- (1, 'FB Enrollee')
-,(2, 'Staff Enrollee')
-,(3, 'Office Enrollee')
+ (1, 'Online')
+,(2, 'Staff')
+,(3, 'Office')
 ,(4, 'Others')
 
 MERGE INTO [lookups].[EnrollmentMode] AS target
