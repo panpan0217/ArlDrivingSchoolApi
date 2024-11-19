@@ -11,6 +11,8 @@ AS
 			[ATransmissionId],
 			[A1TransmissionId],
 			[BTransmissionId],
+			[B1TransmissionId],
+			[B2TransmissionId],
 			Remarks
 	FROM [users].PDCStudent
 	WHERE PDCStudentId = @Id

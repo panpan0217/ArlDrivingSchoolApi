@@ -16,6 +16,8 @@ VALUES
  (1, 'A - Motorcycle L3')
 ,(2, 'A1 - Tricycle L4')
 ,(3, 'B - Light Passenger Car M1')
+,(4, 'B1 - Van M2')
+,(5, 'B - B2 - Light Cargo N1')
 
 MERGE INTO [lookups].[Restriction] AS target
 USING @Restriction AS source

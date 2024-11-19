@@ -11,6 +11,8 @@ BEGIN
 		   ,ups.ATransmissionId
 		   ,ups.A1TransmissionId
 		   ,ups.BTransmissionId
+		   ,ups.B1TransmissionId
+		   ,ups.B2TransmissionId
 		   ,ups.Remarks
 		   ,ups.StudentPermit
 		   ,ups.DateRegistered

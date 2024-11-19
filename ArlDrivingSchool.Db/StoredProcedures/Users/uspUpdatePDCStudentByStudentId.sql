@@ -9,9 +9,13 @@
 	@ATransmissionId		INT,
 	@A1TransmissionId		INT,
 	@BTransmissionId		INT,
+	@B1TransmissionId		INT,
+	@B2TransmissionId		INT,
 	@ACourseId INT,
 	@A1CourseId INT,
 	@BCourseId INT,
+	@B1CourseId INT,
+	@B2CourseId INT,
 	@Remarks			NVARCHAR(255),
 	@StudentPermit		NVARCHAR(MAX),
 	@UpdatedBy			NVARCHAR(255),
@@ -47,9 +51,13 @@ BEGIN
 	,ATransmissionId = @ATransmissionId
 	,A1TransmissionId = @A1TransmissionId
 	,BTransmissionId = @BTransmissionId
+	,B1TransmissionId = @B1TransmissionId
+	,B2TransmissionId = @B2TransmissionId
 	,ACourseId = @ACourseId
 	,A1CourseId = @A1CourseId
 	,BCourseId = @BCourseId
+	,B1CourseId = @B1CourseId
+	,B2CourseId = @B2CourseId
 	,Remarks = @Remarks
 	,DateRegistered = @DateRegistered
 	,StudentPermit = @StudentPermit

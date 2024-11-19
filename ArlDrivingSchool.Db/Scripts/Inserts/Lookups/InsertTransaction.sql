@@ -16,6 +16,7 @@ VALUES
  (1, 'New Driver''s License')
 ,(2, 'Additional Code')
 ,(3, 'Certification')
+,(4, 'Refresher')
 
 MERGE INTO [lookups].[Transaction] AS target
 USING @Transaction AS source
