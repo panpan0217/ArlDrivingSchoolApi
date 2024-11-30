@@ -8,6 +8,8 @@ BEGIN
 		   ,ups.FullName
 		   ,ups.FBContact
 		   ,ups.Mobile
+		   ,ups.Location
+		   ,ups.DateOfBirth
 		   ,la.StatusName [ACESStatus]
 		   ,o.OfficeId
 		   ,o.OfficeName
@@ -22,6 +24,8 @@ BEGIN
 		   ,ups.ATransmissionId
 		   ,ups.A1TransmissionId
 		   ,ups.BTransmissionId
+		   ,ups.B1TransmissionId
+		   ,ups.B2TransmissionId
 		   ,ups.Remarks
 		   ,ups.StudentPermit
 		   ,ups.DateRegistered

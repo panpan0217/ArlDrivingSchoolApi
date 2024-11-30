@@ -7,11 +7,12 @@ AS
 BEGIN
 	IF(@LastName IS NULL)
 		BEGIN
-				SELECT	us.StudentId
+				SELECT TOP 50 us.StudentId
 		   ,us.FirstName
 		   ,us.LastName
 		   ,us.Email
 		   ,us.[Location]
+		   ,us.DateOfBirth
 		   ,us.FBContact
 		   ,us.Mobile
 		   ,us.AcesSaveDate
@@ -94,11 +95,12 @@ BEGIN
 		END
 	ELSE
 		BEGIN
-				SELECT	us.StudentId
+			SELECT TOP 50	us.StudentId
 		   ,us.FirstName
 		   ,us.LastName
 		   ,us.Email
 		   ,us.[Location]
+		   ,us.DateOfBirth
 		   ,us.FBContact
 		   ,us.Mobile
 		   ,us.AcesSaveDate

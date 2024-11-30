@@ -5,6 +5,7 @@
 	[LastName]				NVARCHAR(255)	NULL,
 	[Email]					NVARCHAR(255)	NULL,
 	[Location]				NVARCHAR(255)	NULL,
+	[DateOfBirth]			DATETIME2		NULL,
 	[FBContact]				NVARCHAR(255)	NULL,
 	[Mobile]				NVARCHAR(64)	NULL,
 	[StudentStatusId]		INT				NOT NULL,
@@ -26,6 +27,7 @@
 	[OtherEnrollmentMode]	NVARCHAR(255)	NULL,
 	[OfficeId]				INT				NULL,
 	[UserId]				INT				NULL,
+	
 
     [AcesSaveDate] DATETIME2 NULL, 
     CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED ([StudentId] ASC),

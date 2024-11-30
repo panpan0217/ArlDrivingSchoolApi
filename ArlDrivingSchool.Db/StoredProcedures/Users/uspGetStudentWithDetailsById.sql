@@ -9,6 +9,7 @@ BEGIN
 		   ,us.LastName
 		   ,us.Email
 		   ,us.[Location]
+		   ,us.DateOfBirth
 		   ,us.FBContact
 		   ,us.Mobile
 		   ,ls.StatusName [StudentStatus]

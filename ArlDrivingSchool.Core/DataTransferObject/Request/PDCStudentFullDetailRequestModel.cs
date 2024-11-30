@@ -8,6 +8,8 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
     {
         public int PDCStudentId { get; set; }
         public string FullName { get; set; }
+        public string? Location { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string FBContact { get; set; }
         public string Mobile { get; set; }
         public int ACESStatusId { get; set; }

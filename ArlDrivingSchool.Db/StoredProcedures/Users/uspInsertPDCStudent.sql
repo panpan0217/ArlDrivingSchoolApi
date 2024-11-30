@@ -2,6 +2,7 @@
 (
 	@FullName NVARCHAR(255),
 	@FBContact NVARCHAR(255),
+	@Location NVARCHAR(255),
 	@Mobile NVARCHAR(64),
 	@ACESStatusId INT,
 	@RestrictionId NVARCHAR(128),
@@ -26,7 +27,8 @@
 	@TdcStudentId INT,
 	@TransactionId INT,
 	@OtherEnrollmentMode NVARCHAR(255),
-	@DateRegistered DATETIME2
+	@DateRegistered DATETIME2,
+	@DateOfBirth DATETIME2
 )
 AS
 BEGIN 
@@ -50,6 +52,8 @@ BEGIN
 		(
 			DateRegistered,
 			FullName,
+			Location,
+			DateOfBirth,
 			FBContact,
 			Mobile,
 			ACESStatusId,
@@ -81,6 +85,8 @@ BEGIN
 		(
 			@DateRegistered,
 			@FullName,
+			@Location,
+			@DateOfBirth,
 			@FBContact,
 			@Mobile,
 			@ACESStatusId,
@@ -117,6 +123,8 @@ BEGIN
 		(
 			DateRegistered,
 			FullName,
+			Location,
+			DateOfBirth,
 			FBContact,
 			Mobile,
 			ACESStatusId,
@@ -142,6 +150,8 @@ BEGIN
 		(
 			@DateRegistered,
 			@FullName,
+			@Location,
+			@DateOfBirth,
 			@FBContact,
 			@Mobile,
 			@ACESStatusId,

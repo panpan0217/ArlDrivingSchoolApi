@@ -171,6 +171,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 LastName = request.LastName,
                 Email = request.Email,
                 Location = request.Location,
+                DateOfBirth = request.DateOfBirth,
                 FBContact = request.FBContact,
                 Mobile = request.Mobile,
                 StudentStatusId = request.StudentStatusId,
@@ -299,6 +300,8 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 PDCStudentId = request.PDCStudentId,
                 DateRegistered = request.DateRegistered,
                 FullName = request.FullName,
+                Location = request.Location,
+                DateOfBirth = request.DateOfBirth,
                 FBContact = request.FBContact,
                 Mobile = request.Mobile,
                 ACESStatusId = request.ACESStatusId,
@@ -320,6 +323,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 UserId =request.UserId,
                 OfficeId = request.OfficeId,
                 TransactionId = request.TransactionId,
+                StudentId = request.TdcStudentId,
                 OtherEnrollmentMode = request.OtherEnrollmentMode
             };
 

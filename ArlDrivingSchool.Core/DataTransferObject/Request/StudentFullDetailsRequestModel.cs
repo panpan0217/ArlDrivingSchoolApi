@@ -17,6 +17,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int ACESStatusId { get; set; }
         public string Remarks { get; set; }
         public int TotalAmount { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }
         public DateTime DateRegistered { get; set; }

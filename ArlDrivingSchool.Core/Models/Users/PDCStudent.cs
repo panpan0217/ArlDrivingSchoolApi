@@ -31,5 +31,8 @@ namespace ArlDrivingSchool.Core.Models.Users
         public int? OfficeId { get; set; }
         public int? TransactionId { get; set; }
         public string? OtherEnrollmentMode { get; set; }
+        public string? Location { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public int? StudentId { get; set; }
     }
 }

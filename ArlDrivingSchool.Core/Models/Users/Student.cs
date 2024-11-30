@@ -28,5 +28,7 @@ namespace ArlDrivingSchool.Core.Models.Users
         public int? OfficeId { get; set; }
         public DateTime? AcesSaveDate { get; set; }
         public string? OtherEnrollmentMode { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+
     }
 }

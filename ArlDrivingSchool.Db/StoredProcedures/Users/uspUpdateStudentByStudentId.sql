@@ -21,6 +21,7 @@
 	@EnrollmentModeId INT,
 	@UserId INT,
 	@AcesSaveDate DATETIME2,
+	@DateOfBirth DATETIME2,
 	@OtherEnrollmentMode NVARCHAR(255)
 AS
 BEGIN
@@ -48,6 +49,7 @@ BEGIN
 	,LastName = @LastName
 	,Email = @Email
 	,[Location] =@Location
+	,DateOfBirth = @DateOfBirth
 	,FBContact = @FBContact
 	,Mobile = @Mobile
 	,StudentStatusId = @StudentStatusId

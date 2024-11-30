@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [users].[uspUpdatePDCStudentByStudentId]
 	@PDCStudentId			INT,
 	@DateRegistered		DATETIME2,
+	@DateOfBirth		DATETIME2,
 	@FullName			NVARCHAR(255),
+	@Location			NVARCHAR(255),
 	@FBContact			NVARCHAR(255),
 	@Mobile				NVARCHAR(64),
 	@ACESStatusId		INT,
@@ -24,6 +26,7 @@
 	@EnrollmentModeId INT,
 	@UserId INT,
 	@TransactionId INT,
+	@StudentId INT,
 	@OtherEnrollmentMode NVARCHAR(255)
 AS
 BEGIN
@@ -45,6 +48,8 @@ BEGIN
 	SET
 	 FullName = @FullName
 	,FBContact = @FBContact
+	,Location = @Location
+	,DateOfBirth = @DateOfBirth
 	,Mobile = @Mobile
 	,ACESStatusId = @ACESStatusId
 	,RestrictionId = @RestrictionId
@@ -66,8 +71,9 @@ BEGIN
 	,EnrollmentModeId = @EnrollmentModeId
 	,OfficeId = @OfficeId
 	,UserId = @UserId
-	,TransactionId = @TransactionId,
-	OtherEnrollmentMode = @OtherEnrollmentMode
+	,TransactionId = @TransactionId
+	,StudentId = @StudentId
+	,OtherEnrollmentMode = @OtherEnrollmentMode
 	WHERE PDCStudentId = @PDCStudentId
 
 END

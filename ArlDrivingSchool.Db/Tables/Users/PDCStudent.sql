@@ -5,6 +5,8 @@
 	[FullName]			NVARCHAR(255)	NOT NULL,
 	[FBContact]			NVARCHAR(255)	NULL,
 	[Mobile]			NVARCHAR(64)	NULL,
+	[Location]			NVARCHAR(255)	NULL,
+	[DateOfBirth]		DATETIME2		NULL,
 	[ACESStatusId]		INT				NOT NULL,
 	[RestrictionId]		NVARCHAR(128)	NOT NULL,
 	[ATransmissionId]	INT				NOT NULL,

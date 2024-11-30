@@ -8,6 +8,7 @@ BEGIN
 		   ,us.LastName
 		   ,us.Email
 		   ,us.[Location]
+		   ,us.DateOfBirth
 		   ,us.FBContact
 		   ,us.Mobile
 		   ,us.AcesSaveDate

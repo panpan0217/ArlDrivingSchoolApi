@@ -5,6 +5,8 @@ BEGIN
 	SELECT	ups.PDCStudentId
 		   ,ups.FullName
 		   ,ups.FBContact
+		   ,ups.Location
+		   ,ups.DateOfBirth
 		   ,ups.Mobile
 		   ,la.StatusName [ACESStatus]
 		   ,ups.RestrictionId [RestrictionCode]
