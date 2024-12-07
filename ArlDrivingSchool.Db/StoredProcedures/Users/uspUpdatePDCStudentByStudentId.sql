@@ -6,6 +6,7 @@
 	@Location			NVARCHAR(255),
 	@FBContact			NVARCHAR(255),
 	@Mobile				NVARCHAR(64),
+	@AgentName				NVARCHAR(64),
 	@ACESStatusId		INT,
 	@RestrictionId		NVARCHAR(128),
 	@ATransmissionId		INT,
@@ -51,6 +52,7 @@ BEGIN
 	,Location = @Location
 	,DateOfBirth = @DateOfBirth
 	,Mobile = @Mobile
+	,AgentName = @AgentName
 	,ACESStatusId = @ACESStatusId
 	,RestrictionId = @RestrictionId
 	,ATransmissionId = @ATransmissionId

@@ -4,5 +4,6 @@
     {
         public int EnrollmentModeId { get; set; }
         public string EnrollmentModeName { get; set; }
+        public int Order { get; set; }
     }
 }

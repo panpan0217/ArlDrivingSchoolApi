@@ -12,6 +12,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public DateTime? DateOfBirth { get; set; }
         public string FBContact { get; set; }
         public string Mobile { get; set; }
+        public string AgentName { get; set; }
         public int ACESStatusId { get; set; }
         public string RestrictionId { get; set; }
         public int ATransmissionId { get; set; }

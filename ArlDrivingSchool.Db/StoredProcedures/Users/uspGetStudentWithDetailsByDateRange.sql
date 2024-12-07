@@ -11,6 +11,7 @@ BEGIN
 		   ,us.DateOfBirth
 		   ,us.FBContact
 		   ,us.Mobile
+		   ,us.AgentName
 		   ,us.AcesSaveDate
 		   ,ls.StatusName [StudentStatus]
 		   ,la.StatusName [ACESStatus]

@@ -61,7 +61,7 @@ namespace ArlDrivingSchoolApi.Controllers
         {
             var enrollmentModes = await LookupsService.GetAllEnrollmentModeAsync();
 
-            return Ok(enrollmentModes);
+            return Ok(enrollmentModes.OrderBy(e => e.Order));
         }
 
         [HttpGet("transaction")]

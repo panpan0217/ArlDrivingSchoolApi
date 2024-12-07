@@ -8,6 +8,7 @@
 	[DateOfBirth]			DATETIME2		NULL,
 	[FBContact]				NVARCHAR(255)	NULL,
 	[Mobile]				NVARCHAR(64)	NULL,
+	[AgentName]				NVARCHAR(64)	NULL,
 	[StudentStatusId]		INT				NOT NULL,
 	[TDCStatusId]			INT				NOT NULL,
 	[ACESStatusId]			INT				NOT NULL,

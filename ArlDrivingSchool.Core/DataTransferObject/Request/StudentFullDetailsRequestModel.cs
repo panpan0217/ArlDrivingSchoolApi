@@ -12,6 +12,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string Location { get; set; }
         public string FBContact { get; set; }
         public string Mobile { get; set; }
+        public string AgentName { get; set; }
         public int StudentStatusId { get; set; }
         public int TDCStatusId { get; set; }
         public int ACESStatusId { get; set; }

@@ -9,6 +9,7 @@ BEGIN
 		   ,ups.Location
 		   ,ups.DateOfBirth
 		   ,ups.Mobile
+		   ,ups.AgentName
 		   ,la.StatusName [ACESStatus]
 		   ,o.OfficeId
 		   ,o.OfficeName

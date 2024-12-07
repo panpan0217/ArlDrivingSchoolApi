@@ -6,6 +6,7 @@
 	@Location			NVARCHAR(255),
 	@FBContact			NVARCHAR(255),
 	@Mobile				NVARCHAR(64),
+	@AgentName				NVARCHAR(64),
 	@StudentStatusId	INT,
 	@TDCStatusId		INT,
 	@ACESStatusId		INT,
@@ -52,6 +53,7 @@ BEGIN
 	,DateOfBirth = @DateOfBirth
 	,FBContact = @FBContact
 	,Mobile = @Mobile
+	,AgentName = @AgentName
 	,StudentStatusId = @StudentStatusId
 	,TDCStatusId = @TDCStatusId
 	,ACESStatusId = @ACESStatusId

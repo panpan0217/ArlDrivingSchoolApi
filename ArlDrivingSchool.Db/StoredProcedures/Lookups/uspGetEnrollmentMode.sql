@@ -3,6 +3,7 @@ AS
 BEGIN
 	SELECT	EnrollmentModeId
 		   ,EnrollmentModeName
+		   ,[Order]
 	FROM	lookups.EnrollmentMode
 
 END
