@@ -21,6 +21,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public DateTime? DateOfBirth { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }
+        public List<SaveUpdateSubPaymentRequestModel> SubPayments { get; set; }
         public DateTime DateRegistered { get; set; }
         public DateTime SessionOneDate { get; set; }
         public string SessionOneSchedule { get; set; }

@@ -10,5 +10,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<int> GetMonthlyIncomeAsync();
         Task<int> GetWeeklyIncomeAsync();
         Task<int> GetDailyIncomeAsync();
+        Task DeleteSubPaymentAsync(int subPaymentId);
+        Task DeletePDCSubPaymentAsync(int subPaymentId);
     }
 }

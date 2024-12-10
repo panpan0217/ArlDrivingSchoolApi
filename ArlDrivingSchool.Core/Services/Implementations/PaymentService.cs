@@ -27,5 +27,14 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await PaymentRepository.GetDailyIncomeAsync();
         }
+
+        public async Task DeleteSubPaymentAsync(int subPaymentId)
+        {
+            await PaymentRepository.DeleteSubPaymentAsync(subPaymentId);
+        }
+        public async Task DeletePDCSubPaymentAsync(int subPaymentId)
+        {
+            await PaymentRepository.DeletePDCSubPaymentAsync(subPaymentId);
+        }
     }
 }

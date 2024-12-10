@@ -22,8 +22,10 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public string Remarks { get; set; }
         public DateTime DateRegistered { get; set; }
         public int TotalAmount { get; set; }
+        public int PaymentId { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }
+        public List<SaveUpdateSubPaymentRequestModel> SubPayments { get; set; }
         public DateTime SessionOneDate { get; set; }
         public string SessionOneSchedule { get; set; }
         public bool SessionOneShuttle { get; set; }

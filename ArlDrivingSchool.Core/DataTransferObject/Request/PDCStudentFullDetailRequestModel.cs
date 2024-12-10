@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArlDrivingSchool.Core.Models.Payments;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -32,6 +33,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int TotalAmount { get; set; }
         public int Payment { get; set; }
         public int Balance { get; set; }
+        public List<SaveUpdatePDCSubPaymentRequestModel>? PDCSubPayments { get; set; }
         public DateTime DateRegistered { get; set; }
         public DateTime SessionOneDate { get; set; }
         public DateTime SessionOneStartTime { get; set; }

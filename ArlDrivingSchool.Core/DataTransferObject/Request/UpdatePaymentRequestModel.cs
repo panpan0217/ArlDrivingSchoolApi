@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArlDrivingSchool.Core.Models.Payments;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,5 +12,6 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Request
         public int Payment { get; set; }
         public int Balance { get; set; }
         public int PaymentModeId { get; set; }
+        public List<PDCSubPayment> PDCSubPayments { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace ArlDrivingSchool.Core.Models.Payments
         public int Balance { get; set; }
         public int PaymentModeId { get; set; }
         public string PaymentModeName { get; set; }
+        public List<SubPayment> SubPayments { get; set; }
 
     }
 }

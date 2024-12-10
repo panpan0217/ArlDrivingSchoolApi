@@ -36,5 +36,20 @@ namespace ArlDrivingSchoolApi.Controllers
             var data = await PaymentService.GetDailyIncomeAsync();
             return Ok(data);
         }
+
+        [HttpDelete("subPayment/{subPaymentId}")]
+        public async Task<ActionResult> DeleteSubPayment(int subPaymentId)
+        {
+            await PaymentService.DeleteSubPaymentAsync(subPaymentId);
+            return Ok();
+        }
+
+
+        [HttpDelete("pdcSubPayment/{pdcSubPaymentId}")]
+        public async Task<ActionResult> DeletePDCSubPayment(int pdcSubPaymentId)
+        {
+            await PaymentService.DeletePDCSubPaymentAsync(pdcSubPaymentId);
+            return Ok();
+        }
     }
 }

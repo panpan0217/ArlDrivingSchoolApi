@@ -163,6 +163,30 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
 
                commandType: CommandType.StoredProcedure);
 
+            if(students.Count() > 0)
+            {
+                foreach (var student in students)
+                {
+                    if (student.Payment != null)
+                    {
+                        var paymentId = student.Payment.PaymentId;
+                        const string subPaymentQuery = @"
+                            SELECT 
+                                SubPaymentId,
+                                PaymentId,
+                                Payment,
+                                PaymentModeId
+                            FROM [payments].SubPayment
+                            WHERE PaymentId = @PaymentId;";
+                        using var _connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+                        var subPayments = await _connection.QueryAsync<SubPayment>(subPaymentQuery, new { PaymentId = paymentId });
+                        student.Payment.SubPayments = subPayments.ToList();
+                    }
+                }
+               
+            }
+           
+
             return students;
         }
 
@@ -187,6 +211,28 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                splitOn: "PDCStudentId,PDCPaymentId",
                commandType: CommandType.StoredProcedure);
 
+            if (pdcStudents.Count() > 0)
+            {
+                foreach (var student in pdcStudents)
+                {
+                    if (student.PDCPayment != null)
+                    {
+                        var paymentId = student.PDCPayment.PDCPaymentId;
+                        const string subPaymentQuery = @"
+                            SELECT 
+                                PDCSubPaymentId,
+                                PDCPaymentId,
+                                Payment,
+                                PaymentModeId
+                            FROM [payments].PDCSubPayment
+                            WHERE PDCPaymentId = @PDCPaymentId;";
+                        using var _connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+                        var subPayments = await _connection.QueryAsync<PDCSubPayment>(subPaymentQuery, new { PDCPaymentId = paymentId });
+                        student.PDCPayment.PDCSubPayments = subPayments.ToList();
+                    }
+                }
+
+            }
             return pdcStudents;
         }
 

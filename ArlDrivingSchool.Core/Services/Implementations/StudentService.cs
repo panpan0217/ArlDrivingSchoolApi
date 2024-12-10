@@ -129,13 +129,25 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             //     branchId: requestModel.SessionThreeBranchId
             //    );
 
-            await PaymentRepository.CreatePaymentAsync(
-                studentId,
-                requestModel.TotalAmount,
-                requestModel.Payment,
-                requestModel.Balance,
-                requestModel.PaymentModeId
-                );
+            //await PaymentRepository.CreatePaymentAsync(
+            //    studentId,
+            //    requestModel.TotalAmount,
+            //    requestModel.Payment,
+            //    requestModel.Balance,
+            //    requestModel.PaymentModeId
+            //    );
+            var payment = new SaveUpdatePaymentRequestModel
+            {
+                StudentId = studentId,
+                Payment = requestModel.Payment,
+                TotalAmount = requestModel.TotalAmount,
+                Balance = requestModel.Balance,
+                PaymentModeId = requestModel.PaymentModeId,
+                SubPayments = requestModel.SubPayments
+
+            };
+
+            await PaymentRepository.SaveOrUpdatePaymentAsync(payment);
             return studentId;
         }
 
@@ -220,20 +232,23 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 Shuttle = request.SessionThreeShuttle,
                 SessionBranchId = request.SessionThreeBranchId
             };
-            var payment = new UpdatePaymentRequestModel
+            var payment = new SaveUpdatePaymentRequestModel
             {
+                PaymentId = request.PaymentId,
                 StudentId = request.StudentId,
                 Payment = request.Payment,
                 TotalAmount = request.TotalAmount,
                 Balance = request.Balance,
-                PaymentModeId = request.PaymentModeId
+                PaymentModeId = request.PaymentModeId,
+                SubPayments = request.SubPayments
             };
 
             await SessionRepository.UpdateSessionOneByStudentIdAsync(sessionOne);
             await SessionRepository.UpdateSessionTwoByStudentIdAsync(sessionTwo);
             //await SessionRepository.UpdateSessionThreeByStudentIdAsync(sessionThree);
 
-            await PaymentRepository.UpdatePaymentByStudentIdAsync(payment);
+            //await PaymentRepository.UpdatePaymentByStudentIdAsync(payment);
+            await PaymentRepository.SaveOrUpdatePaymentAsync(payment);
 
             return await StudentRepository.UpdateStudentByStudentIdAsync(student, acesSaveDate, $"{user.FirstName} {user.LastName}");
             
@@ -284,13 +299,26 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             var pdcStudentId = await StudentRepository.CreatePDCStudentWithDetailsAsync(requestModel, $"{user.FirstName} {user.LastName}");
 
-            await PaymentRepository.CreatePDCPaymentAsync(
-                pdcStudentId,
-                totalAmount: requestModel.TotalAmount,
-                payment: requestModel.Payment,
-                balance: requestModel.Balance,
-                requestModel.PaymentModeId
-                );
+            //await PaymentRepository.CreatePDCPaymentAsync(
+            //    pdcStudentId,
+            //    totalAmount: requestModel.TotalAmount,
+            //    payment: requestModel.Payment,
+            //    balance: requestModel.Balance,
+            //    requestModel.PaymentModeId
+            //    );
+
+            var payment = new SaveUpdatePDCPaymentRequestModel
+            {
+                PDCStudentId = pdcStudentId,
+                Payment = requestModel.Payment,
+                TotalAmount = requestModel.TotalAmount,
+                Balance = requestModel.Balance,
+                PaymentModeId = requestModel.PaymentModeId,
+                PDCSubPayments = requestModel.PDCSubPayments
+
+            };
+
+            await PaymentRepository.SaveOrUpdatePDCPaymentAsync(payment);
         }
 
         public async Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudentFullDetailRequestModel request, int userId)
@@ -329,16 +357,19 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 OtherEnrollmentMode = request.OtherEnrollmentMode
             };
 
-            var payment = new UpdatePaymentRequestModel
+            var payment = new SaveUpdatePDCPaymentRequestModel
             {
-                StudentId = request.PDCStudentId,
+                PDCStudentId = request.PDCStudentId,
                 Payment = request.Payment,
                 TotalAmount = request.TotalAmount,
                 Balance = request.Balance,
-                PaymentModeId = request.PaymentModeId
+                PaymentModeId = request.PaymentModeId,
+                PDCSubPayments = request.PDCSubPayments
+
             };
 
-            await PaymentRepository.UpdatePDCPaymentByStudentIdAsync(payment);
+            await PaymentRepository.SaveOrUpdatePDCPaymentAsync(payment);
+
             return await StudentRepository.UpdatePDCStudentByStudentIdAsync(student, $"{user.FirstName} {user.LastName}");
 
         }
