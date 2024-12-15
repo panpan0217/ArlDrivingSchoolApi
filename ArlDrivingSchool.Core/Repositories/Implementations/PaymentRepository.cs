@@ -64,7 +64,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return tdcIncome + pdcIncome + depIncome;
         }
 
-        public async Task SaveOrUpdatePaymentAsync(SaveUpdatePaymentRequestModel paymentRequest)
+        public async Task SaveOrUpdatePaymentAsync(SaveUpdatePaymentRequestModel paymentRequest, bool isInsert)
         {
             using var _connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
@@ -72,7 +72,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             {
                 // Save or update the Payment
                 // Save or update the Payment
-                if (paymentRequest.PaymentId == 0)
+                if (isInsert)
                 {
                     const string insertPaymentSql = @"
                             INSERT INTO [payments].Payment
@@ -205,14 +205,14 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task SaveOrUpdatePDCPaymentAsync(SaveUpdatePDCPaymentRequestModel paymentRequest)
+        public async Task SaveOrUpdatePDCPaymentAsync(SaveUpdatePDCPaymentRequestModel paymentRequest, bool isInsert)
         {
             using var _connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
 
             try
             {
                 // Save or update the Payment
-                if (paymentRequest.PDCPaymentId == 0)
+                if (isInsert)
                 {
                     const string insertPaymentSql = @"
                             INSERT INTO [payments].PDCPayment

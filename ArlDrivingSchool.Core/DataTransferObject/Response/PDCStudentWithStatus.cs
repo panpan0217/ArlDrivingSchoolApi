@@ -46,6 +46,7 @@ namespace ArlDrivingSchool.Core.DataTransferObject.Response
         public string TransactionName { get; set; }
         public string OtherEnrollmentMode { get; set; }
         public int StudentId { get; set; }
+        public int GenderId { get; set; }
     }
 
 }

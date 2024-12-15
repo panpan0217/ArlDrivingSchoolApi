@@ -28,6 +28,7 @@
 	[OtherEnrollmentMode]	NVARCHAR(255)	NULL,
 	[OfficeId]				INT				NULL,
 	[UserId]				INT				NULL,
+	[GenderId]				INT				NULL,
 	
 
     [AcesSaveDate] DATETIME2 NULL, 
@@ -39,5 +40,6 @@
 	CONSTRAINT FK_Student_EnrollmentMode_EnrollmentModeId FOREIGN KEY (EnrollmentModeId) REFERENCES [lookups].[EnrollmentMode] (EnrollmentModeId),
 	CONSTRAINT FK_Student_Office_OfficeId FOREIGN KEY (OfficeId) REFERENCES [lookups].[Office] (OfficeId),
 	CONSTRAINT FK_Student_User_UserId FOREIGN KEY (UserId) REFERENCES [users].[User] (UserId),
+	CONSTRAINT FK_Student_Gender_GenderId FOREIGN KEY (GenderId) REFERENCES [lookups].[Gender] (GenderId),
 
 )

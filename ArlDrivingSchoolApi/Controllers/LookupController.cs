@@ -79,5 +79,13 @@ namespace ArlDrivingSchoolApi.Controllers
 
             return Ok(courses);
         }
+
+        [HttpGet("gender")]
+        public async Task<IActionResult> GetGender()
+        {
+            var gender = await LookupsService.GetAllGenderAsync();
+
+            return Ok(gender);
+        }
     }
 }

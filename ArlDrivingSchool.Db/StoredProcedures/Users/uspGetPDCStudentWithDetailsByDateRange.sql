@@ -10,6 +10,7 @@ BEGIN
 		   ,ups.DateOfBirth
 		   ,ups.Mobile
 		   ,ups.AgentName
+		   ,ups.GenderId
 		   ,la.StatusName [ACESStatus]
 		   ,o.OfficeId
 		   ,o.OfficeName

@@ -17,6 +17,7 @@ namespace ArlDrivingSchool.Core.Services.Interfaces
         Task<IEnumerable<StudentDetails>> GetAllStudentWithDetailsByFullNameAsync(string firstName, string lastName);
         Task<IEnumerable<StudentDetails>> GetStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<IEnumerable<PDCStudentDetails>> GetPDCStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate);
+        Task<PdcTdcPaymentDetail> GetTdcPdcPaymentsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<int> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel, int userId);
         Task<bool> UpdateStudentByStudentIdAsync(UpdateStudentDetailsRequestModel student, int userId);
         Task DeleteStudentAsync(int studentId);

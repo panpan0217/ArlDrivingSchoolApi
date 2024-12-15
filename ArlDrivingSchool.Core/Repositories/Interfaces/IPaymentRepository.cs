@@ -13,8 +13,8 @@ namespace ArlDrivingSchool.Core.Repositories.Interfaces
         Task<int> GetDailyIncomeAsync();
         Task<int> CreatePaymentAsync(int studentId, int totalAmount, int payment, int balance, int paymentModeId);
         Task<bool> UpdatePaymentByStudentIdAsync(UpdatePaymentRequestModel payment);
-        Task SaveOrUpdatePaymentAsync(SaveUpdatePaymentRequestModel payment);
-        Task SaveOrUpdatePDCPaymentAsync(SaveUpdatePDCPaymentRequestModel payment);
+        Task SaveOrUpdatePaymentAsync(SaveUpdatePaymentRequestModel payment, bool isInsert);
+        Task SaveOrUpdatePDCPaymentAsync(SaveUpdatePDCPaymentRequestModel payment, bool isInsert);
         Task<int> DeletePaymentAsync(int studentId);
         Task<int> CreatePDCPaymentAsync(int pdcStudentId, int totalAmount, int payment, int balance, int paymentModeId);
 

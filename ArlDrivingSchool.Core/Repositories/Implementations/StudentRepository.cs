@@ -136,6 +136,61 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
             return students;
         }
 
+        public async Task<PdcTdcPaymentDetail> GetTdcPdcPaymentsByDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            var pdcDetails = await GetPDCStudentWithDetailsByDateRangeAsync(startDate, endDate);
+
+            using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+            var tdcDetails = await connection.QueryAsync<StudentWithStatus, Payment, TdcPayment>(
+               "[users].[uspGetStudentWithPaymentByDateRange]",
+
+               map: (studentWithStatus, payment) =>
+               {
+                   return new TdcPayment
+                   {
+                       StudentWithStatus = studentWithStatus,
+                       Payment = payment,
+                   };
+               },
+               new
+               {
+                   StartDate = startDate,
+                   EndDate = endDate
+               },
+               splitOn: "StudentId,PaymentId",
+
+               commandType: CommandType.StoredProcedure);
+
+            if (tdcDetails.Count() > 0)
+            {
+                foreach (var student in tdcDetails)
+                {
+                    if (student.Payment != null)
+                    {
+                        var paymentId = student.Payment.PaymentId;
+                        const string subPaymentQuery = @"
+                            SELECT 
+                                SubPaymentId,
+                                PaymentId,
+                                Payment,
+                                PaymentModeId
+                            FROM [payments].SubPayment
+                            WHERE PaymentId = @PaymentId;";
+                        using var _connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
+                        var subPayments = await _connection.QueryAsync<SubPayment>(subPaymentQuery, new { PaymentId = paymentId });
+                        student.Payment.SubPayments = subPayments.ToList();
+                    }
+                }
+
+            }
+
+            return new PdcTdcPaymentDetail()
+            {
+                TdcDetails = tdcDetails,
+                PdcDetails = pdcDetails
+            };
+        }
+
         public async Task<IEnumerable<StudentDetails>> GetStudentWithDetailsByDateRangeAsync(DateTime startDate, DateTime endDate)
         {
             using var connection = new SqlConnection(Configuration.GetConnectionString("ArlDrivingSchoolContext"));
@@ -250,6 +305,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.FBContact,
                                                                         requestModel.Mobile,
                                                                         requestModel.AgentName,
+                                                                        requestModel.GenderId,
                                                                         requestModel.StudentStatusId,
                                                                         requestModel.TDCStatusId,
                                                                         requestModel.ACESStatusId,
@@ -287,6 +343,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 student.FBContact,
                 student.Mobile,
                 student.AgentName,
+                student.GenderId,
                 student.StudentStatusId,
                 student.TDCStatusId,
                 student.ACESStatusId,
@@ -450,6 +507,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                                                                         requestModel.Mobile,
                                                                         requestModel.AgentName,
                                                                         requestModel.Location,
+                                                                        requestModel.GenderId,
                                                                         requestModel.DateOfBirth,
                                                                         requestModel.ACESStatusId,
                                                                         requestModel.RestrictionId,
@@ -494,6 +552,7 @@ namespace ArlDrivingSchool.Core.Repositories.Implementations
                 pdcStudent.FBContact,
                 pdcStudent.Mobile,
                 pdcStudent.AgentName,
+                pdcStudent.GenderId,
                 pdcStudent.ACESStatusId,
                 pdcStudent.RestrictionId,
                 pdcStudent.ATransmissionId,

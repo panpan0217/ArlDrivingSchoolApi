@@ -147,7 +147,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             };
 
-            await PaymentRepository.SaveOrUpdatePaymentAsync(payment);
+            await PaymentRepository.SaveOrUpdatePaymentAsync(payment, true);
             return studentId;
         }
 
@@ -186,6 +186,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 DateOfBirth = request.DateOfBirth,
                 FBContact = request.FBContact,
                 Mobile = request.Mobile,
+                GenderId = request.GenderId,
                 AgentName = request.AgentName,
                 StudentStatusId = request.StudentStatusId,
                 TDCStatusId = request.TDCStatusId,
@@ -248,7 +249,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
             //await SessionRepository.UpdateSessionThreeByStudentIdAsync(sessionThree);
 
             //await PaymentRepository.UpdatePaymentByStudentIdAsync(payment);
-            await PaymentRepository.SaveOrUpdatePaymentAsync(payment);
+            await PaymentRepository.SaveOrUpdatePaymentAsync(payment, false);
 
             return await StudentRepository.UpdateStudentByStudentIdAsync(student, acesSaveDate, $"{user.FirstName} {user.LastName}");
             
@@ -318,7 +319,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             };
 
-            await PaymentRepository.SaveOrUpdatePDCPaymentAsync(payment);
+            await PaymentRepository.SaveOrUpdatePDCPaymentAsync(payment, true);
         }
 
         public async Task<bool> UpdatePDCStudentByStudentIdAsync(PDCStudentFullDetailRequestModel request, int userId)
@@ -352,6 +353,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
                 EnrollmentModeId = request.EnrollmentModeId,
                 UserId =request.UserId,
                 OfficeId = request.OfficeId,
+                GenderId = request.GenderId,
                 TransactionId = request.TransactionId,
                 StudentId = request.TdcStudentId,
                 OtherEnrollmentMode = request.OtherEnrollmentMode
@@ -368,7 +370,7 @@ namespace ArlDrivingSchool.Core.Services.Implementations
 
             };
 
-            await PaymentRepository.SaveOrUpdatePDCPaymentAsync(payment);
+            await PaymentRepository.SaveOrUpdatePDCPaymentAsync(payment, false);
 
             return await StudentRepository.UpdatePDCStudentByStudentIdAsync(student, $"{user.FirstName} {user.LastName}");
 
@@ -496,6 +498,11 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         public async Task<PDCStudentDetails> GetPDCStudentWithDetailsByIdAsync(int studentId)
         {
             return await StudentRepository.GetPDCStudentWithDetailsByIdAsync(studentId);
+        }
+
+        public async Task<PdcTdcPaymentDetail> GetTdcPdcPaymentsByDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            return await StudentRepository.GetTdcPdcPaymentsByDateRangeAsync(startDate, endDate);
         }
     }
 }

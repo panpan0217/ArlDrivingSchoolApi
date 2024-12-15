@@ -21,6 +21,7 @@
 	@OfficeId INT,
 	@EnrollmentModeId INT,
 	@UserId INT,
+	@GenderId INT,
 	@AcesSaveDate DATETIME2,
 	@DateOfBirth DATETIME2,
 	@OtherEnrollmentMode NVARCHAR(255)
@@ -54,6 +55,7 @@ BEGIN
 	,FBContact = @FBContact
 	,Mobile = @Mobile
 	,AgentName = @AgentName
+	,GenderId = @GenderId
 	,StudentStatusId = @StudentStatusId
 	,TDCStatusId = @TDCStatusId
 	,ACESStatusId = @ACESStatusId

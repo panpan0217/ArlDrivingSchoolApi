@@ -55,5 +55,10 @@ namespace ArlDrivingSchool.Core.Services.Implementations
         {
             return await LookupsRepository.GetAllCourseAsync();
         }
+
+        public async Task<IEnumerable<Gender>> GetAllGenderAsync()
+        {
+            return await LookupsRepository.GetAllGenderAsync();
+        }
     }
 }

@@ -28,6 +28,7 @@
 	@UserId INT,
 	@TransactionId INT,
 	@StudentId INT,
+	@GenderId INT,
 	@OtherEnrollmentMode NVARCHAR(255)
 AS
 BEGIN
@@ -53,6 +54,7 @@ BEGIN
 	,DateOfBirth = @DateOfBirth
 	,Mobile = @Mobile
 	,AgentName = @AgentName
+	,GenderId = @GenderId
 	,ACESStatusId = @ACESStatusId
 	,RestrictionId = @RestrictionId
 	,ATransmissionId = @ATransmissionId

@@ -229,6 +229,10 @@
     <Build Include="StoredProcedures\Payments\GetSubPayment.sql" />
     <Build Include="Tables\Payments\SubPayment.sql" />
     <Build Include="Tables\Payments\PDCSubPayment.sql" />
+    <Build Include="Tables\Lookups\Gender.sql" />
+    <None Include="Scripts\Inserts\Lookups\InsertGender.sql" />
+    <Build Include="StoredProcedures\Lookups\uspGetGender.sql" />
+    <Build Include="StoredProcedures\Users\uspGetStudentWithPaymentByDateRange.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArlDrivingSchool.Db.publish.xml" />

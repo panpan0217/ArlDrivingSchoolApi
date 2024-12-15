@@ -75,6 +75,16 @@ namespace ArlDrivingSchoolApi.Controllers
             return Ok(studentsWithDetails);
         }
 
+        [HttpPost("tdcpdcDetails/dateRange")]
+        public async Task<IActionResult> GetTdcPdcPaymentsByDateRangeAsync([FromBody] DateRangeRequestModel requestModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var studentsWithDetails = await StudentService.GetTdcPdcPaymentsByDateRangeAsync(requestModel.StartDate, requestModel.EndDate);
+            return Ok(studentsWithDetails);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateStudentWithDetailsAsync(StudentFullDetailsRequestModel requestModel)

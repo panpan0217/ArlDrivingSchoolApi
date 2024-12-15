@@ -35,6 +35,7 @@
 	[UserId]				INT				NULL,
 	[StudentId]				INT				NULL,
 	[TransactionId]			INT				NULL,
+	[GenderId]				INT				NULL,
 
 	CONSTRAINT [PK_PDCStudent] PRIMARY KEY CLUSTERED ([PDCStudentId] ASC),
 	CONSTRAINT FK_PDCStudent_ACESStatus_ACESStatusId FOREIGN KEY (ACESStatusId) REFERENCES [lookups].[ACESStatus] (ACESStatusId),
@@ -43,6 +44,7 @@
 	CONSTRAINT FK_PDCStudent_Transaction_TransactionId FOREIGN KEY (TransactionId) REFERENCES [lookups].[Transaction] (TransactionId),
 	CONSTRAINT FK_PDCStudent_User_UserId FOREIGN KEY (UserId) REFERENCES [users].[User] (UserId),
 	CONSTRAINT FK_PDCStudent_Student_StudentId FOREIGN KEY (StudentId) REFERENCES [users].[Student] (StudentId),
+	CONSTRAINT FK_PDCStudent_Gender_GenderId FOREIGN KEY (GenderId) REFERENCES [lookups].[Gender] (GenderId),
 	--CONSTRAINT FK_PDCStudent_Restriction_RestrictionId FOREIGN KEY (RestrictionId) REFERENCES [lookups].[Restriction] (RestrictionId),
 	--CONSTRAINT FK_PDCStudent_Transmission_ATransmissionId FOREIGN KEY ([ATransmissionId]) REFERENCES [lookups].[Transmission] (TransmissionId),
 	--CONSTRAINT FK_PDCStudent_Transmission_A1TransmissionId FOREIGN KEY ([A1TransmissionId]) REFERENCES [lookups].[Transmission] (TransmissionId),
